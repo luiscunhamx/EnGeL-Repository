@@ -116,6 +116,9 @@ def to_confirm(protos):
     import csv, io
     def ctx(c):
         c = TC.sub('', re.sub(r'^\(@\)\s*|^[-*]\s*|^\d+\.\s*', '', c))
+        c = re.sub(r'!\[([^\]]*)\]\([^)]*\)(\{[^}]*\})?', r'Figure: \1', c)   # images -> caption text
+        c = re.sub(r'\[([^\]]*)\]\([^)]*\)(\{[^}]*\})?', r'\1', c)           # links -> text
+        c = re.sub(r'\{[#.][^}]*\}|<[^>]+>|\{\{<[^>]*>\}\}', '', c)              # attributes, html, shortcodes
         c = re.sub(r'[`*|]', '', re.sub(r'\s+', ' ', c)).strip()
         return (c[:140] + '…') if len(c) > 140 else c
     allrows, parts = [], []
