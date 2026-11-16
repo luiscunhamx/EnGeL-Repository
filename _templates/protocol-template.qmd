@@ -6,7 +6,7 @@ short-title: "Short title for the page header"
 protocol-id: EnGeL-AREA-SHORT      # AREA = MOLB, FAUNA, SOIL, EDNA, SAMPL or BIOINF
 version: 1.0.0                      # patch = wording; minor = steps or values; major = method change
 date: YYYY-MM-DD
-status: draft                       # draft / review / released
+status: draft                       # draft / review / released / retired
 area: "Molecular biology (MOLB)"
 author:
   - name: First Author

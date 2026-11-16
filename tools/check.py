@@ -47,7 +47,7 @@ for path in sorted(glob.glob('protocols/**/*.qmd', recursive=True)):
     if not re.match(r'^\d+\.\d+\.\d+$', ver): err(path, f'version is not semantic (X.Y.Z): {ver}')
     if not re.match(r'^\d{4}-\d{2}-\d{2}$', str(meta.get('date', ''))): err(path, 'date is not ISO (YYYY-MM-DD)')
     status = meta.get('status')
-    if status not in ('draft', 'review', 'released'): err(path, f'status must be draft, review or released: {status}')
+    if status not in ('draft', 'review', 'released', 'retired'): err(path, f'status must be draft, review, released or retired: {status}')
     for a in meta.get('author', []) or []:
         o = a.get('orcid', '') if isinstance(a, dict) else ''
         if not re.match(r'^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$', str(o)): err(path, f'author without valid ORCID: {a}')

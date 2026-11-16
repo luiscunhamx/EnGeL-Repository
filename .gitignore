@@ -6,6 +6,8 @@
 !assets/typst/*.typ
 # Generated before every render by tools/prerender.py (edit the protocols, not these)
 /register.qmd
+/to-confirm.qmd
+/to-confirm.csv
 /bench/*-bench.qmd
 # Python
 __pycache__/

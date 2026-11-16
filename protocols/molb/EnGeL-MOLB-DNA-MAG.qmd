@@ -2,7 +2,7 @@
 title: "DNA extraction from bulk soil fauna samples with magnetic beads (Omega Bio-tek Mag-Bind® Blood & Tissue DNA HDQ 96, Invitek InviGenius®)"
 short-title: "DNA extraction, magnetic beads (InviGenius)"
 protocol-id: EnGeL-MOLB-DNA-MAG
-version: 1.1.1
+version: 1.1.2
 date: 2026-11-16
 status: draft
 area: Molecular biology (MOLB)
@@ -80,6 +80,10 @@ version-history:
     date: 2026-11-16
     change: "DNA extracts get their own EnGeL code in the master data file (source sample code kept in a separate column); unused or expired kit reagents go to the red bin."
     by: "Luís Cunha"
+  - version: 1.1.2
+    date: 2026-11-16
+    change: "Schematic of the extraction steps (figure)."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -99,6 +103,9 @@ This protocol produces purified genomic DNA from bulk soil fauna samples for DNA
 The preservation liquid is removed first: ethanol by centrifugation, pipetting and evaporation of residual ethanol in an IR vacuum concentrator; water from nematode suspensions by centrifugation and pipetting. Samples are digested in TL Buffer with Proteinase K at 55 °C. For microarthropods the approach is non-destructive: the lysate is recovered for DNA extraction and the specimens can be archived in ethanol for the collection.
 
 An aliquot of the lysate is mixed with AL Buffer and with HDQ Binding Buffer containing Mag-Bind® Particles HDQ, to which the DNA binds. The InviGenius® moves the particles with magnetic rods through pre-filled plates: binding, two VHB washes and one SPM wash, bead drying, and elution in Elution Buffer at 65 °C. The robot does not dispense reagents; all plates are pre-filled by the operator (Omega Bio-tek, 2025; Invitek Diagnostics, n.d.).
+
+
+![Magnetic-bead DNA extraction. Lysis and transfer of the lysate to the Bind plate are done by hand; binding, three washes, bead drying and elution run on the InviGenius robot. Volumes from the Procedure. Figure: EnGeL-UC, CC BY 4.0.](../../assets/figures/DNA-MAG_workflow.svg){#fig-dnamag fig-alt="Flow diagram with six boxes: lysis in tubes; transfer of lysate to the Bind plate; then on the robot binding with beads, three washes, drying and elution in 50 µL." width="100%"}
 
 ## Before you start
 

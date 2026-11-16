@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" font-family="'Source Sans 3', 'Source Sans Pro', Arial, sans-serif" font-size="15" fill="#1E2420">
+  <title>Two-step PCR and final library structure (iTru system)</title>
+  <desc>Schematic of the template, the first-PCR product with iTru overhangs and phasing bases, and the final dual-indexed library with P5 and P7 adapters.</desc>
+  <rect width="960" height="470" fill="#ffffff"/>
+  <defs>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5753A4"/></marker>
+  </defs>
+  <!-- row 1 template -->
+  <text x="20" y="30" font-weight="700" font-size="17">1  DNA extract (template)</text>
+  <rect x="200" y="58" width="560" height="22" fill="#e9ecea" stroke="#9aa59e"/>
+  <rect x="330" y="58" width="300" height="22" fill="#72BF44"/>
+  <text x="480" y="74" text-anchor="middle" fill="#ffffff" font-weight="700">target region</text>
+  <path d="M290,52 L332,52" stroke="#5753A4" stroke-width="3" marker-end="url(#ah)"/>
+  <text x="284" y="56" text-anchor="end" font-size="13" fill="#5753A4">forward primer</text>
+  <path d="M670,90 L630,90" stroke="#5753A4" stroke-width="3" marker-end="url(#ah)"/>
+  <text x="705" y="104" text-anchor="middle" font-size="13" fill="#5753A4">reverse primer</text>
+
+  <!-- arrow -->
+  <text x="480" y="132" text-anchor="middle" font-size="14" fill="#074023">PCR1 (amplicon PCR): primers with iTru overhang and 0–3 phasing bases · 25 cycles</text>
+  <path d="M480,138 L480,156" stroke="#074023" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- row 2 PCR1 product -->
+  <text x="20" y="182" font-weight="700" font-size="17">2  After PCR1</text>
+  <g transform="translate(150,196)">
+    <rect x="0" y="0" width="120" height="30" fill="#074023"/><text x="60" y="20" text-anchor="middle" fill="#fff" font-size="13">iTru overhang</text>
+    <rect x="120" y="0" width="30" height="30" fill="#c9c7e8"/><text x="135" y="20" text-anchor="middle" font-size="12">0–3</text>
+    <rect x="150" y="0" width="80" height="30" fill="#5753A4"/><text x="190" y="20" text-anchor="middle" fill="#fff" font-size="13">primer</text>
+    <rect x="230" y="0" width="200" height="30" fill="#72BF44"/><text x="330" y="20" text-anchor="middle" fill="#fff" font-weight="700">target</text>
+    <rect x="430" y="0" width="80" height="30" fill="#5753A4"/><text x="470" y="20" text-anchor="middle" fill="#fff" font-size="13">primer</text>
+    <rect x="510" y="0" width="30" height="30" fill="#c9c7e8"/><text x="525" y="20" text-anchor="middle" font-size="12">0–3</text>
+    <rect x="540" y="0" width="120" height="30" fill="#074023"/><text x="600" y="20" text-anchor="middle" fill="#fff" font-size="13">iTru overhang</text>
+  </g>
+  <text x="830" y="216" font-size="13">COI c. 525 bp</text>
+  <text x="830" y="232" font-size="13">18S c. 350–585 bp</text>
+
+  <text x="480" y="270" text-anchor="middle" font-size="14" fill="#074023">PCR2 (indexing PCR): iTru5 / iTru7 index primers bind the overhangs · 8 cycles</text>
+  <path d="M480,276 L480,294" stroke="#074023" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- row 3 final -->
+  <text x="20" y="320" font-weight="700" font-size="17">3  Final library</text>
+  <g transform="translate(40,334)">
+    <rect x="0" y="0" width="60" height="30" fill="#1E2420"/><text x="30" y="20" text-anchor="middle" fill="#fff" font-size="13">P5</text>
+    <rect x="60" y="0" width="50" height="30" fill="#f2b134"/><text x="85" y="20" text-anchor="middle" font-size="13">i5</text>
+    <rect x="110" y="0" width="120" height="30" fill="#074023"/><text x="170" y="20" text-anchor="middle" fill="#fff" font-size="13">iTru overhang</text>
+    <rect x="230" y="0" width="30" height="30" fill="#c9c7e8"/>
+    <rect x="260" y="0" width="80" height="30" fill="#5753A4"/><text x="300" y="20" text-anchor="middle" fill="#fff" font-size="13">primer</text>
+    <rect x="340" y="0" width="200" height="30" fill="#72BF44"/><text x="440" y="20" text-anchor="middle" fill="#fff" font-weight="700">target</text>
+    <rect x="540" y="0" width="80" height="30" fill="#5753A4"/><text x="580" y="20" text-anchor="middle" fill="#fff" font-size="13">primer</text>
+    <rect x="620" y="0" width="30" height="30" fill="#c9c7e8"/>
+    <rect x="650" y="0" width="120" height="30" fill="#074023"/><text x="710" y="20" text-anchor="middle" fill="#fff" font-size="13">iTru overhang</text>
+    <rect x="770" y="0" width="50" height="30" fill="#f2b134"/><text x="795" y="20" text-anchor="middle" font-size="13">i7</text>
+    <rect x="820" y="0" width="60" height="30" fill="#1E2420"/><text x="850" y="20" text-anchor="middle" fill="#fff" font-size="13">P7</text>
+  </g>
+  <text x="480" y="390" text-anchor="middle" font-size="13">COI c. 595 bp · 18S c. 420–650 bp</text>
+
+  <!-- legend -->
+  <g transform="translate(40,418)" font-size="13">
+    <rect width="14" height="14" fill="#1E2420"/><text x="20" y="12">P5 / P7: flow-cell adapters</text>
+    <rect x="215" width="14" height="14" fill="#f2b134"/><text x="235" y="12">i5 / i7: 8-nt sample indexes</text>
+    <rect x="430" width="14" height="14" fill="#074023"/><text x="450" y="12">iTru (TruSeq-type) overhang = sequencing primer site</text>
+    <rect x="0" y="22" width="14" height="14" fill="#c9c7e8"/><text x="20" y="34">phasing bases (0–3 nt)</text>
+    <rect x="215" y="22" width="14" height="14" fill="#5753A4"/><text x="235" y="34">template-specific primer (BF3/BR2 or NF1/18Sr2b)</text>
+    <text x="640" y="34" fill="#5c6560">Not to scale. Sizes from the Primer table.</text>
+  </g>
+</svg>
