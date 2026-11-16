@@ -1,0 +1,7 @@
+::: {.callout-important title="CRITICAL"}
+Microarthropods are stored in 96% ethanol. Complete removal of ethanol is crucial before proceeding with DNA extraction, to avoid inhibition of downstream steps.
+:::
+
+(@) Centrifuge the microcentrifuge tubes at 6 000 × g for 3 min.
+(@) Carefully pipette out the supernatant ethanol without disturbing the pellet containing the microarthropods. It might be beneficial to use wide-bore tips or cut off the tip when using regular pipette tips.
+(@) Place the open tubes in the IR vacuum concentrator (N-Biotek Micro-CenVac NB-503CIR, rotor NB-503-1524; 5 000 rpm, 15 min, temperature [TO CONFIRM]) to evaporate residual ethanol. Monitor to ensure complete ethanol removal, but do not over-dry the sample.

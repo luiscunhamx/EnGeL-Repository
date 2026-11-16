@@ -1,0 +1,13 @@
+{
+  "title": "EnGeL-UC Lab Protocols: standard operating protocols of the Environmental Genomics Laboratory",
+  "upload_type": "publication",
+  "publication_type": "other",
+  "description": "Standard operating protocols of the Environmental Genomics Laboratory (EnGeL-UC), Centre for Functional Ecology, University of Coimbra. Each release contains the protocols as web pages, PDFs, Word files and bench sheets.",
+  "creators": [
+    {"name": "Cunha, Luís", "orcid": "0000-0002-5870-2537", "affiliation": "Centre for Functional Ecology, University of Coimbra"},
+    {"name": "Fraga, Luísa", "orcid": "0000-0003-3153-4593", "affiliation": "Centre for Functional Ecology, University of Coimbra"},
+    {"name": "Quaresma, Andreia", "orcid": "0000-0002-8678-5800", "affiliation": "Centre for Functional Ecology, University of Coimbra"}
+  ],
+  "license": "cc-by-4.0",
+  "keywords": ["standard operating protocols", "environmental genomics", "DNA metabarcoding", "soil fauna"]
+}

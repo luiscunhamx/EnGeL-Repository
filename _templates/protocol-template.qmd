@@ -1,0 +1,147 @@
+---
+# Copy this file to protocols/<area>/<ID>.qmd (e.g. protocols/molb/EnGeL-MOLB-XYZ.qmd) and fill it in.
+# Anything not in the sources is written [TO CONFIRM] or [TO CONFIRM: what is missing] and listed under Open questions.
+title: "Full protocol title"
+short-title: "Short title for the page header"
+protocol-id: EnGeL-AREA-SHORT      # AREA = MOLB, FAUNA, SOIL, EDNA, SAMPL or BIOINF
+version: 1.0.0                      # patch = wording; minor = steps or values; major = method change
+date: YYYY-MM-DD
+status: draft                       # draft / review / released
+area: "Molecular biology (MOLB)"
+author:
+  - name: First Author
+    orcid: 0000-0000-0000-0000
+reviewed-by: Name Surname
+contact: "[TO CONFIRM: lab contact e-mail]"   # never a personal address
+license: CC BY 4.0
+protocol-doi: "[TO CONFIRM]"
+hazards:
+  - "Reagent: hazard in a few words"
+equipment:
+  - "Instrument (model where it matters)"
+consumables:
+  - "Consumable"
+reagents:                           # every reagent used in the procedure; name = the word the check searches for
+  - text: "Kit name, supplier, Cat. No., containing:"
+    components:
+      - Buffer A
+      - text: Proteinase K Solution
+        name: Proteinase K
+  - text: "Ethanol, 96%"
+    name: "96% ethanol"
+bench-lots:                         # lot numbers asked for on the bench sheet
+  - "Kit lot"
+version-history:
+  - version: 1.0.0
+    date: YYYY-MM-DD
+    change: "First version."
+    by: "Name Surname"
+---
+
+## Purpose and scope
+
+What the protocol produces or measures, for which sample types, and its limits.
+
+## Principle
+
+Three to six sentences on how the method works, with key references.
+
+## Before you start
+
+| Item | Details |
+|:--|:--|
+| Hands-on time | [TO CONFIRM] |
+| Total time | [TO CONFIRM] |
+| Sample amount and condition | [TO CONFIRM] |
+| Prepare in advance | |
+| Key safety points | |
+
+## Materials
+
+### Equipment
+
+::: {.engel-equipment}
+:::
+
+### Consumables
+
+::: {.engel-consumables}
+:::
+
+### Reagents and kits
+
+::: {.engel-reagents}
+:::
+
+## Reagent preparation
+
+Recipes with final concentrations, storage and shelf life. Put `<!-- bench -->` on the line before a table that should also appear on the bench sheet.
+
+## Procedure
+
+### Before starting
+
+{{< include ../../includes/_contamination-control.qmd >}}
+
+### Step group name
+
+(@) One action per step, with quantities and conditions (10 µL, 4 °C, 15 000 × g, 5 min).
+(@) Next step. Steps written as (@) are numbered through the whole procedure.
+
+::: {.callout-important title="CRITICAL"}
+A step that makes or breaks the result.
+:::
+
+::: {.callout-tip title="PAUSE POINT"}
+Where the work can stop, and how samples are stored.
+:::
+
+## Calculations
+
+$$C_1 V_1 = C_2 V_2$$
+
+- $C_1$: … (unit)
+- **Worked example:** …
+
+## Quality control
+
+| Control | Where | Purpose | Acceptance criterion |
+|:--|:--|:--|:--|
+| Extraction blank | | | [TO CONFIRM] |
+
+Acceptance criteria come only from the lab.
+
+## Data and metadata
+
+Outputs, file names and where data are kept.
+
+::: {.callout-note title="Minimum to record"}
+- Sample IDs
+- Kit lot numbers
+- MIxS fields (for sequence data)
+:::
+
+## Safety and waste
+
+{{< include ../../includes/_safety-general.qmd >}}
+
+## Troubleshooting
+
+| Problem | Likely cause | Solution |
+|:--|:--|:--|
+| | | |
+
+## Remarks
+
+Variations, project notes, known issues.
+
+## References
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. …

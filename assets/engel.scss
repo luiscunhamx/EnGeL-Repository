@@ -1,0 +1,15 @@
+/*-- scss:defaults --*/
+$forest: #074023;
+$violet: #5753A4;
+$leaf: #72BF44;
+$ink: #1E2420;
+$font-family-sans-serif: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+$font-family-monospace: "IBM Plex Mono", Consolas, monospace;
+$primary: $forest;
+$link-color: $forest;
+$navbar-bg: #ffffff;
+$navbar-fg: $forest;
+$headings-color: $forest;
+
+/*-- scss:rules --*/
+h2 { border-bottom: 2px solid $leaf; padding-bottom: .2rem; margin-top: 2rem; }

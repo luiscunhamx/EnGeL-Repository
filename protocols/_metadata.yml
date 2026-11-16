@@ -1,0 +1,20 @@
+callout-icon: false
+date-format: iso
+engel-assets: ../../assets
+number-sections: true
+shift-heading-level-by: -1
+format:
+  html:
+    format-links: false
+  typst:
+    papersize: a4
+    mainfont: "Source Sans 3"
+    fontsize: 10pt
+    font-paths: ["assets/fonts"]
+    template-partials:
+      - ../../assets/typst/typst-template.typ
+      - ../../assets/typst/typst-show.typ
+    keep-typ: false
+  docx:
+    reference-doc: ../../assets/reference.docx
+    toc: false

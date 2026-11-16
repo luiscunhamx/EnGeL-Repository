@@ -1,0 +1,19 @@
+---
+title: "EnGeL-UC Lab Protocols"
+subtitle: "Standard operating protocols of the Environmental Genomics Laboratory"
+---
+
+![](assets/logos/engel_logo.png){width=260px fig-alt="EnGeL – Environmental Genomics Laboratory"}
+
+This handbook collects the standard operating protocols of the **Environmental Genomics Laboratory (EnGeL-UC)**, Environmental Ecology & Ecotoxicology Group (E3G), Centre for Functional Ecology, Department of Life Sciences, University of Coimbra · Laboratório Associado TERRA.
+
+Each protocol is available as a web page, a PDF and a Word file, with a one-page bench sheet (PDF) for use in the lab.
+
+- **[Protocol register](register.qmd)**: all protocols with version and status, and those planned.
+- **[Workflows](workflows/soil-fauna-metabarcoding.qmd)**: how protocols link from sampling to sequence data.
+
+::: {.callout-warning title="Drafts"}
+Protocols with status *draft* contain values marked [TO CONFIRM] and are not yet approved for use.
+:::
+
+**Licence.** Text: CC BY 4.0. Code: MIT. Logos are the property of their institutions and are not covered by the licence.

@@ -1,0 +1,14 @@
+callout-icon: false
+engel-assets: ../assets
+engel-bench: true
+format:
+  html: default
+  typst:
+    papersize: a4
+    mainfont: "Source Sans 3"
+    fontsize: 8pt
+    font-paths: ["assets/fonts"]
+    margin: {x: 12mm, y: 14mm}
+    template-partials:
+      - ../assets/typst/typst-template.typ
+      - ../assets/typst/typst-show.typ

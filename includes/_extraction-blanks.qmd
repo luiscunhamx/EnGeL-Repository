@@ -1,0 +1,2 @@
+- Samples are processed in 96-well format: each run comprises 92 samples and 4 extraction blanks (negative controls) at positions H3, H6, H9 and H12, processed exactly like the samples.
+- Prepare the plate map (sample sheet) before starting and record it in the database and the lab book (Annex 1).

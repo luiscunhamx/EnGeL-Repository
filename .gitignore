@@ -1,0 +1,16 @@
+# Quarto outputs and caches
+/_site/
+/.quarto/
+*_files/
+*.typ
+!assets/typst/*.typ
+# Generated before every render by tools/prerender.py (edit the protocols, not these)
+/register.qmd
+/bench/*-bench.qmd
+# Python
+__pycache__/
+*.pyc
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

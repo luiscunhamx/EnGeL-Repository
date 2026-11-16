@@ -1,0 +1,29 @@
+name: Checks
+on:
+  push:
+  pull_request:
+jobs:
+  check-and-render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Protocol checks
+        run: python tools/check.py
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.6.43
+      - name: Render website, PDFs, Word files and bench sheets
+        run: quarto render
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress '_site/**/*.html'
+          fail: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: _site

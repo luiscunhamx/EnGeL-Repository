@@ -1,0 +1,62 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - assets/fonts/*.ttf
+    - assets/logos/*.png
+  pre-render:
+    - tools/prerender.py
+    - tools/check.py
+  render:
+    - "*.qmd"
+    - "protocols/**/*.qmd"
+    - "bench/*.qmd"
+    - "workflows/*.qmd"
+
+website:
+  title: "EnGeL-UC Lab Protocols"
+  site-url: "https://luiscunhamx.github.io/EnGeL-Repository/"
+  repo-url: "https://github.com/luiscunhamx/EnGeL-Repository"
+  repo-actions: [edit, issue]
+  search: true
+  navbar:
+    logo: assets/logos/engel_mark.png
+    left:
+      - href: index.qmd
+        text: Home
+      - href: register.qmd
+        text: Protocol register
+      - text: Workflows
+        menu:
+          - workflows/soil-fauna-metabarcoding.qmd
+    right:
+      - icon: github
+        href: "https://github.com/luiscunhamx/EnGeL-Repository"
+  sidebar:
+    style: docked
+    contents:
+      - index.qmd
+      - register.qmd
+      - section: "Molecular biology (MOLB)"
+        contents: "protocols/molb/*.qmd"
+      - section: "Workflows"
+        contents: "workflows/*.qmd"
+      - section: "Bench sheets"
+        contents: "bench/*.qmd"
+  page-footer:
+    left: "EnGeL-UC · Centre for Functional Ecology · University of Coimbra"
+    right: "Text CC BY 4.0 · Code MIT"
+
+lang: en-GB
+filters:
+  - path: tools/engel.lua
+    at: pre-quarto
+
+format:
+  html:
+    theme:
+      light: [cosmo, assets/engel-fonts.scss, assets/engel.scss]
+      dark: [darkly, assets/engel-fonts.scss, assets/engel-dark.scss]
+    toc: true
+    toc-depth: 2
+    smooth-scroll: true

@@ -1,0 +1,9 @@
+# Changelog
+
+All changes to the protocols and the handbook. Newest first. Each entry starts with the protocol ID and its new version.
+Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; major (**X**.0.0) = method change.
+
+## Unreleased
+
+- EnGeL-MOLB-DNA-MAG 1.0.0 (2026-11-16): first version (draft), from the InviGenius robot protocol and the UC BENCHMARKS extraction sections.
+- Handbook: Quarto project set up (website, PDF, Word, bench sheets; automatic checks).
