@@ -2,7 +2,7 @@
 title: "Nucleic acid quality control: purity and concentration (NanoDrop, Qubit, PicoGreen)"
 short-title: "Nucleic acid QC (NanoDrop, Qubit, PicoGreen)"
 protocol-id: EnGeL-MOLB-NAQC
-version: 1.0.0
+version: 1.1.0
 date: 2026-11-16
 status: draft
 area: Molecular biology (MOLB)
@@ -45,6 +45,10 @@ version-history:
     date: 2026-11-16
     change: "First EnGeL-UC version, from the lab protocols “Quality Control: PicoGreen dsDNA quantification (96-well plate)” (2026) and the NanoDrop and Qubit sections of the EnGeL protocol list (2024)."
     by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-16
+    change: "PicoGreen: lambda working stock as a 50-fold dilution (10 µL + 490 µL for 500 µL) and standard curve S1–S3 + blank, checked against the Quant-iT PicoGreen manual (MP07581)."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -86,7 +90,7 @@ Spectrophotometry measures the absorbance of the sample at 230, 260 and 280 nm; 
 **PicoGreen**
 
 - **1X TE:** dilute 20X TE 1:20 in nuclease-free water (e.g. 2.5 mL 20X TE + 47.5 mL water for 50 mL).
-- **Lambda working stock (2 ng/µL):** 9 µL Lambda DNA + 441 µL 1X TE [TO CONFIRM: the source says “for a final volume of 500 µL”, but 9 + 441 = 450 µL; 450 µL gives 2 ng/µL].
+- **Lambda working stock (2 ng/µL = 2 µg/mL):** dilute the 100 µg/mL lambda DNA 50-fold in 1X TE, e.g. 10 µL Lambda DNA + 490 µL 1X TE for 500 µL (the earlier lab version, 9 µL + 441 µL, gives 450 µL at the same concentration).
 - **PicoGreen working reagent:** dilute 1:200 in 1X TE, fresh on the day, in the dark. Per 96-well plate, prepare 5 mL: 25 µL PicoGreen + 4 975 µL 1X TE (50 µL per well).
 
 **PicoGreen standard curve (in duplicate)**
@@ -135,7 +139,7 @@ Spectrophotometry measures the absorbance of the sample at 230, 260 and 280 nm; 
 (@) Mix by pipetting or a short plate shake.
 (@) Incubate for 2 min at room temperature, protected from light.
 (@) Plate reader: *Manage Protocol* → “PicoGREEN_LC_100”; *Start measurement* → *Gain Adjustment*; then *Start measurement* (excitation 480 nm, emission 520 nm).
-(@) In the reader software, fit a linear regression of the standards (*Calculation* → *Standard curve calculations* → *Linear regression fit*); then, in *Microplate View*, select *Linear Regression Fit* under *Recalculate concentration*.
+(@) In the reader software, fit a linear regression of the standards (S1–S3 and blank) (*Calculation* → *Standard curve calculations* → *Linear regression fit*); then, in *Microplate View*, select *Linear Regression Fit* under *Recalculate concentration*.
 
 ### After finishing
 
@@ -202,9 +206,11 @@ For this protocol: Qubit tubes, plates and tips go to biological solid waste (bl
 
 NanoDrop concentrations include RNA and free nucleotides; use Qubit or PicoGreen for dsDNA concentrations.
 
+PicoGreen: the manual uses a 200 µL assay (100 µL sample + 100 µL working reagent); the lab uses half volumes (100 µL), with the same high-range standards (1 µg/mL, 100 ng/mL, 10 ng/mL, blank). For very dilute samples the manual gives a low-range curve (25 ng/mL to 250 pg/mL).
+
 ## References
 
-Thermo Fisher Scientific (n.d.). Quant-iT PicoGreen dsDNA Reagent and Kits (MP07581) [TO CONFIRM: revision].
+Thermo Fisher Scientific (n.d.). Quant-iT PicoGreen dsDNA Reagent and Kits, user guide MP07581 [TO CONFIRM: revision].
 
 Thermo Fisher Scientific (n.d.). Qubit 1X dsDNA assays – simplified workflow, technical note [TO CONFIRM: revision].
 
@@ -217,9 +223,7 @@ Thermo Fisher Scientific (n.d.). Qubit 1X dsDNA assays – simplified workflow, 
 
 1. Authors of the PicoGreen source; Diogo Fonseca's ORCID; DOI.
 2. Instrument models: NanoDrop, Qubit, and the plate reader called “Star” in the source.
-3. Lambda working stock: 9 µL + 441 µL = 450 µL (not 500 µL as written). Confirm volumes.
-4. The calculation step says “fit S1–S6”, but the standard curve has S1–S3 + blank. Which standards are used?
-5. Qubit: HS assay only, or also the BR assay? Equilibration of reagents?
-6. Acceptance criteria: Qubit standards; A~260~/A~280~ and A~260~/A~230~ ranges.
-7. Should RNA quantification be added here?
-8. Kit catalogue numbers; hazards from the SDS; waste route.
+3. Qubit: HS assay only, or also the BR assay? Equilibration of reagents?
+4. Acceptance criteria: Qubit standards; A~260~/A~280~ and A~260~/A~230~ ranges.
+5. Should RNA quantification be added here?
+6. Kit catalogue numbers; hazards from the SDS; waste route.

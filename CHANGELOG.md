@@ -5,6 +5,10 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-MOLB-MB 1.1.0 (2026-11-16): adapters and indexes follow the BENCHMARKS handbook (Nextera-type overhangs; Adapterama iNext5/iNext7, 10 µM, 0.7 µL each).
+- EnGeL-BIOINF-OBITOOLS4 1.0.1 (2026-11-16): clustering at 96%, to be adapted to the group's intraspecific variability.
+- EnGeL-MOLB-RNA 1.1.0 (2026-11-16): isopod speeds in × g (RNeasy handbook equivalence).
+- EnGeL-MOLB-NAQC 1.1.0 (2026-11-16): PicoGreen lambda stock and standard curve checked against the manual.
 - EnGeL-MOLB-MB 1.0.0 (2026-11-16): first version (draft); merges the UC nematode and microarthropod metabarcoding protocols with a primer table.
 - EnGeL-FAUNA-MAR-MORPH 1.0.0 (2026-11-16): first version (draft), from the UC microarthropod sampling and sorting protocol.
 - EnGeL-MOLB-DNA-COL 1.0.0 (2026-11-16): first version (draft), NZY Tissue spin columns.
