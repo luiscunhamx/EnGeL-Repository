@@ -5,6 +5,8 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-MOLB-MB 1.2.0 (2026-11-16): back to the iTru system used in the lab (TruSeq-type phased primers; iTru5/iTru7 indexes, 5 µM, 0.7 µL each); PCR1 DNA 1–3 µL.
+- EnGeL-MOLB-RNA 1.2.1 (2026-11-16): extra 100% ethanol wash confirmed.
 - EnGeL-MOLB-RNA 1.2.0 (2026-11-16): isopod dry spin at ≥ 12 000 × g.
 - EnGeL-MOLB-MB 1.1.0 (2026-11-16): adapters and indexes follow the BENCHMARKS handbook (Nextera-type overhangs; Adapterama iNext5/iNext7, 10 µM, 0.7 µL each).
 - EnGeL-BIOINF-OBITOOLS4 1.0.1 (2026-11-16): clustering at 96%, to be adapted to the group's intraspecific variability.

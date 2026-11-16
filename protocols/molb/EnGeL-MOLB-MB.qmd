@@ -2,7 +2,7 @@
 title: "DNA metabarcoding of soil fauna: two-step PCR amplicon library preparation (COI for microarthropods, 18S rRNA for nematodes)"
 short-title: "Metabarcoding library preparation (two-step PCR)"
 protocol-id: EnGeL-MOLB-MB
-version: 1.1.0
+version: 1.2.0
 date: 2026-11-16
 status: draft
 area: Molecular biology (MOLB)
@@ -37,11 +37,11 @@ consumables:
 reagents:
   - text: "Qiagen Multiplex PCR Master Mix [TO CONFIRM: catalogue number]"
     name: "Qiagen Multiplex PCR Master Mix"
-  - text: "First-PCR primers with Illumina overhang (BF3/BR2 or NF1/18Sr2b; Primer table), 10 µM"
+  - text: "First-PCR primers with iTru overhang, phased (BF3/BR2 or NF1/18Sr2b; Primer table), 10 µM"
     name: "primer with overhang"
   - text: "KAPA HiFi HotStart ReadyMix (Roche)"
     name: "KAPA HiFi HotStart ReadyMix"
-  - text: "Adapterama iNext5/iNext7 dual-indexing primers (10 µM; BadDNA, University of Georgia)"
+  - text: "Adapterama iTru5/iTru7 dual-index primers (four plates, 1–384), 5 µM"
     name: "indexing primer"
   - text: "KAPA Pure Beads (Roche)"
     name: "KAPA Pure Beads"
@@ -76,6 +76,10 @@ version-history:
     date: 2026-11-16
     change: "Adapter and index system follows the BENCHMARKS handbook (D4.3): Nextera-type overhangs and Adapterama iNext5/iNext7 indexing primers (10 µM, 0.7 µL each); phased iTru primer table removed."
     by: "Luís Cunha"
+  - version: 1.2.0
+    date: 2026-11-16
+    change: "Back to the iTru system as used in the lab (FAVIS primer workbooks; BENCHMARKS mesofauna 2024 runs): TruSeq-type phased primers and iTru5/iTru7 indexes at 5 µM, 0.7 µL each; PCR1 DNA 1–3 µL."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -84,7 +88,7 @@ This protocol prepares Illumina amplicon libraries from bulk soil fauna DNA extr
 
 ## Principle
 
-A first PCR amplifies the target region with fusion primers that carry a Nextera-type Illumina adapter overhang. A second, short PCR adds unique dual indexes and the P5/P7 adapters, so every sample can be identified after sequencing. Each indexed PCR product is cleaned with magnetic beads, quantified and normalised; the products are pooled, the pool is cleaned again and checked on the TapeStation, and its molar concentration is measured by qPCR before dilution for sequencing (Elbrecht et al., 2019; Glenn et al., 2019a, b; Porazinska et al., 2009).
+A first PCR amplifies the target region with fusion primers that carry a TruSeq-type (iTru) Illumina adapter overhang and 0–3 extra bases (“phased” primers) to increase sequence diversity at the start of the reads. A second, short PCR adds unique dual indexes and the P5/P7 adapters, so every sample can be identified after sequencing. Each indexed PCR product is cleaned with magnetic beads, quantified and normalised; the products are pooled, the pool is cleaned again and checked on the TapeStation, and its molar concentration is measured by qPCR before dilution for sequencing (Elbrecht et al., 2019; Glenn et al., 2019a, b; Porazinska et al., 2009).
 
 ## Before you start
 
@@ -113,16 +117,28 @@ A first PCR amplifies the target region with fusion primers that carry a Nextera
 
 ### First-PCR primers with overhang (5′–3′)
 
-Illumina overhang adapters (Nextera-type) are added to the 5′ end of the primers: forward `TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG`-[primer]; reverse `GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG`-[primer]. They are compatible with the Adapterama iNext indexing primers used in the second PCR.
+Overhang (P5 side): `ACACTCTTTCCCTACACGACGCTCTTCCGATCT`; overhang (P7 side): `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT`. Phased versions add 0–3 bases between overhang and primer (ins0–ins3) to increase sequence diversity at the start of the reads. These TruSeq-type (iTru) overhangs are the binding sites of the iTru index primers used in the second PCR.
 
 | Name | Sequence |
 |:--|:--|
-| BF3 + overhang | `TCGTCGGCAGCGTCAGATGTGTATAAGAGACAGCCHGAYATRGCHTTYCCHCG` |
-| BR2 + overhang | `GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAGTCDGGRTGNCCRAARAAYCA` |
-| NF1 + overhang | `TCGTCGGCAGCGTCAGATGTGTATAAGAGACAGGGTGGTGCATGGCCGTTCTTAGTT` |
-| 18Sr2b + overhang | `GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAGTACAAAGGGCAGGGACGTAAT` |
+| iTru_COI_BF3_P5_ins0 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTCCHGAYATRGCHTTYCCHCG` |
+| iTru_COI_BF3_P5_ins1 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTACCHGAYATRGCHTTYCCHCG` |
+| iTru_COI_BF3_P5_ins2 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTGACCHGAYATRGCHTTYCCHCG` |
+| iTru_COI_BF3_P5_ins3 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTTGACCHGAYATRGCHTTYCCHCG` |
+| iTru_COI_BR2_P7_ins0 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTCDGGRTGNCCRAARAAYCA` |
+| iTru_COI_BR2_P7_ins1 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTTCDGGRTGNCCRAARAAYCA` |
+| iTru_COI_BR2_P7_ins2 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTATCDGGRTGNCCRAARAAYCA` |
+| iTru_COI_BR2_P7_ins3 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTGATCDGGRTGNCCRAARAAYCA` |
+| iTru_NF1_P5_ins0 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTGGTGGTGCATGGCCGTTCTTAGTT` |
+| iTru_NF1_P5_ins1 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTAGGTGGTGCATGGCCGTTCTTAGTT` |
+| iTru_NF1_P5_ins2 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTGAGGTGGTGCATGGCCGTTCTTAGTT` |
+| iTru_NF1_P5_ins3 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTTGAGGTGGTGCATGGCCGTTCTTAGTT` |
+| iTru_18Sr2b_P7_ins0 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTTACAAAGGGCAGGGACGTAAT` |
+| iTru_18Sr2b_P7_ins1 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTTTACAAAGGGCAGGGACGTAAT` |
+| iTru_18Sr2b_P7_ins2 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTATTACAAAGGGCAGGGACGTAAT` |
+| iTru_18Sr2b_P7_ins3 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTGATTACAAAGGGCAGGGACGTAAT` |
 
-**Second-PCR index primers:** Adapterama iNext5/iNext7 dual-indexing primers (BadDNA, University of Georgia; Glenn et al., 2019a, b), which anneal to the Nextera-type overhangs and add unique dual 8-bp indexes and the P5/P7 adapters. Index names and sequences: [TO CONFIRM: index plate list used in the lab].
+**Second-PCR index primers:** iTru_i5_P5 `AATGATACGGCGACCACCGAGATCTACAC[i5 index]ACACTCTTTCCCTAC`; iTru_i7_P7 `CAAGCAGAAGACGGCATACGAGAT[i7 index]GTGACTGGAGTTCAG`. Adapterama iTru5/iTru7 primers (Glenn et al., 2019a): 384 unique dual-index pairs on four 96-well plates (1–384); index names and sequences are in the primer workbooks and the index sheets of the Lab Pipeline workbook.
 
 ## Materials
 
@@ -143,8 +159,8 @@ Illumina overhang adapters (Nextera-type) are added to the 5′ end of the prime
 
 ## Reagent preparation
 
-- **First-PCR primers (with overhang):** 10 µM working solutions [TO CONFIRM: preparation from stock and storage].
-- **iNext indexing primers:** 10 µM working solutions [TO CONFIRM: preparation and storage].
+- **First-PCR primers (with overhang):** 10 µM working solutions [TO CONFIRM: how the phased versions ins0–ins3 are combined, e.g. equimolar mix per direction; storage].
+- **iTru index primers:** synthesised at 25 nmol scale, standard desalting, with one phosphorothioate bond; diluted to 5 µM and aliquoted in strip tubes (primer workbook) [TO CONFIRM: storage].
 - **Ethanol 80%:** prepare fresh on the day.
 - **KAPA Pure Beads:** equilibrate to room temperature and vortex c. 30 s before use.
 
@@ -159,16 +175,16 @@ Illumina overhang adapters (Nextera-type) are added to the 5′ end of the prime
 ### First PCR (amplicon PCR)
 
 (@) Prepare the DNA input for the marker (Primer table): COI — undiluted; 18S — diluted to 25–35 ng/µL with nuclease-free water.
-(@) Set up one 10 µL reaction per sample: 5 µL Qiagen Multiplex PCR Master Mix, 1 µL of each primer with overhang (10 µM), 2 µL nuclease-free water and 1 µL of DNA [TO CONFIRM: the PCR1 screenshot allows 1–3 µL of DNA, adjusting water].
+(@) Set up one 10 µL reaction per sample: 5 µL Qiagen Multiplex PCR Master Mix, 1 µL of each primer with overhang (10 µM), 2 µL nuclease-free water and 1 µL of DNA. Up to 3 µL of DNA may be used for low-concentration extracts, reducing the water so that the volume stays at 10 µL.
 (@) Cycling: 95 °C for 15 min; 25 cycles of 94 °C for 30 s, annealing for 90 s (COI 50 °C; 18S 60 °C), 72 °C for 90 s; final extension 72 °C for 10 min.
 (@) Check amplification on a 2% agarose gel. All field samples should show bands of the expected size; extraction and PCR negative controls should show no amplification. Record the outcome per well (Gel_Success, Faint, Failure, Lost, Pending) in the Lab Pipeline workbook.
 
 ### Second PCR (indexing PCR)
 
-(@) Set up one 14 µL reaction per sample: 7 µL KAPA HiFi HotStart ReadyMix, 0.7 µL iNext5 indexing primer (10 µM), 0.7 µL iNext7 indexing primer (10 µM), 2.8 µL nuclease-free water and 2.8 µL of first-PCR product. Record the index plate and well of every sample in the plate map.
+(@) Set up one 14 µL reaction per sample: 7 µL KAPA HiFi HotStart ReadyMix, 0.7 µL iTru5 index primer (5 µM), 0.7 µL iTru7 index primer (5 µM), 2.8 µL nuclease-free water and 2.8 µL of first-PCR product. Record the index plate and well of every sample in the plate map.
 
 ::: {.callout-important title="CRITICAL"}
-Each sample in a pool must carry a unique iNext5/iNext7 index combination. Combinations must never be repeated within the same pool: duplicated combinations cannot be demultiplexed. Check the plate map against the indexes actually used.
+Each sample in a pool must carry a unique iTru5/iTru7 index combination. Combinations must never be repeated within the same pool: duplicated combinations cannot be demultiplexed. Check the plate map against the indexes actually used.
 :::
 
 (@) Cycling: 95 °C for 3 min; 8 cycles of 95 °C for 30 s, 55 °C for 30 s, 72 °C for 30 s; final elongation 72 °C for 5 min.
@@ -277,7 +293,7 @@ $$V_\mathrm{water} = V_\mathrm{p} \times \left(\frac{c_\mathrm{nM}}{20} - 1\righ
 ::: {.callout-note title="Minimum to record"}
 - EnGeL label of each DNA extract; plate ID and well; sample type (sample, extraction blank, PCR negative, mock)
 - Marker and primer pair; PCR1 and PCR2 plate IDs, dates, operators and thermocycler; PCR outcomes (Gel_Success, Estimated_Success, Faint, Failure, Lost, Pending)
-- Index plate and well, iNext5 and iNext7 index names and sequences; pool ID
+- Index plate and well, iTru5 and iTru7 index names and sequences; pool ID
 - Lot numbers: Qiagen Multiplex PCR Master Mix, KAPA HiFi HotStart ReadyMix, KAPA Pure Beads, KAPA Library Quantification Kit; primer and index plate IDs
 - Concentrations after clean-up; normalisation volumes; TapeStation size; qPCR concentration; final dilution
 - MIxS fields for the sequence submission [TO CONFIRM: checklist and package, e.g. MIMARKS-survey]
@@ -310,7 +326,7 @@ For this protocol: gels and gel-contaminated material [TO CONFIRM: route]; PCR p
 
 ## Remarks
 
-The Metabarcoding Lab Pipeline workbook is the working record for this protocol: one copy per project. Its built-in PCR calculator (25 µL, 2× master mix) is for standard PCRs, not for these metabarcoding reactions. The adapter and index system follows the BENCHMARKS handbook (D4.3): Nextera-type overhangs and Adapterama iNext indexing primers. The lab's primer workbooks and the index reference in the Lab Pipeline workbook (*Novogene*, *Index_Scheme* sheets) describe iTru (TruSeq-type) phased primers and iTru indexes; check that the index list used for the sequencing submission matches the iNext primers actually used [TO CONFIRM].
+The Metabarcoding Lab Pipeline workbook is the working record for this protocol: one copy per project. Its built-in PCR calculator (25 µL, 2× master mix) is for standard PCRs, not for these metabarcoding reactions. The adapter and index system is the one used in the lab (FAVIS primer workbooks; BENCHMARKS mesofauna 2024 runs): TruSeq-type (iTru) phased primers and Adapterama iTru5/iTru7 indexes. The BENCHMARKS handbook (D4.3) describes Nextera-type overhangs with iNext indexes instead; the two systems are not interchangeable (iTru indexes need the iTru overhang, iNext indexes the Nextera-type overhang).
 
 ## References
 
@@ -333,15 +349,14 @@ Porazinska, D.L., Giblin-Davis, R.M., Faller, L., Farmerie, W., Kanzaki, N., Mor
 
 ## Open questions
 
-1. iNext index plate list used in the lab (names and sequences); does the Lab Pipeline index reference (iTru) need updating?
-2. Preparation and storage of the 10 µM primer and index working solutions.
-3. PCR1 DNA volume: always 1 µL, or 1–3 µL with less water (screenshot)?
-4. Positive control / mock community: composition and acceptance criterion; action when a negative shows a band.
-5. Storage of PCR products and pools between steps; buffer for the 4 nM dilution.
-6. Sequencing provider and form per project; public archive for the data; MIxS checklist.
-7. Waste routes for gels, bead supernatants and ethanol washes; intercalating dye hazards.
-8. Hands-on and total time.
-9. DOI.
+1. How the phased first-PCR primers (ins0–ins3) are combined (e.g. equimolar mix per direction).
+2. Storage of the primer and index working solutions.
+3. Positive control / mock community: composition and acceptance criterion; action when a negative shows a band.
+4. Storage of PCR products and pools between steps; buffer for the 4 nM dilution.
+5. Sequencing provider and form per project; public archive for the data; MIxS checklist.
+6. Waste routes for gels, bead supernatants and ethanol washes; intercalating dye hazards.
+7. Hands-on and total time.
+8. DOI.
 
 ## Annex 1 – Plate map guidance {.unnumbered}
 
@@ -349,6 +364,6 @@ Porazinska, D.L., Giblin-Davis, R.M., Faller, L., Farmerie, W., Kanzaki, N., Mor
 
 **Index assignment**
 
-- Each well must have a unique iNext5/iNext7 combination within a pool. A simple scheme is one iNext5 index per row and one iNext7 index per column, giving 96 unique combinations per plate.
+- Each well must have a unique iTru5/iTru7 combination within a pool. A simple scheme is one iTru5 index per row and one iTru7 index per column, giving 96 unique combinations per plate.
 - When several plates are pooled together, each plate must use a different index set, so that no combination is repeated within the pool.
 - Check the plate map against the indexes actually used before pooling.

@@ -2,7 +2,7 @@
 title: "Total RNA extraction with TRIzol and spin-column clean-up (honey bees; isopod hepatopancreas)"
 short-title: "Total RNA extraction (TRIzol)"
 protocol-id: EnGeL-MOLB-RNA
-version: 1.2.0
+version: 1.2.1
 date: 2026-11-16
 status: draft
 area: Molecular biology (MOLB)
@@ -72,6 +72,10 @@ version-history:
   - version: 1.2.0
     date: 2026-11-16
     change: "Isopod path: dry spin at ≥ 12 000 × g (1.5 mL tube rotor)."
+    by: "Luís Cunha"
+  - version: 1.2.1
+    date: 2026-11-16
+    change: "Isopod path: extra 100% ethanol wash confirmed as intended."
     by: "Luís Cunha"
 ---
 
@@ -169,7 +173,7 @@ TRIzol (phenol and guanidine isothiocyanate) lyses the tissue and keeps RNA inta
 (@) Centrifuge at 15 000 × g for 15 min at 4 °C. Three phases form (pink at the bottom, a white layer in the middle and a colourless supernatant on top); take as much of the upper phase as possible.
 (@) Add the upper phase to 250 µL of cold 70% ethanol and pipette up and down.
 (@) Transfer to the column and centrifuge at 8 000 × g for 10 s. If needed, load in portions of 500 µL. Discard the flow-through.
-(@) Add 700 µL of 100% ethanol and centrifuge at 8 000 × g for 15 s [TO CONFIRM: this step is not part of the standard RNeasy procedure]. Discard the flow-through.
+(@) Add 700 µL of 100% ethanol and centrifuge at 8 000 × g for 15 s. Discard the flow-through. This extra wash is intended (lab practice); it is not part of the standard RNeasy procedure.
 (@) Add 700 µL of Buffer RW1 and centrifuge at 8 000 × g for 15 s. Discard the flow-through.
 (@) Add 500 µL of Buffer RPE and centrifuge at 8 000 × g for 15 s. Discard the flow-through.
 (@) Add 500 µL of Buffer RPE and centrifuge at 8 000 × g for 3 min. Discard the flow-through.
@@ -252,10 +256,9 @@ Qiagen (2006). RNeasy Mini Handbook (04/2006): 8 000 × g (10 000 rpm) for loadi
 
 1. Author “FFR” of the bee protocol (full name, ORCID); author of the isopod protocol; DOI.
 2. Kit identities: bees — NZY Total RNA Isolation kit (NI, DI, DNase I, NWR1, NWR2)? Isopods — Qiagen RNeasy (RW1, RPE)? Catalogue numbers.
-3. Isopod path: is the 100% ethanol wash intended?
-4. Bees: volume transferred to the new tube before chloroform; bead tube type and bead-beater model.
-5. Sample storage before extraction; RNA storage temperature; sample 1 and 2 kept separate or pooled?
-6. RNase precautions; fume hood for TRIzol and chloroform.
-7. QC acceptance criteria (purity, concentration, integrity); extraction blanks.
-8. Waste route for the TRIzol/chloroform organic phase.
-9. Hands-on and total time.
+3. Bees: volume transferred to the new tube before chloroform; bead tube type and bead-beater model.
+4. Sample storage before extraction; RNA storage temperature; sample 1 and 2 kept separate or pooled?
+5. RNase precautions; fume hood for TRIzol and chloroform.
+6. QC acceptance criteria (purity, concentration, integrity); extraction blanks.
+7. Waste route for the TRIzol/chloroform organic phase.
+8. Hands-on and total time.
