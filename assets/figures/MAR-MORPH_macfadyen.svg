@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="'Source Sans 3', 'Source Sans Pro', Arial, sans-serif" font-size="15" fill="#1E2420">
+  <title>MacFadyen high-gradient extraction set-up</title>
+  <desc>Soil core upside down in a canister on a 2 mm mesh, heated from above and cooled below; animals move down through the funnel into a flask with 96% ethanol.</desc>
+  <rect width="900" height="520" fill="#ffffff"/>
+  <defs><marker id="a2" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#074023"/></marker></defs>
+  <!-- heated zone -->
+  <rect x="150" y="30" width="300" height="230" fill="#fbe3d4" stroke="#e08a55" stroke-dasharray="6 4"/>
+  <text x="160" y="52" font-weight="700" fill="#b4541c">Heated upper part</text>
+  <rect x="200" y="66" width="200" height="16" rx="4" fill="#e08a55"/><text x="300" y="79" text-anchor="middle" font-size="12" fill="#fff">heating element</text>
+  <!-- canister and core -->
+  <rect x="215" y="100" width="170" height="130" fill="none" stroke="#1E2420" stroke-width="2"/>
+  <rect x="225" y="110" width="150" height="110" fill="#8b6a4a"/>
+  <text x="300" y="150" text-anchor="middle" fill="#fff" font-size="14">soil core,</text>
+  <text x="300" y="168" text-anchor="middle" fill="#fff" font-size="14">upside down</text>
+  <circle cx="260" cy="195" r="4" fill="#fff"/><circle cx="330" cy="205" r="4" fill="#fff"/><circle cx="300" cy="190" r="3" fill="#fff"/>
+  <line x1="215" y1="230" x2="385" y2="230" stroke="#1E2420" stroke-width="3" stroke-dasharray="4 3"/>
+  <text x="395" y="234" font-size="13">2 mm mesh</text>
+  <!-- cooled zone -->
+  <rect x="150" y="260" width="300" height="230" fill="#dcebf7" stroke="#4a86b8" stroke-dasharray="6 4"/>
+  <text x="160" y="480" font-weight="700" fill="#2f6a99">Cooled lower part</text>
+  <!-- funnel -->
+  <path d="M215,240 L385,240 L315,330 L315,370 L285,370 L285,330 Z" fill="#eef2ef" stroke="#1E2420" stroke-width="2"/>
+  <path d="M300,240 L300,355" stroke="#074023" stroke-width="2" marker-end="url(#a2)"/>
+  <text x="300" y="300" text-anchor="middle" font-size="12" fill="#074023">animals</text>
+  <!-- flask -->
+  <path d="M280,372 L320,372 L320,395 L350,450 L250,450 L280,395 Z" fill="#ffffff" stroke="#1E2420" stroke-width="2"/>
+  <path d="M262,428 L338,428 L350,450 L250,450 Z" fill="#cfe7bf"/>
+  <text x="395" y="420" font-size="13">collecting flask</text>
+  <text x="395" y="437" font-size="13">25 mL ethanol 96%</text>
+  <!-- gradient -->
+  <path d="M520,90 L520,440" stroke="#5753A4" stroke-width="2" marker-end="url(#a2)"/>
+  <text x="540" y="96" font-weight="700">45–50 °C</text>
+  <text x="540" y="116" font-size="13">(start c. 5 °C above field</text>
+  <text x="540" y="132" font-size="13">temperature, days 1–3)</text>
+  <text x="540" y="260" font-weight="700" fill="#5753A4">gradient c. 35–40 °C</text>
+  <text x="540" y="280" font-size="13">animals move away from</text>
+  <text x="540" y="296" font-size="13">heat and drying</text>
+  <text x="540" y="440" font-weight="700">≤ 10 °C</text>
+  <text x="540" y="458" font-size="13">(field temperature)</text>
+  <rect x="700" y="230" width="170" height="80" rx="8" fill="#074023"/>
+  <text x="785" y="262" text-anchor="middle" fill="#fff" font-weight="700" font-size="18">7 days</text>
+  <text x="785" y="285" text-anchor="middle" fill="#fff" font-size="13">gentle days 1–3,</text>
+  <text x="785" y="300" text-anchor="middle" fill="#fff" font-size="13">then full gradient</text>
+  <text x="20" y="510" font-size="12" fill="#5c6560">Schematic, not to scale. Values from EnGeL-FAUNA-MAR-MORPH, Procedure.</text>
+</svg>

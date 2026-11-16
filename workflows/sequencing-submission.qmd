@@ -1,0 +1,17 @@
+---
+title: "Sequencing submission"
+subtitle: "Step 6 of the soil fauna metabarcoding workflow"
+---
+
+::: {.callout-note title="In preparation"}
+This page will become a short protocol for submitting libraries for sequencing. Until then, use the submission sheet of the project's Metabarcoding Lab Pipeline workbook and the instructions in [EnGeL-MOLB-MB](../protocols/molb/EnGeL-MOLB-MB.qmd) (*Dilution to 4 nM and submission*).
+:::
+
+What the page will cover:
+
+- sequencing provider and submission form per project [TO CONFIRM];
+- sample sheet: sample IDs, index names and sequences (iTru5/iTru7), pool composition;
+- shipping conditions for the pool [TO CONFIRM];
+- receiving and archiving the raw data (FASTQ), and deposit in a public archive (ENA or SRA) with the MIxS checklist fields [TO CONFIRM].
+
+Back to the [workflow](soil-fauna-metabarcoding.qmd).

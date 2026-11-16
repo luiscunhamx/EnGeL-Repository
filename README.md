@@ -16,10 +16,15 @@ Website (after the first release): <https://luiscunhamx.github.io/EnGeL-Reposito
 | `data/planned.yml` | Planned protocols shown in the register |
 | `data/allowed_emails.txt` | Shared lab addresses allowed on protocol pages |
 | `assets/` | Fonts, logos, styles, PDF layout, Word reference document |
-| `tools/` | `prerender.py` (register + bench sheets), `check.py` (automatic checks), `engel.lua` (layout filter) |
+| `assets/figures/` | Schematic figures (SVG), drawn from the protocol text; CC BY 4.0, credited as “Figure: EnGeL-UC”. Edit them in any SVG editor (e.g. Inkscape); keep values identical to the protocol |
+| `tools/` | `prerender.py` (register, bench sheets, list of values to confirm), `check.py` (automatic checks), `engel.lua` (layout filter) |
 | `CHANGELOG.md` | Every change, with protocol ID and version |
 
-Generated, not edited: `register.qmd`, `bench/*-bench.qmd`, `_site/`.
+Generated, not edited: `register.qmd`, `bench/*-bench.qmd`, `to-confirm.qmd` and `to-confirm.csv` (every open [TO CONFIRM], per protocol, with line numbers), `_site/`.
+
+Figures in a protocol: `![Caption ending with the credit.](../../assets/figures/<file>.svg){#fig-<name> fig-alt="Description for screen readers" width="100%"}`. Every figure needs a caption, alt text and a credit; figures from papers or kit manuals only if their licence allows it.
+
+Status values: `draft`, `review`, `released`, `retired`. Workflow diagrams are Mermaid flowcharts inside the workflow pages (`workflows/*.qmd`).
 
 ## Build
 

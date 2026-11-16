@@ -1,0 +1,16 @@
+---
+title: "Workflow: single-specimen DNA barcoding"
+subtitle: "In preparation"
+---
+
+::: {.callout-note title="In preparation"}
+Only the first steps exist as protocols. The other steps will be added when their protocols are written.
+:::
+
+| Step | Protocol | Status |
+|:--|:--|:--|
+| 1. Specimen and voucher handling | [TO CONFIRM: protocol to be written] | planned |
+| 2. DNA extraction from single specimens | [EnGeL-MOLB-DNA-BARC](../protocols/molb/EnGeL-MOLB-DNA-BARC.qmd) | draft |
+| 3. Nucleic acid QC | [EnGeL-MOLB-NAQC](../protocols/molb/EnGeL-MOLB-NAQC.qmd) | draft |
+| 4. Barcode PCR, clean-up and Sanger sequencing | [TO CONFIRM: protocol to be written] | planned |
+| 5. Sequence editing and identification | [TO CONFIRM: protocol to be written] | planned |

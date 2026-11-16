@@ -4,6 +4,7 @@ project:
   resources:
     - assets/fonts/*.ttf
     - assets/logos/*.png
+    - to-confirm.csv
   pre-render:
     - tools/prerender.py
     - tools/check.py
@@ -29,6 +30,8 @@ website:
       - text: Workflows
         menu:
           - workflows/soil-fauna-metabarcoding.qmd
+          - workflows/single-specimen-barcoding.qmd
+          - workflows/rna.qmd
     right:
       - icon: github
         href: "https://github.com/luiscunhamx/EnGeL-Repository"
@@ -37,6 +40,7 @@ website:
     contents:
       - index.qmd
       - register.qmd
+      - to-confirm.qmd
       - section: "Fauna sample processing (FAUNA)"
         contents: "protocols/fauna/*.qmd"
       - section: "Molecular biology (MOLB)"
