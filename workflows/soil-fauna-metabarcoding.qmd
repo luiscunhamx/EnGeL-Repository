@@ -11,7 +11,7 @@ flowchart LR
   C --> D["Metabarcoding library preparation<br/>EnGeL-MOLB-MB (planned)"]:::planned
   D --> E["Library quantification<br/>EnGeL-MOLB-KAPA (planned)"]:::planned
   E --> F["Sequencing submission (planned)"]:::planned
-  F --> G["Bioinformatics (planned)"]:::planned
+  F --> G["Bioinformatics<br/>EnGeL-BIOINF-OBITOOLS4 (planned)"]:::planned
   click B "../protocols/molb/EnGeL-MOLB-DNA-MAG.html"
   classDef planned stroke-dasharray: 5 5
 ```
@@ -24,4 +24,4 @@ flowchart LR
 | 4. Library preparation | EnGeL-MOLB-MB | planned |
 | 5. Library quantification | EnGeL-MOLB-KAPA | planned |
 | 6. Sequencing submission | – | planned |
-| 7. Bioinformatics | – | planned |
+| 7. Bioinformatics | EnGeL-BIOINF-OBITOOLS4 (OBITools4) | planned |

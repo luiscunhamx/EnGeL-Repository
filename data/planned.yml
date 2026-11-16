@@ -23,3 +23,6 @@
 - id: EnGeL-MOLB-DNA-BEE
   title: Genomic DNA from honey bee guts
   notes: In-house origin to confirm
+- id: EnGeL-BIOINF-OBITOOLS4
+  title: Metabarcoding bioinformatics with OBITools4 (merging, demultiplexing, filtering, clustering, LULU, taxonomic assignment)
+  notes: Source is the Obitools4 script by Luísa Fraga and Luís Cunha; ID to confirm
