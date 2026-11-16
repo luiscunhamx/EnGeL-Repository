@@ -236,7 +236,7 @@ Potapov, A.M., Korotkevich, A.Y., Tiunov, A.V. (2018). Non-vascular plants as a 
 
 ## Open questions
 
-1. Should Pedro Martins and Filipa Reis be authors (with ORCID) rather than contributors; DOI.
+1. DOI.
 2. Annex photo: the source caption says “PVC tube with caps”, but the photo shows a round plastic container with litter. Which caption is right?
 3. Hands-on time; sorting time per sample.
 4. How extractor temperatures are monitored; sorting quality check.
