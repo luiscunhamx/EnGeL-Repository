@@ -21,7 +21,7 @@ Each laboratory should keep its own plate map template, but every plate map must
 **4. Information recorded for each well (one row per well)**
 
 - Plate ID and well position
-- EnGeL sample label from the sample master data file (e.g. EnGeL_24_AAA_SYBER_Raw_Soil), matching the label on any archived tube
+- EnGeL sample label from the sample master data file (e.g. EnGeL_24_AAA_SYBER_Raw_Soil), matching the label on any archived tube; DNA extracts get their own label (sample nature DNA), with the source sample code kept in a separate column
 - Sample type: sample, extraction blank, or positive control / mock community
 - Taxonomic group and pre-treatment used, and a link to site/treatment metadata
 - Extraction date and operator

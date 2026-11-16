@@ -2,7 +2,7 @@
 title: "DNA extraction from bulk soil fauna samples with magnetic beads (Omega Bio-tek Mag-Bind® Blood & Tissue DNA HDQ 96, Invitek InviGenius®)"
 short-title: "DNA extraction, magnetic beads (InviGenius)"
 protocol-id: EnGeL-MOLB-DNA-MAG
-version: 1.1.0
+version: 1.1.1
 date: 2026-11-16
 status: draft
 area: Molecular biology (MOLB)
@@ -75,6 +75,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-16
     change: "Lab contact added; waste routes from the EnGeL waste streams; DNA concentration rule (≥ 10 ng/µL success, < 5 ng/µL fail); records in the sample master data file and the Metabarcoding Lab Pipeline workbook; EnGeL sample labels; lab rules and end-of-work routine."
+    by: "Luís Cunha"
+  - version: 1.1.1
+    date: 2026-11-16
+    change: "DNA extracts get their own EnGeL code in the master data file (source sample code kept in a separate column); unused or expired kit reagents go to the red bin."
     by: "Luís Cunha"
 ---
 
@@ -280,7 +284,7 @@ Negative controls are carried through library preparation and sequenced alongsid
 ## Data and metadata
 
 - **Outputs:** purified DNA in labelled 96-well red-frame microplates; one plate map per plate (Annex 1); DNA purity and concentration values.
-- **Sample labels:** every sample carries its EnGeL label from the sample master data file (`ENGEL_master_data`, lab Google Drive): `EnGeL_<year>_<unique code>_<project>_<sample nature>_<type of sampling>`, e.g. EnGeL_24_AAA_SYBER_Raw_Soil. Codes are assigned by the data curator; lab members fill in their own sheet and the curator validates and generates the labels. DNA extracts are recorded with sample nature `DNA` [TO CONFIRM: new unique code for each extract, or the code of the source sample?].
+- **Sample labels:** every sample carries its EnGeL label from the sample master data file (`ENGEL_master_data`, lab Google Drive): `EnGeL_<year>_<unique code>_<project>_<sample nature>_<type of sampling>`, e.g. EnGeL_24_AAA_SYBER_Raw_Soil. Codes are assigned by the data curator; lab members fill in their own sheet and the curator validates and generates the labels. Each DNA extract is entered in the master data file as a new sample, with sample nature `DNA` and its own unique code and label; the code of the source sample is kept in a separate column.
 - **Plate map:** spreadsheet (.xlsx/.csv) with one row per well plus a visual 8 × 12 grid, with a unique plate ID (e.g. Project_Marker_Plate##_YYYYMMDD). The same file is carried forward to library preparation (EnGeL-MOLB-MB).
 - **Where:** extraction results go to the *Sample_Tracking* sheet of the Metabarcoding Lab Pipeline workbook (`EnGeL_LabPipeline_mesofauna_TEMPLATE`, one copy per project) and to the lab book; sample information to the sample master data file. Instrument use is recorded in the equipment user logs (NanoDrop, Qubit).
 
@@ -315,7 +319,7 @@ For this protocol:
 - Leftover lysates, buffers that have been in contact with samples, and the liquid left in the wash plates: biological liquid waste (jerrican), with a funnel. Never add bleach to this waste.
 - Used Bind and elution deep-well plates, tips, tubes and gloves: biological solid waste (black bin).
 - Wash plates (VHB1, VHB2, SPM): emptied into the biological liquid waste, then washed and autoclaved for reuse.
-- Unused or expired kit reagents: specific hazardous waste (red bin) [TO CONFIRM: whether kit chemicals are designated for this stream].
+- Unused or expired kit reagents: specific hazardous waste (red bin).
 
 ## Troubleshooting
 
@@ -372,11 +376,10 @@ Qiagen (n.d.). FAQ-3362: Is it possible to stop the DNeasy tissue protocol and s
 8. Reagent preparation volumes: check against Omega manual v9.0.
 9. RNase A: supplier and concentration.
 10. Holding lysates: adopt one of the literature options, or keep “no storage”?
-11. DNA extracts in the master data file: new unique code per extract, or the source sample’s code? Record the robot run ID?
+11. Record the robot run ID?
 12. Troubleshooting: actions when DNA is detected in blanks; other causes of low yield.
 13. Author order; DOI.
 14. Materials list 2 mL nuclease-free microcentrifuge tubes (from the UC protocols), but no step uses them: keep or remove?
-15. Waste: are unused or expired kit reagents designated for the red bin (specific hazardous waste)?
 
 ## Annex 1 – Plate map guidance {.unnumbered}
 
