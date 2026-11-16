@@ -1,1 +1,3 @@
-# Shared lab e-mail addresses allowed on protocol pages (one per line). Personal addresses are never allowed.
+# Lab contact addresses allowed on protocol pages (decided by Luís Cunha, 2026-11-16). Other personal addresses are never allowed.
+luis.cunha@uc.pt
+ewormuc@gmail.com

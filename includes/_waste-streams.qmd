@@ -1,0 +1,5 @@
+EnGeL waste streams (choose the right bin):
+
+- **Biological solid waste** (black bin, white bag): contaminated gloves, contaminated disposable materials, solid biological laboratory waste, contaminated PPE. No liquids or sharps.
+- **Specific hazardous waste** (red bin, red bag): chemicals and pharmaceuticals designated for this waste stream, specific hazardous laboratory waste, anatomical material; sharps only in a rigid sharps container. No loose sharps.
+- **Biological liquid waste** (jerrican, UN 3291): liquid biological waste and contaminated biological liquids only. Use a funnel; rinse the original container and the funnel with dH~2~O and discard the rinse water in the same jerrican.

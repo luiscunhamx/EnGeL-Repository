@@ -1,1 +1,5 @@
-Follow the manufacturer’s instructions and safety data sheets for each reagent. Wear gloves, a lab coat and eye protection. Biological samples are potentially hazardous and are handled following the facility’s procedures.
+Follow the manufacturer’s instructions and safety data sheets for each reagent. Biological samples are potentially hazardous and are handled following the facility’s procedures. EnGeL lab rules:
+
+- Before you enter: wear your lab coat, use appropriate gloves, closed shoes only, tie back long hair.
+- Not allowed: eating or drinking; touching phones or laptops with contaminated gloves; bags or coats on benches.
+- Label all reagents (name, concentration, date) and treat all chemicals as hazardous.

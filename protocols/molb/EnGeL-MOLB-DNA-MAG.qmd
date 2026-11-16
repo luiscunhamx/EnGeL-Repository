@@ -2,7 +2,7 @@
 title: "DNA extraction from bulk soil fauna samples with magnetic beads (Omega Bio-tek Mag-Bind® Blood & Tissue DNA HDQ 96, Invitek InviGenius®)"
 short-title: "DNA extraction, magnetic beads (InviGenius)"
 protocol-id: EnGeL-MOLB-DNA-MAG
-version: 1.0.0
+version: 1.1.0
 date: 2026-11-16
 status: draft
 area: Molecular biology (MOLB)
@@ -14,7 +14,7 @@ author:
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
 reviewed-by: Luís Cunha
-contact: "[TO CONFIRM: lab contact e-mail]"
+contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
 protocol-doi: "[TO CONFIRM]"
 hazards:
@@ -72,6 +72,10 @@ version-history:
     date: 2026-11-16
     change: "First EnGeL-UC version. Derived from the InviGenius robot protocol (reviewed 2026-07-06 by Luísa Fraga) and the DNA extraction sections of the UC BENCHMARKS protocols BM-BIO-MAR-MB and BM-BIO-NEM-MB v2.0 (2026-09-28); scope widened to bulk soil fauna samples."
     by: "Luísa Fraga, Andreia Quaresma, Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-16
+    change: "Lab contact added; waste routes from the EnGeL waste streams; DNA concentration rule (≥ 10 ng/µL success, < 5 ng/µL fail); records in the sample master data file and the Metabarcoding Lab Pipeline workbook; EnGeL sample labels; lab rules and end-of-work routine."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -237,6 +241,11 @@ Before starting the InviGenius® run, check that all plates are in the correct r
 
 {{< include ../../includes/_dna-storage-qc.qmd >}}
 
+### After finishing
+
+- Empty the liquid left in the wash plates into the biological liquid waste before sending the plates to be washed (see Safety and waste).
+{{< include ../../includes/_before-you-leave.qmd >}}
+
 ## Calculations
 
 Master mix and buffer volumes for a run, with 10% excess:
@@ -262,23 +271,26 @@ $$V_\mathrm{mix} = v_\mathrm{sample} \times n \times 1.1$$
 | Extraction blanks (4 per plate) | Positions H3, H6, H9, H12; processed exactly like the samples from lysis onwards | Detect contamination during extraction; spread across the plate so that cross-contamination can be traced to a position | [TO CONFIRM] |
 | Extraction positive control (e.g. mock community of known composition) | When establishing a new starting material or community | Check extraction performance for the new material | [TO CONFIRM: composition and criterion] |
 | DNA purity | All extracts | A~260~/A~280~ and A~260~/A~230~ (NanoDrop) | [TO CONFIRM] |
-| DNA concentration | All extracts | Fluorometry (Qubit) | [TO CONFIRM: minimum yield] |
+| DNA concentration | All extracts | Fluorometry (Qubit) | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail. Depends on the starting quantity and parent material; between 5 and 10 ng/µL the PCR result decides. |
+
+The DNA concentration rule is a general guide: the PCR is the best way to evaluate whether the DNA in a sample is viable. The Metabarcoding Lab Pipeline workbook uses 10 ng/µL as its “adequate DNA” threshold when classifying PCR failures.
 
 Negative controls are carried through library preparation and sequenced alongside the samples, so that contaminant reads can be identified and removed during bioinformatic processing (EnGeL-MOLB-MB). A PCR positive control is always included at the PCR stage (EnGeL-MOLB-MB). Details of NanoDrop and Qubit measurements: EnGeL-MOLB-NAQC.
 
 ## Data and metadata
 
 - **Outputs:** purified DNA in labelled 96-well red-frame microplates; one plate map per plate (Annex 1); DNA purity and concentration values.
+- **Sample labels:** every sample carries its EnGeL label from the sample master data file (`ENGEL_master_data`, lab Google Drive): `EnGeL_<year>_<unique code>_<project>_<sample nature>_<type of sampling>`, e.g. EnGeL_24_AAA_SYBER_Raw_Soil. Codes are assigned by the data curator; lab members fill in their own sheet and the curator validates and generates the labels. DNA extracts are recorded with sample nature `DNA` [TO CONFIRM: new unique code for each extract, or the code of the source sample?].
 - **Plate map:** spreadsheet (.xlsx/.csv) with one row per well plus a visual 8 × 12 grid, with a unique plate ID (e.g. Project_Marker_Plate##_YYYYMMDD). The same file is carried forward to library preparation (EnGeL-MOLB-MB).
-- **Where:** the database and the lab book [TO CONFIRM: which database / sample register is meant].
+- **Where:** extraction results go to the *Sample_Tracking* sheet of the Metabarcoding Lab Pipeline workbook (`EnGeL_LabPipeline_mesofauna_TEMPLATE`, one copy per project) and to the lab book; sample information to the sample master data file. Instrument use is recorded in the equipment user logs (NanoDrop, Qubit).
 
 ::: {.callout-note title="Minimum to record"}
-- Plate ID and well; sample ID (matching the coded label of any archived tube); sample type (sample, extraction blank, positive control)
+- Plate ID and well; EnGeL sample label (master data file), also on any archived tube; sample type (sample, extraction blank, positive control)
 - Pre-treatment used (A, B or C) and any deviation (split extraction, scaled-up lysis, optional RNase A)
-- Extraction date and operator
+- Operator
 - Lot numbers: Mag-Bind® Blood & Tissue DNA HDQ 96 Kit; RNase A (if used); ethanol and isopropanol used for buffer preparation
 - Robot program name (M6399_IG96_v1) [TO CONFIRM: also the robot run ID?]
-- DNA concentration (Qubit), A~260~/A~280~ and A~260~/A~230~
+- As in the Lab Pipeline *Sample_Tracking* sheet: Extraction_pipeline, Extraction_date, Equipment, DNA_ngul, A260/280, A260/230, Elution_vol_ul, DNA_total_ng
 - MIxS fields: not produced at this step; recorded at sequence submission (EnGeL-MOLB-MB)
 :::
 
@@ -296,8 +308,14 @@ Negative controls are carried through library preparation and sequenced alongsid
 
 **Waste**
 
-- Liquid waste and used Bind and elution plates: biological hazard container.
-- Wash plates (VHB1, VHB2, SPM): washed and autoclaved for reuse.
+{{< include ../../includes/_waste-streams.qmd >}}
+
+For this protocol:
+
+- Leftover lysates, buffers that have been in contact with samples, and the liquid left in the wash plates: biological liquid waste (jerrican), with a funnel. Never add bleach to this waste.
+- Used Bind and elution deep-well plates, tips, tubes and gloves: biological solid waste (black bin).
+- Wash plates (VHB1, VHB2, SPM): emptied into the biological liquid waste, then washed and autoclaved for reuse.
+- Unused or expired kit reagents: specific hazardous waste (red bin) [TO CONFIRM: whether kit chemicals are designated for this stream].
 
 ## Troubleshooting
 
@@ -349,15 +367,16 @@ Qiagen (n.d.). FAQ-3362: Is it possible to stop the DNeasy tissue protocol and s
 3. Macroarthropod pre-treatment: drying conditions, powdering method, amount per extraction.
 4. Thawing conditions for frozen nematode aliquots.
 5. Hands-on and total time for a full plate; maximum sample amount per extraction (Luísa Fraga, Andreia Quaresma).
-6. QC acceptance criteria: extraction blanks, A~260~/A~280~, A~260~/A~230~, minimum yield; composition of the extraction positive control.
+6. QC acceptance criteria still open: extraction blanks, A~260~/A~280~ and A~260~/A~230~; composition of the extraction positive control.
 7. Robot program: the Bind volume field shows 980 in the exported file; the setting should be 770 µL.
 8. Reagent preparation volumes: check against Omega manual v9.0.
 9. RNase A: supplier and concentration.
 10. Holding lysates: adopt one of the literature options, or keep “no storage”?
-11. Which database records are kept in; record the robot run ID?
+11. DNA extracts in the master data file: new unique code per extract, or the source sample’s code? Record the robot run ID?
 12. Troubleshooting: actions when DNA is detected in blanks; other causes of low yield.
-13. Lab contact e-mail (no personal addresses on protocol pages); author order; DOI.
+13. Author order; DOI.
 14. Materials list 2 mL nuclease-free microcentrifuge tubes (from the UC protocols), but no step uses them: keep or remove?
+15. Waste: are unused or expired kit reagents designated for the red bin (specific hazardous waste)?
 
 ## Annex 1 – Plate map guidance {.unnumbered}
 
