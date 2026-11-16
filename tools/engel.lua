@@ -49,6 +49,11 @@ local function meta_box(meta)
     {'Protocol ID', id}, {'Version', ver}, {'Date', str(meta.date)}, {'Status', str(meta.status)},
     {'Area', str(meta.area)}, {'Authors', table.concat(auth, '; ')},
   }
+  if meta.contributors then
+    local c = {}
+    for _, x in ipairs(meta.contributors) do table.insert(c, str(x)) end
+    table.insert(rows, {'Contributors', table.concat(c, '; ')})
+  end
   if meta['reviewed-by'] then table.insert(rows, {'Reviewed and approved by', str(meta['reviewed-by'])}) end
   table.insert(rows, {'Laboratory', meta.laboratory and str(meta.laboratory) or LAB})
   table.insert(rows, {'Contact', str(meta.contact)})

@@ -1,0 +1,325 @@
+---
+title: "Metabarcoding bioinformatics with OBITools4, VSEARCH, LULU and BOLDigger3 (COI amplicons)"
+short-title: "Bioinformatics: OBITools4 pipeline"
+protocol-id: EnGeL-BIOINF-OBITOOLS4
+version: 1.0.0
+date: 2026-11-16
+status: draft
+area: Bioinformatics (BIOINF)
+author:
+  - name: Luísa Fraga
+    orcid: 0000-0003-3153-4593
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+reviewed-by: Luís Cunha
+contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
+license: CC BY 4.0
+protocol-doi: "[TO CONFIRM]"
+hazards:
+  - "None: computational protocol"
+equipment:
+  - "Lab workstation (see the lab's workstation guidance; conda environment “boldigger3”) or a personal computer with a Unix shell"
+  - "Local copy of the BOLD database for BOLDigger3 (e.g. ~/Bold_db)"
+consumables:
+  - "None"
+reagents:
+  - text: "OBITools4 (obipairing, obigrep, obimultiplex, obiuniq, obiannotate, obicount) [TO CONFIRM: version]"
+    name: "obipairing"
+  - text: "VSEARCH, run from the conda environment “qiime2-amplicon-2023.9” [TO CONFIRM: VSEARCH version]"
+    name: "vsearch"
+  - text: "R with ROBIFastread, lulu (tobiasgf/lulu), seqinr, ggplot2, ggpubr, dplyr, jsonify, readxl, devtools [TO CONFIRM: R and package versions]"
+    name: "lulu"
+  - text: "BOLDigger3 (pip package boldigger3) [TO CONFIRM: version]"
+    name: "boldigger3"
+  - text: "Helper script ngs_filter.py (splits the sample sheet per sample) [TO CONFIRM: source and location in the repository]"
+    name: "ngs_filter.py"
+bench-lots:
+  - "Software versions (OBITools4, VSEARCH, R, LULU, BOLDigger3)"
+  - "BOLD database download date"
+version-history:
+  - version: 1.0.0
+    date: 2026-11-16
+    change: "First EnGeL-UC version, from the Quarto script “Obitools4 – Script” by Luísa F. Dornellas and Luís Cunha (2026)."
+    by: "Luísa Fraga, Luís Cunha"
+---
+
+## Purpose and scope
+
+This protocol turns demultiplexed paired-end Illumina reads from COI metabarcoding (BF3/BR2; EnGeL-MOLB-MB) into a curated OTU table with taxonomic assignments. Steps: read merging, primer removal and sample assignment (OBITools4), dereplication and singleton removal, denoising, chimera removal and clustering (VSEARCH), curation of erroneous OTUs and NUMTs (LULU), and identification against BOLD (BOLDigger3). Length filters and identity thresholds are set for the COI fragment; other markers (e.g. 18S for nematodes) need their own settings [TO CONFIRM].
+
+## Principle
+
+Forward and reverse reads are aligned into full-length sequences; reads that do not overlap well are discarded. Primers are removed and each sequence is annotated with its sample. Identical sequences are collapsed (dereplicated) and sequences seen only once (singletons), most likely PCR or sequencing errors, are removed. Across all samples, sequences of the expected length are denoised (UNOISE), chimeras are removed (UCHIME3 de novo) and the remaining sequences are clustered into OTUs. LULU merges OTUs that are probably errors or nuclear copies of mitochondrial DNA (NUMTs) of more abundant OTUs, and BOLDigger3 assigns taxonomy against the BOLD database.
+
+## Before you start
+
+| Item | Details |
+|:--|:--|
+| Input | Demultiplexed paired fastq files (R1, R2) per sample, as delivered by the sequencing provider (Illumina adapters already removed) |
+| Sample sheet | Tab-delimited text file: experiment, sample, tags (F:R; type “:” if there are no tags), primer F, primer R, F/T (both primers or forward only), “@”, other information, and the plate-well index combination or fastq file code |
+| Computing | Workstation or personal computer; hands-on and run time [TO CONFIRM] |
+| Prepare in advance | OBITools4, VSEARCH, R packages and BOLDigger3 installed; BOLD database downloaded |
+
+## Materials
+
+### Computer
+
+::: {.engel-equipment}
+:::
+
+### Consumables
+
+Not applicable.
+
+### Software
+
+::: {.engel-reagents}
+:::
+
+## Reagent preparation
+
+Not applicable. Software installation (as in the source script):
+
+```bash
+curl -L https://metabarcoding.org/obitools4/install.sh | bash        # OBITools4
+pip install boldigger3                                                # BOLDigger3 (pip install --upgrade boldigger3 to update)
+boldigger3 download_db ~/Bold_db                                      # local BOLD database
+```
+
+```r
+install.packages("devtools")
+devtools::install_git("https://git.metabarcoding.org/obitools/obitools4/robireadfasta.git")
+devtools::install_github("tobiasgf/lulu", force = TRUE)
+```
+
+## Procedure
+
+### 1. Working folders and raw data
+
+(@) Set the working directory and create one folder per step:
+
+```bash
+mkdir 1.raw 2.pairedend 3.obimultiplex 4.uniq 5.simplified 6.nosingletons 7.clean 8.vsearch 9.lulu 10.stats samplesheets reports
+```
+
+(@) Move all raw .gz files (usually in one folder per sample) into `1.raw` and decompress them:
+
+```bash
+find ./All_Data_Raw/* -type f \( -name "PC*" -o -name "*raw*" \) -exec mv {} ./1.raw/ \;
+gunzip -r ./1.raw
+```
+
+(@) Rename the files to `<sample>_R1.fastq` and `<sample>_R2.fastq` (the source script adds a missing “R” and shortens names; adapt the patterns to the provider's file names) [TO CONFIRM: general renaming rule].
+
+### 2. Sample sheets
+
+(@) Create the sample sheet (Before you start) and split it into one file per sample with the helper script, placed in the `samplesheets` folder:
+
+```bash
+python3 -i ./samplesheets/ngs_filter.py -s ./samplesheets/samplesheet.txt -o ./samplesheets/
+```
+
+### 3. Merge paired-end reads
+
+(@) Align forward and reverse reads. With these settings, pairs that overlap by less than 10 bp or have less than 80% identity in the overlap are concatenated instead of aligned (`mode` = joined):
+
+```bash
+for SAMPLE_SHEET in ./samplesheets/P*.txt; do
+  SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
+  obipairing --min-identity=0.8 --min-overlap=10 \
+    -F ./1.raw/"${SAMPLE_NAME}"_R1.fastq -R ./1.raw/"${SAMPLE_NAME}"_R2.fastq \
+    > ./2.pairedend/"${SAMPLE_NAME}"_paired.fastq
+done
+```
+
+(@) Remove the unaligned (joined) records:
+
+```bash
+for SAMPLE_SHEET in ./samplesheets/P*.txt; do
+  SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
+  obigrep -p 'annotations.mode != "join"' ./2.pairedend/"${SAMPLE_NAME}"_paired.fastq \
+    > ./2.pairedend/"${SAMPLE_NAME}"_paired.ali.fastq
+done
+```
+
+### 4. Primer removal and sample assignment
+
+(@) Remove primers and annotate each sequence with its sample information, allowing four mismatches in the primers (`-e 4`); unassigned sequences go to a separate file:
+
+```bash
+for SAMPLE_SHEET in ./samplesheets/P*.txt; do
+  SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
+  obimultiplex -t ./samplesheets/"${SAMPLE_NAME}".txt -e 4 \
+    -u ./3.obimultiplex/"${SAMPLE_NAME}"_unidentified.fastq \
+    ./2.pairedend/"${SAMPLE_NAME}"_paired.ali.fastq \
+    > ./3.obimultiplex/"${SAMPLE_NAME}"_paired.ali.assigned.fastq
+done
+```
+
+### 5. Dereplication and singleton removal
+
+(@) Collapse identical reads into exact sequence variants and keep only the `count` and `sample` annotations:
+
+```bash
+for SAMPLE_SHEET in ./samplesheets/P*.txt; do
+  SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
+  obiuniq -O ./3.obimultiplex/"${SAMPLE_NAME}"_paired.ali.assigned.fastq \
+    > ./4.uniq/"${SAMPLE_NAME}"_paired.ali.assigned.uniq.fasta
+  obiannotate -k count -k sample ./4.uniq/"${SAMPLE_NAME}"_paired.ali.assigned.uniq.fasta \
+    > ./5.simplified/"${SAMPLE_NAME}"_paired.ali.assigned.simple.fasta
+done
+```
+
+(@) Record statistics per sample in `10.stats` (sequences after the run; merged reads at the start; singletons) with `obicount`, as in the source script.
+(@) Remove singletons and check that no sequence with count 1 remains:
+
+```bash
+for SAMPLE_SHEET in ./samplesheets/P*.txt; do
+  SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
+  obigrep -p 'sequence.Count() > 1' ./5.simplified/"${SAMPLE_NAME}"_paired.ali.assigned.simple.fasta \
+    > ./6.nosingletons/"${SAMPLE_NAME}"_paired.ali.assigned.simple.nosingle.fasta
+done
+```
+
+### 6. Merge samples and inspect
+
+(@) Concatenate all samples: `cat ./6.nosingletons/*.fasta > all.fasta`.
+(@) In R (ROBIFastread, ggplot2), plot the number of occurrences per variant and the sequence length distribution; the source script marks 10 occurrences and the 400–460 bp range for COI.
+
+### 7. VSEARCH: denoising, chimeras and clustering
+
+(@) Convert the headers to VSEARCH format (`count` → `size`):
+
+```bash
+sed -E '/^>/ s/ \{"count":([0-9]+),\"sample\":\"?([0-9a-zA-Z]+)\"?\}/ count=\1; sample=\2/g' all.fasta > all_sa.fasta
+sed 's/\;\ count=/\;size=/g;s/\ count=/\;size=/g' all_sa.fasta | sed 's/\;\ /\;/g;s/\ /\;/g' > ./8.vsearch/file_vsearch.fasta
+```
+
+(@) Dereplicate across the whole dataset and relabel:
+
+```bash
+vsearch --derep_fulllength ./8.vsearch/file_vsearch.fasta --output ./8.vsearch/file_dereplicate.fasta \
+  --sizein --sizeout --relabel otu --uc 10.stats/dereplicate.txt
+```
+
+(@) Denoise with UNOISE, keeping sequences of the expected length (COI: 400–450 bp; target 418 bp):
+
+```bash
+vsearch --cluster_unoise ./8.vsearch/file_dereplicate.fasta --minseqlength 400 --maxseqlength 450 \
+  --sizein --sizeout --centroids ./8.vsearch/file_centroids.fasta --uc ./10.stats/centroids.txt
+```
+
+(@) Remove chimeras (UCHIME3 de novo; by default a parent must be at least 16 times more abundant than its chimera):
+
+```bash
+vsearch --uchime3_denovo ./8.vsearch/file_centroids.fasta --sizein --notrunclabels --fasta_width 0 \
+  --nonchimeras ./8.vsearch/file_nonchim.fasta --chimeras ./8.vsearch/file_chim.fasta \
+  --uchimeout ./10.stats/chimera.txt
+```
+
+(@) Cluster into OTUs [TO CONFIRM: the source heading says 99% similarity, the command uses `--id 0.96`]:
+
+```bash
+vsearch --cluster_size ./8.vsearch/file_nonchim.fasta --id 0.96 --centroids ./8.vsearch/file_otus.fasta \
+  --sizein --relabel otu -uc ./10.stats/cluster_uc.txt
+```
+
+### 8. LULU curation (erroneous OTUs and NUMTs)
+
+(@) Build the OTU table (OTU frequency per sample) and the match list (pairwise similarity among OTUs):
+
+```bash
+vsearch --usearch_global ./8.vsearch/file_vsearch.fasta -db ./8.vsearch/file_otus.fasta -id .99 \
+  --relabel "sample_#sample" -otutabout ./8.vsearch/file_otutab.tsv
+vsearch --usearch_global ./8.vsearch/file_otus.fasta --db ./8.vsearch/file_otus.fasta --self --id .84 \
+  --iddef 1 --userout ./8.vsearch/file_matchlist.txt -userfields query+target+id --maxaccepts 0 \
+  --query_cov .9 --maxhits 10
+```
+
+(@) Run LULU in R and write the curated table and the curated OTU sequences:
+
+```r
+otutab <- read.delim("./8.vsearch/file_otutab.tsv", row.names = 1, as.is = TRUE, header = TRUE)
+matchlist <- read.delim("./8.vsearch/file_matchlist.txt", header = FALSE, stringsAsFactors = FALSE, as.is = TRUE)
+lulu.output <- lulu(otutab, matchlist, minimum_ratio_type = "min", minimum_ratio = 1,
+                    minimum_match = 84, minimum_relative_cooccurence = 0.95)
+write.table(lulu.output$curated_table, file = "./9.lulu/otutable_curated.tsv", sep = "\t")
+otufasta <- read.fasta(file = "./8.vsearch/file_otus.fasta")
+otu.curated <- otufasta[which(names(otufasta) %in% lulu.output$curated_otus)]
+write.fasta(otu.curated, names(otu.curated), file.out = "./9.lulu/curated_OTUs.fasta", nbchar = 500)
+```
+
+(@) Copy the curated OTU table to `reports`: `cp ./9.lulu/otutable_curated.tsv ./reports/otutable_curated.txt`.
+
+### 9. Taxonomic assignment (BOLDigger3)
+
+(@) Identify the curated OTUs against the local BOLD database:
+
+```bash
+boldigger3 identify ./9.lulu/curated_OTUs.fasta ~/Bold_db --db 3 --mode 1 --thresholds 95 90 85 80
+```
+
+## Calculations
+
+Not applicable.
+
+## Quality control
+
+| Check | Where | Acceptance criterion |
+|:--|:--|:--|
+| Reads per sample after merging and filtering | `10.stats` | [TO CONFIRM: minimum reads per sample] |
+| Singletons removed | `6.nosingletons` | No sequence with count 1 |
+| Length distribution | R plot (step 6) | Main peak within 400–460 bp (COI) |
+| Negative controls (extraction blanks, PCR negatives) | OTU table | [TO CONFIRM: how contaminant reads are removed] |
+| Mock community (if sequenced) | OTU table | [TO CONFIRM] |
+
+## Data and metadata
+
+- **Outputs:** `reports/otutable_curated.txt` (curated OTU table), `9.lulu/curated_OTUs.fasta`, BOLDigger3 identification table, per-step statistics in `10.stats`.
+- **Code:** the source script is kept with the protocol sources; it is to be added to this repository (`code/`) once personal paths are removed [TO CONFIRM].
+- **Where:** project data folder [TO CONFIRM]; raw reads deposited in [TO CONFIRM: public archive].
+
+::: {.callout-note title="Minimum to record"}
+- Run and sample sheet used; sequencing run ID
+- Software versions (OBITools4, VSEARCH, R and packages, BOLDigger3) and BOLD database download date
+- All non-default parameters (as in this protocol)
+- Reads per sample at each step (`10.stats`)
+:::
+
+## Safety and waste
+
+Not applicable (computational protocol).
+
+## Troubleshooting
+
+| Problem | Likely cause | Solution |
+|:--|:--|:--|
+| Many reads in `_unidentified.fastq` | Primers or sample sheet do not match the reads | Check primer sequences and tags in the sample sheet. |
+| Many joined (unaligned) pairs | Amplicon longer than the combined reads (e.g. long 18S amplicons) | Check marker length against the read length (EnGeL-MOLB-MB, Primer table). |
+| Sequences with count 1 after step 5 | Singleton filter not applied | Re-run the `obigrep -p 'sequence.Count() > 1'` step. |
+
+## Remarks
+
+Parameters are written for COI (BF3/BR2; amplicon 458 bp with primers, target 418 bp). The source script also mentions primers III_B_F/Fol-degen-rev (464 bp) with the same length filter. Over-denoising can remove true variability and under-denoising keeps erroneous OTUs; denoising settings were developed for bacterial 16S and need care for COI.
+
+## References
+
+[TO CONFIRM: OBITools4, VSEARCH, UNOISE, UCHIME3, LULU and BOLDigger3 references.]
+
+Elbrecht, V., Braukmann, T.W.A., Ivanova, N.V., et al. (2019). Validation of COI metabarcoding primers for terrestrial arthropods. PeerJ, 7, e7745. <https://doi.org/10.7717/peerj.7745>
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. Software versions (OBITools4, VSEARCH, R and packages, BOLDigger3); BOLD database version or date.
+2. Clustering identity: 99% (heading) or 0.96 (command)?
+3. Parameters for 18S (nematodes): length filter, clustering, reference database.
+4. Source and location of `ngs_filter.py`; general file-renaming rule.
+5. How negative controls are used to remove contaminants; minimum reads per sample.
+6. Add the script (without personal paths) to the repository under `code/`? Licence MIT.
+7. Where outputs are kept; public archive for raw reads.
+8. References for the tools; DOI.

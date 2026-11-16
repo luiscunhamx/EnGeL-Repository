@@ -1,0 +1,251 @@
+---
+title: "Total RNA extraction with TRIzol and spin-column clean-up (honey bees; isopod hepatopancreas)"
+short-title: "Total RNA extraction (TRIzol)"
+protocol-id: EnGeL-MOLB-RNA
+version: 1.0.0
+date: 2026-11-16
+status: draft
+area: Molecular biology (MOLB)
+author:
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+contributors:
+  - "FFR (author of the bee protocol) [TO CONFIRM: full name and ORCID]"
+reviewed-by: Luís Cunha
+contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
+license: CC BY 4.0
+protocol-doi: "[TO CONFIRM]"
+hazards:
+  - "TRIzol (phenol, guanidine isothiocyanate): toxic and corrosive [TO CONFIRM against the SDS]"
+  - "Chloroform: harmful, suspected carcinogen [TO CONFIRM against the SDS]"
+  - "Ethanol: flammable"
+equipment:
+  - "Refrigerated microcentrifuge (4 °C; ≥ 15 000 × g)"
+  - "Bead-beating homogeniser (6.5 m/s) [TO CONFIRM: model] — bees"
+  - "Mechanical tissue homogeniser [TO CONFIRM: model] — isopod hepatopancreas"
+  - "Fume hood [TO CONFIRM: used for TRIzol and chloroform]"
+  - "Freezer (−20 °C) for pre-cooling 70% ethanol"
+  - "NanoDrop spectrophotometer — see EnGeL-MOLB-NAQC"
+consumables:
+  - "Tubes with beads (bees) [TO CONFIRM: type]"
+  - "RNase-free 1.5 mL microtubes and filter tips"
+  - "Spin columns and collection tubes (in the kits)"
+reagents:
+  - text: "TRIzol reagent [TO CONFIRM: supplier and catalogue number]"
+    name: "TRIzol"
+  - text: "Chloroform"
+    name: "chloroform"
+  - text: "Ethanol 70% (pre-cooled in the freezer) and ethanol 100%"
+    name: "70% ethanol"
+  - text: "RNase-free water"
+    name: "RNase-free water"
+  - text: "Bees: NZY Total RNA Isolation kit (NZYtech, MB134) [TO CONFIRM: kit identity], containing:"
+    components:
+      - text: "Buffer NI"
+        name: "NI"
+      - text: "Buffer DI"
+        name: "DI"
+      - text: "DNase I"
+        name: "DNase I"
+      - text: "Buffer NWR1"
+        name: "NWR1"
+      - text: "Buffer NWR2"
+        name: "NWR2"
+  - text: "Isopod hepatopancreas: Qiagen RNeasy-type columns with Buffers RW1 and RPE [TO CONFIRM: kit identity], containing:"
+    components:
+      - text: "Buffer RW1"
+        name: "RW1"
+      - text: "Buffer RPE"
+        name: "RPE"
+bench-lots:
+  - "TRIzol lot"
+  - "RNA column kit lot"
+version-history:
+  - version: 1.0.0
+    date: 2026-11-16
+    change: "First EnGeL-UC version, translated from the lab protocols “Protocolo para a extração do RNA total” for honey bees (FFR, 2026) and for isopod hepatopancreas (2020)."
+    by: "Luís Cunha"
+---
+
+## Purpose and scope
+
+This protocol extracts total RNA from whole honey bees and from isopod hepatopancreas, for gene expression and other RNA-based analyses. Both sample types use TRIzol homogenisation and chloroform phase separation; the aqueous phase is then cleaned on a spin column. The two source protocols use different column kits, so the clean-up is given separately for each sample type (A: bees; B: isopod hepatopancreas). Other sample types need validation.
+
+## Principle
+
+TRIzol (phenol and guanidine isothiocyanate) lyses the tissue and keeps RNA intact. After chloroform is added and the sample is centrifuged, the mixture separates into a pink organic phase at the bottom, a white interphase and a colourless aqueous phase at the top, which contains the RNA. The aqueous phase is mixed with cold 70% ethanol and bound to a silica column; the column is washed (bees: with on-column DNase digestion), dried, and RNA is eluted in RNase-free water.
+
+## Before you start
+
+| Item | Details |
+|:--|:--|
+| Hands-on time | [TO CONFIRM] |
+| Sample | A: one whole bee per tube. B: one hepatopancreas per tube [TO CONFIRM: amount]. Storage before extraction [TO CONFIRM]. |
+| Prepare in advance | Centrifuge at 4 °C; 70% ethanol pre-cooled in the freezer; bees: DNase digestion mix prepared just before use |
+| RNA work | Change gloves at the points marked in the procedure; use RNase-free tubes and filter tips [TO CONFIRM: other RNase precautions] |
+| Key safety points | TRIzol and chloroform: see Safety and waste |
+
+## Materials
+
+### Equipment
+
+::: {.engel-equipment}
+:::
+
+### Consumables
+
+::: {.engel-consumables}
+:::
+
+### Reagents and kits
+
+::: {.engel-reagents}
+:::
+
+## Reagent preparation
+
+- **Ethanol 70%:** pre-cooled in the freezer [TO CONFIRM: preparation with RNase-free water].
+- **DNase digestion mix (bees):** per sample, 90 µL Buffer DI + 10 µL DNase I; prepare during step A.
+- **Kit buffers:** prepare as stated on the bottles (e.g. ethanol added to wash buffers) [TO CONFIRM].
+
+**Differences between the two sample types**
+
+<!-- bench -->
+**Sample-type settings.**
+
+| Step | A. Bees | B. Isopod hepatopancreas |
+|:--|:--|:--|
+| TRIzol | 300–500 µL | 300 µL |
+| Homogenisation | Bead beating 6.5 m/s, 2 × 30 s | Mechanical homogeniser; then 5 min at room temperature |
+| Chloroform | 200 µL, mix by pipetting | 150 µL, vortex |
+| Phase separation | 14 000 × g, 15 min, 4 °C | 15 000 × g, 15 min, 4 °C |
+| Cold 70% ethanol | 350 µL | 250 µL |
+| Column kit | NZY Total RNA (NI, DNase, NWR1, NWR2) | RNeasy-type (RW1, RPE) |
+
+## Procedure
+
+### Before starting
+
+- Set the centrifuge to 4 °C.
+- Clean the bench and work with RNase-free tubes and filter tips [TO CONFIRM].
+
+### A. Honey bees
+
+(@) Put 300–500 µL of TRIzol and the bee in a tube with beads.
+(@) Homogenise in the bead-beating machine at 6.5 m/s for 30 s, twice.
+(@) Centrifuge at 4 000 × g for 3 min at 4 °C.
+(@) Transfer the liquid to a new tube for the chloroform step [TO CONFIRM: volume transferred].
+(@) Add 200 µL of chloroform and mix well by pipetting.
+(@) Incubate for 3 min at room temperature.
+(@) Centrifuge at 14 000 × g for 15 min at 4 °C. Three phases form (pink at the bottom, a white layer in the middle and a colourless supernatant on top); take as much of the upper phase as possible.
+(@) Add the upper phase to 350 µL of cold 70% ethanol and pipette up and down.
+(@) Change gloves.
+(@) Transfer to the (blue) column and centrifuge at 11 000 × g for 30 s. If needed, load the sample in portions of 500 µL. Discard the flow-through.
+(@) Add 350 µL of Buffer NI and centrifuge at 11 000 × g for 30 s. Discard the flow-through.
+(@) Prepare the DNase digestion mix (90 µL DI + 10 µL DNase I per sample). Add 95 µL to the column and incubate for 15 min at room temperature.
+(@) Add 200 µL of Buffer NWR1, centrifuge at 11 000 × g for 1 min and discard the flow-through.
+(@) Add 600 µL of Buffer NWR2, centrifuge at 11 000 × g for 1 min and discard the flow-through.
+(@) Add 250 µL of Buffer NWR2, centrifuge at 11 000 × g for 1 min and discard the flow-through.
+(@) Place the column in a new microtube and centrifuge at 11 000 × g for 2 min to remove residual buffer.
+(@) Place the column in a new microtube, add 20 µL of RNase-free water to the column and wait 1 min.
+(@) Change gloves. Centrifuge at 11 000 × g for 1 min: the eluate is sample 1.
+(@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 11 000 × g for 1 min: the eluate is sample 2.
+(@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NAQC).
+
+### B. Isopod hepatopancreas
+
+(@) Homogenise the hepatopancreas in 300 µL of TRIzol in a mechanical homogeniser.
+(@) Incubate for 5 min at room temperature.
+(@) Add 150 µL of chloroform and vortex well.
+(@) Incubate for 3 min at room temperature.
+(@) Centrifuge at 15 000 × g for 15 min at 4 °C. Three phases form (pink at the bottom, a white layer in the middle and a colourless supernatant on top); take as much of the upper phase as possible.
+(@) Add the upper phase to 250 µL of cold 70% ethanol and pipette up and down.
+(@) Transfer to the column and centrifuge at 10 000 rpm [TO CONFIRM: rotor or × g] for 10 s. If needed, load in portions of 500 µL. Discard the flow-through.
+(@) Add 700 µL of 100% ethanol and centrifuge at 10 000 rpm for 15 s [TO CONFIRM: this step is not part of the standard RNeasy procedure]. Discard the flow-through.
+(@) Add 700 µL of Buffer RW1 and centrifuge at 10 000 rpm for 15 s. Discard the flow-through.
+(@) Add 500 µL of Buffer RPE and centrifuge at 10 000 rpm for 15 s. Discard the flow-through.
+(@) Add 500 µL of Buffer RPE and centrifuge at 10 000 rpm for 3 min. Discard the flow-through.
+(@) Place the column in a new microtube and centrifuge at 16 000 rpm for 2 min to remove residual buffer.
+(@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 10 000 rpm for 15 s: the eluate is sample 1.
+(@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 10 000 rpm for 15 s: the eluate is sample 2.
+(@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NAQC).
+
+### RNA storage
+
+(@) Store the RNA at [TO CONFIRM: −80 °C?] until use.
+
+### After finishing
+
+{{< include ../../includes/_before-you-leave.qmd >}}
+
+## Calculations
+
+Not applicable: volumes are per sample. For $n$ samples, prepare $V = v \times n \times 1.1$ of each solution ($v$: volume per sample, µL; 1.1: 10% excess).
+
+## Quality control
+
+| Control | Purpose | Acceptance criterion |
+|:--|:--|:--|
+| RNA purity (NanoDrop A~260~/A~280~, A~260~/A~230~) | Protein, phenol or salt carry-over | [TO CONFIRM] |
+| RNA concentration | Enough RNA for downstream use | [TO CONFIRM] |
+| RNA integrity | Degradation | [TO CONFIRM: e.g. TapeStation RNA ScreenTape, used in the lab?] |
+| Extraction blank | Contamination | [TO CONFIRM: used?] |
+
+## Data and metadata
+
+- **Sample labels:** EnGeL labels from the sample master data file; each RNA extract gets its own code (sample nature `RNA`), with the source sample code in a separate column. Sample 1 and sample 2 (two elutions) are recorded separately [TO CONFIRM: or pooled].
+- **Where:** [TO CONFIRM: project records] and the lab book.
+
+::: {.callout-note title="Minimum to record"}
+- EnGeL labels of the source sample and of each eluate
+- Sample type (A or B); extraction date; operator; TRIzol and column-kit lot numbers
+- Concentration, A~260~/A~280~ and A~260~/A~230~ of each eluate
+:::
+
+## Safety and waste
+
+{{< include ../../includes/_safety-general.qmd >}}
+
+- TRIzol contains phenol and guanidine isothiocyanate: toxic and corrosive; avoid skin contact and inhalation [TO CONFIRM against the SDS; work in the fume hood?].
+- Chloroform: harmful if inhaled or swallowed; suspected carcinogen [TO CONFIRM against the SDS].
+{{< include ../../includes/_safety-guanidine.qmd >}}
+{{< include ../../includes/_safety-ethanol.qmd >}}
+
+**Waste**
+
+{{< include ../../includes/_waste-streams.qmd >}}
+
+For this protocol: the organic phase and interphase (TRIzol, chloroform) [TO CONFIRM: waste route; halogenated solvent waste is not one of the three EnGeL streams]; column flow-through to biological liquid waste (jerrican), never with bleach; tubes, columns and tips to biological solid waste (black bin).
+
+## Troubleshooting
+
+| Problem | Likely cause | Solution |
+|:--|:--|:--|
+| Sample does not fit the column | Large aqueous phase + ethanol volume | Load in portions of 500 µL. |
+| Low A~260~/A~230~ | Carry-over of TRIzol or salts | [TO CONFIRM] |
+| Genomic DNA in the RNA (isopods) | No DNase step in path B | [TO CONFIRM: add on-column DNase?] |
+
+## Remarks
+
+The source protocols are in Portuguese; this version is a translation that keeps their steps and values. The Roslin SOP for RNA isolation from frozen tissue is in the source folder for reference.
+
+## References
+
+[TO CONFIRM: TRIzol reagent user guide; NZY Total RNA Isolation kit manual; RNeasy handbook.]
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. Author “FFR” of the bee protocol (full name, ORCID); author of the isopod protocol; DOI.
+2. Kit identities: bees — NZY Total RNA Isolation kit (NI, DI, DNase I, NWR1, NWR2)? Isopods — Qiagen RNeasy (RW1, RPE)? Catalogue numbers.
+3. Isopod path: centrifugation given in rpm (10 000 and 16 000 rpm) — rotor or × g? Is the 100% ethanol wash intended?
+4. Bees: volume transferred to the new tube before chloroform; bead tube type and bead-beater model.
+5. Sample storage before extraction; RNA storage temperature; sample 1 and 2 kept separate or pooled?
+6. RNase precautions; fume hood for TRIzol and chloroform.
+7. QC acceptance criteria (purity, concentration, integrity); extraction blanks.
+8. Waste route for the TRIzol/chloroform organic phase.
+9. Hands-on and total time.

@@ -1,0 +1,14 @@
+On the *Results* sheet of the exported file, use the **Quantity Mean** (pM) reported for each dilution:
+
+$$c_\mathrm{lib} = \frac{Q \times \dfrac{452}{L} \times D}{1000}$$
+
+- $c_\mathrm{lib}$: library concentration (nM)
+- $Q$: Quantity Mean reported by the software for that dilution (pM)
+- 452: size of the kit DNA standard (bp)
+- $L$: average fragment size of the library (bp), from the TapeStation
+- $D$: dilution factor (e.g. 20 000; dimensionless)
+- 1000: conversion from pM to nM
+
+Calculate $c_\mathrm{lib}$ for each valid dilution, then average them.
+
+**Worked example** (illustrative values): Quantity Mean 1.5 pM at 1:20 000, library size 595 bp: 1.5 × (452 / 595) × 20 000 / 1000 = 22.8 nM.

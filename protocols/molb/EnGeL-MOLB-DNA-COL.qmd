@@ -1,0 +1,217 @@
+---
+title: "DNA extraction from soil microarthropods with spin columns (NZY Tissue gDNA Isolation Kit)"
+short-title: "DNA extraction, spin columns (NZY Tissue)"
+protocol-id: EnGeL-MOLB-DNA-COL
+version: 1.0.0
+date: 2026-11-16
+status: draft
+area: Molecular biology (MOLB)
+author:
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+reviewed-by: Luís Cunha
+contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
+license: CC BY 4.0
+protocol-doi: "[TO CONFIRM]"
+hazards:
+  - "Kit lysis and wash buffers may contain chaotropic salts: never mix with bleach [TO CONFIRM against the NZY SDS]"
+  - "Ethanol: flammable"
+  - "Proteinase K: respiratory sensitiser"
+equipment:
+  - "IR vacuum concentrator: N-Biotek Micro-CenVac NB-503CIR with rotor NB-503-1524 (24 × 1.5 mL tubes)"
+  - "ThermoMixer or equivalent heated shaker (56 °C, 400 rpm)"
+  - "Microcentrifuge (≥ 14 000 × g)"
+  - "Bead-beating homogeniser [TO CONFIRM: model and settings] or pestles for manual homogenisation"
+  - "Vortex mixer"
+  - "Heat block at 70 °C (elution buffer)"
+  - "Spectrophotometer (e.g. NanoDrop) and fluorometer (e.g. Qubit) — see EnGeL-MOLB-NAQC"
+consumables:
+  - "1.5 mL and 2 mL microcentrifuge tubes"
+  - "NZYSpin Tissue columns and 2 mL collection tubes (in the kit)"
+  - "Corundum sand and ceramic beads (bead homogenisation)"
+  - "Filter tips; wide-bore tips (or regular tips with the end cut off) for ethanol removal"
+reagents:
+  - text: "NZY Tissue gDNA Isolation Kit (NZYtech, Cat. No. MB135 [TO CONFIRM: MB13502 or MB13503]), containing:"
+    components:
+      - text: "Buffer NT1"
+        name: "NT1"
+      - text: "Proteinase K"
+        name: "Proteinase K"
+      - text: "Buffer NL"
+        name: "NL"
+      - text: "Buffer NW1"
+        name: "NW1"
+      - text: "Buffer NW2 (add ethanol before first use)"
+        name: "NW2"
+      - text: "Buffer NE"
+        name: "NE"
+  - text: "RNase A (optional) [TO CONFIRM: supplier and concentration]"
+    name: "RNase A"
+  - text: "Ethanol, 96–100% (binding step; NW2 preparation)"
+    name: "96–100% ethanol"
+bench-lots:
+  - "NZY Tissue gDNA Isolation Kit lot"
+  - "RNase A lot (if used)"
+version-history:
+  - version: 1.0.0
+    date: 2026-11-16
+    change: "First EnGeL-UC version, from the lab protocol “DNA Extraction Protocol for Soil Microarthropods” (NZY Tissue gDNA Isolation Kit, 2026-07). Ethanol removal aligned with EnGeL-MOLB-DNA-MAG (decided 2026-11-06)."
+    by: "Luís Cunha"
+---
+
+## Purpose and scope
+
+This protocol extracts genomic DNA from soil microarthropods preserved in 96% ethanol, using spin columns (NZY Tissue gDNA Isolation Kit). It is the manual alternative to the robot extraction (EnGeL-MOLB-DNA-MAG), for smaller batches. Specimens are homogenised, so the method is destructive: specimens cannot be archived afterwards. Two homogenisation options are given: manual pestle grinding and mechanical bead beating.
+
+## Principle
+
+Ethanol is removed by centrifugation, pipetting and evaporation. Specimens are homogenised and digested with Proteinase K in Buffer NT1. After lysis, Buffer NL and ethanol adjust the conditions so that DNA binds to the silica membrane of a spin column. Two wash buffers remove contaminants, the membrane is dried, and DNA is eluted in preheated Buffer NE (NZYtech, NZY Tissue gDNA Isolation Kit).
+
+## Before you start
+
+| Item | Details |
+|:--|:--|
+| Hands-on time | [TO CONFIRM] |
+| Total time | [TO CONFIRM]. Fixed times: ethanol evaporation 15 min per concentrator load; lysis 1 h 30 min. |
+| Sample amount | [TO CONFIRM: maximum amount per column] |
+| Sample condition | Microarthropods in 96% ethanol, usually at room temperature |
+| Prepare in advance | Ethanol added to Buffer NW2; ThermoMixer at 56 °C; Buffer NE at 70 °C; bench cleaned and UV on |
+| Key safety points | See Safety and waste |
+
+## Materials
+
+### Equipment
+
+::: {.engel-equipment}
+:::
+
+### Consumables
+
+::: {.engel-consumables}
+:::
+
+### Reagents and kits
+
+::: {.engel-reagents}
+:::
+
+## Reagent preparation
+
+- **Buffer NW2:** add ethanol before first use, as stated on the bottle [TO CONFIRM: volume for the kit size].
+- **Buffer NE:** preheat to 70 °C before elution.
+
+## Procedure
+
+### Before starting
+
+{{< include ../../includes/_contamination-control.qmd >}}
+- Include extraction blanks (no specimens) processed exactly like the samples [TO CONFIRM: number per batch].
+- Record each sample's EnGeL label in the lab book and the Lab Pipeline workbook.
+
+### Ethanol removal
+
+{{< include ../../includes/_ethanol-removal.qmd >}}
+
+### Homogenisation and lysis
+
+(@) Add 180 µL of Buffer NT1 to each tube containing the dried microarthropods.
+(@) Homogenise the specimens [TO CONFIRM: steps for both options]: (a) manual grinding with a pestle in the tube; or (b) bead beating with corundum sand and ceramic beads [TO CONFIRM: amounts, instrument, speed and time].
+(@) Add 25 µL of Proteinase K to each tube.
+(@) Incubate in a ThermoMixer at 56 °C with 400 rpm for 1 h 30 min.
+(@) Optional (RNA removal): add 10 µL of RNase A, mix gently and incubate at room temperature for 5 min.
+
+### DNA purification
+
+(@) Add 200 µL of Buffer NL to each sample. Vortex for 10 s.
+(@) Add 210 µL of 96–100% ethanol. Vortex immediately.
+(@) Transfer the mixture to an NZYSpin Tissue column placed in a 2 mL collection tube. Centrifuge at > 11 000 × g for 1 min. Discard the flow-through and place the column in a new collection tube.
+(@) First wash: add 500 µL of Buffer NW1. Centrifuge at > 11 000 × g for 1 min. Discard the flow-through.
+(@) Second wash: add 600 µL of Buffer NW2 (ethanol added). Centrifuge at > 11 000 × g for 1 min. Discard the flow-through.
+(@) Optional, for samples with high inhibitor content: repeat the wash with another 600 µL of Buffer NW2.
+(@) Dry the membrane: place the column back in the collection tube and centrifuge at > 14 000 × g for 3 min.
+(@) Transfer the column to a clean 1.5 mL tube. Add 40 µL of Buffer NE (preheated to 70 °C) to the centre of the membrane.
+(@) Incubate at room temperature for 1 min, then centrifuge at 11 000 × g for 2 min to elute the DNA.
+
+### DNA storage and quality assessment
+
+{{< include ../../includes/_dna-storage-qc.qmd >}}
+
+### After finishing
+
+{{< include ../../includes/_before-you-leave.qmd >}}
+
+## Calculations
+
+Not applicable: volumes are per sample. For a batch of $n$ samples, prepare $V = v \times n \times 1.1$ of each buffer ($v$: volume per sample, µL; 1.1: 10% excess).
+
+## Quality control
+
+| Control | Where | Purpose | Acceptance criterion |
+|:--|:--|:--|:--|
+| Extraction blanks | Each batch [TO CONFIRM: number] | Detect contamination | [TO CONFIRM] |
+| Extraction positive control (mock community) | When establishing a new starting material or community | Check extraction performance | [TO CONFIRM: composition and criterion] |
+| DNA purity | All extracts | A~260~/A~280~, A~260~/A~230~ (EnGeL-MOLB-NAQC) | [TO CONFIRM] |
+| DNA concentration | All extracts | Fluorometry (EnGeL-MOLB-NAQC) | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; between 5 and 10 ng/µL the PCR result decides |
+
+The PCR is the best way to evaluate whether the DNA in a sample is viable.
+
+## Data and metadata
+
+- **Sample labels:** EnGeL labels from the sample master data file; each DNA extract gets its own code (sample nature `DNA`), with the source sample code kept in a separate column.
+- **Where:** the *Sample_Tracking* sheet of the Metabarcoding Lab Pipeline workbook and the lab book.
+
+::: {.callout-note title="Minimum to record"}
+- EnGeL sample label of the source sample and of the extract
+- Extraction date, operator, homogenisation option used (pestle or bead beating)
+- Kit lot number; RNase A lot (if used); deviations (extra NW2 wash, split sample)
+- As in the Lab Pipeline *Sample_Tracking* sheet: Extraction_pipeline, Extraction_date, Equipment, DNA_ngul, A260/280, A260/230, Elution_vol_ul, DNA_total_ng
+:::
+
+## Safety and waste
+
+{{< include ../../includes/_safety-general.qmd >}}
+
+**Kit hazards** (to be confirmed by the laboratory against the NZYtech SDS):
+
+{{< include ../../includes/_safety-guanidine.qmd >}}
+- Proteinase K may cause allergy or asthma symptoms if inhaled.
+{{< include ../../includes/_safety-ethanol.qmd >}}
+
+**Waste**
+
+{{< include ../../includes/_waste-streams.qmd >}}
+
+For this protocol: flow-through from the columns goes to biological liquid waste (jerrican), never with bleach; used columns, tubes and tips go to biological solid waste (black bin); unused or expired kit reagents go to the red bin.
+
+## Troubleshooting
+
+| Problem | Likely cause | Solution |
+|:--|:--|:--|
+| Specimens aspirated with the ethanol | Narrow tip opening | Use wide-bore tips or cut off the tip of regular tips. |
+| PCR inhibition | Residual ethanol, or inhibitors in the sample | Ensure complete ethanol removal; use the optional extra NW2 wash. |
+| Low DNA yield | Incomplete homogenisation or lysis | [TO CONFIRM] |
+| Column blocked | Too much material | [TO CONFIRM: maximum input; split the sample] |
+
+## Remarks
+
+The source protocol dried the specimens in a ThermoMixer (56 °C, 400 rpm, up to 1 h) after centrifuging at 10 000 × g; this version uses the ethanol removal of EnGeL-MOLB-DNA-MAG (decided 2026-11-06). The NZYtech insect support protocol homogenises up to 50 mg of insects under liquid nitrogen; this is an option to consider for the homogenisation step [TO CONFIRM].
+
+## References
+
+NZYtech (2019). NZY Tissue gDNA Isolation kit – Support protocol for isolating genomic DNA from insects (MB135, v1901).
+
+NZYtech (n.d.). NZY Tissue gDNA Isolation kit – manual [TO CONFIRM: version].
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. Authors of the source protocol; ORCIDs; DOI.
+2. Homogenisation steps: pestle (when, how long) and bead beating (instrument, amount of corundum sand and beads, speed, time). Liquid nitrogen as in the NZYtech insect protocol?
+3. Kit catalogue number (MB13502 or MB13503); ethanol volume for Buffer NW2; RNase A supplier and concentration.
+4. Number of extraction blanks per batch; acceptance criteria for blanks and purity; positive control composition.
+5. Hands-on and total time; maximum sample amount per column.
+6. Troubleshooting for low yield and blocked columns.

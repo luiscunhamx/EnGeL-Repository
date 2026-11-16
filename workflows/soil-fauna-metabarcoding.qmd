@@ -2,26 +2,32 @@
 title: "Workflow: soil fauna metabarcoding"
 ---
 
-From soil sample to sequence data. Each box is a protocol; dashed boxes are planned and not yet written.
+From soil sample to sequence data. Each box is a protocol; click a box or a row to open it.
 
 ```{mermaid}
 flowchart LR
-  A["Sampling, MacFadyen extraction and sorting of microarthropods<br/>(planned)"]:::planned --> B["DNA extraction, magnetic beads<br/>EnGeL-MOLB-DNA-MAG"]
-  B --> C["Nucleic acid QC<br/>EnGeL-MOLB-NAQC (planned)"]:::planned
-  C --> D["Metabarcoding library preparation<br/>EnGeL-MOLB-MB (planned)"]:::planned
-  D --> E["Library quantification<br/>EnGeL-MOLB-KAPA (planned)"]:::planned
-  E --> F["Sequencing submission (planned)"]:::planned
-  F --> G["Bioinformatics<br/>EnGeL-BIOINF-OBITOOLS4 (planned)"]:::planned
+  A["Sampling, MacFadyen extraction, sorting<br/>EnGeL-FAUNA-MAR-MORPH"] --> B["DNA extraction<br/>EnGeL-MOLB-DNA-MAG (robot)<br/>or EnGeL-MOLB-DNA-COL (columns)"]
+  B --> C["Nucleic acid QC<br/>EnGeL-MOLB-NAQC"]
+  C --> D["Library preparation<br/>EnGeL-MOLB-MB"]
+  D --> E["Library quantification<br/>EnGeL-MOLB-KAPA"]
+  E --> F["Sequencing submission<br/>(Lab Pipeline workbook)"]
+  F --> G["Bioinformatics<br/>EnGeL-BIOINF-OBITOOLS4"]
+  click A "../protocols/fauna/EnGeL-FAUNA-MAR-MORPH.html"
   click B "../protocols/molb/EnGeL-MOLB-DNA-MAG.html"
-  classDef planned stroke-dasharray: 5 5
+  click C "../protocols/molb/EnGeL-MOLB-NAQC.html"
+  click D "../protocols/molb/EnGeL-MOLB-MB.html"
+  click E "../protocols/molb/EnGeL-MOLB-KAPA.html"
+  click G "../protocols/bioinf/EnGeL-BIOINF-OBITOOLS4.html"
 ```
 
 | Step | Protocol | Status |
 |:--|:--|:--|
-| 1. Sampling, MacFadyen extraction, sorting | MacFadyen extraction and morphological identification of soil microarthropods (ID to confirm) | planned |
-| 2. DNA extraction | [EnGeL-MOLB-DNA-MAG](../protocols/molb/EnGeL-MOLB-DNA-MAG.qmd) (magnetic beads) or EnGeL-MOLB-DNA-COL (spin columns, planned) | draft |
-| 3. DNA quality control | EnGeL-MOLB-NAQC | planned |
-| 4. Library preparation | EnGeL-MOLB-MB | planned |
-| 5. Library quantification | EnGeL-MOLB-KAPA | planned |
-| 6. Sequencing submission | – | planned |
-| 7. Bioinformatics | EnGeL-BIOINF-OBITOOLS4 (OBITools4) | planned |
+| 1. Sampling, MacFadyen extraction, sorting | [EnGeL-FAUNA-MAR-MORPH](../protocols/fauna/EnGeL-FAUNA-MAR-MORPH.qmd) | draft |
+| 2. DNA extraction | [EnGeL-MOLB-DNA-MAG](../protocols/molb/EnGeL-MOLB-DNA-MAG.qmd) (magnetic beads) or [EnGeL-MOLB-DNA-COL](../protocols/molb/EnGeL-MOLB-DNA-COL.qmd) (spin columns) | draft |
+| 3. DNA quality control | [EnGeL-MOLB-NAQC](../protocols/molb/EnGeL-MOLB-NAQC.qmd) | draft |
+| 4. Library preparation | [EnGeL-MOLB-MB](../protocols/molb/EnGeL-MOLB-MB.qmd) | draft |
+| 5. Library quantification | [EnGeL-MOLB-KAPA](../protocols/molb/EnGeL-MOLB-KAPA.qmd) (also inside EnGeL-MOLB-MB) | draft |
+| 6. Sequencing submission | *Novogene_Submission* sheet of the Lab Pipeline workbook (see EnGeL-MOLB-MB) | – |
+| 7. Bioinformatics | [EnGeL-BIOINF-OBITOOLS4](../protocols/bioinf/EnGeL-BIOINF-OBITOOLS4.qmd) | draft |
+
+Other protocols: [EnGeL-MOLB-DNA-BARC](../protocols/molb/EnGeL-MOLB-DNA-BARC.qmd) (single specimens for barcoding), [EnGeL-MOLB-DNA-BEE](../protocols/molb/EnGeL-MOLB-DNA-BEE.qmd) (honey bee guts), [EnGeL-MOLB-RNA](../protocols/molb/EnGeL-MOLB-RNA.qmd) (total RNA).

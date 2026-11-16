@@ -12,8 +12,8 @@ SECTIONS = ['Purpose and scope', 'Principle', 'Before you start', 'Materials', '
             'Calculations', 'Quality control', 'Data and metadata', 'Safety and waste', 'Troubleshooting', 'Remarks',
             'References', 'Version history and citation']
 REQUIRED = ['title', 'protocol-id', 'version', 'date', 'status', 'area', 'author', 'license', 'hazards', 'equipment', 'reagents', 'version-history']
-UNITS = r'(?:µL|mL|L|nL|°C|min|h|s|× g|x g|rpm|%|mm|cm|m|nm|µm|ng|µg|mg|g|kg|M|mM|µM|nM|pM|bp|kb|U|V|W|mbar|Pa|ng/µL|µg/mL|mg/mL|×)'
-NOUNS = r'(?:samples?|wells?|tubes?|plates?|blanks?|times|extractions?|preps|loads?|columns?|rows?|positions?|washes|steps?|individuals|specimens|runs?|days?|weeks?|months?|years?|reactions?)'
+UNITS = r'(?:cm³|cm²|m²|m³|µL|mL|L|nL|°C|min|h|s|× g|x g|rpm|%|mm|cm|m|nm|µm|ng|µg|mg|g|kg|M|mM|µM|nM|pM|bp|kb|U|V|W|mbar|Pa|ng/µL|µg/mL|mg/mL|×)'
+NOUNS = r'(?:samples?|wells?|tubes?|plates?|blanks?|times|extractions?|preps|loads?|columns?|rows?|positions?|washes|steps?|individuals|specimens|runs?|days?|weeks?|months?|years?|reactions?|legs?|cycles?|bees?|groups?|copies|replicates?|ul|µl|occurrences?|mismatch(es)?|times?)'
 EMAIL = re.compile(r'[\w.+-]+@[\w-]+\.[\w.-]+')
 ALLOWED_EMAILS = set(l.strip() for l in open('data/allowed_emails.txt', encoding='utf-8') if l.strip() and not l.startswith('#')) if os.path.exists('data/allowed_emails.txt') else set()
 
@@ -72,12 +72,18 @@ for path in sorted(glob.glob('protocols/**/*.qmd', recursive=True)):
     known = ' '.join(names(meta)).lower()
     for b in set(re.findall(r'\b([A-Z][\w®-]*(?: [A-Z][\w®-]*)? Buffer)\b', work)):
         if b.lower() not in known: warn(path, f'used in procedure but not listed under Materials: {b}')
-    proc = section(body, 'Procedure')
+    proc = re.sub(r'```.*?```', '', section(body, 'Procedure'), flags=re.S)   # code blocks are not checked for units
     for line in proc.split('\n'):
         if line.startswith('|') or line.startswith('```'): continue
-        clean = re.sub(r'\[TO CONFIRM[^\]]*\]', '', line)
-        for m in re.finditer(r'(?<![\w.~-])(?<!Annex )(?<!Section )(?<!step )(\d+(?:[.,]\d+)?(?: \d{3})*)(?![\w.-])(?!\s*(?:–|-|to)\s*\d)\s*(\S*)', clean):
+        clean = re.sub(r'`[^`]*`', '', re.sub(r'\[TO CONFIRM[^\]]*\]', '', line))
+        for m in re.finditer(r'(?<![\w.~:#-])(?<!Annex )(?<!Section )(?<!step )(\d+(?:[.,]\d+)?(?: \d{3})*)(?![\w.-])(?!\s*(?:–|-|to)\s*\d)\s*(\S*)', clean):
             num, nxt = m.group(1), m.group(2)
+            before = clean[:m.start()]
+            if re.fullmatch(r'(19|20)\d\d', num): continue                            # years in citations
+            if before.endswith((':', '–', '-')) or nxt.startswith(':') or re.search(r'\d\s?$', before): continue                 # ratios, e.g. 1:10 000
+            if re.search(r'(count|QuantStudio|Standards?|S|Step|Annex|Section|Plate|Position|Segment|Qubit|Buffer|NWR|NSW|AW|MW|ins|UDP|iTru|iNext|Gen|v)\s?$', before): continue
+            if nxt.rstrip(')').endswith((',', 'and', 'or')) or nxt in (',', 'and', 'or', '–', '-'):
+                if re.search(UNITS, clean[m.end():]): continue                     # list ending in a unit: 20, 2 and 0.2 pM
             if re.match(r'^\(@\)', line) and m.start() < 4: continue
             if re.match('^' + UNITS + r'\b', nxt) or re.match('^' + UNITS + '$', nxt.rstrip('.,;:)')) or re.match('^' + NOUNS, nxt): continue
             if nxt.startswith(('×', '%', '/', '~', 'deep-well', '-well')): continue

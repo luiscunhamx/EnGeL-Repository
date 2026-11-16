@@ -1,0 +1,364 @@
+---
+title: "DNA metabarcoding of soil fauna: two-step PCR amplicon library preparation (COI for microarthropods, 18S rRNA for nematodes)"
+short-title: "Metabarcoding library preparation (two-step PCR)"
+protocol-id: EnGeL-MOLB-MB
+version: 1.0.0
+date: 2026-11-16
+status: draft
+area: Molecular biology (MOLB)
+author:
+  - name: Luísa Fraga
+    orcid: 0000-0003-3153-4593
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+reviewed-by: Luís Cunha
+contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
+license: CC BY 4.0
+protocol-doi: "[TO CONFIRM]"
+hazards:
+  - "DNA intercalating dye (GreenSafe or other): handle with gloves"
+  - "UV/blue-light transilluminator: eye and skin protection"
+  - "Ethanol (80% washes): flammable"
+equipment:
+  - "Thermocyclers (three new units, one older unit; NextGenPCR ultra-fast thermocycler available) and PCR plates/tubes"
+  - "Gel electrophoresis apparatus, power supply and gel imaging system (UV/blue-light transilluminator)"
+  - "96-well magnetic extractor for U-bottom plates (clean-up of individual PCR products)"
+  - "Magnetic stand for tubes (clean-up of the pooled library)"
+  - "Fluorometer (Qubit) or fluorescence plate reader (PicoGreen) — see EnGeL-MOLB-NAQC"
+  - "Agilent TapeStation (library size check)"
+  - "qPCR instrument: QuantStudio 3 (library quantification)"
+  - "Multichannel pipettes, pipettes; vortex mixer; plate centrifuge"
+consumables:
+  - "U-bottom 96-well plates"
+  - "PCR plates and seals; PCR strip tubes"
+  - "Filter tips, including 20 µL filter tips for bead dispensing (10 µL tips may clog)"
+  - "Low-binding tubes"
+  - "Agilent D1000 ScreenTape"
+reagents:
+  - text: "Qiagen Multiplex PCR Master Mix [TO CONFIRM: catalogue number]"
+    name: "Qiagen Multiplex PCR Master Mix"
+  - text: "First-PCR fusion primers (phased; Primer table), 10 µM working solution"
+    name: "fusion primers"
+  - text: "KAPA HiFi HotStart ReadyMix (Roche)"
+    name: "KAPA HiFi HotStart ReadyMix"
+  - text: "Second-PCR dual-index primers (iTru i5/i7, UDP0001–UDP0384) [TO CONFIRM: concentration, 5 µM or 10 µM]"
+    name: "indexing primer"
+  - text: "KAPA Pure Beads (Roche)"
+    name: "KAPA Pure Beads"
+  - text: "Ethanol 80%, freshly prepared"
+    name: "80% ethanol"
+  - text: "10 mM Tris-HCl (pH 8.0–8.5)"
+    name: "Tris-HCl"
+  - text: "Elution buffer for bead clean-ups (sterile water or low-TE)"
+    name: "elution buffer"
+  - text: "Nuclease-free water"
+    name: "nuclease-free water"
+  - text: "Agarose, DNA loading dye, DNA size marker, electrophoresis buffer (TAE or TBE), GreenSafe or other DNA intercalating dye"
+    name: "agarose"
+  - text: "Qubit dsDNA HS Assay Kit or Quant-iT PicoGreen dsDNA assay"
+    name: "Qubit"
+  - text: "Agilent D1000 ScreenTape reagents (D1000 Sample Buffer, D1000 Ladder)"
+    name: "D1000 Sample Buffer"
+  - text: "KAPA Library Quantification Kit for Illumina (Roche) — see EnGeL-MOLB-KAPA"
+    name: "KAPA Library Quantification Kit"
+bench-lots:
+  - "Qiagen Multiplex PCR Master Mix lot"
+  - "KAPA HiFi HotStart ReadyMix lot"
+  - "Primer and index plate IDs"
+  - "KAPA Pure Beads lot"
+  - "KAPA Library Quantification Kit lot"
+version-history:
+  - version: 1.0.0
+    date: 2026-11-16
+    change: "First EnGeL-UC version, merging the UC BENCHMARKS protocols BM-BIO-MAR-MB and BM-BIO-NEM-MB v2.0 (2026-09-28; Luísa Fraga, Luís Cunha) into one protocol with a primer table; primer sequences and index design from the lab's primer workbooks and the Metabarcoding Lab Pipeline workbook. Replaces the template test EnGeL-MOLB-NEM."
+    by: "Luísa Fraga, Luís Cunha"
+---
+
+## Purpose and scope
+
+This protocol prepares Illumina amplicon libraries from bulk soil fauna DNA extracts for DNA metabarcoding: a fragment of the mitochondrial COI gene for microarthropods, and a fragment of the 18S rRNA gene for nematodes. It starts from DNA extracts (EnGeL-MOLB-DNA-MAG or -DNA-COL) and ends with a pooled, quantified library diluted to 4 nM for short-read sequencing. Bioinformatic processing is described in EnGeL-BIOINF-OBITOOLS4. Other markers can be added to the Primer table once validated.
+
+## Principle
+
+A first PCR amplifies the target region with fusion primers that carry an Illumina adapter overhang (and 0–3 extra bases, “phased” primers, to increase sequence diversity at the start of the reads). A second, short PCR adds unique dual indexes and the P5/P7 adapters, so every sample can be identified after sequencing. Each indexed PCR product is cleaned with magnetic beads, quantified and normalised; the products are pooled, the pool is cleaned again and checked on the TapeStation, and its molar concentration is measured by qPCR before dilution for sequencing (Elbrecht et al., 2019; Glenn et al., 2019a, b; Porazinska et al., 2009).
+
+## Before you start
+
+| Item | Details |
+|:--|:--|
+| Hands-on time | [TO CONFIRM] |
+| Total time | [TO CONFIRM]; PCR1 c. [TO CONFIRM], PCR2 c. [TO CONFIRM] |
+| Input | DNA extracts with their plate map; concentrations known (EnGeL-MOLB-NAQC) |
+| Prepare in advance | Plate map with index assignment (Annex 1); Lab Pipeline workbook for the project; primer and index plates thawed; KAPA Pure Beads at room temperature |
+| Key safety points | See Safety and waste |
+
+### Primer table
+
+<!-- bench -->
+**Markers and PCR settings.**
+
+| | COI (microarthropods) | 18S rRNA (nematodes) |
+|:--|:--|:--|
+| Primers (target-specific, 5′–3′) | BF3 `CCHGAYATRGCHTTYCCHCG` (Elbrecht et al., 2019); BR2 `TCDGGRTGNCCRAARAAYCA` (Elbrecht & Leese, 2017) | NF1 `GGTGGTGCATGGCCGTTCTTAGTT`; 18Sr2b `TACAAAGGGCAGGGACGTAAT` (Porazinska et al., 2009) |
+| Target length (excluding primers) | c. 418 bp | 237–471 bp, mean c. 320 bp (Ficetola et al., 2024) |
+| DNA input for PCR1 | Undiluted; dilute with nuclease-free water only if PCR inhibition is suspected | Diluted to 25–35 ng/µL (suggested 35 ng/µL) |
+| PCR1 annealing | 50 °C, 90 s | 60 °C, 90 s |
+| Expected size after PCR1 / PCR2 | c. 525 bp / c. 595 bp | c. 350–585 bp / c. 420–650 bp |
+| Pool clean-up bead ratio (pool : beads) | 1:0.65 | 1:0.75 (0.65× may remove short amplicons and bias the community) |
+| Read overlap with 2 × 250 bp | c. 40 bp, enough to merge | Most amplicons merge; the longest (up to 471 bp + c. 45 bp primers) do not; 2 × 300 bp would cover the full range |
+
+### First-PCR fusion primers (5′–3′)
+
+Overhang (P5 side): `ACACTCTTTCCCTACACGACGCTCTTCCGATCT`; overhang (P7 side): `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT`. Phased versions add 0–3 bases between overhang and primer (ins0–ins3).
+
+| Name | Sequence |
+|:--|:--|
+| iTru_COI_BF3_P5_ins0 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTCCHGAYATRGCHTTYCCHCG` |
+| iTru_COI_BF3_P5_ins1 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTACCHGAYATRGCHTTYCCHCG` |
+| iTru_COI_BF3_P5_ins2 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTGACCHGAYATRGCHTTYCCHCG` |
+| iTru_COI_BF3_P5_ins3 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTTGACCHGAYATRGCHTTYCCHCG` |
+| iTru_COI_BR2_P7_ins0 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTCDGGRTGNCCRAARAAYCA` |
+| iTru_COI_BR2_P7_ins1 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTTCDGGRTGNCCRAARAAYCA` |
+| iTru_COI_BR2_P7_ins2 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTATCDGGRTGNCCRAARAAYCA` |
+| iTru_COI_BR2_P7_ins3 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTGATCDGGRTGNCCRAARAAYCA` |
+| iTru_NF1_P5_ins0 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTGGTGGTGCATGGCCGTTCTTAGTT` |
+| iTru_NF1_P5_ins1 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTAGGTGGTGCATGGCCGTTCTTAGTT` |
+| iTru_NF1_P5_ins2 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTGAGGTGGTGCATGGCCGTTCTTAGTT` |
+| iTru_NF1_P5_ins3 | `ACACTCTTTCCCTACACGACGCTCTTCCGATCTTGAGGTGGTGCATGGCCGTTCTTAGTT` |
+| iTru_18Sr2b_P7_ins0 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTTACAAAGGGCAGGGACGTAAT` |
+| iTru_18Sr2b_P7_ins1 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTTTACAAAGGGCAGGGACGTAAT` |
+| iTru_18Sr2b_P7_ins2 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTATTACAAAGGGCAGGGACGTAAT` |
+| iTru_18Sr2b_P7_ins3 | `GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCTGATTACAAAGGGCAGGGACGTAAT` |
+
+**Second-PCR index primers:** iTru_i5_P5 `AATGATACGGCGACCACCGAGATCTACAC[i5 index]ACACTCTTTCCCTAC`; iTru_i7_P7 `CAAGCAGAAGACGGCATACGAGAT[i7 index]GTGACTGGAGTTCAG`. 384 unique dual-index pairs (UDP0001–UDP0384, four plates); index sequences are in the primer workbooks and the *Novogene* sheet of the Lab Pipeline workbook.
+
+## Materials
+
+### Equipment
+
+::: {.engel-equipment}
+:::
+
+### Consumables
+
+::: {.engel-consumables}
+:::
+
+### Reagents and kits
+
+::: {.engel-reagents}
+:::
+
+## Reagent preparation
+
+- **Fusion primers:** 10 µM working solutions [TO CONFIRM: how the phased versions ins0–ins3 are combined, e.g. equimolar mix per direction].
+- **Index primers:** synthesised at 25 nmol scale, standard desalting, with one phosphorothioate bond; diluted to 5 µM and aliquoted in strip tubes (primer workbook) [TO CONFIRM: 5 µM, or 10 µM as in the UC protocol].
+- **Ethanol 80%:** prepare fresh on the day.
+- **KAPA Pure Beads:** equilibrate to room temperature and vortex c. 30 s before use.
+
+## Procedure
+
+### Before starting
+
+{{< include ../../includes/_contamination-control.qmd >}}
+- Prepare or update the plate map and index assignment (Annex 1) and the project's Lab Pipeline workbook.
+- Include a PCR negative control (water) on each plate and, whenever possible, a positive control per run (a mock community of known composition). Extraction blanks from the DNA extraction are carried through. Every control gets its own index combination and is sequenced.
+
+### First PCR (amplicon PCR)
+
+(@) Prepare the DNA input for the marker (Primer table): COI — undiluted; 18S — diluted to 25–35 ng/µL with nuclease-free water.
+(@) Set up one 10 µL reaction per sample: 5 µL Qiagen Multiplex PCR Master Mix, 1 µL of each fusion primer (10 µM), 2 µL nuclease-free water and 1 µL of DNA [TO CONFIRM: the PCR1 screenshot allows 1–3 µL of DNA, adjusting water].
+(@) Cycling: 95 °C for 15 min; 25 cycles of 94 °C for 30 s, annealing for 90 s (COI 50 °C; 18S 60 °C), 72 °C for 90 s; final extension 72 °C for 10 min.
+(@) Check amplification on a 2% agarose gel. All field samples should show bands of the expected size; extraction and PCR negative controls should show no amplification. Record the outcome per well (Gel_Success, Faint, Failure, Lost, Pending) in the Lab Pipeline workbook.
+
+### Second PCR (indexing PCR)
+
+(@) Set up one 14 µL reaction per sample: 7 µL KAPA HiFi HotStart ReadyMix, 0.7 µL i5 indexing primer, 0.7 µL i7 indexing primer, 2.8 µL nuclease-free water and 2.8 µL of first-PCR product. Record the index plate and well of every sample in the plate map.
+
+::: {.callout-important title="CRITICAL"}
+Each sample in a pool must carry a unique i5/i7 index combination. Combinations must never be repeated within the same pool: duplicated combinations cannot be demultiplexed. Check the plate map against the indexes actually used.
+:::
+
+(@) Cycling: 95 °C for 3 min; 8 cycles of 95 °C for 30 s, 55 °C for 30 s, 72 °C for 30 s; final elongation 72 °C for 5 min.
+
+### Clean-up of individual PCR products (KAPA Pure Beads, 0.7×)
+
+(@) Transfer 10 µL of each indexing PCR product to a new U-bottom 96-well plate.
+(@) Vortex the KAPA Pure Beads (room temperature) for c. 30 s. Add 7 µL of beads per well (1:0.7, product : beads), pipetting into the bottom of the well. For a full plate, dispense from a PCR strip (e.g. 91 µL per strip tube for a row of 12 wells plus excess) and re-vortex the beads every 3 columns. Use 20 µL filter tips.
+(@) Mix by pipetting up and down 10–12 times without bubbles; incubate for 5 min at room temperature.
+(@) Meanwhile, prepare three U-bottom plates: two wash plates with 150 µL of freshly prepared 80% ethanol per well, and one elution plate with 30 µL of elution buffer per well.
+(@) Place the magnetic extractor on the bead plate, let the beads collect (c. 2–3 min), then lift the beads.
+(@) Wash: place the extractor in the first wash plate for 30 s, then in the second for 30 s.
+(@) Air-dry the beads on the extractor for 30–60 s (no longer than 2–3 min). Do not over-dry: this makes elution harder.
+(@) Elute: place the extractor in the elution plate, release the beads and leave them to resuspend for 5 min (optional: 5 min at 55 °C to improve recovery). Re-attach the magnet to remove the beads; the cleaned products stay in the elution plate.
+(@) Optional (recommended): check c. 1 µL on an agarose gel or the TapeStation for a single band of the expected size (Primer table) and no primer dimers (< 150 bp).
+
+::: {.callout-note title="NOTE"}
+At the end of a bead tube, spin it down and transfer the remainder to a new tube rather than using it directly, as it may no longer be homogeneous; vortex the new tube well.
+:::
+
+### Quantification, normalisation and pooling
+
+(@) Measure the concentration of each cleaned product by fluorometry (Qubit dsDNA HS or PicoGreen; EnGeL-MOLB-NAQC) and record the values in the plate map.
+(@) Normalise each product to 20 nM with nuclease-free water or 10 mM Tris-HCl, using the measured concentration and the expected fragment size (Calculations; *PCR2_Plate* sheet of the Lab Pipeline workbook). Mix gently.
+(@) Combine the normalised products into one tube to make the pooled library (*Pooling* sheet). Check the plate map before pooling and label and document the samples and indexes in each pool.
+
+### Clean-up of the pooled library
+
+(@) Add KAPA Pure Beads to the pool at the ratio for the marker (Primer table: COI 1:0.65; 18S 1:0.75).
+(@) Mix by vortexing and incubate for 10 min at room temperature.
+(@) Place the tube on a magnetic stand for 5 min; remove and discard the supernatant without disturbing the beads.
+(@) Wash the beads twice with 200 µL of freshly prepared 80% ethanol for 60 s. Remove the ethanol completely and air-dry for 3–5 min (do not over-dry).
+(@) Remove the tube from the magnet and resuspend the beads in 200 µL of elution buffer (10 mM Tris-HCl, pH 8.0–8.5, or low-TE). Incubate for 5–10 min at room temperature. The elution volume sets the final concentration: use less to concentrate low-yield pools, more to dilute, keeping enough for TapeStation, qPCR and sequencing.
+(@) Place the tube on the magnetic stand for 5 min and transfer the eluate (cleaned pool) to a clean tube.
+
+### Pooled library check on the TapeStation (D1000)
+
+(@) Take the D1000 ScreenTape and reagents from 4 °C and equilibrate to room temperature for 30 min; keep the ScreenTape in its pouch, protected from light.
+(@) Ladder: mix 3 µL D1000 Sample Buffer + 1 µL D1000 Ladder in the first tube or well. Samples: mix 3 µL D1000 Sample Buffer + 1 µL library.
+(@) Seal with caps or foil, vortex and centrifuge briefly.
+(@) Insert the ScreenTape and the tubes into the TapeStation; remove caps or foil and check that the tip box is full. Run.
+(@) Confirm a single peak at the expected size and no primer/adapter dimers. If dimers persist, repeat the pool clean-up. Record the average fragment size.
+
+### Library quantification by qPCR (KAPA)
+
+Quantify the cleaned pool with the KAPA Library Quantification Kit, as in EnGeL-MOLB-KAPA:
+
+{{< include ../../includes/_kapa-qpcr.qmd >}}
+
+### Dilution to 4 nM and submission
+
+(@) Calculate the library concentration (Calculations) and dilute the library to 4 nM with an appropriate buffer [TO CONFIRM: buffer]. Mix gently.
+(@) Prepare the sequencing submission from the *Novogene_Submission* sheet of the Lab Pipeline workbook (sequencer choice sets the i5 orientation) and the provider's sample information form [TO CONFIRM: provider and form for each project].
+
+::: {.callout-tip title="PAUSE POINT"}
+Cleaned PCR products and the pooled library can be stored at [TO CONFIRM: −20 °C?] between steps.
+:::
+
+### After finishing
+
+{{< include ../../includes/_before-you-leave.qmd >}}
+
+## Calculations
+
+**Normalisation to 20 nM** (as in the Lab Pipeline workbook):
+
+$$c_\mathrm{nM} = \frac{c_\mathrm{ng}}{0.00066 \times L}$$
+
+$$V_\mathrm{water} = V_\mathrm{p} \times \left(\frac{c_\mathrm{nM}}{20} - 1\right)$$
+
+- $c_\mathrm{nM}$: molar concentration of the PCR product (nM)
+- $c_\mathrm{ng}$: mass concentration measured by fluorometry (ng/µL)
+- $L$: fragment size (bp); 0.00066: mass of 1 nmol of 1 bp of dsDNA (µg), as used in the workbook
+- $V_\mathrm{p}$: volume of PCR product (µL); $V_\mathrm{water}$: volume of water or 10 mM Tris-HCl to add (µL)
+
+**Worked example** (illustrative values): 15 ng/µL, 620 bp → 15 / (0.00066 × 620) = 36.7 nM; for 10 µL of product add 10 × (36.7 / 20 − 1) = 8.3 µL to reach 20 nM.
+
+**Library concentration by qPCR**
+
+{{< include ../../includes/_kapa-calculation.qmd >}}
+
+**Dilution of the pool for loading:** dilution factor = pool concentration (nM) / target concentration (nM); volume of pool = required volume / dilution factor; buffer = required volume − volume of pool (*Pooling* sheet).
+
+## Quality control
+
+| Control | Where | Purpose | Acceptance criterion |
+|:--|:--|:--|:--|
+| Extraction blanks | Carried from the DNA extraction | Contamination during extraction | No band on the PCR1 gel; contaminant reads removed in bioinformatics |
+| PCR negative (water) | Each PCR plate | Contamination during PCR | No band on the PCR1 gel |
+| Positive control / mock community | Each run, whenever possible | PCR and sequencing performance | [TO CONFIRM] |
+| PCR1 gel | Every sample | Amplification | Band of the expected size (Primer table) |
+| Cleaned product check (optional) | Subset or all | Size and dimers | Single band of the expected size; no dimers < 150 bp |
+| Pooled library (TapeStation) | Each pool | Size and dimers | Single peak at the expected size; no primer/adapter dimers |
+| qPCR run | Each quantification | Reliable concentration | See table below |
+
+**qPCR run acceptance**
+
+{{< include ../../includes/_kapa-run-qc.qmd >}}
+
+## Data and metadata
+
+- **Outputs:** gel images; concentrations; pooled library with TapeStation trace and qPCR concentration; after sequencing, paired fastq files (R1, R2) per sample.
+- **Sequencing:** Illumina NovaSeq, 2 × 250 bp paired-end, at least 30 000 reads per sample.
+- **Where:** the project's Metabarcoding Lab Pipeline workbook (*Sample_Tracking*, *PCR1_Plate*, *PCR2_Plate*, *Pooling*, *Library_QC*, *Novogene_Submission*), the plate map and the lab book. Sequence data are deposited in [TO CONFIRM: public archive, e.g. ENA].
+
+::: {.callout-note title="Minimum to record"}
+- EnGeL label of each DNA extract; plate ID and well; sample type (sample, extraction blank, PCR negative, mock)
+- Marker and primer pair; PCR1 and PCR2 plate IDs, dates, operators and thermocycler; PCR outcomes (Gel_Success, Estimated_Success, Faint, Failure, Lost, Pending)
+- Index plate and well, i5 and i7 index names and sequences; pool ID
+- Lot numbers: Qiagen Multiplex PCR Master Mix, KAPA HiFi HotStart ReadyMix, KAPA Pure Beads, KAPA Library Quantification Kit; primer and index plate IDs
+- Concentrations after clean-up; normalisation volumes; TapeStation size; qPCR concentration; final dilution
+- MIxS fields for the sequence submission [TO CONFIRM: checklist and package, e.g. MIMARKS-survey]
+:::
+
+## Safety and waste
+
+{{< include ../../includes/_safety-general.qmd >}}
+
+- DNA intercalating dyes: handle with gloves [TO CONFIRM against the SDS].
+- Gel imaging: protect eyes and skin from UV light.
+{{< include ../../includes/_safety-ethanol.qmd >}}
+
+**Waste**
+
+{{< include ../../includes/_waste-streams.qmd >}}
+
+For this protocol: gels and gel-contaminated material [TO CONFIRM: route]; PCR plates, bead plates, tips and tubes to biological solid waste (black bin); bead supernatants and ethanol washes [TO CONFIRM: route].
+
+## Troubleshooting
+
+| Problem | Likely cause | Solution |
+|:--|:--|:--|
+| No band after PCR1 (COI) | PCR inhibition | Dilute the DNA extract with nuclease-free water and repeat. |
+| Band in a negative control | Contamination | [TO CONFIRM: repeat the plate? sequence and filter?] |
+| Primer/adapter dimers in the pool | Incomplete clean-up | Repeat the pool clean-up. |
+| Low recovery after bead clean-up | Beads over-dried, or not homogeneous | Dry for no longer than 2–3 min; vortex beads; transfer the end of a bead tube to a new tube. |
+| Tips clog when dispensing beads | 10 µL tips | Use 20 µL filter tips. |
+| Samples cannot be demultiplexed | Index combination repeated in the pool | Check the plate map before pooling; each combination once per pool. |
+
+## Remarks
+
+The Metabarcoding Lab Pipeline workbook is the working record for this protocol: one copy per project. Its built-in PCR calculator (25 µL, 2× master mix) is for standard PCRs, not for these metabarcoding reactions. The UC BENCHMARKS protocols (v2.0) describe Nextera-type overhangs with Adapterama iNext indexing primers; the lab's primer workbooks and Lab Pipeline use TruSeq-type (iTru) overhangs, phased primers and iTru indexes, which this version follows [TO CONFIRM].
+
+## References
+
+Elbrecht, V., & Leese, F. (2017). Validation and development of COI metabarcoding primers for freshwater macroinvertebrate bioassessment. Frontiers in Environmental Science, 5, 11. <https://doi.org/10.3389/fenvs.2017.00011>
+
+Elbrecht, V., Braukmann, T.W.A., Ivanova, N.V., Prosser, S.W.J., Hajibabaei, M., Wright, M., Zakharov, E.V., Hebert, P.D.N., & Steinke, D. (2019). Validation of COI metabarcoding primers for terrestrial arthropods. PeerJ, 7, e7745. <https://doi.org/10.7717/peerj.7745>
+
+Ficetola, G.F., Guerrieri, A., Cantera, I., & Bonin, A. (2024). In silico assessment of 18S rDNA metabarcoding markers for the characterization of nematode communities. PLoS ONE, 19(4), e0298905. <https://doi.org/10.1371/journal.pone.0298905>
+
+Glenn, T.C., Nilsen, R.A., Kieran, T.J., et al. (2019a). Adapterama I: universal stubs and primers for 384 unique dual-indexed or 147,456 combinatorially-indexed Illumina libraries (iTru & iNext). PeerJ, 7, e7755. <https://doi.org/10.7717/peerj.7755>
+
+Glenn, T.C., Pierson, T.W., Bayona-Vásquez, N.J., et al. (2019b). Adapterama II: universal amplicon sequencing on Illumina platforms (TaggiMatrix). PeerJ, 7, e7786. <https://doi.org/10.7717/peerj.7786>
+
+Porazinska, D.L., Giblin-Davis, R.M., Faller, L., Farmerie, W., Kanzaki, N., Morris, K., Powers, T.O., Tucker, A.E., Sung, W., & Thomas, W.K. (2009). Evaluating high-throughput sequencing as a method for metagenomic analysis of nematode diversity. Molecular Ecology Resources, 9(6), 1439–1450. <https://doi.org/10.1111/j.1755-0998.2009.02611.x>
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. **Adapter and index system:** the UC protocols say Nextera-type overhangs + Adapterama iNext indexes; the primer workbooks (ordered primers) and the Lab Pipeline use TruSeq-type (iTru) overhangs, phased primers and iTru indexes. This version follows the workbooks: confirm.
+2. Phased primers: how are ins0–ins3 combined (equimolar mix per direction?) and at what working concentration?
+3. Index primers: 5 µM (workbook) or 10 µM (UC protocol), 0.7 µL each?
+4. In the 18S workbook the primer names contain “COI” (e.g. iTru_COI_NF1_P5_ins0); the names here drop it. Confirm.
+5. PCR1 DNA volume: always 1 µL, or 1–3 µL with less water (screenshot)?
+6. Positive control / mock community: composition and acceptance criterion; action when a negative shows a band.
+7. Storage of PCR products and pools between steps; buffer for the 4 nM dilution.
+8. Sequencing provider and form per project; public archive for the data; MIxS checklist.
+9. Waste routes for gels, bead supernatants and ethanol washes; intercalating dye hazards.
+10. Hands-on and total time.
+11. DOI.
+
+## Annex 1 – Plate map guidance {.unnumbered}
+
+{{< include ../../includes/_plate-map.qmd >}}
+
+**Index assignment**
+
+- Each well must have a unique i5/i7 combination within a pool. A simple scheme is one i5 index per row and one i7 index per column, giving 96 unique combinations per plate.
+- When several plates are pooled together, each plate must use a different index set, so that no combination is repeated within the pool.
+- Check the plate map against the indexes actually used before pooling.

@@ -37,8 +37,12 @@ website:
     contents:
       - index.qmd
       - register.qmd
+      - section: "Fauna sample processing (FAUNA)"
+        contents: "protocols/fauna/*.qmd"
       - section: "Molecular biology (MOLB)"
         contents: "protocols/molb/*.qmd"
+      - section: "Bioinformatics (BIOINF)"
+        contents: "protocols/bioinf/*.qmd"
       - section: "Workflows"
         contents: "workflows/*.qmd"
       - section: "Bench sheets"

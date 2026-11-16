@@ -83,7 +83,7 @@ def bench(path, meta, body):
     flush()
     # tables marked <!-- bench --> in Reagent preparation
     extra = []
-    for m in re.finditer(r'<!-- bench -->\n(.*?)\n\n(\|.*?)(?:\n\n|\Z)', prep, re.S):
+    for m in re.finditer(r'<!-- bench -->\n(.*?)\n\n(\|.*?)(?:\n\n|\Z)', body, re.S):
         extra.append(m.group(1).strip() + '\n\n' + m.group(2).strip() + '\n')
     lots = meta.get('bench-lots', [])
     head = ['| | |', '|:' + '-' * 30 + '|:' + '-' * 45 + '|', '| Date | |', '| Operator | |', '| Plate ID / samples | |'] + [f'| {esc(x)} | |' for x in lots]

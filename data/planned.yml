@@ -1,28 +1,2 @@
 # Planned protocols (not yet written). Move an entry out of this list when its .qmd exists.
-- id: EnGeL-MOLB-MB
-  title: DNA metabarcoding of soil fauna (amplicon)
-  notes: One protocol; primer table and PCR programme per primer pair
-- id: EnGeL-FAUNA-MAR-MORPH
-  title: MacFadyen extraction, counting and morphological identification of soil microarthropods
-  notes: Pilot chain; source is the UC BENCHMARKS protocol (ID to confirm)
-- id: EnGeL-MOLB-DNA-COL
-  title: DNA extraction from soil microarthropods, spin columns (NZY Tissue gDNA)
-  notes: Homogenisation steps to confirm
-- id: EnGeL-MOLB-NAQC
-  title: Nucleic acid quality control (NanoDrop, Qubit, PicoGreen)
-  notes: ""
-- id: EnGeL-MOLB-KAPA
-  title: Illumina library quantification by KAPA qPCR
-  notes: ID to confirm
-- id: EnGeL-MOLB-RNA
-  title: Total RNA extraction with TRIzol
-  notes: Sample-type table (bees, isopod hepatopancreas)
-- id: EnGeL-MOLB-DNA-BARC
-  title: Single-specimen tissue DNA extraction for barcoding (DNeasy Blood & Tissue)
-  notes: ""
-- id: EnGeL-MOLB-DNA-BEE
-  title: Genomic DNA from honey bee guts
-  notes: In-house origin to confirm
-- id: EnGeL-BIOINF-OBITOOLS4
-  title: Metabarcoding bioinformatics with OBITools4 (merging, demultiplexing, filtering, clustering, LULU, taxonomic assignment)
-  notes: Source is the Obitools4 script by Luísa Fraga and Luís Cunha; ID to confirm
+[]
