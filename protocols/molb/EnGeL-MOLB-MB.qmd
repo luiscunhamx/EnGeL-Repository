@@ -42,7 +42,7 @@ reagents:
   - text: "KAPA HiFi HotStart ReadyMix (Roche)"
     name: "KAPA HiFi HotStart ReadyMix"
   - text: "Adapterama iTru5/iTru7 dual-index primers (four plates, 1–384), 5 µM"
-    name: "indexing primer"
+    name: "index primer"
   - text: "KAPA Pure Beads (Roche)"
     name: "KAPA Pure Beads"
   - text: "Ethanol 80%, freshly prepared"
