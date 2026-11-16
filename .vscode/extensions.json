@@ -1,0 +1,7 @@
+{
+  // Recommended when this folder is opened in VS Code (a prompt appears once).
+  "recommendations": [
+    "quarto.quarto",
+    "github.vscode-pull-request-github"
+  ]
+}

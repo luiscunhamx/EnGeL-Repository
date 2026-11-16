@@ -1,0 +1,13 @@
+{
+  // Git: fetch regularly; push and pull automatically after each commit.
+  "git.autofetch": true,
+  "git.postCommitCommand": "sync",
+  "git.confirmSync": false,
+  // Keep Unix line endings so files look the same on Windows, macOS and GitHub.
+  "files.eol": "\n",
+  // Generated folders: hide from search.
+  "search.exclude": {
+    "_site": true,
+    ".quarto": true
+  }
+}

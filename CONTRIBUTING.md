@@ -11,6 +11,12 @@ You do not need to install anything to suggest a change: everything below works 
 5. At the bottom choose **Create a new branch … and start a pull request**, and describe what you changed and why.
 6. The automatic checks run on your pull request (green tick or red cross with the reason). Luís or a technician reviews and merges it.
 
+## Working in VS Code (optional)
+
+1. Install VS Code, Git for Windows and Quarto, then open the `EnGeL-Repository` folder (*File → Open Folder*).
+2. Accept the prompt to install the recommended extensions (Quarto; GitHub Pull Requests). The folder's settings make VS Code fetch regularly and push automatically after every commit.
+3. Edit, preview with Ctrl+Shift+K, then commit in the Source Control panel (Ctrl+Shift+G) with a short message. Students work on a branch and open a pull request instead of committing to `main`.
+
 ## Ask a question or report a problem
 
 Use **Report an issue** on the protocol page (or *Issues* on GitHub). Say which protocol, which step, and what is wrong.
