@@ -6,7 +6,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 ## Unreleased
 
 - EnGeL-MOLB-MB 1.2.1 (2026-11-16): schematic of the two-step PCR and library structure (figure).
-- EnGeL-FAUNA-MAR-MORPH 1.0.1 (2026-11-16): schematic of the MacFadyen extraction set-up (figure); ORCID of Filipa Reis.
+- EnGeL-FAUNA-MAR-MORPH 1.0.1 (2026-11-16): schematic of the MacFadyen extraction set-up (figure); ORCIDs of Filipa Reis and Pedro Martins.
 - EnGeL-MOLB-DNA-MAG 1.1.2 (2026-11-16): schematic of the extraction steps (figure).
 - Publish workflow deploys with GitHub Pages actions (Pages source: GitHub Actions); no gh-pages branch needed.
 - EnGeL-MOLB-MB 1.2.0 (2026-11-16): back to the iTru system used in the lab (TruSeq-type phased primers; iTru5/iTru7 indexes, 5 µM, 0.7 µL each); PCR1 DNA 1–3 µL.

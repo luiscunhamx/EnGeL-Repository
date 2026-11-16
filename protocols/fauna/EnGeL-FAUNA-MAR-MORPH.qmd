@@ -10,7 +10,7 @@ author:
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
 contributors:
-  - "Pedro Martins [TO CONFIRM: ORCID]"
+  - "Pedro Martins (ORCID 0000-0002-5930-264X)"
   - "Filipa Reis (ORCID 0000-0001-6297-8862)"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
@@ -49,7 +49,7 @@ version-history:
     by: "Luís Cunha"
   - version: 1.0.1
     date: 2026-11-16
-    change: "Schematic of the MacFadyen extraction set-up (figure); ORCID of Filipa Reis."
+    change: "Schematic of the MacFadyen extraction set-up (figure); ORCIDs of Filipa Reis and Pedro Martins."
     by: "Luís Cunha"
 ---
 
@@ -236,7 +236,7 @@ Potapov, A.M., Korotkevich, A.Y., Tiunov, A.V. (2018). Non-vascular plants as a 
 
 ## Open questions
 
-1. ORCID of Pedro Martins; should Pedro Martins and Filipa Reis be authors; DOI.
+1. Should Pedro Martins and Filipa Reis be authors (with ORCID) rather than contributors; DOI.
 2. Annex photo: the source caption says “PVC tube with caps”, but the photo shows a round plastic container with litter. Which caption is right?
 3. Hands-on time; sorting time per sample.
 4. How extractor temperatures are monitored; sorting quality check.
