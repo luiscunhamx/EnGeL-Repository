@@ -2,7 +2,7 @@
 title: "Total RNA extraction with TRIzol and spin-column clean-up (honey bees; isopod hepatopancreas)"
 short-title: "Total RNA extraction (TRIzol)"
 protocol-id: EnGeL-MOLB-RNA
-version: 1.1.0
+version: 1.2.0
 date: 2026-11-16
 status: draft
 area: Molecular biology (MOLB)
@@ -68,6 +68,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-16
     change: "Isopod path: speeds given as × g (10 000 rpm = 8 000 × g, as in the Qiagen RNeasy Mini Handbook; dry spin at full speed)."
+    by: "Luís Cunha"
+  - version: 1.2.0
+    date: 2026-11-16
+    change: "Isopod path: dry spin at ≥ 12 000 × g (1.5 mL tube rotor)."
     by: "Luís Cunha"
 ---
 
@@ -169,7 +173,7 @@ TRIzol (phenol and guanidine isothiocyanate) lyses the tissue and keeps RNA inta
 (@) Add 700 µL of Buffer RW1 and centrifuge at 8 000 × g for 15 s. Discard the flow-through.
 (@) Add 500 µL of Buffer RPE and centrifuge at 8 000 × g for 15 s. Discard the flow-through.
 (@) Add 500 µL of Buffer RPE and centrifuge at 8 000 × g for 3 min. Discard the flow-through.
-(@) Place the column in a new microtube and centrifuge at full speed (16 000 rpm in the source [TO CONFIRM: × g of the microcentrifuge]) for 2 min to remove residual buffer.
+(@) Place the column in a new microtube and centrifuge at ≥ 12 000 × g (microcentrifuge, 1.5 mL tube rotor) for 2 min to remove residual buffer.
 (@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 8 000 × g for 15 s: the eluate is sample 1.
 (@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 8 000 × g for 15 s: the eluate is sample 2.
 (@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NAQC).
@@ -248,7 +252,7 @@ Qiagen (2006). RNeasy Mini Handbook (04/2006): 8 000 × g (10 000 rpm) for loadi
 
 1. Author “FFR” of the bee protocol (full name, ORCID); author of the isopod protocol; DOI.
 2. Kit identities: bees — NZY Total RNA Isolation kit (NI, DI, DNase I, NWR1, NWR2)? Isopods — Qiagen RNeasy (RW1, RPE)? Catalogue numbers.
-3. Isopod path: × g of the microcentrifuge at full speed (16 000 rpm in the source)? Is the 100% ethanol wash intended?
+3. Isopod path: is the 100% ethanol wash intended?
 4. Bees: volume transferred to the new tube before chloroform; bead tube type and bead-beater model.
 5. Sample storage before extraction; RNA storage temperature; sample 1 and 2 kept separate or pooled?
 6. RNase precautions; fume hood for TRIzol and chloroform.
