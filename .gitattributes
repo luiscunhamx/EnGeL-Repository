@@ -1,0 +1,8 @@
+# Keep LF line endings in every text file, on every operating system
+# (Windows Git would otherwise convert to CRLF and show unchanged files as modified).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.ttf binary
+*.docx binary
+*.pdf binary
