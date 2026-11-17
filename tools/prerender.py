@@ -182,9 +182,10 @@ def people(protos):
         line = f'### {name}\n\n'
         meta = []
         if person.get('role'): meta.append(person['role'])
-        meta.append(person.get('affiliation') or 'EnGeL-UC, Centre for Functional Ecology, University of Coimbra')
+        aff = person['affiliation'] if 'affiliation' in person else 'EnGeL-UC, Centre for Functional Ecology, University of Coimbra'
+        if aff: meta.append(aff)
         if person.get('orcid'): meta.append(f'ORCID [{person["orcid"]}](https://orcid.org/{person["orcid"]})')
-        line += ' · '.join(meta) + '\n\n'
+        if meta: line += ' · '.join(meta) + '\n\n'
         if person.get('bio'): line += person['bio'].strip() + '\n\n'
         if roles:
             line += '**Protocols:** ' + '; '.join(f'[{pid}]({p}) ({r})' for pid, p, r in roles) + '\n'

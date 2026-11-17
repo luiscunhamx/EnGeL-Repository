@@ -2,13 +2,15 @@
 title: "Genomic DNA isolation from honey bee guts (NZY Soil gDNA Isolation Kit)"
 short-title: "DNA from honey bee guts (NZY Soil)"
 protocol-id: EnGeL-MOLB-DNA-BEE
-version: 1.0.0
+version: 1.0.1
 date: 2026-11-16
 status: draft
 area: Molecular biology (MOLB)
 author:
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
+contributors:
+  - "Yevhenia Shcheka (source protocol)"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -58,6 +60,10 @@ version-history:
   - version: 1.0.0
     date: 2026-11-16
     change: "First EnGeL-UC version, from the lab protocol “Standard protocol for isolating genomic DNA from honey bee guts” (2025)."
+    by: "Luís Cunha"
+  - version: 1.0.1
+    date: 2026-11-17
+    change: "Contributor Yevhenia Shcheka (source protocol)."
     by: "Luís Cunha"
 ---
 
@@ -218,7 +224,7 @@ NZYtech (n.d.). NZY Soil gDNA Isolation kit (MB21802) – manual [TO CONFIRM: ve
 
 ## Open questions
 
-1. Authors of the source protocol (written by the lab, or adapted from a published standard method?); ORCIDs; DOI.
+1. Was the source protocol written in the lab or adapted from a published method (reference)? DOI.
 2. Proteinase K: from which kit, and at what concentration?
 3. FastPrep setting “quantity 1 mg”: what does it refer to?
 4. Preparation of the 0.05% sodium hypochlorite.

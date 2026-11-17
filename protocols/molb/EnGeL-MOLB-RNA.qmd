@@ -10,7 +10,7 @@ author:
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
 contributors:
-  - "Artur Sarmento (author of the bee protocol) [TO CONFIRM: ORCID]"
+  - "Artur Sarmento (author of the bee protocol; ORCID 0000-0003-3736-1531)"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -79,7 +79,7 @@ version-history:
     by: "Luís Cunha"
   - version: 1.2.2
     date: 2026-11-17
-    change: "Author of the bee protocol identified as Artur Sarmento (the source was signed “FFR”)."
+    change: "Author of the bee protocol identified as Artur Sarmento, with ORCID (the source was signed “FFR”)."
     by: "Luís Cunha"
 ---
 
@@ -258,7 +258,7 @@ Qiagen (2006). RNeasy Mini Handbook (04/2006): 8 000 × g (10 000 rpm) for loadi
 
 ## Open questions
 
-1. ORCID of Artur Sarmento (bee protocol); author of the isopod protocol; DOI.
+1. Author of the isopod protocol; DOI.
 2. Kit identities: bees — NZY Total RNA Isolation kit (NI, DI, DNase I, NWR1, NWR2)? Isopods — Qiagen RNeasy (RW1, RPE)? Catalogue numbers.
 3. Bees: volume transferred to the new tube before chloroform; bead tube type and bead-beater model.
 4. Sample storage before extraction; RNA storage temperature; sample 1 and 2 kept separate or pooled?
