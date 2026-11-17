@@ -4,6 +4,7 @@
   to-confirm.qmd / .csv        every [TO CONFIRM] still open, per protocol and shared include
   people.qmd                   people (data/people.yml) with the protocols they wrote or contributed to
   _area-cards.qmd              cards per area for the home page (included by index.qmd)
+  _quarto.yml (sidebar block)  sidebar with short titles, in workflow order (SIDEBAR_ORDER)
 Generated files are overwritten every time: edit the protocol, never these files."""
 import os, re, glob, yaml
 
@@ -194,6 +195,39 @@ def people(protos):
            'To get in touch, use the lab contact on each protocol page.\n\n' + '\n'.join(blocks))
     write('people.qmd', txt)
 
+# Order of protocols in the sidebar (workflow order); protocols not listed follow alphabetically.
+SIDEBAR_ORDER = ['EnGeL-FAUNA-MAR-MORPH', 'EnGeL-MOLB-DNA-MAG', 'EnGeL-MOLB-DNA-COL', 'EnGeL-MOLB-DNA-BARC',
+                 'EnGeL-MOLB-DNA-BEE', 'EnGeL-MOLB-RNA', 'EnGeL-MOLB-NAQC', 'EnGeL-MOLB-MB', 'EnGeL-MOLB-KAPA',
+                 'EnGeL-BIOINF-OBITOOLS4']
+
+def sidebar(protos):
+    def key(x):
+        pid = x[1]['protocol-id']
+        return (SIDEBAR_ORDER.index(pid) if pid in SIDEBAR_ORDER else len(SIDEBAR_ORDER), pid)
+    def q(t): return '"' + str(t).replace('"', '\\"') + '"'
+    L = ['      - href: index.qmd', '        text: Home', '      - register.qmd', '      - to-confirm.qmd', '      - people.qmd']
+    for folder, title, _, _ in AREAS:
+        items = sorted([(p, m) for p, m, _ in protos if p.split('/')[1] == folder], key=key)
+        if not items: continue
+        L.append(f'      - section: {q(title)}'); L.append('        contents:')
+        for p, m in items:
+            L += [f'          - href: {p}', f'            text: {q(m.get("short-title") or m["title"])}']
+    L += ['      - section: "Workflows"', '        contents:']
+    wf_first = ['workflows/soil-fauna-metabarcoding.qmd', 'workflows/sequencing-submission.qmd']
+    wfs = [w for w in wf_first if os.path.exists(w)] + sorted(w for w in glob.glob('workflows/*.qmd') if w not in wf_first)
+    L += [f'          - {w}' for w in wfs]
+    L += ['      - section: "Bench sheets"', '        contents:']
+    for p, m in sorted([(p, m) for p, m, _ in protos], key=key):
+        pid = m['protocol-id']
+        L += [f'          - href: bench/{pid}-bench.qmd', f'            text: {q(pid.replace("EnGeL-", ""))}']
+    cfg = open('_quarto.yml', encoding='utf-8').read()
+    a = cfg.index('      # BEGIN sidebar'); a = cfg.index('\n', a) + 1
+    b = cfg.index('      # END sidebar')
+    new = cfg[:a] + '\n'.join(L) + '\n' + cfg[b:]
+    if new != cfg:
+        write('_quarto.yml', new)
+        print('prerender: sidebar updated in _quarto.yml (takes effect on the next render)')
+
 def write(path, txt):
     old = open(path, encoding='utf-8').read() if os.path.exists(path) else None
     if old != txt:
@@ -205,6 +239,7 @@ if __name__ == '__main__':
     to_confirm(ps)
     area_cards(ps)
     people(ps)
+    sidebar(ps)
     for p, m, b in ps:
         bench(p, m, b)
     print(f'prerender: {len(ps)} protocol(s); register and bench sheets updated')
