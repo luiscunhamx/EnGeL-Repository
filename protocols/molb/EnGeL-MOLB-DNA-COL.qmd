@@ -2,7 +2,7 @@
 title: "DNA extraction from soil microarthropods with spin columns (NZY Tissue gDNA Isolation Kit)"
 short-title: "DNA extraction, spin columns (NZY Tissue)"
 protocol-id: EnGeL-MOLB-DNA-COL
-version: 1.0.2
+version: 1.1.0
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
@@ -70,6 +70,10 @@ version-history:
     date: 2026-11-17
     change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
     by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-17
+    change: "Storage of microarthropods in ethanol: room temperature, ideally in the fridge if there is space."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -87,7 +91,7 @@ Ethanol is removed by centrifugation, pipetting and evaporation. Specimens are h
 | Hands-on time | [TO CONFIRM] |
 | Total time | [TO CONFIRM]. Fixed times: ethanol evaporation 15 min per concentrator load; lysis 1 h 30 min. |
 | Sample amount | [TO CONFIRM: maximum amount per column] |
-| Sample condition | Microarthropods in 96% ethanol, usually at room temperature |
+| Sample condition | Microarthropods in 96% ethanol at room temperature; ideally in the fridge if there is space |
 | Prepare in advance | Ethanol added to Buffer NW2; ThermoMixer at 56 °C; Buffer NE at 70 °C; bench cleaned and UV on |
 | Key safety points | See Safety and waste |
 

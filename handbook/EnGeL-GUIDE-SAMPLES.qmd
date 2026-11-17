@@ -1,7 +1,7 @@
 ---
 title: "Sample labelling and storage"
 guide-id: EnGeL-GUIDE-SAMPLES
-version: 1.0.0
+version: 1.1.0
 date: 2026-11-17
 status: draft
 author:
@@ -15,6 +15,10 @@ version-history:
   - version: 1.0.0
     date: 2026-11-17
     change: "First EnGeL-UC version, from “EnGeL Best Practices for Sample Management” (2024) and its Quarto edition, with the label format of the current sample master data (v5)."
+    by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-17
+    change: "Darwin Core and Nagoya Protocol sections (Nagoya guidance after BENCHMARKS D4.3); bulk fauna stored in 96% ethanol at room temperature, ideally in the fridge."
     by: "Luís Cunha"
 ---
 
@@ -46,19 +50,49 @@ The 2024 formats (for example `ENGEL-DNA-2024-002`, or type codes TIS, CCS and I
 | Tissue | −80 °C freezer, labelled and sealed |
 | DNA and RNA | −20 °C or −80 °C, depending on stability; store in aliquots to avoid repeated freezing and thawing |
 | Soil | Room temperature or fridge, depending on the analysis |
-| Bulk community samples (e.g. extracted fauna) | Depending on the organisms, typically −80 °C |
+| Bulk fauna samples (e.g. extracted microarthropods) | In 96% ethanol at room temperature; ideally in the fridge if there is space |
 | Individual animals | −80 °C freezer, labelled and sealed |
 
-Protocols give the storage conditions for the samples and extracts they produce; where a protocol and this table differ, the protocol applies [TO CONFIRM: storage of bulk fauna in ethanol at room temperature (EnGeL-MOLB-DNA-MAG) versus −80 °C here].
+Protocols give the storage conditions for the samples and extracts they produce; where a protocol and this table differ, the protocol applies [TO CONFIRM: EnGeL-FAUNA-MAR-MORPH stores sorted animals in 96% ethanol at −20 °C].
 
 ## Recording and tracking
 
 - **Sample log:** every sample is in the sample master data file, with its code, type, collection date, storage location and notes. Freezer contents are also listed in the freezer sample register ([Lab members only](internal.qmd)).
 - **Tracking:** use the master data file (and, for metabarcoding, the project's Lab Pipeline workbook) to follow where samples are and what has been done to them.
 
-## Permits and biodiversity data
+## Biodiversity data: Darwin Core
 
-Keep the permits and agreements for collecting and using biodiversity samples with the project records, and document biodiversity samples according to the applicable requirements [TO CONFIRM: the source refers to a “Darwin Convention”; probably the Nagoya Protocol on access and benefit-sharing and/or the Darwin Core data standard].
+Record biodiversity data (what was found, where, when, by whom and how) with the terms of the Darwin Core standard (Wieczorek et al., 2012), so that the data can be shared and combined with other data sets, for example through GBIF. Sample information in the master data file should map onto these terms [TO CONFIRM: which Darwin Core terms the master data file uses].
+
+## Access and benefit-sharing: the Nagoya Protocol
+
+Soil and the organisms it contains are genetic resources. Their use in research, including DNA extraction, metabarcoding, qPCR, culturing and storage, can fall under the Nagoya Protocol on Access and Benefit-sharing (ABS) of the Convention on Biological Diversity. Before samples are brought from, or sent to, another country, check that the ABS requirements are met, or that the case is exempt, and that the documents are in place. The steps below follow the BENCHMARKS guidance (BENCHMARKS, 2026).
+
+**Planning work with samples from another country**
+
+1. **Check the provider country's rules** through the CBD ABS Clearing-House: does the country have ABS laws and procedures?
+2. **Check whether ABS applies** to the material (soil and the organisms in it), to the planned work (DNA extraction, sequencing, storage and so on) and to when and how the material was collected.
+3. **Contact the national ABS focal point** or competent authority of the provider country to confirm the procedure.
+4. **Obtain permission and terms:** where required, Prior Informed Consent (PIC) and Mutually Agreed Terms (MAT) that set the permitted use and the benefit-sharing obligations.
+5. **Keep the records:** permits, authorisations, PIC and MAT (or their references) and the correspondence.
+
+**Transfers between institutions**
+
+- Use a Material Transfer Agreement (MTA). It should state the permitted use (for example community analysis), whether DNA extraction, sequencing, culturing and storage are allowed, whether the material may go to third parties such as sequencing providers, and the benefit-sharing and reporting obligations.
+- Send the compliance information with the samples: provider country, permit or reference numbers, and the permitted use. Keep confidential terms separate.
+- Check whether sharing the sequence data (public databases or restricted access) must follow the agreed terms.
+
+**Samples without ABS documents**
+
+Do not ship or start work until the minimum documents are available: the provider country, the access authorisation and PIC (if required), the MAT or a summary of it, permit references covering the intended use, and whether transfer to third parties is allowed. If the documents cannot be provided, wait until they are, until the case is confirmed in writing to be exempt, or until the competent authority confirms that the transfer can go ahead. **No shipment until the ABS documents are in place or an exemption is confirmed in writing.**
+
+Keep all permits and agreements with the project records, and record the permit references in the sample master data file [TO CONFIRM: column for permit references].
+
+## References
+
+BENCHMARKS (2026). Soil health indicator protocols, deliverable D4.3, section “Nagoya compliance – field-ready guidance” (from the BENCHMARKS soil sampling guidelines, Appendix 9.5). Horizon Europe project BENCHMARKS. [TO CONFIRM: final version and DOI]
+
+Wieczorek, J., Bloom, D., Guralnick, R., et al. (2012). Darwin Core: an evolving community-developed biodiversity data standard. PLoS ONE, 7(1), e29715. <https://doi.org/10.1371/journal.pone.0029715>
 
 ## Version history and citation
 
@@ -67,8 +101,8 @@ Keep the permits and agreements for collecting and using biodiversity samples wi
 
 ## Open questions
 
-1. Which framework is meant by “Darwin Convention” (Nagoya Protocol / access and benefit-sharing, Darwin Core, or both)?
-2. Storage of bulk fauna samples: −80 °C (this guide's source) or ethanol at room temperature (EnGeL-MOLB-DNA-MAG)?
+1. Which Darwin Core terms does the master data file use, and is there a column for permit references?
+2. EnGeL-FAUNA-MAR-MORPH stores sorted animals in ethanol at −20 °C; this guide says room temperature or fridge. Which applies?
 3. The 2024 label script (`EnGeL_generate_labels.sh`) makes labels in the old format: retire it, now that the data curator generates labels from the master data file?
 4. Training and audits of labelling and storage (in the 2024 source, marked as an open point): keep, and who organises them?
 5. Authors.

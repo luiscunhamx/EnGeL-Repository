@@ -5,6 +5,11 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-GUIDE-LABRULES 1.0.2 (2026-11-17): waste: soil is autoclaved before disposal.
+- EnGeL-GUIDE-SAMPLES 1.1.0 (2026-11-17): Darwin Core and Nagoya Protocol sections (Nagoya guidance after BENCHMARKS D4.3); bulk fauna stored in 96% ethanol at room temperature, ideally in the fridge.
+- EnGeL-MOLB-DNA-MAG 1.2.0 (2026-11-17): storage of microarthropods in ethanol: room temperature, ideally in the fridge if there is space.
+- EnGeL-MOLB-DNA-COL 1.1.0 (2026-11-17): storage of microarthropods in ethanol: room temperature, ideally in the fridge if there is space.
+- EnGeL-BIOINF-COMMUNITY 1.0.1 (2026-11-17): negative controls kept out of the sample groups (corrects the source analysis, where the blank was counted in one group).
 - Lab members only: link to the EnGeL shared folder (Google Drive).
 - EnGeL-GUIDE-LABRULES 1.0.1 (2026-11-17): contacts: Filipa Reis (consumables, incoming samples), Sandra Simões (autoclave); author confirmed.
 - EnGeL-GUIDE-AUTOCLAVE 1.0.1 (2026-11-17): contact: Sandra Simões (autoclave); author confirmed (Luís Cunha).

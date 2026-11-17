@@ -2,7 +2,7 @@
 title: "From OTU table to community data: identified OTUs, incidence and shared OTUs between groups (R)"
 short-title: "Bioinformatics: community data in R"
 protocol-id: EnGeL-BIOINF-COMMUNITY
-version: 1.0.0
+version: 1.0.1
 date: 2026-11-17
 status: draft
 area: Bioinformatics (BIOINF)
@@ -39,6 +39,10 @@ version-history:
   - version: 1.0.0
     date: 2026-11-17
     change: "First EnGeL-UC version, from the Quarto analysis “Data Analysis – Primer Comparison” by Luísa F. Dornellas (2026); sample groups read from a table instead of written into the script."
+    by: "Luís Cunha"
+  - version: 1.0.1
+    date: 2026-11-17
+    change: "Negative controls kept out of the sample groups (corrects the source analysis, where the blank was counted in one group)."
     by: "Luís Cunha"
 ---
 
@@ -146,7 +150,7 @@ write_xlsx(rownames_to_column(incidence, "otu"), "results/OTU_incidence.xlsx")
 
 ### 4. OTUs shared between groups
 
-(@) List, for each group, the OTUs present in at least one of its samples (leave out the negative controls unless you want to show them):
+(@) List, for each group, the OTUs present in at least one of its samples. Negative controls are never counted in a sample group:
 
 ```r
 use   <- setdiff(unique(groups$group), "blank")
@@ -207,7 +211,7 @@ Not applicable (computational protocol).
 
 ## Remarks
 
-The source analysis compared three primer and library-preparation combinations for COI metabarcoding of mesofauna (BF3/BR2 and III_BF3/Fol-degen-rev, prepared by two providers), with one sample group per combination and a blank; the groups and file names above follow it as an example. In the source, the blank was included in one of the groups when drawing the Venn diagram [TO CONFIRM: intended?].
+The source analysis compared three primer and library-preparation combinations for COI metabarcoding of mesofauna (BF3/BR2 and III_BF3/Fol-degen-rev, prepared by two providers), with one sample group per combination and a blank; the groups and file names above follow it as an example. In the source, the blank was counted in one of the sample groups when drawing the Venn diagram; this is corrected here: negative controls form their own group and are left out of the sample groups.
 
 ## References
 
@@ -223,8 +227,7 @@ Gao, C.-H., Yu, G., Cai, P. (2021). ggVennDiagram: an intuitive, easy-to-use, an
 1. R and package versions; hands-on time.
 2. Exact name of the BOLDigger3 identification file (“MatchesOnly”) and the identification threshold it implies.
 3. How OTUs found in negative controls are treated; acceptable proportion of unidentified OTUs.
-4. Should the blank be shown in the Venn diagram (it was part of one group in the source)?
-5. Alternative to the Venn diagram for more than four groups.
-6. Further community analyses to add (e.g. diversity indices, ordination)?
-7. Add the R script to the repository (`code/`, MIT)?
-8. DOI.
+4. Alternative to the Venn diagram for more than four groups.
+5. Further community analyses to add (e.g. diversity indices, ordination)?
+6. Add the R script to the repository (`code/`, MIT)?
+7. DOI.

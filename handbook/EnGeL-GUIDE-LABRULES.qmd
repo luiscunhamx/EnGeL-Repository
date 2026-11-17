@@ -1,7 +1,7 @@
 ---
 title: "Lab rules and safety"
 guide-id: EnGeL-GUIDE-LABRULES
-version: 1.0.1
+version: 1.0.2
 date: 2026-11-17
 status: draft
 author:
@@ -17,6 +17,10 @@ version-history:
   - version: 1.0.1
     date: 2026-11-17
     change: "Contacts: Filipa Reis (consumables, incoming samples), Sandra Simões (autoclave); author confirmed."
+    by: "Luís Cunha"
+  - version: 1.0.2
+    date: 2026-11-17
+    change: "Waste: soil is autoclaved before disposal."
     by: "Luís Cunha"
 ---
 
@@ -45,7 +49,7 @@ These rules keep the laboratory safe, clean and working for everyone. They apply
 
 {{< include ../includes/_waste-streams.qmd >}}
 
-The 2024 lab procedure also mentions contaminated waste that is autoclaved before disposal [TO CONFIRM: does this still apply, and for which waste?]. Autoclaving is described in the [autoclave procedure](equipment/EnGeL-GUIDE-AUTOCLAVE.qmd).
+Soil is autoclaved before disposal, in addition to the waste streams above (older autoclave at the NematoLab, or the bench autoclave; see the [autoclave procedure](equipment/EnGeL-GUIDE-AUTOCLAVE.qmd)).
 
 ## Equipment
 
@@ -89,5 +93,4 @@ At the end of the day, or when you are the last person in the lab, check that eq
 
 ## Open questions
 
-1. Is autoclaving of contaminated waste still part of the waste routine (2024 procedure), alongside the current waste streams?
-2. How liquid nitrogen deliveries are organised.
+1. How liquid nitrogen deliveries are organised.

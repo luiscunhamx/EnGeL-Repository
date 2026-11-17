@@ -2,7 +2,7 @@
 title: "DNA extraction from bulk soil fauna samples with magnetic beads (Omega Bio-tek Mag-Bind® Blood & Tissue DNA HDQ 96, Invitek InviGenius®)"
 short-title: "DNA extraction, magnetic beads (InviGenius)"
 protocol-id: EnGeL-MOLB-DNA-MAG
-version: 1.1.4
+version: 1.2.0
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
@@ -94,6 +94,10 @@ version-history:
     date: 2026-11-17
     change: "Sample-label text moved to a shared include (also used by the lab handbook); no change in content."
     by: "Luís Cunha"
+  - version: 1.2.0
+    date: 2026-11-17
+    change: "Storage of microarthropods in ethanol: room temperature, ideally in the fridge if there is space."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -125,7 +129,7 @@ An aliquot of the lysate is mixed with AL Buffer and with HDQ Binding Buffer con
 | Total time (full plate) | [TO CONFIRM: to be filled in by Luísa Fraga and Andreia Quaresma]. Fixed times in the procedure: ethanol evaporation 15 min per concentrator load; lysis 1 h 30 min; AL mixing 10 min; robot run c. 45 min. |
 | Run size | 92 samples + 4 extraction blanks (positions H3, H6, H9, H12) per 96-well plate. |
 | Sample amount | [TO CONFIRM: maximum amount per extraction]. Specimens must be fully covered by the TL Buffer. |
-| Sample condition and storage | Microarthropods: in 96% ethanol, usually at room temperature. Nematodes: unfixed aliquot in dH~2~O in 1.5 mL tubes, frozen at −20 °C or −80 °C. Macroarthropods: [TO CONFIRM]. |
+| Sample condition and storage | Microarthropods: in 96% ethanol at room temperature; ideally in the fridge if there is space. Nematodes: unfixed aliquot in dH~2~O in 1.5 mL tubes, frozen at −20 °C or −80 °C. Macroarthropods: [TO CONFIRM]. |
 | Prepare in advance | Kit buffers diluted with ethanol / isopropanol (Reagent preparation); plate map (Annex 1); dry bath at 55 °C; bench cleaned and UV on. |
 | Key safety points | Guanidine-containing buffers (AL, VHB): never mix with bleach. HDQ Binding Buffer contains sodium perchlorate. See Safety and waste. |
 
