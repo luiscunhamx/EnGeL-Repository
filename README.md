@@ -14,13 +14,14 @@ Website (after the first release): <https://luiscunhamx.github.io/EnGeL-Reposito
 | `workflows/` | Pages that chain protocols (sampling → extraction → library → sequencing → bioinformatics) |
 | `_templates/protocol-template.qmd` | Starting point for a new protocol |
 | `data/planned.yml` | Planned protocols shown in the register |
+| `data/people.yml` | People page: name, role, ORCID, optional short biography (no e-mails or phone numbers). Protocol roles are read from the protocols |
 | `data/allowed_emails.txt` | Shared lab addresses allowed on protocol pages |
 | `assets/` | Fonts, logos, styles, PDF layout, Word reference document |
 | `assets/figures/` | Schematic figures (SVG), drawn from the protocol text; CC BY 4.0, credited as “Figure: EnGeL-UC”. Edit them in any SVG editor (e.g. Inkscape); keep values identical to the protocol |
 | `tools/` | `prerender.py` (register, bench sheets, list of values to confirm), `check.py` (automatic checks), `engel.lua` (layout filter) |
 | `CHANGELOG.md` | Every change, with protocol ID and version |
 
-Generated, not edited: `register.qmd`, `bench/*-bench.qmd`, `to-confirm.qmd` and `to-confirm.csv` (every open [TO CONFIRM], per protocol, with line numbers), `_site/`.
+Generated, not edited: `register.qmd`, `bench/*-bench.qmd`, `to-confirm.qmd` and `to-confirm.csv`, `people.qmd`, `_area-cards.qmd` (home page cards) (every open [TO CONFIRM], per protocol, with line numbers), `_site/`.
 
 Figures in a protocol: `![Caption ending with the credit.](../../assets/figures/<file>.svg){#fig-<name> fig-alt="Description for screen readers" width="100%"}`. Every figure needs a caption, alt text and a credit; figures from papers or kit manuals only if their licence allows it.
 

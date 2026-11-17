@@ -27,6 +27,8 @@ website:
         text: Home
       - href: register.qmd
         text: Protocol register
+      - href: people.qmd
+        text: People
       - text: Workflows
         menu:
           - workflows/soil-fauna-metabarcoding.qmd
@@ -41,6 +43,7 @@ website:
       - index.qmd
       - register.qmd
       - to-confirm.qmd
+      - people.qmd
       - section: "Fauna sample processing (FAUNA)"
         contents: "protocols/fauna/*.qmd"
       - section: "Molecular biology (MOLB)"

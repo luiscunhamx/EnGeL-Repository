@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- Website: home page presents the lab (statement from envigenomics.eu, cards per area with protocol counts); People page generated from data/people.yml and the protocols.
 - Register: EnGeL-MOLB-MB-EW (earthworm metabarcoding, multiplex marker) added as planned.
 - EnGeL-MOLB-MB 1.2.1 (2026-11-16): schematic of the two-step PCR and library structure (figure).
 - EnGeL-FAUNA-MAR-MORPH 1.0.1 (2026-11-16): schematic of the MacFadyen extraction set-up (figure); ORCIDs of Filipa Reis and Pedro Martins.
