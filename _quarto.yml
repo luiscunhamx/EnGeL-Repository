@@ -46,6 +46,9 @@ website:
           - workflows/single-specimen-barcoding.qmd
           - workflows/rna.qmd
     right:
+      - icon: globe
+        href: "https://envigenomics.eu"
+        aria-label: "EnGeL website"
       - icon: github
         href: "https://github.com/luiscunhamx/EnGeL-Repository"
   sidebar:
