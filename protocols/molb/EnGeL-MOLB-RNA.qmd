@@ -3,7 +3,7 @@ title: "Total RNA extraction with TRIzol and spin-column clean-up (honey bees; i
 short-title: "Total RNA extraction (TRIzol)"
 protocol-id: EnGeL-MOLB-RNA
 version: 1.2.2
-date: 2026-11-16
+date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
 author:

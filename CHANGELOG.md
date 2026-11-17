@@ -5,6 +5,9 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- check.py: header date and version must match the last version-history entry (dates of DNA-BEE, NAQC, RNA, MAR-MORPH corrected to 2026-11-17).
+- GHS pictograms (assets/ghs, public domain) shown in the hazards row from a new `ghs:` header field; check.py validates the codes.
+- EnGeL-FAUNA-MAR-MORPH 1.0.2 (2026-11-17): GHS pictograms (flame, exclamation mark) for ethanol 96%.
 - EnGeL-MOLB-DNA-BEE 1.0.1 (2026-11-17): contributor Yevhenia Shcheka (source protocol, written in the lab).
 - EnGeL-MOLB-NAQC 1.1.1 (2026-11-17): oRCID of contributor Diogo Fonseca.
 - EnGeL-MOLB-RNA 1.2.2 (2026-11-17): author of the bee protocol identified as Artur Sarmento, with ORCID (the source was signed “FFR”).

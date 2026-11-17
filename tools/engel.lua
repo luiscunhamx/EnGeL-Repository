@@ -5,6 +5,13 @@
 
 local LAB = 'Environmental Genomics Laboratory (EnGeL-UC), Environmental Ecology & Ecotoxicology Group (E3G), Centre for Functional Ecology, Department of Life Sciences, University of Coimbra · Laboratório Associado TERRA'
 
+-- GHS pictograms (assets/ghs): code -> {file stem, name}
+local GHS = {
+  GHS01 = {'explos', 'Exploding bomb'}, GHS02 = {'flamme', 'Flame'}, GHS03 = {'rondflam', 'Flame over circle'},
+  GHS04 = {'bottle', 'Gas cylinder'}, GHS05 = {'acid', 'Corrosion'}, GHS06 = {'skull', 'Skull and crossbones'},
+  GHS07 = {'exclam', 'Exclamation mark'}, GHS08 = {'silhouette', 'Health hazard'}, GHS09 = {'pollu', 'Environment'},
+}
+
 local function str(x) if x == nil then return '' end return pandoc.utils.stringify(x) end
 local function is_typst() return quarto.doc.is_format('typst') end
 local function is_html() return quarto.doc.is_format('html') end
@@ -61,7 +68,17 @@ local function meta_box(meta)
   if meta.hazards then
     local h = {}
     for _, x in ipairs(meta.hazards) do table.insert(h, str(x)) end
-    table.insert(rows, {'Main hazards', table.concat(h, '; ')})
+    local icons = ''
+    if meta.ghs then
+      local ic = {}
+      for _, g in ipairs(meta.ghs) do
+        local code = str(g)
+        local f = GHS[code]
+        if f then table.insert(ic, '![' .. code .. ' ' .. f[2] .. '](../../assets/ghs/GHS-pictogram-' .. f[1] .. '.svg){width=9mm fig-alt="' .. code .. ' ' .. f[2] .. '"}') end
+      end
+      if #ic > 0 then icons = table.concat(ic, ' ') .. ' ' end
+    end
+    table.insert(rows, {'Main hazards', icons .. table.concat(h, '; ')})
   end
   if is_html() then
     table.insert(rows, {'Downloads', 'Protocol: [PDF](' .. id .. '.pdf) · [Word](' .. id .. '.docx). Bench sheet: [PDF](../../bench/' .. id .. '-bench.pdf) · [web page](../../bench/' .. id .. '-bench.html)'})

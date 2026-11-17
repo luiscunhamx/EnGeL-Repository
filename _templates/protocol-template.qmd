@@ -15,6 +15,7 @@ reviewed-by: Name Surname
 contact: "[TO CONFIRM: lab contact e-mail]"   # never a personal address
 license: CC BY 4.0
 protocol-doi: "[TO CONFIRM]"
+ghs: []                             # GHS01–GHS09, from the SDS (section 2) of the chemicals used
 hazards:
   - "Reagent: hazard in a few words"
 equipment:
