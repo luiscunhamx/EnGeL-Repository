@@ -10,7 +10,7 @@ author:
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
 contributors:
-  - "Yevhenia Shcheka (source protocol)"
+  - "Yevhenia Shcheka (source protocol, written in the lab)"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -63,7 +63,7 @@ version-history:
     by: "Luís Cunha"
   - version: 1.0.1
     date: 2026-11-17
-    change: "Contributor Yevhenia Shcheka (source protocol)."
+    change: "Contributor Yevhenia Shcheka (source protocol, written in the lab)."
     by: "Luís Cunha"
 ---
 
@@ -224,7 +224,7 @@ NZYtech (n.d.). NZY Soil gDNA Isolation kit (MB21802) – manual [TO CONFIRM: ve
 
 ## Open questions
 
-1. Was the source protocol written in the lab or adapted from a published method (reference)? DOI.
+1. DOI.
 2. Proteinase K: from which kit, and at what concentration?
 3. FastPrep setting “quantity 1 mg”: what does it refer to?
 4. Preparation of the 0.05% sodium hypochlorite.
