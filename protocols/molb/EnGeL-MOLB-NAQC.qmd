@@ -2,7 +2,7 @@
 title: "Nucleic acid quality control: purity and concentration (NanoDrop, Qubit, PicoGreen)"
 short-title: "Nucleic acid QC (NanoDrop, Qubit, PicoGreen)"
 protocol-id: EnGeL-MOLB-NAQC
-version: 1.1.1
+version: 1.1.2
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
@@ -10,6 +10,8 @@ author:
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
 contributors:
+  - "Luísa Fraga (ORCID 0000-0003-3153-4593)"
+  - "Andreia Quaresma (ORCID 0000-0002-8678-5800)"
   - "Diogo Fonseca (NanoDrop and Qubit sections; ORCID 0009-0003-2564-7572)"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
@@ -52,6 +54,10 @@ version-history:
   - version: 1.1.1
     date: 2026-11-17
     change: "ORCID of contributor Diogo Fonseca."
+    by: "Luís Cunha"
+  - version: 1.1.2
+    date: 2026-11-17
+    change: "Contributors: Luísa Fraga and Andreia Quaresma."
     by: "Luís Cunha"
 ---
 

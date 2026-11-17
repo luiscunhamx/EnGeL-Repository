@@ -2,8 +2,8 @@
 title: "Metabarcoding bioinformatics with OBITools4, VSEARCH, LULU and BOLDigger3 (COI amplicons)"
 short-title: "Bioinformatics: OBITools4 pipeline"
 protocol-id: EnGeL-BIOINF-OBITOOLS4
-version: 1.0.1
-date: 2026-11-16
+version: 1.0.2
+date: 2026-11-17
 status: draft
 area: Bioinformatics (BIOINF)
 author:
@@ -11,6 +11,8 @@ author:
     orcid: 0000-0003-3153-4593
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
+contributors:
+  - "Andreia Quaresma (ORCID 0000-0002-8678-5800)"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -44,6 +46,10 @@ version-history:
   - version: 1.0.1
     date: 2026-11-16
     change: "Clustering threshold confirmed at 96% (adapt to the intraspecific variability expected for the group)."
+    by: "Luís Cunha"
+  - version: 1.0.2
+    date: 2026-11-17
+    change: "Contributor: Andreia Quaresma."
     by: "Luís Cunha"
 ---
 

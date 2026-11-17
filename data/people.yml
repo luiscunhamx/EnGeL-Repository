@@ -4,6 +4,7 @@
 - name: Luís Cunha
   role: Principal Investigator
   orcid: 0000-0002-5870-2537
+  photo: assets/photos/people_luis_cunha.jpg   # optional; web-size copy in assets/photos
 - name: Luísa Fraga
   role: Technician
   orcid: 0000-0003-3153-4593
