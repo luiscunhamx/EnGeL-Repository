@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- Equipment page: every instrument has its own logbook except accessory equipment (centrifuges, heated shakers, plate shaker, vortex mixers); MinION Mk1C photo; NextGenPCR sealing unit confirmed.
 - Equipment page: eight more instruments (Opentrons OT-2, NextGenPCR sealer, MinION, Mixer HC heated shaker, Biosan MPS-1 plate shaker, PCR workstations, balances, vortex mixers); seven with photos; where their use is recorded is [TO CONFIRM].
 - Equipment page: photo cards for 13 instruments (from data/equipment.yml `photo`); instrument models named from the photos (Biometra TOne, Bio-Rad T100, TapeStation 4150, NanoDrop One, BeadBlaster 24R). Home page: photos on the Fauna and Molecular biology cards.
 - Checks workflow: generated pages (register, equipment list, bench sheets) are now built before the protocol checks, so links to them are not reported as broken.
