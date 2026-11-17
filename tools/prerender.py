@@ -3,7 +3,8 @@
   bench/<ID>-bench.qmd         one bench sheet per protocol (steps from the Procedure section)
   to-confirm.qmd / .csv        every [TO CONFIRM] still open, per protocol and shared include
   people.qmd                   people (data/people.yml) with the protocols they wrote or contributed to
-  _area-cards.qmd              cards per area for the home page (included by index.qmd)
+  _area-cards.qmd              cards per area for the home page (included by index.qmd; committed, because
+                               Quarto reads includes before this script runs)
   _quarto.yml (sidebar block)  sidebar with short titles, in workflow order (SIDEBAR_ORDER)
 Generated files are overwritten every time: edit the protocol, never these files."""
 import os, re, glob, yaml

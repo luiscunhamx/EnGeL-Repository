@@ -21,7 +21,7 @@ Website (after the first release): <https://luiscunhamx.github.io/EnGeL-Reposito
 | `tools/` | `prerender.py` (register, bench sheets, list of values to confirm), `check.py` (automatic checks), `engel.lua` (layout filter) |
 | `CHANGELOG.md` | Every change, with protocol ID and version |
 
-Generated, not edited: `register.qmd`, `bench/*-bench.qmd`, `to-confirm.qmd` and `to-confirm.csv`, `people.qmd`, `_area-cards.qmd` (home page cards), and the sidebar block in `_quarto.yml` (short titles, order set in `SIDEBAR_ORDER` in `tools/prerender.py`; a change shows on the next render) (every open [TO CONFIRM], per protocol, with line numbers), `_site/`.
+Generated, not edited: `register.qmd`, `bench/*-bench.qmd`, `to-confirm.qmd` and `to-confirm.csv`, `people.qmd`, `_area-cards.qmd` (home page cards; committed, because Quarto reads includes before the generator runs: commit it after a render), and the sidebar block in `_quarto.yml` (short titles, order set in `SIDEBAR_ORDER` in `tools/prerender.py`; a change shows on the next render) (every open [TO CONFIRM], per protocol, with line numbers), `_site/`.
 
 Figures in a protocol: `![Caption ending with the credit.](../../assets/figures/<file>.svg){#fig-<name> fig-alt="Description for screen readers" width="100%"}`. Every figure needs a caption, alt text and a credit; figures from papers or kit manuals only if their licence allows it.
 
