@@ -2,16 +2,18 @@
 title: "Sampling, MacFadyen extraction and sorting of soil microarthropods"
 short-title: "Microarthropods: sampling, MacFadyen extraction, sorting"
 protocol-id: EnGeL-FAUNA-MAR-MORPH
-version: 1.0.2
+version: 1.0.3
 date: 2026-11-17
 status: draft
 area: Fauna sample processing (FAUNA)
 author:
+  - name: Pedro Martins
+    orcid: 0000-0002-5930-264X
+  - name: Filipa Reis
+    orcid: 0000-0001-6297-8862
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
-contributors:
-  - "Pedro Martins (ORCID 0000-0002-5930-264X)"
-  - "Filipa Reis (ORCID 0000-0001-6297-8862)"
+    contribution: "source protocol; review and approval"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -55,6 +57,10 @@ version-history:
   - version: 1.0.2
     date: 2026-11-17
     change: "GHS pictograms in the hazards row (flame, exclamation mark; ethanol 96%, H225, H319)."
+    by: "Luís Cunha"
+  - version: 1.0.3
+    date: 2026-11-17
+    change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
     by: "Luís Cunha"
 ---
 

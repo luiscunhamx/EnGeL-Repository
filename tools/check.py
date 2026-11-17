@@ -55,7 +55,12 @@ for path in sorted(glob.glob('protocols/**/*.qmd', recursive=True)):
         if g not in [f'GHS0{i}' for i in range(1, 10)]: err(path, f'unknown GHS pictogram code: {g} (use GHS01 to GHS09)')
     for a in meta.get('author', []) or []:
         o = a.get('orcid', '') if isinstance(a, dict) else ''
-        if not re.match(r'^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$', str(o)): err(path, f'author without valid ORCID: {a}')
+        if isinstance(a, dict) and a.get('no-orcid'): continue                         # confirmed: this person has no ORCID
+        if not re.match(r'^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$', str(o)): err(path, f'author without valid ORCID (or no-orcid: true, only if confirmed): {a}')
+    auth_names = [a.get('name') if isinstance(a, dict) else str(a) for a in (meta.get('author') or [])]
+    rev = meta.get('reviewed-by')
+    if rev and rev in auth_names and auth_names[-1] != rev: err(path, f'the reviewer ({rev}) must be the last author')
+    if meta.get('contributors'): warn(path, 'contributors field is no longer used: list everyone as authors, with their role')
     hist = meta.get('version-history', []) or []
     if not hist or str(hist[-1].get('version')) != ver: err(path, 'last entry of version-history does not match version')
     cl = open('CHANGELOG.md', encoding='utf-8').read() if os.path.exists('CHANGELOG.md') else ''

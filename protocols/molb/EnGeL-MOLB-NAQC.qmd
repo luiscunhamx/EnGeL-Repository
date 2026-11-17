@@ -2,17 +2,22 @@
 title: "Nucleic acid quality control: purity and concentration (NanoDrop, Qubit, PicoGreen)"
 short-title: "Nucleic acid QC (NanoDrop, Qubit, PicoGreen)"
 protocol-id: EnGeL-MOLB-NAQC
-version: 1.2.0
+version: 1.2.1
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
 author:
+  - name: Diogo Fonseca
+    orcid: 0009-0003-2564-7572
+    contribution: "NanoDrop and Qubit sections"
+  - name: Luísa Fraga
+    orcid: 0000-0003-3153-4593
+  - name: Andreia Quaresma
+    orcid: 0000-0002-8678-5800
+    contribution: "PicoGreen section"
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
-contributors:
-  - "Luísa Fraga (ORCID 0000-0003-3153-4593)"
-  - "Andreia Quaresma (ORCID 0000-0002-8678-5800)"
-  - "Diogo Fonseca (NanoDrop and Qubit sections; ORCID 0009-0003-2564-7572)"
+    contribution: "review and approval"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -62,6 +67,10 @@ version-history:
   - version: 1.2.0
     date: 2026-11-17
     change: "PicoGreen part updated from Andreia Quaresma’s v1.0 (2026-11-05): plate reader FLUOstar Omega and reader protocol settings, plate type, times, user guide MAN0001931 Rev. A.0."
+    by: "Luís Cunha"
+  - version: 1.2.1
+    date: 2026-11-17
+    change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
     by: "Luís Cunha"
 ---
 

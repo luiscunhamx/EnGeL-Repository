@@ -43,6 +43,8 @@ python tools/check.py  # checks only
 
 ## Rules (short)
 
+- **Authors:** everyone who contributed is an author, with an optional short `contribution`; the lead author first where there is one, the others alphabetically by surname, the reviewer (Luís Cunha) last. `tools/check.py` checks ORCIDs (or `no-orcid: true` when confirmed) and that the reviewer is last.
+
 - Never guess: values not in the sources are written `[TO CONFIRM]` and listed under *Open questions*.
 - Keep the lab's wording. Protocols are general; project notes go in *Remarks*.
 - No personal e-mail addresses. SI units with a space (10 µL, 4 °C, 15 000 × g). ISO dates. British English.

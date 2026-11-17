@@ -26,11 +26,14 @@ local function author_list(meta)
   if a == nil then return out end
   if a.t ~= 'MetaList' and type(a) ~= 'table' then a = {a} end
   for _, x in ipairs(a) do
-    local name, orcid = '', ''
+    local name, orcid, role = '', '', ''
     if type(x) == 'table' and x.name ~= nil then
       name = str(x.name.literal or x.name); orcid = str(x.orcid)
+      -- `contribution` is not a Quarto author field, so Quarto keeps it under `metadata`
+      if x.metadata and x.metadata.contribution then role = str(x.metadata.contribution)
+      elseif x.contribution then role = str(x.contribution) end
     else name = str(x) end
-    table.insert(out, {name = name, orcid = orcid})
+    table.insert(out, {name = name, orcid = orcid, role = role})
   end
   return out
 end
@@ -49,7 +52,10 @@ local function meta_box(meta)
   local auth = {}
   for _, a in ipairs(author_list(meta)) do
     local s = a.name
-    if a.orcid ~= '' then s = s .. ' ([ORCID ' .. a.orcid .. '](https://orcid.org/' .. a.orcid .. '))' end
+    local extra = {}
+    if a.role ~= '' then table.insert(extra, a.role) end
+    if a.orcid ~= '' and a.orcid ~= 'none' then table.insert(extra, '[ORCID ' .. a.orcid .. '](https://orcid.org/' .. a.orcid .. ')') end
+    if #extra > 0 then s = s .. ' (' .. table.concat(extra, '; ') .. ')' end
     table.insert(auth, s)
   end
   local rows = {

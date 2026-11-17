@@ -2,15 +2,17 @@
 title: "Genomic DNA isolation from honey bee guts (NZY Soil gDNA Isolation Kit)"
 short-title: "DNA from honey bee guts (NZY Soil)"
 protocol-id: EnGeL-MOLB-DNA-BEE
-version: 1.0.1
+version: 1.0.2
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
 author:
+  - name: Yevhenia Shcheka
+    no-orcid: true   # confirmed: no ORCID
+    contribution: "lead; source protocol, written in the lab"
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
-contributors:
-  - "Yevhenia Shcheka (source protocol, written in the lab)"
+    contribution: "review and approval"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -64,6 +66,10 @@ version-history:
   - version: 1.0.1
     date: 2026-11-17
     change: "Contributor Yevhenia Shcheka (source protocol, written in the lab)."
+    by: "Luís Cunha"
+  - version: 1.0.2
+    date: 2026-11-17
+    change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
     by: "Luís Cunha"
 ---
 

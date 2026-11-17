@@ -5,6 +5,17 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- Authorship rule (Luís, 2026-11-17): everyone who contributed is an author, with an optional role; the lead author first where one is identified; the reviewer (Luís Cunha) last. The separate contributors list is no longer used.
+- EnGeL-BIOINF-OBITOOLS4 1.0.3 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-FAUNA-MAR-MORPH 1.0.3 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-DNA-BARC 1.0.1 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-DNA-BEE 1.0.2 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-DNA-COL 1.0.2 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-DNA-MAG 1.1.3 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-KAPA 1.1.1 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-MB 1.3.1 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-NAQC 1.2.1 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-RNA 1.2.3 (2026-11-17): authorship (all as authors, lead first, reviewer last).
 - EnGeL-MOLB-KAPA 1.1.0 (2026-11-17): updated from Andreia Quaresma’s v1.0 (2026-11-05): times, sample volume, positive control treated like a library (200 nM, 1:1 000 then 1:10 000 and 1:20 000), diluted library range 0.2–20 pM, melt-curve and ramp settings, plate capacity, hazard H371 (GHS08), technical data sheet KR0405 v8.17, expected-results figures (melt curve, standard curve).
 - EnGeL-MOLB-MB 1.3.0 (2026-11-17): shared KAPA qPCR text updated: diluted library range 0.2–20 pM, positive control treated like a library, melt-curve and ramp settings.
 - EnGeL-MOLB-NAQC 1.2.0 (2026-11-17): picoGreen part updated from Andreia Quaresma’s v1.0 (2026-11-05): plate reader FLUOstar Omega and reader protocol settings, plate type, times, user guide MAN0001931 Rev. A.0.

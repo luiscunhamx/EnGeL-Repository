@@ -2,16 +2,18 @@
 title: "DNA extraction from soil microarthropods with spin columns (NZY Tissue gDNA Isolation Kit)"
 short-title: "DNA extraction, spin columns (NZY Tissue)"
 protocol-id: EnGeL-MOLB-DNA-COL
-version: 1.0.1
+version: 1.0.2
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
 author:
+  - name: Luísa Fraga
+    orcid: 0000-0003-3153-4593
+  - name: Andreia Quaresma
+    orcid: 0000-0002-8678-5800
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
-contributors:
-  - "Luísa Fraga (ORCID 0000-0003-3153-4593)"
-  - "Andreia Quaresma (ORCID 0000-0002-8678-5800)"
+    contribution: "review and approval"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -63,6 +65,10 @@ version-history:
   - version: 1.0.1
     date: 2026-11-17
     change: "Contributors: Luísa Fraga and Andreia Quaresma."
+    by: "Luís Cunha"
+  - version: 1.0.2
+    date: 2026-11-17
+    change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
     by: "Luís Cunha"
 ---
 

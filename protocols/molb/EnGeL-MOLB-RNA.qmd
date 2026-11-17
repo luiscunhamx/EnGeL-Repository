@@ -2,15 +2,17 @@
 title: "Total RNA extraction with TRIzol and spin-column clean-up (honey bees; isopod hepatopancreas)"
 short-title: "Total RNA extraction (TRIzol)"
 protocol-id: EnGeL-MOLB-RNA
-version: 1.2.2
+version: 1.2.3
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
 author:
+  - name: Artur Sarmento
+    orcid: 0000-0003-3736-1531
+    contribution: "bee protocol"
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
-contributors:
-  - "Artur Sarmento (author of the bee protocol; ORCID 0000-0003-3736-1531)"
+    contribution: "review and approval"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -80,6 +82,10 @@ version-history:
   - version: 1.2.2
     date: 2026-11-17
     change: "Author of the bee protocol identified as Artur Sarmento, with ORCID (the source was signed “FFR”)."
+    by: "Luís Cunha"
+  - version: 1.2.3
+    date: 2026-11-17
+    change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
     by: "Luís Cunha"
 ---
 
