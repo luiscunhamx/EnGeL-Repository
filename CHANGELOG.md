@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- Publish workflow: generated pages are built before the protocol checks (same fix as the Checks workflow).
 - EnGeL-MOLB-DNA-BEE 1.1.0 (2026-11-17): bead beating on the BeadBlaster 24R, which replaced the FastPrep-24 5G (same programme: 6.0 m/s, 30 s, one cycle, pause 300 s).
 - Equipment page: Bullet Blender 50 Gold+ added and FastPrep removed (not in the lab); gel imager named (Bio-Rad GelDoc Go); balances need no logbook; PCR chambers (small and large). People: Pedro Martins listed with his E3G affiliation.
 - Links to the EnGeL website (envigenomics.eu): globe icon in the top bar; People page points to the full team page. Andreia Quaresma: Senior Technician.
