@@ -48,6 +48,11 @@ for path in sorted(glob.glob('protocols/**/*.qmd', recursive=True)):
     if not re.match(r'^\d{4}-\d{2}-\d{2}$', str(meta.get('date', ''))): err(path, 'date is not ISO (YYYY-MM-DD)')
     status = meta.get('status')
     if status not in ('draft', 'review', 'released', 'retired'): err(path, f'status must be draft, review, released or retired: {status}')
+    hist = meta.get('version-history') or []
+    if hist and str(hist[-1].get('version')) != str(meta.get('version')): err(path, f"version {meta.get('version')} differs from the last version-history entry {hist[-1].get('version')}")
+    if hist and str(hist[-1].get('date')) != str(meta.get('date')): err(path, f"date {meta.get('date')} differs from the date of the last version-history entry {hist[-1].get('date')}")
+    for g in (meta.get('ghs') or []):
+        if g not in [f'GHS0{i}' for i in range(1, 10)]: err(path, f'unknown GHS pictogram code: {g} (use GHS01 to GHS09)')
     for a in meta.get('author', []) or []:
         o = a.get('orcid', '') if isinstance(a, dict) else ''
         if not re.match(r'^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$', str(o)): err(path, f'author without valid ORCID: {a}')

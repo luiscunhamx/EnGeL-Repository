@@ -3,7 +3,7 @@ title: "Genomic DNA isolation from honey bee guts (NZY Soil gDNA Isolation Kit)"
 short-title: "DNA from honey bee guts (NZY Soil)"
 protocol-id: EnGeL-MOLB-DNA-BEE
 version: 1.0.1
-date: 2026-11-16
+date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
 author:
