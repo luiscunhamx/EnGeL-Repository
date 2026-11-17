@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- Register and home page: new area “Sampling and experimental design” (SAMPL) with four planned protocols (design, sampling effort, field sampling, sample registration).
 - check.py: header date and version must match the last version-history entry (dates of DNA-BEE, NAQC, RNA, MAR-MORPH corrected to 2026-11-17).
 - GHS pictograms (assets/ghs, public domain) shown in the hazards row from a new `ghs:` header field; check.py validates the codes.
 - EnGeL-FAUNA-MAR-MORPH 1.0.2 (2026-11-17): GHS pictograms (flame, exclamation mark) for ethanol 96%.
