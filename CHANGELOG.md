@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- Equipment page: Bullet Blender 50 Gold+ added and FastPrep removed (not in the lab); gel imager named (Bio-Rad GelDoc Go); balances need no logbook; PCR chambers (small and large). People: Pedro Martins listed with his E3G affiliation.
 - Links to the EnGeL website (envigenomics.eu): globe icon in the top bar; People page points to the full team page. Andreia Quaresma: Senior Technician.
 - Equipment page: every instrument has its own logbook except accessory equipment (centrifuges, heated shakers, plate shaker, vortex mixers); MinION Mk1C photo; NextGenPCR sealing unit confirmed.
 - Equipment page: eight more instruments (Opentrons OT-2, NextGenPCR sealer, MinION, Mixer HC heated shaker, Biosan MPS-1 plate shaker, PCR workstations, balances, vortex mixers); seven with photos; where their use is recorded is [TO CONFIRM].
