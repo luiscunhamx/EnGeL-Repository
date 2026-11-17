@@ -13,7 +13,7 @@ SECTIONS = ['Purpose and scope', 'Principle', 'Before you start', 'Materials', '
             'References', 'Version history and citation']
 REQUIRED = ['title', 'protocol-id', 'version', 'date', 'status', 'area', 'author', 'license', 'hazards', 'equipment', 'reagents', 'version-history']
 UNITS = r'(?:cm³|cm²|m²|m³|µL|mL|L|nL|°C|min|h|s|× g|x g|rpm|%|mm|cm|m|nm|µm|ng|µg|mg|g|kg|M|mM|µM|nM|pM|bp|kb|U|V|W|mbar|Pa|ng/µL|µg/mL|mg/mL|×)'
-NOUNS = r'(?:samples?|wells?|tubes?|plates?|blanks?|times|extractions?|preps|loads?|columns?|rows?|positions?|washes|steps?|individuals|specimens|runs?|days?|weeks?|months?|years?|reactions?|legs?|cycles?|bees?|groups?|copies|replicates?|ul|µl|occurrences?|mismatch(es)?|times?|librar(y|ies)|flashes|pools?)'
+NOUNS = r'(?:samples?|wells?|tubes?|plates?|blanks?|times|extractions?|preps|loads?|columns?|rows?|positions?|washes|steps?|individuals|specimens|runs?|days?|weeks?|months?|years?|reactions?|legs?|cycles?|bees?|groups?|copies|replicates?|ul|µl|occurrences?|mismatch(es)?|times?|librar(y|ies)|flashes|pools?|dpi|inches|individuals|sites?|units?)'
 EMAIL = re.compile(r'[\w.+-]+@[\w-]+\.[\w.-]+')
 ALLOWED_EMAILS = set(l.strip() for l in open('data/allowed_emails.txt', encoding='utf-8') if l.strip() and not l.startswith('#')) if os.path.exists('data/allowed_emails.txt') else set()
 
@@ -97,12 +97,38 @@ for path in sorted(glob.glob('protocols/**/*.qmd', recursive=True)):
             if re.match(r'^\(@\)', line) and m.start() < 4: continue
             if re.match('^' + UNITS + r'\b', nxt) or re.match('^' + UNITS + '$', nxt.rstrip('.,;:)')) or re.match('^' + NOUNS, nxt): continue
             if nxt.startswith(('×', '%', '/', '~', 'deep-well', '-well', '+', '=', 'F-bottom')): continue          # arithmetic (18 + 2 = 20), plate models
-            if re.search(r'(filters?|Greiner|×)\s?$', before): continue                      # filter names (485-12, 520), plate models, 6 × 11
+            if re.search(r'(filters?|Greiner|×|q =|q=)\s?$', before) or re.search(r'q = [\d, and]*$', before): continue   # Hill numbers q = 0, 1 and 2                      # filter names (485-12, 520), plate models, 6 × 11
             warn(path, f'number without unit? "{num} {nxt}" in: {line.strip()[:80]}')
     for link in re.findall(r'\]\(([^)#]+\.qmd)\)', raw):
         if not link.startswith('http') and not os.path.exists(os.path.normpath(os.path.join(base, link))): err(path, f'broken link: {link}')
 
-for f in glob.glob('includes/*.qmd') + glob.glob('*.qmd') + glob.glob('workflows/*.qmd'):
+# Guides (handbook/): lighter format, same rules for identity, versions, authors and [TO CONFIRM]
+GUIDE_REQUIRED = ['title', 'guide-id', 'version', 'date', 'status', 'author', 'version-history']
+for path in sorted(glob.glob('handbook/**/EnGeL-GUIDE-*.qmd', recursive=True)):
+    meta, raw = read_qmd(path)
+    for k in GUIDE_REQUIRED:
+        if k not in meta: err(path, f'YAML field missing: {k}')
+    gid = str(meta.get('guide-id', ''))
+    if gid and os.path.basename(path) != gid + '.qmd': err(path, f'file name should be {gid}.qmd')
+    if not re.match(r'^\d+\.\d+\.\d+$', str(meta.get('version', ''))): err(path, 'version is not semantic (X.Y.Z)')
+    if meta.get('status') not in ('draft', 'review', 'released', 'retired'): err(path, 'status must be draft, review, released or retired')
+    hist = meta.get('version-history') or []
+    if hist and (str(hist[-1].get('version')) != str(meta.get('version')) or str(hist[-1].get('date')) != str(meta.get('date'))):
+        err(path, 'version/date differ from the last version-history entry')
+    for a in meta.get('author', []) or []:
+        if isinstance(a, dict) and not a.get('no-orcid') and not re.match(r'^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$', str(a.get('orcid', ''))):
+            err(path, f'author without valid ORCID (or no-orcid: true, only if confirmed): {a.get("name")}')
+    names_ = [a.get('name') for a in (meta.get('author') or []) if isinstance(a, dict)]
+    if meta.get('reviewed-by') in names_ and names_[-1] != meta.get('reviewed-by'): err(path, 'the reviewer must be the last author')
+    n_tc = len(re.findall(r'\[TO CONFIRM', raw))
+    if n_tc and meta.get('status') == 'released': err(path, f'{n_tc} [TO CONFIRM] left in a released guide')
+    if n_tc and '## Open questions' not in raw: err(path, '[TO CONFIRM] marks but no Open questions section')
+    if f"{gid} {meta.get('version')}" not in open('CHANGELOG.md', encoding='utf-8').read(): err(path, f'no CHANGELOG entry for {gid} {meta.get("version")}')
+    base = os.path.dirname(path)
+    for link in re.findall(r'\]\(([^)#]+\.qmd)\)', raw):
+        if not os.path.exists(os.path.normpath(os.path.join(base, link))): err(path, f'broken link: {link}')
+
+for f in glob.glob('includes/*.qmd') + glob.glob('*.qmd') + glob.glob('workflows/*.qmd') + glob.glob('handbook/**/*.qmd', recursive=True):
     for e in set(EMAIL.findall(open(f, encoding='utf-8').read())):
         if e not in ALLOWED_EMAILS: err(f, f'e-mail address not on the allowed list: {e}')
 

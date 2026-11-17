@@ -1,0 +1,90 @@
+---
+title: "Lab rules and safety"
+guide-id: EnGeL-GUIDE-LABRULES
+version: 1.0.0
+date: 2026-11-17
+status: draft
+author:
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+    contribution: "lead; review and approval"
+reviewed-by: Luís Cunha
+version-history:
+  - version: 1.0.0
+    date: 2026-11-17
+    change: "First EnGeL-UC version, from the “Standard Operational Procedure for Environmental Genomics Laboratory Usage” (2024), the “Before you leave” sheet and the EnGeL lab signs (lab rules, keep the lab safe, waste disposal)."
+    by: "Luís Cunha"
+---
+
+## Purpose
+
+These rules keep the laboratory safe, clean and working for everyone. They apply to all users of the EnGeL laboratory: staff, students, visitors and collaborators. Each protocol adds the safety points specific to its method.
+
+## Lab rules
+
+{{< include ../includes/_safety-general.qmd >}}
+
+- **Safety equipment:** know where the first-aid kits and fire extinguishers are, and where the containers for hazardous waste, sharps and glass are.
+- **Reagents:** store all reagents and products properly and clearly labelled. Do not store materials or reagents at the workstations.
+- **Common-use equipment:** never touch computers, balances, phones or other shared equipment with contaminated gloves.
+- **Questions:** ask your supervisor before using a chemical or a piece of equipment you are not sure about.
+
+## Cleaning, stocks and shared materials
+
+- **Work areas:** keep equipment and benches clean and organised. Replace waste bags when full.
+- **Restocking:** every user restocks distilled water, paper towels, TBE/TAE buffer and ethanol in the work areas, and tells the stock manager when supplies run low.
+- **Consumables:** general consumables (ethanol, detergents, autoclave tape and similar) are managed by a designated person [TO CONFIRM: who]. Report low stocks of kits and PCR consumables to your supervisor.
+- **Non-disposable materials:** rinse with tap water and leave them in the washing tubs near the EnGeL sink. When the designated person is away, users wash their own materials.
+- **Annual cleaning:** two cleaning days a year, on the last Friday of March and of September. Everyone takes part.
+
+## Waste
+
+{{< include ../includes/_waste-streams.qmd >}}
+
+The 2024 lab procedure also mentions contaminated waste that is autoclaved before disposal [TO CONFIRM: does this still apply, and for which waste?]. Autoclaving is described in the [autoclave procedure](equipment/EnGeL-GUIDE-AUTOCLAVE.qmd).
+
+## Equipment
+
+- Switch equipment on and off as its procedure requires; always switch off the heating of shakers and stirrers after use.
+- Book shared equipment (thermocyclers, centrifuges, autoclave and others) on the weekly registration sheets, and record use in the equipment logs ([Equipment](equipment/index.qmd)).
+- Report any fault to the responsible researcher.
+
+## Samples, ice and liquid nitrogen
+
+- Tell the designated person when samples arrive [TO CONFIRM: who], and label and store them as described in [Sample labelling and storage](EnGeL-GUIDE-SAMPLES.qmd).
+- Use ice sparingly. For liquid nitrogen, talk to Luís Cunha [TO CONFIRM: how deliveries are organised].
+
+## Freezers, fridges and power cuts
+
+- Clean and defrost freezers and fridges regularly; keep everything labelled and discard what is no longer needed.
+- Report power cuts immediately and do not open freezers or fridges during a cut.
+
+## Incidents
+
+Report incidents, accidents and equipment faults to your scientific supervisor, or by e-mail to the lab contact.
+
+## Before you leave
+
+{{< include ../includes/_before-you-leave.qmd >}}
+
+At the end of the day, or when you are the last person in the lab, check that equipment and lights are off and that doors and windows are closed.
+
+## Who to ask
+
+| Topic | Contact |
+|:--|:--|
+| Liquid nitrogen; equipment faults | Luís Cunha (lab contact) |
+| Consumable stocks | [TO CONFIRM] |
+| Microscopes and stereomicroscopes | Filipa Reis |
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. Who manages general consumables, and who receives incoming samples?
+2. Is autoclaving of contaminated waste still part of the waste routine (2024 procedure), alongside the current waste streams?
+3. How liquid nitrogen deliveries are organised.
+4. Authors: Luís Cunha only, or others who wrote the 2024 procedure?

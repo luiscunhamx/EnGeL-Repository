@@ -1,0 +1,17 @@
+---
+title: "Lab handbook"
+subtitle: "How the Environmental Genomics Laboratory works: rules, equipment and good practice"
+---
+
+The lab handbook collects everything that is not a protocol: the rules everyone follows in the lab, the equipment and how to use it, and good-practice guides for data and samples. Protocols are in the [protocol register](../register.qmd).
+
+| Section | What you find there |
+|:--|:--|
+| [Joining EnGeL](joining.qmd) | What to read and do in your first weeks |
+| [Lab rules and safety](EnGeL-GUIDE-LABRULES.qmd) | General rules, cleaning, waste, consumables, freezers, incidents |
+| [Equipment](equipment/index.qmd) | Instruments, the protocols that use them, and instrument procedures |
+| [File and folder management](EnGeL-GUIDE-FILES.qmd) | Naming and organising project files, scripts and the lab notebook |
+| [Sample labelling and storage](EnGeL-GUIDE-SAMPLES.qmd) | Sample labels, storage conditions and the sample log |
+| [Lab members only](internal.qmd) | Shared folder with logs, registers and internal documents |
+
+Guides follow the same rules as the protocols: each has an ID, a version, authors and a version history, and values that still have to be confirmed are marked [TO CONFIRM].

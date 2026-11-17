@@ -11,9 +11,11 @@ Website (after the first release): <https://luiscunhamx.github.io/EnGeL-Reposito
 |---|---|
 | `protocols/<area>/<ID>.qmd` | One file per protocol, YAML metadata at the top |
 | `includes/_*.qmd` | Text used in several protocols (contamination control, safety, plate map, …). Change it once, it changes everywhere |
+| `handbook/` | Lab handbook: overview, Joining EnGeL, guides (`EnGeL-GUIDE-*.qmd`: lighter format with `guide-id`, version, authors, version history and Open questions), equipment (`handbook/equipment/`; the Equipment page is generated from `data/equipment.yml`) and the Lab members only page |
 | `workflows/` | Pages that chain protocols (sampling → extraction → library → sequencing → bioinformatics) |
 | `_templates/protocol-template.qmd` | Starting point for a new protocol |
 | `data/planned.yml` | Planned protocols shown in the register |
+| `data/equipment.yml` | Instruments for the Equipment page: name, pattern matched in the protocols' equipment lists, log, procedure |
 | `data/people.yml` | People page: name, role, ORCID, optional short biography (no e-mails or phone numbers). Protocol roles are read from the protocols |
 | `data/allowed_emails.txt` | Shared lab addresses allowed on protocol pages |
 | `assets/` | Fonts, logos, styles, PDF layout, Word reference document |

@@ -1,0 +1,98 @@
+---
+title: "Bench autoclave Med 12 (Selecta)"
+guide-id: EnGeL-GUIDE-AUTOCLAVE
+version: 1.0.0
+date: 2026-11-17
+status: draft
+author:
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+    contribution: "review and approval"
+reviewed-by: Luís Cunha
+version-history:
+  - version: 1.0.0
+    date: 2026-11-17
+    change: "First EnGeL-UC version, from the “Standard Operational Procedure for Autoclave Usage: Autoclave Med 12 Selecta” (2024)."
+    by: "Luís Cunha"
+---
+
+## Purpose
+
+How to use the bench autoclave Med 12 (Selecta) in the EnGeL laboratory safely to sterilise liquids, solid materials and waste. The larger autoclaves at the NematoLab (Colégio de Jesus building) are used for soil sterilisation (older autoclave) and for clean materials and waste (newer autoclave).
+
+## Principle
+
+Autoclaving uses pressurised steam: water is heated above its boiling point (to at least 121 °C) in a closed chamber. Moist heat is the most dependable way to sterilise laboratory equipment and to decontaminate biological waste. It does not remove chemical contamination, and some chemicals release dangerous fumes when autoclaved.
+
+## Safety
+
+- Only trained users may operate the autoclave.
+- Wear heat-resistant gloves, a lab coat and safety glasses.
+- Before use, check the autoclave for wear or damage, and check that the pressure-relief valve and the other safety features work.
+- Never autoclave sealed containers.
+
+## Before you start
+
+- **Packing:** steam must reach the load and pressure must be able to equalise. Loosen screw caps or use self-venting caps, cover open containers with aluminium foil, and open plastic bags before loading.
+- **Containers:** use material that withstands the heat and pressure: borosilicate glass (e.g. Pyrex), or polypropylene (PP) or polycarbonate (PC) plastic.
+- **Water:** check the water level in the reservoir; add distilled water so that the heating element is fully covered.
+
+## Cycles
+
+| Load | Conditions | Exhaust | Notes |
+|:--|:--|:--|:--|
+| Liquids | 121 °C, 20 min, 15 psi (c. 103 kPa) | Slow (fast exhaust can make superheated liquids boil over) | Caps loose, or openings covered with foil or foam plugs. Large volumes may need longer. Tighten caps only once completely cool. |
+| Solids (plastics, tips in boxes, glass) | 120 °C [TO CONFIRM: 120 °C as in the source, or 121 °C as for liquids], 20 min, 15 psi (c. 103 kPa) | Fast or slow | Wrap in foil, PP bags or autoclavable boxes; caps loose. Drying cycle optional. Tighten caps only once completely cool. |
+| Waste | Waste cycle [TO CONFIRM: temperature and time] | [TO CONFIRM] | Biological waste properly contained. |
+
+## Operation
+
+(@) Close the door securely and lock it.
+(@) Turn the side valve to «CLOSED».
+(@) Set the cycle (temperature and time) for the load (table above).
+(@) Press start. Watch the pressure and temperature readings during the cycle; never try to open the door during a cycle.
+(@) When the cycle has ended and the autoclave has depressurised by itself, turn the side valve to «STEAM».
+(@) Unlock and open the door carefully, letting the steam escape before reaching in.
+(@) Remove the load with heat-resistant gloves and leave it to cool on a heat-resistant surface.
+(@) Dry autoclaved materials in the oven at 60 °C overnight.
+
+## Cleaning and maintenance
+
+- Wipe the inside of the chamber with a damp cloth to remove residues.
+- Check and clean the drain strainer regularly.
+- Report any problem to the laboratory supervisor at once.
+
+## Troubleshooting
+
+| Problem | What to do |
+|:--|:--|
+| Error message, or the cycle does not finish | Do not try to repair the autoclave. Write down the error message and tell the supervisor or the person responsible for maintenance. |
+| Unexpected shutdown | Wait until the autoclave has cooled and depressurised. Check the power supply and the water level; restart the cycle only if it is safe. |
+
+## Records
+
+Record every cycle in the autoclave log: date, operator, cycle type and any problem ([Lab members only](../internal.qmd)).
+
+## Who to ask
+
+| Topic | Contact |
+|:--|:--|
+| Maintenance | [TO CONFIRM] |
+| Safety | [TO CONFIRM] |
+
+## References
+
+Selecta. Autoclave Med 12, user manual [TO CONFIRM: edition] (kept with the lab's kit manuals).
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. Temperature for solid loads: 120 °C (source) or 121 °C?
+2. Settings of the waste cycle (temperature, time, exhaust).
+3. Contacts for maintenance and safety.
+4. Authors of the 2024 procedure.
+5. Edition of the Selecta user manual.

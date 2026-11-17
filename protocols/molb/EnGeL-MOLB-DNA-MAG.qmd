@@ -2,7 +2,7 @@
 title: "DNA extraction from bulk soil fauna samples with magnetic beads (Omega Bio-tek Mag-Bind® Blood & Tissue DNA HDQ 96, Invitek InviGenius®)"
 short-title: "DNA extraction, magnetic beads (InviGenius)"
 protocol-id: EnGeL-MOLB-DNA-MAG
-version: 1.1.3
+version: 1.1.4
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
@@ -89,6 +89,10 @@ version-history:
   - version: 1.1.3
     date: 2026-11-17
     change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
+    by: "Luís Cunha"
+  - version: 1.1.4
+    date: 2026-11-17
+    change: "Sample-label text moved to a shared include (also used by the lab handbook); no change in content."
     by: "Luís Cunha"
 ---
 
@@ -297,7 +301,10 @@ Negative controls are carried through library preparation and sequenced alongsid
 ## Data and metadata
 
 - **Outputs:** purified DNA in labelled 96-well red-frame microplates; one plate map per plate (Annex 1); DNA purity and concentration values.
-- **Sample labels:** every sample carries its EnGeL label from the sample master data file (`ENGEL_master_data`, lab Google Drive): `EnGeL_<year>_<unique code>_<project>_<sample nature>_<type of sampling>`, e.g. EnGeL_24_AAA_SYBER_Raw_Soil. Codes are assigned by the data curator; lab members fill in their own sheet and the curator validates and generates the labels. Each DNA extract is entered in the master data file as a new sample, with sample nature `DNA` and its own unique code and label; the code of the source sample is kept in a separate column.
+- **Sample labels** (DNA extracts have sample nature `DNA`):
+
+  {{< include ../../includes/_sample-labels.qmd >}}
+
 - **Plate map:** spreadsheet (.xlsx/.csv) with one row per well plus a visual 8 × 12 grid, with a unique plate ID (e.g. Project_Marker_Plate##_YYYYMMDD). The same file is carried forward to library preparation (EnGeL-MOLB-MB).
 - **Where:** extraction results go to the *Sample_Tracking* sheet of the Metabarcoding Lab Pipeline workbook (`EnGeL_LabPipeline_mesofauna_TEMPLATE`, one copy per project) and to the lab book; sample information to the sample master data file. Instrument use is recorded in the equipment user logs (NanoDrop, Qubit).
 

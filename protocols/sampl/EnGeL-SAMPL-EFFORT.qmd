@@ -1,0 +1,195 @@
+---
+title: "Measuring sampling effort and completeness: rarefaction, extrapolation and richness estimators (iNEXT, SpadeR)"
+short-title: "Sampling effort and completeness (iNEXT)"
+protocol-id: EnGeL-SAMPL-EFFORT
+version: 1.0.0
+date: 2026-11-17
+status: draft
+area: Sampling and experimental design (SAMPL)
+author:
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+    contribution: "lead; analysis script; review and approval"
+reviewed-by: Luís Cunha
+contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
+license: CC BY 4.0
+protocol-doi: "[TO CONFIRM]"
+hazards:
+  - "None: computational protocol"
+equipment:
+  - "Computer with R and RStudio (lab workstation or personal computer)"
+consumables:
+  - "None"
+reagents:
+  - text: "R [TO CONFIRM: version] with the packages iNEXT, SpadeR and ggplot2 [TO CONFIRM: package versions]"
+    name: "iNEXT"
+  - text: "Community data: incidence table (OTUs or species × sampling units, 0/1), e.g. `OTU_incidence.xlsx` from EnGeL-BIOINF-COMMUNITY; or abundance counts per species (e.g. morphospecies counts from EnGeL-FAUNA-MAR-MORPH)"
+    name: "incidence table"
+bench-lots:
+  - "R and package versions"
+  - "Input data (file, date, number of sampling units)"
+version-history:
+  - version: 1.0.0
+    date: 2026-11-17
+    change: "First EnGeL-UC version, from the lab's R tutorial script for iNEXT and SpadeR (iNEXT_tutorial.R)."
+    by: "Luís Cunha"
+---
+
+## Purpose and scope
+
+This protocol tells you whether a sampling effort was enough: how many species (OTUs) were detected compared with how many are expected, how complete the sample is (sample coverage), and how richness and diversity would change with more or less sampling. It applies to incidence data (presence/absence per sampling unit, for example per soil core or per DNA sample) and to abundance data (counts of individuals per species). Use it to compare sites or treatments at equal sample size or equal coverage, and to plan the sampling effort of new studies (EnGeL-SAMPL-DESIGN, planned).
+
+## Principle
+
+Rarefaction (interpolation) and extrapolation curves of Hill numbers (q = 0: species richness; q = 1: exponential of Shannon entropy; q = 2: inverse Simpson) are drawn against sample size and against sample coverage (Chao et al., 2014). iNEXT computes the curves with bootstrap confidence intervals (Hsieh et al., 2016). SpadeR gives asymptotic richness estimators (for example Chao1 and Chao2, ICE, jackknife) and the number of species shared between two sites (Chao et al., 2016).
+
+## Before you start
+
+| Item | Details |
+|:--|:--|
+| Hands-on time | [TO CONFIRM] |
+| Input | Incidence table (species × sampling units, 0/1) or abundance counts; one table per site or treatment to compare |
+| Prepare in advance | R packages installed; sampling units and their grouping (sites, treatments) defined |
+| Key safety points | Not applicable |
+
+## Materials
+
+### Computer
+
+::: {.engel-equipment}
+:::
+
+### Consumables
+
+::: {.engel-consumables}
+:::
+
+### Software and input data
+
+::: {.engel-reagents}
+:::
+
+## Reagent preparation
+
+**Data format.** Start from the incidence table (or the abundance counts). For incidence data, prepare one matrix per site or treatment with species (or OTUs) as rows and sampling units as columns (1 = detected, 0 = not detected): iNEXT and SpadeR call this `incidence_raw`. For abundance data, prepare a vector of counts per species for each site (`abundance`). Combine the matrices or vectors of all sites in a named list.
+
+## Procedure
+
+### 1. Set up
+
+(@) Open the project's R project and load the packages:
+
+```r
+library(iNEXT)
+library(SpadeR)
+library(ggplot2)
+```
+
+::: {.callout-important title="CRITICAL"}
+The source script loads BiodiversityR, but the functions `ChaoSpecies`, `Diversity`, `ChaoShared` and `SimilarityMult` used below come from SpadeR: load SpadeR.
+:::
+
+(@) Optional, to learn the functions: run the steps below on the example data supplied with the packages (`data(spider)` in iNEXT, abundance data; `data(ChaoSpeciesData)` and `data(ChaoSharedData)` in SpadeR, incidence data).
+
+### 2. Rarefaction and extrapolation (iNEXT)
+
+(@) Read your data into a named list of incidence matrices (one per site or treatment) and run iNEXT for q = 0, 1 and 2:
+
+```r
+out <- iNEXT(data_list, q = c(0, 1, 2), datatype = "incidence_raw",
+             endpoint = NULL)   # NULL: iNEXT default, twice the reference sample size
+```
+
+For abundance data use `datatype = "abundance"`. To compute the curves at chosen sample sizes, give them in `size =` (the tutorial uses 1, 5, 20, 50, 100, 200 and 400 individuals for the spider example) [TO CONFIRM: sizes or endpoint for EnGeL data].
+
+(@) Plot the curves: sample-size-based curves (`type = 1`), the sample completeness curve (`type = 2`) and coverage-based curves (`type = 3`), with one panel per site:
+
+```r
+ggiNEXT(out, type = 1, facet.var = "Assemblage")
+ggiNEXT(out, type = 2)
+ggiNEXT(out, type = 3, facet.var = "Assemblage")
+```
+
+(@) Save the numerical results (`out$DataInfo`, which includes the sample coverage, and `out$AsyEst`, the asymptotic estimates) as tables in `results/`.
+
+### 3. Richness estimators and shared species (SpadeR)
+
+(@) Asymptotic richness estimators and diversity profiles for one site, saving the full output as text:
+
+```r
+rich <- ChaoSpecies(site_matrix, datatype = "incidence_raw", k = 10, conf = 0.95)
+capture.output(rich, file = "results/ChaoSpecies_site.txt")
+div  <- Diversity(site_matrix, datatype = "incidence_raw")
+capture.output(div, file = "results/Diversity_site.txt")
+```
+
+(@) Species shared between two sites (the matrix holds the sampling units of both sites, side by side; `units` gives the number of units of each site):
+
+```r
+ChaoShared(two_site_matrix, datatype = "incidence_raw", units = c(n1, n2),
+           se = TRUE, nboot = 200, conf = 0.95)
+```
+
+The source uses `nboot = 200` and, in one call, `nboot = 500` [TO CONFIRM: number of bootstrap replicates]. For more than two sites, `SimilarityMult()` compares several sites at once (the tutorial uses `q = 2`, `nboot = 200`, relative similarity).
+
+## Calculations
+
+Not applicable: the estimators are computed by the packages. Report the estimator used for each value (e.g. Chao2 for incidence data).
+
+## Quality control
+
+| Check | Acceptance criterion |
+|:--|:--|
+| Data format | Matrices contain only 0 and 1 (incidence) or non-negative integers (abundance); no empty sampling units |
+| Sample coverage of each site | [TO CONFIRM: minimum coverage regarded as sufficient] |
+| Comparisons between sites | Made at equal sample size or equal coverage, within the extrapolation range recommended by the package authors (up to about twice the reference sample size) |
+
+## Data and metadata
+
+- **Outputs:** iNEXT tables (`DataInfo`, `AsyEst`, curve values), plots (sample-size-based, completeness, coverage-based), SpadeR text outputs.
+- **Where:** project folder in the lab's shared folder; the script in the project's `scripts` folder.
+
+::: {.callout-note title="Minimum to record"}
+- Input data (file, date), type (incidence or abundance), sampling unit and number of units per site
+- R and package versions (`sessionInfo()`)
+- Parameters: q values, endpoint or sizes, `k`, `nboot`, confidence level
+- Sample coverage and estimated richness per site
+:::
+
+## Safety and waste
+
+Not applicable (computational protocol).
+
+## Troubleshooting
+
+| Problem | Likely cause | Solution |
+|:--|:--|:--|
+| `could not find function "ChaoSpecies"` | SpadeR not loaded | `library(SpadeR)`. |
+| Very wide confidence intervals in the extrapolated part | Extrapolation too far beyond the reference sample | Extrapolate to at most about twice the reference sample size. |
+| Error about the data type | Matrix not in `incidence_raw` format, or counts given as `incidence_raw` | Check that the data are 0/1 matrices (incidence) or count vectors (abundance) and set `datatype` accordingly. |
+
+## Remarks
+
+The source is a tutorial: it first runs the functions on the packages' example data, then on lab data (a transposed taxon table, `R_taxo_all_transp_nonames.csv`, with 20 sampling units in one call) [TO CONFIRM: study and data set behind the lab example]. Metabarcoding data are best analysed as incidence data (presence/absence per sampling unit), because read numbers are not abundances.
+
+## References
+
+Chao, A., Gotelli, N.J., Hsieh, T.C., et al. (2014). Rarefaction and extrapolation with Hill numbers: a framework for sampling and estimation in species diversity studies. Ecological Monographs, 84(1), 45–67. <https://doi.org/10.1890/13-0133.1>
+
+Chao, A., Ma, K.H., Hsieh, T.C., Chiu, C.-H. (2016). SpadeR: Species-richness prediction and diversity estimation with R. R package [TO CONFIRM: version].
+
+Hsieh, T.C., Ma, K.H., Chao, A. (2016). iNEXT: an R package for rarefaction and extrapolation of species diversity (Hill numbers). Methods in Ecology and Evolution, 7(12), 1451–1456. <https://doi.org/10.1111/2041-210X.12613>
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. R and package versions (iNEXT, SpadeR); hands-on time.
+2. Sample sizes or endpoint to use for EnGeL data; number of bootstrap replicates (200 or 500).
+3. Minimum sample coverage regarded as sufficient (acceptance criterion).
+4. Study and data set behind the lab example in the source script.
+5. Authors of the source script.
+6. DOI.

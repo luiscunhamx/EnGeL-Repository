@@ -5,6 +5,14 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-BIOINF-COMMUNITY 1.0.0 (2026-11-17): first version (identified OTUs, incidence table, shared OTUs between groups in R), from Luísa Fraga’s primer-comparison analysis.
+- EnGeL-SAMPL-EFFORT 1.0.0 (2026-11-17): first version (rarefaction, extrapolation and richness estimators with iNEXT and SpadeR), from the lab’s iNEXT tutorial script; removed from the planned list.
+- Lab handbook (new menu): overview, Joining EnGeL, Lab members only (shared folder), Equipment page generated from data/equipment.yml and the protocols; guide format (`guide-id`) with its own checks.
+- EnGeL-GUIDE-LABRULES 1.0.0 (2026-11-17): lab rules and safety, from the 2024 lab procedure, Before You Leave and the lab signs.
+- EnGeL-GUIDE-AUTOCLAVE 1.0.0 (2026-11-17): bench autoclave Med 12 (Selecta), from the 2024 procedure.
+- EnGeL-GUIDE-FILES 1.0.0 (2026-11-17): file and folder management, from the 2024 best-practice guide (after Noble 2009).
+- EnGeL-GUIDE-SAMPLES 1.0.0 (2026-11-17): sample labelling and storage, from the 2024 guide, with the current master-data label format.
+- EnGeL-MOLB-DNA-MAG 1.1.4 (2026-11-17): sample-label text moved to a shared include; no change in content.
 - Authorship rule (Luís, 2026-11-17): everyone who contributed is an author, with an optional role; the lead author first where one is identified; the reviewer (Luís Cunha) last. The separate contributors list is no longer used.
 - EnGeL-BIOINF-OBITOOLS4 1.0.3 (2026-11-17): authorship (all as authors, lead first, reviewer last).
 - EnGeL-FAUNA-MAR-MORPH 1.0.3 (2026-11-17): authorship (all as authors, lead first, reviewer last).
