@@ -2,8 +2,8 @@
 title: "DNA metabarcoding of soil fauna: two-step PCR amplicon library preparation (COI for microarthropods, 18S rRNA for nematodes)"
 short-title: "Metabarcoding library preparation (two-step PCR)"
 protocol-id: EnGeL-MOLB-MB
-version: 1.2.1
-date: 2026-11-16
+version: 1.2.2
+date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
 author:
@@ -11,6 +11,8 @@ author:
     orcid: 0000-0003-3153-4593
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
+contributors:
+  - "Andreia Quaresma (ORCID 0000-0002-8678-5800)"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -83,6 +85,10 @@ version-history:
   - version: 1.2.1
     date: 2026-11-16
     change: "Schematic of the two-step PCR and library structure (figure)."
+    by: "Luís Cunha"
+  - version: 1.2.2
+    date: 2026-11-17
+    change: "Contributor: Andreia Quaresma."
     by: "Luís Cunha"
 ---
 

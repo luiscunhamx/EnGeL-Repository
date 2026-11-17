@@ -3,6 +3,8 @@
 ::: {.grid .engel-cards}
 
 ::: {.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}
+![](assets/photos/sampling_soil_surface.jpg){.engel-card-photo fig-alt="Soil surface with leaf litter"}
+
 `<i class="bi bi-grid-3x3-gap engel-card-icon" aria-hidden="true"></i>`{=html}
 
 **[Sampling and experimental design](register.qmd#planned)**

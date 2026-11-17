@@ -2,13 +2,16 @@
 title: "Illumina library quantification by qPCR (KAPA Library Quantification Kit)"
 short-title: "Library quantification, KAPA qPCR"
 protocol-id: EnGeL-MOLB-KAPA
-version: 1.0.0
-date: 2026-11-16
+version: 1.0.1
+date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
 author:
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
+contributors:
+  - "Luísa Fraga (ORCID 0000-0003-3153-4593)"
+  - "Andreia Quaresma (ORCID 0000-0002-8678-5800)"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -41,6 +44,10 @@ version-history:
   - version: 1.0.0
     date: 2026-11-16
     change: "First EnGeL-UC version, from the lab protocol “KAPA qPCR library quantification” (2026)."
+    by: "Luís Cunha"
+  - version: 1.0.1
+    date: 2026-11-17
+    change: "Contributors: Luísa Fraga and Andreia Quaresma."
     by: "Luís Cunha"
 ---
 

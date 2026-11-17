@@ -17,6 +17,7 @@ Website (after the first release): <https://luiscunhamx.github.io/EnGeL-Reposito
 | `data/people.yml` | People page: name, role, ORCID, optional short biography (no e-mails or phone numbers). Protocol roles are read from the protocols |
 | `data/allowed_emails.txt` | Shared lab addresses allowed on protocol pages |
 | `assets/` | Fonts, logos, styles, PDF layout, Word reference document |
+| `assets/photos/` | Web-size photos approved for the website (EXIF removed), with credits in its README; originals stay outside the repository |
 | `assets/ghs/` | GHS hazard pictograms (public domain); list them in a protocol with `ghs: [GHS02, GHS07]`, from the safety data sheets |
 | `assets/figures/` | Schematic figures (SVG), drawn from the protocol text; CC BY 4.0, credited as “Figure: EnGeL-UC”. Edit them in any SVG editor (e.g. Inkscape); keep values identical to the protocol |
 | `tools/` | `prerender.py` (register, bench sheets, list of values to confirm), `check.py` (automatic checks), `engel.lua` (layout filter) |

@@ -4,6 +4,9 @@ subtitle: "Standard operating protocols of the Environmental Genomics Laboratory
 toc: false
 ---
 
+![](assets/photos/home_montado.jpg){.engel-banner fig-alt="Montado landscape with cork and holm oaks, one of the lab's field sites"}
+[Montado field site. Photo: Luís Cunha.]{.engel-photo-credit}
+
 ::: {.engel-hero}
 ![](assets/logos/engel_logo.png){width=220px fig-alt="EnGeL – Environmental Genomics Laboratory"}
 

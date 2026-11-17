@@ -151,11 +151,13 @@ def to_confirm(protos):
     write('to-confirm.qmd', txt)
 
 AREAS = [  # (folder, card title, Bootstrap icon, one-line description)
-    ('sampl', 'Sampling and experimental design', 'grid-3x3-gap', 'Study design, field sampling, sampling effort and sample registration.'),
+    ('sampl', 'Sampling and experimental design', 'grid-3x3-gap', 'Study design, field sampling, sampling effort and sample registration.'),  # photo: see AREA_PHOTOS
     ('fauna', 'Fauna sample processing', 'bug', 'Field sampling, extraction and sorting of soil animals.'),
     ('molb', 'Molecular biology', 'droplet-half', 'Nucleic acid extraction, quality control, PCR and sequencing libraries.'),
     ('bioinf', 'Bioinformatics', 'diagram-3', 'From raw reads to taxonomic tables.'),
 ]
+
+AREA_PHOTOS = {'sampl': ('assets/photos/sampling_soil_surface.jpg', 'Soil surface with leaf litter')}
 
 def area_cards(protos):
     out = ['::: {.grid .engel-cards}']
@@ -163,7 +165,9 @@ def area_cards(protos):
         items = [(p, m) for p, m, _ in protos if p.split('/')[1] == folder]
         first = items[0][0] if items else 'register.qmd#planned'
         n = len(items)
-        out.append(f'::: {{.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}}\n'
+        ph = AREA_PHOTOS.get(folder)
+        img = f'![]({ph[0]}){{.engel-card-photo fig-alt="{ph[1]}"}}\n\n' if ph else ''
+        out.append(f'::: {{.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}}\n' + img +
                    f'`<i class="bi bi-{icon} engel-card-icon" aria-hidden="true"></i>`{{=html}}\n\n'
                    f'**[{title}]({first})**\n\n{desc}\n\n'
                    + (f'[{n} protocol{"s" if n != 1 else ""}]{{.engel-card-count}}' if n else '[in preparation]{.engel-card-count}') + '\n:::')
@@ -182,6 +186,8 @@ def people(protos):
             if name in authors: roles.append((m['protocol-id'], p, 'author'))
             elif any(c.startswith(name) for c in contribs): roles.append((m['protocol-id'], p, 'contributor'))
         line = f'### {name}\n\n'
+        if person.get('photo'):
+            line += f'![]({person["photo"]}){{.engel-person-photo fig-alt="Photo of {name}"}}\n\n'
         meta = []
         if person.get('role'): meta.append(person['role'])
         aff = person['affiliation'] if 'affiliation' in person else 'EnGeL-UC, Centre for Functional Ecology, University of Coimbra'
