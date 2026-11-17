@@ -5,6 +5,9 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-MOLB-KAPA 1.1.0 (2026-11-17): updated from Andreia Quaresma’s v1.0 (2026-11-05): times, sample volume, positive control treated like a library (200 nM, 1:1 000 then 1:10 000 and 1:20 000), diluted library range 0.2–20 pM, melt-curve and ramp settings, plate capacity, hazard H371 (GHS08), technical data sheet KR0405 v8.17, expected-results figures (melt curve, standard curve).
+- EnGeL-MOLB-MB 1.3.0 (2026-11-17): shared KAPA qPCR text updated: diluted library range 0.2–20 pM, positive control treated like a library, melt-curve and ramp settings.
+- EnGeL-MOLB-NAQC 1.2.0 (2026-11-17): picoGreen part updated from Andreia Quaresma’s v1.0 (2026-11-05): plate reader FLUOstar Omega and reader protocol settings, plate type, times, user guide MAN0001931 Rev. A.0.
 - Website photos (assets/photos, web size, no EXIF/location data; all by Luís Cunha): home page banner, People page portrait, Sampling card image; credits in assets/photos/README.md.
 - EnGeL-MOLB-NAQC 1.1.2 (2026-11-17): contributors: Luísa Fraga and Andreia Quaresma.
 - EnGeL-MOLB-DNA-COL 1.0.1 (2026-11-17): contributors: Luísa Fraga and Andreia Quaresma.

@@ -13,7 +13,9 @@
 | 1:20 000 | 1:1 000 | 50 | 950 | Run in qPCR |
 | 1:100 000 (optional) | 1:10 000 | 10 | 90 | If PicoGreen > c. 50 nM |
 
-(@) Prepare the dilutions above. Vortex and spin each dilution before taking the next step. Check against the PicoGreen value: the diluted library should be about 0.2–10 pM, inside the standard range.
+(@) Prepare the dilutions above. Vortex and spin each dilution before taking the next step. Check against the PicoGreen value: the diluted library should be about 0.2–20 pM, inside the standard range.
+
+**Positive control:** treat the positive control like a library. It starts at 200 nM and is diluted in the same series: 1:1 000 (intermediate), then 1:10 000 and 1:20 000, which should give about 20 pM and 10 pM in the reaction.
 
 **Reaction set-up (20 µL per well)**
 
@@ -27,7 +29,7 @@
 (@) Dispense 16 µL per well, then add 4 µL of diluted library, standard or dilution buffer (for the NTC).
 (@) Seal, spin briefly, and keep the plate in the dark until loading.
 
-**Plate layout (96-well):** Standards 1–6 in triplicate (18 wells); NTC (dilution buffer as template) in duplicate (2 wells); each library at 1:10 000 and 1:20 000 in triplicate (6 wells per library). In the software, enter the standards as *Standard* with quantities 20, 2, 0.2, 0.02, 0.002 and 0.0002 pM (S1–S6).
+**Plate layout (96-well):** Standards 1–6 in triplicate (18 wells); NTC (dilution buffer as template) in duplicate (2 wells); positive control and each library at 1:10 000 and 1:20 000 in triplicate (6 wells each). With the positive control, up to 11 libraries fit on one plate (18 + 2 + 6 + 6 × 11 = 92 wells). In the software, enter the standards as *Standard* with quantities 20, 2, 0.2, 0.02, 0.002 and 0.0002 pM (S1–S6).
 
 **Cycling**
 
@@ -36,7 +38,9 @@
 | Initial denaturation | 95 °C | 5 min | 1 |
 | Denaturation | 95 °C | 30 s | 35 |
 | Annealing/extension + read | 60 °C | 45 s | |
-| Melt curve | 65–95 °C | Instrument default | 1 |
+| Melt curve | 65 °C, then to 95 °C at 0.15 °C/s | 15 s at each temperature | 1 |
+
+Ramp rate 1.6 °C/s for all other steps (instrument settings in use).
 
 (@) Run the plate on the qPCR instrument (QuantStudio 3) with the cycling above.
 (@) Export the results as .csv (tab *Export*) and check the run against the run QC criteria before calculating.

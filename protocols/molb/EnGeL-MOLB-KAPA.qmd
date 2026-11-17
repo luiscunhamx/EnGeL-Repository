@@ -2,7 +2,7 @@
 title: "Illumina library quantification by qPCR (KAPA Library Quantification Kit)"
 short-title: "Library quantification, KAPA qPCR"
 protocol-id: EnGeL-MOLB-KAPA
-version: 1.0.1
+version: 1.1.0
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
@@ -16,8 +16,9 @@ reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
 protocol-doi: "[TO CONFIRM]"
+ghs: [GHS08]   # KAPA kit SDS: H371
 hazards:
-  - "No specific hazards listed in the source; check the KAPA kit SDS [TO CONFIRM]"
+  - "KAPA Library Quantification Kit: may cause damage to organs (H371; kit safety data sheet)"
 equipment:
   - "qPCR instrument: QuantStudio 3 (Applied Biosystems)"
   - "Pipettes and filter tips"
@@ -38,6 +39,8 @@ reagents:
     name: "dilution buffer"
   - text: "PCR-grade water"
     name: "PCR-grade water"
+  - text: "Positive control, 200 nM [TO CONFIRM: product and catalogue number]"
+    name: "positive control"
 bench-lots:
   - "KAPA Library Quantification Kit lot"
 version-history:
@@ -48,6 +51,10 @@ version-history:
   - version: 1.0.1
     date: 2026-11-17
     change: "Contributors: Luísa Fraga and Andreia Quaresma."
+    by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-17
+    change: "Updated from Andreia Quaresma’s v1.0 (2026-11-05): times, sample volume, positive control treated like a library (200 nM, 1:1 000 then 1:10 000 and 1:20 000), diluted library range 0.2–20 pM, melt-curve and ramp settings, plate capacity, hazard H371 (GHS08), technical data sheet KR0405 v8.17, expected-results figures (melt curve, standard curve)."
     by: "Luís Cunha"
 ---
 
@@ -63,9 +70,9 @@ The library is diluted into the range of six DNA standards of known concentratio
 
 | Item | Details |
 |:--|:--|
-| Hands-on time | [TO CONFIRM] |
-| Total time | [TO CONFIRM]; qPCR run with melt curve [TO CONFIRM: duration] |
-| Sample | Pooled, bead-cleaned library; average fragment size measured on the TapeStation; PicoGreen or Qubit concentration known |
+| Hands-on time | 1 h |
+| Total time | 2 h 30 min |
+| Sample | 1 µL of the pooled, bead-cleaned library (for the 1:1 000 intermediate dilution); average fragment size measured on the TapeStation; PicoGreen or Qubit concentration known |
 | Prepare in advance | Combined Master Mix + Primer Mix (first use of the kit); plate layout; standards thawed on ice |
 | Key safety points | See Safety and waste |
 
@@ -115,6 +122,12 @@ Accept the run before calculating:
 
 {{< include ../../includes/_kapa-run-qc.qmd >}}
 
+::: {.callout-note title="Expected results"}
+![Melt curve of a good run: the libraries (here three pools at 1:10 000 and 1:20 000, labelled “1:10” and “1:20” in the software) and the positive control give one peak each, the DNA standards a single peak at a slightly higher temperature, and the NTC stays flat. Data: EnGeL-UC (Andreia Quaresma).](../../assets/figures/KAPA_melt_curve.png){#fig-kapa-melt fig-alt="Melt curve plot with derivative fluorescence against temperature; library and control curves share one peak, the standards peak at a slightly higher temperature, and the no-template control is flat." width="80%"}
+
+![Standard curve of a good run (Standards 1–6 in triplicate): slope −3.505, R² 0.999, efficiency 92.9%, within the acceptance criteria above. Data: EnGeL-UC (Andreia Quaresma).](../../assets/figures/KAPA_standard_curve.png){#fig-kapa-std fig-alt="Standard curve: Ct against log quantity for six standards, falling on a straight line from Ct 9 to Ct 26." width="80%"}
+:::
+
 ## Data and metadata
 
 - **Outputs:** exported qPCR results (.csv); library concentration (nM) per library, averaged over valid dilutions.
@@ -144,7 +157,7 @@ For this protocol: used qPCR plates, tips and tubes go to biological solid waste
 |:--|:--|:--|
 | Diluted library outside the standard range | Wrong dilution for the library concentration | Use the PicoGreen value to choose dilutions; add the 1:100 000 dilution if PicoGreen > c. 50 nM. |
 | ΔCt between dilutions not c. 1.0 | Pipetting or dilution error | Repeat the dilutions, vortexing and spinning each one. |
-| Extra melt-curve peak | Primer dimers or non-specific product | [TO CONFIRM] |
+| Extra melt-curve peak | Primer dimers or non-specific product | [TO CONFIRM]; see also the kit technical data sheet (Roche, KR0405). |
 | Signal in the NTC | Contamination | [TO CONFIRM] |
 
 ## Remarks
@@ -153,7 +166,7 @@ The standard is 452 bp; the size correction uses the average fragment size measu
 
 ## References
 
-Roche (n.d.). KAPA Library Quantification Kit – Illumina Platforms. Technical data sheet [TO CONFIRM: version].
+Roche (n.d.). KAPA Library Quantification Kit – Illumina Platforms. Technical data sheet KR0405, v8.17. Troubleshooting: <https://rochesequencingstore.com/wp-content/uploads/2017/10/KAPA-Library-Quantification-Kit-for-Illumina.pdf>
 
 ## Version history and citation
 
@@ -162,10 +175,10 @@ Roche (n.d.). KAPA Library Quantification Kit – Illumina Platforms. Technical 
 
 ## Open questions
 
-1. Authors of the source protocol; ORCIDs; DOI.
-2. Kit catalogue number and technical data sheet version.
-3. Library dilution buffer: the source calls it “TE pH = 8” but gives 10 mM Tris-HCl + 0.05% Tween 20 (no EDTA). Name, preparation and storage?
-4. Hands-on and total time; run duration.
+1. Authorship (author or contributor model for the handbook, pending); DOI.
+2. Kit catalogue number.
+3. Positive control: product and catalogue number; acceptance criterion.
+4. Library dilution buffer: the source calls it “TE pH = 8” but gives 10 mM Tris-HCl + 0.05% Tween 20 (no EDTA). Name, preparation and storage?
 5. Where results are recorded (Lab Pipeline *Library_QC* sheet?).
 6. Troubleshooting: action for extra melt-curve peaks and for signal in the NTC.
-7. Hazards from the kit SDS; waste route for used plates.
+7. Waste route for used plates.

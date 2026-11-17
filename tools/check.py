@@ -13,7 +13,7 @@ SECTIONS = ['Purpose and scope', 'Principle', 'Before you start', 'Materials', '
             'References', 'Version history and citation']
 REQUIRED = ['title', 'protocol-id', 'version', 'date', 'status', 'area', 'author', 'license', 'hazards', 'equipment', 'reagents', 'version-history']
 UNITS = r'(?:cm³|cm²|m²|m³|µL|mL|L|nL|°C|min|h|s|× g|x g|rpm|%|mm|cm|m|nm|µm|ng|µg|mg|g|kg|M|mM|µM|nM|pM|bp|kb|U|V|W|mbar|Pa|ng/µL|µg/mL|mg/mL|×)'
-NOUNS = r'(?:samples?|wells?|tubes?|plates?|blanks?|times|extractions?|preps|loads?|columns?|rows?|positions?|washes|steps?|individuals|specimens|runs?|days?|weeks?|months?|years?|reactions?|legs?|cycles?|bees?|groups?|copies|replicates?|ul|µl|occurrences?|mismatch(es)?|times?)'
+NOUNS = r'(?:samples?|wells?|tubes?|plates?|blanks?|times|extractions?|preps|loads?|columns?|rows?|positions?|washes|steps?|individuals|specimens|runs?|days?|weeks?|months?|years?|reactions?|legs?|cycles?|bees?|groups?|copies|replicates?|ul|µl|occurrences?|mismatch(es)?|times?|librar(y|ies)|flashes|pools?)'
 EMAIL = re.compile(r'[\w.+-]+@[\w-]+\.[\w.-]+')
 ALLOWED_EMAILS = set(l.strip() for l in open('data/allowed_emails.txt', encoding='utf-8') if l.strip() and not l.startswith('#')) if os.path.exists('data/allowed_emails.txt') else set()
 
@@ -91,7 +91,8 @@ for path in sorted(glob.glob('protocols/**/*.qmd', recursive=True)):
                 if re.search(UNITS, clean[m.end():]): continue                     # list ending in a unit: 20, 2 and 0.2 pM
             if re.match(r'^\(@\)', line) and m.start() < 4: continue
             if re.match('^' + UNITS + r'\b', nxt) or re.match('^' + UNITS + '$', nxt.rstrip('.,;:)')) or re.match('^' + NOUNS, nxt): continue
-            if nxt.startswith(('×', '%', '/', '~', 'deep-well', '-well')): continue
+            if nxt.startswith(('×', '%', '/', '~', 'deep-well', '-well', '+', '=', 'F-bottom')): continue          # arithmetic (18 + 2 = 20), plate models
+            if re.search(r'(filters?|Greiner|×)\s?$', before): continue                      # filter names (485-12, 520), plate models, 6 × 11
             warn(path, f'number without unit? "{num} {nxt}" in: {line.strip()[:80]}')
     for link in re.findall(r'\]\(([^)#]+\.qmd)\)', raw):
         if not link.startswith('http') and not os.path.exists(os.path.normpath(os.path.join(base, link))): err(path, f'broken link: {link}')
