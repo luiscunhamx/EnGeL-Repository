@@ -2,17 +2,22 @@
 title: "Nucleic acid quality control: purity and concentration (NanoDrop, Qubit, PicoGreen)"
 short-title: "Nucleic acid QC (NanoDrop, Qubit, PicoGreen)"
 protocol-id: EnGeL-MOLB-NAQC
-version: 1.1.2
+version: 1.2.1
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
 author:
+  - name: Diogo Fonseca
+    orcid: 0009-0003-2564-7572
+    contribution: "NanoDrop and Qubit sections"
+  - name: Luísa Fraga
+    orcid: 0000-0003-3153-4593
+  - name: Andreia Quaresma
+    orcid: 0000-0002-8678-5800
+    contribution: "PicoGreen section"
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
-contributors:
-  - "Luísa Fraga (ORCID 0000-0003-3153-4593)"
-  - "Andreia Quaresma (ORCID 0000-0002-8678-5800)"
-  - "Diogo Fonseca (NanoDrop and Qubit sections; ORCID 0009-0003-2564-7572)"
+    contribution: "review and approval"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -22,11 +27,11 @@ hazards:
 equipment:
   - "Spectrophotometer: NanoDrop [TO CONFIRM: model]"
   - "Fluorometer: Qubit [TO CONFIRM: model]"
-  - "Fluorescence plate reader (excitation c. 480 nm, emission c. 520 nm) with protocol “PicoGREEN_LC_100” [TO CONFIRM: model; the source calls it “Star”]"
+  - "Fluorescence plate reader FLUOstar Omega (BMG Labtech) with protocol “PicoGREEN_LC_100” (excitation filter 485-12, emission filter 520)"
   - "Pipettes and tips; vortex mixer"
 consumables:
   - "Qubit assay tubes"
-  - "Black flat-bottom 96-well plates (PicoGreen)"
+  - "Black flat-bottom 96-well plates (Greiner 96 F-bottom, as set in the reader protocol) for PicoGreen"
   - "Plastic tubes only for PicoGreen (PicoGreen binds to glass)"
 reagents:
   - text: "Nuclease-free water"
@@ -59,6 +64,14 @@ version-history:
     date: 2026-11-17
     change: "Contributors: Luísa Fraga and Andreia Quaresma."
     by: "Luís Cunha"
+  - version: 1.2.0
+    date: 2026-11-17
+    change: "PicoGreen part updated from Andreia Quaresma’s v1.0 (2026-11-05): plate reader FLUOstar Omega and reader protocol settings, plate type, times, user guide MAN0001931 Rev. A.0."
+    by: "Luís Cunha"
+  - version: 1.2.1
+    date: 2026-11-17
+    change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -73,7 +86,8 @@ Spectrophotometry measures the absorbance of the sample at 230, 260 and 280 nm; 
 
 | Item | Details |
 |:--|:--|
-| Hands-on time | [TO CONFIRM] |
+| Hands-on time | PicoGreen (96-well plate): 30 min; NanoDrop and Qubit: [TO CONFIRM] |
+| Total time | PicoGreen: 40 min; NanoDrop and Qubit: [TO CONFIRM] |
 | Sample volume | NanoDrop 1.5 µL; Qubit 1 µL; PicoGreen 2 µL |
 | Prepare in advance | PicoGreen: 1X TE and working reagent fresh on the day, in the dark |
 | Key safety points | See Safety and waste |
@@ -148,7 +162,7 @@ Spectrophotometry measures the absorbance of the sample at 230, 260 and 280 nm; 
 (@) Samples: 2 µL sample + 48 µL 1X TE per well + 50 µL working reagent.
 (@) Mix by pipetting or a short plate shake.
 (@) Incubate for 2 min at room temperature, protected from light.
-(@) Plate reader: *Manage Protocol* → “PicoGREEN_LC_100”; *Start measurement* → *Gain Adjustment*; then *Start measurement* (excitation 480 nm, emission 520 nm).
+(@) Plate reader: *Manage Protocol* → “PicoGREEN_LC_100”; *Start measurement* → *Gain Adjustment*; then *Start measurement*. The reader protocol is a fluorescence-intensity endpoint read (Greiner 96 F-bottom plate; excitation filter 485-12, emission filter 520; top optic; 30 flashes per well; settling time 0.5 s). The gain is set at 80–90% of the highest standard (1 000 ng/mL), and the blank is subtracted in the evaluation.
 (@) In the reader software, fit a linear regression of the standards (S1–S3 and blank) (*Calculation* → *Standard curve calculations* → *Linear regression fit*); then, in *Microplate View*, select *Linear Regression Fit* under *Recalculate concentration*.
 
 ### After finishing
@@ -220,7 +234,7 @@ PicoGreen: the manual uses a 200 µL assay (100 µL sample + 100 µL working rea
 
 ## References
 
-Thermo Fisher Scientific (n.d.). Quant-iT PicoGreen dsDNA Reagent and Kits, user guide MP07581 [TO CONFIRM: revision].
+Thermo Fisher Scientific (Invitrogen) (n.d.). Quant-iT PicoGreen dsDNA Reagent and Kits, user guide, Pub. No. MAN0001931, Rev. A.0.
 
 Thermo Fisher Scientific (n.d.). Qubit 1X dsDNA assays – simplified workflow, technical note [TO CONFIRM: revision].
 
@@ -231,8 +245,8 @@ Thermo Fisher Scientific (n.d.). Qubit 1X dsDNA assays – simplified workflow, 
 
 ## Open questions
 
-1. Authors of the PicoGreen source; DOI.
-2. Instrument models: NanoDrop, Qubit, and the plate reader called “Star” in the source.
+1. Authorship (author or contributor model for the handbook, pending; the PicoGreen part was prepared by Andreia Quaresma); DOI.
+2. Instrument models: NanoDrop and Qubit.
 3. Qubit: HS assay only, or also the BR assay? Equilibration of reagents?
 4. Acceptance criteria: Qubit standards; A~260~/A~280~ and A~260~/A~230~ ranges.
 5. Should RNA quantification be added here?

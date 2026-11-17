@@ -1,0 +1,22 @@
+---
+title: "Joining EnGeL"
+subtitle: "Your first weeks in the lab"
+---
+
+Welcome to the Environmental Genomics Laboratory. This page lists what to read and do when you join. The full *Welcome and Onboarding Handbook* (with how we work together, cost management and authorship) and the *Lab Guide* are in the [shared folder for lab members](internal.qmd).
+
+**First week**
+
+- Meet your buddy, a current lab member assigned to you.
+- Lab tour: equipment, shared spaces and safety exits.
+- Introduction to the team at the weekly lab meeting.
+- Walk-through of the lab's shared folder and how files are organised ([File and folder management](EnGeL-GUIDE-FILES.qmd)).
+- Lab safety training, and a review of the risks of your own work ([Lab rules and safety](EnGeL-GUIDE-LABRULES.qmd)).
+
+**Before you start bench work**
+
+- Read the protocols you will use and their bench sheets ([protocol register](../register.qmd)).
+- Learn how samples are labelled and stored ([Sample labelling and storage](EnGeL-GUIDE-SAMPLES.qmd)).
+- Find out how to book and log the equipment you need ([Equipment](equipment/index.qmd)).
+
+*Adapted from the EnGeL Welcome and Onboarding Handbook (Catarina Pinho, July 2026).*

@@ -5,6 +5,43 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- Equipment page: every instrument has its own logbook except accessory equipment (centrifuges, heated shakers, plate shaker, vortex mixers); MinION Mk1C photo; NextGenPCR sealing unit confirmed.
+- Equipment page: eight more instruments (Opentrons OT-2, NextGenPCR sealer, MinION, Mixer HC heated shaker, Biosan MPS-1 plate shaker, PCR workstations, balances, vortex mixers); seven with photos; where their use is recorded is [TO CONFIRM].
+- Equipment page: photo cards for 13 instruments (from data/equipment.yml `photo`); instrument models named from the photos (Biometra TOne, Bio-Rad T100, TapeStation 4150, NanoDrop One, BeadBlaster 24R). Home page: photos on the Fauna and Molecular biology cards.
+- Checks workflow: generated pages (register, equipment list, bench sheets) are now built before the protocol checks, so links to them are not reported as broken.
+- EnGeL-FAUNA-MAR-MORPH 1.1.0 (2026-11-17): sorted animals in 96% ethanol stored at room temperature (ideally in the fridge if there is space) instead of −20 °C.
+- EnGeL-GUIDE-SAMPLES 1.1.1 (2026-11-17): storage note simplified (MAR-MORPH now matches: ethanol at room temperature).
+- EnGeL-GUIDE-LABRULES 1.0.2 (2026-11-17): waste: soil is autoclaved before disposal.
+- EnGeL-GUIDE-SAMPLES 1.1.0 (2026-11-17): Darwin Core and Nagoya Protocol sections (Nagoya guidance after BENCHMARKS D4.3); bulk fauna stored in 96% ethanol at room temperature, ideally in the fridge.
+- EnGeL-MOLB-DNA-MAG 1.2.0 (2026-11-17): storage of microarthropods in ethanol: room temperature, ideally in the fridge if there is space.
+- EnGeL-MOLB-DNA-COL 1.1.0 (2026-11-17): storage of microarthropods in ethanol: room temperature, ideally in the fridge if there is space.
+- EnGeL-BIOINF-COMMUNITY 1.0.1 (2026-11-17): negative controls kept out of the sample groups (corrects the source analysis, where the blank was counted in one group).
+- Lab members only: link to the EnGeL shared folder (Google Drive).
+- EnGeL-GUIDE-LABRULES 1.0.1 (2026-11-17): contacts: Filipa Reis (consumables, incoming samples), Sandra Simões (autoclave); author confirmed.
+- EnGeL-GUIDE-AUTOCLAVE 1.0.1 (2026-11-17): contact: Sandra Simões (autoclave); author confirmed (Luís Cunha).
+- EnGeL-SAMPL-EFFORT 1.0.1 (2026-11-17): author of the source script confirmed (Luís Cunha).
+- EnGeL-BIOINF-COMMUNITY 1.0.0 (2026-11-17): first version (identified OTUs, incidence table, shared OTUs between groups in R), from Luísa Fraga’s primer-comparison analysis.
+- EnGeL-SAMPL-EFFORT 1.0.0 (2026-11-17): first version (rarefaction, extrapolation and richness estimators with iNEXT and SpadeR), from the lab’s iNEXT tutorial script; removed from the planned list.
+- Lab handbook (new menu): overview, Joining EnGeL, Lab members only (shared folder), Equipment page generated from data/equipment.yml and the protocols; guide format (`guide-id`) with its own checks.
+- EnGeL-GUIDE-LABRULES 1.0.0 (2026-11-17): lab rules and safety, from the 2024 lab procedure, Before You Leave and the lab signs.
+- EnGeL-GUIDE-AUTOCLAVE 1.0.0 (2026-11-17): bench autoclave Med 12 (Selecta), from the 2024 procedure.
+- EnGeL-GUIDE-FILES 1.0.0 (2026-11-17): file and folder management, from the 2024 best-practice guide (after Noble 2009).
+- EnGeL-GUIDE-SAMPLES 1.0.0 (2026-11-17): sample labelling and storage, from the 2024 guide, with the current master-data label format.
+- EnGeL-MOLB-DNA-MAG 1.1.4 (2026-11-17): sample-label text moved to a shared include; no change in content.
+- Authorship rule (Luís, 2026-11-17): everyone who contributed is an author, with an optional role; the lead author first where one is identified; the reviewer (Luís Cunha) last. The separate contributors list is no longer used.
+- EnGeL-BIOINF-OBITOOLS4 1.0.3 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-FAUNA-MAR-MORPH 1.0.3 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-DNA-BARC 1.0.1 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-DNA-BEE 1.0.2 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-DNA-COL 1.0.2 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-DNA-MAG 1.1.3 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-KAPA 1.1.1 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-MB 1.3.1 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-NAQC 1.2.1 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-RNA 1.2.3 (2026-11-17): authorship (all as authors, lead first, reviewer last).
+- EnGeL-MOLB-KAPA 1.1.0 (2026-11-17): updated from Andreia Quaresma’s v1.0 (2026-11-05): times, sample volume, positive control treated like a library (200 nM, 1:1 000 then 1:10 000 and 1:20 000), diluted library range 0.2–20 pM, melt-curve and ramp settings, plate capacity, hazard H371 (GHS08), technical data sheet KR0405 v8.17, expected-results figures (melt curve, standard curve).
+- EnGeL-MOLB-MB 1.3.0 (2026-11-17): shared KAPA qPCR text updated: diluted library range 0.2–20 pM, positive control treated like a library, melt-curve and ramp settings.
+- EnGeL-MOLB-NAQC 1.2.0 (2026-11-17): picoGreen part updated from Andreia Quaresma’s v1.0 (2026-11-05): plate reader FLUOstar Omega and reader protocol settings, plate type, times, user guide MAN0001931 Rev. A.0.
 - Website photos (assets/photos, web size, no EXIF/location data; all by Luís Cunha): home page banner, People page portrait, Sampling card image; credits in assets/photos/README.md.
 - EnGeL-MOLB-NAQC 1.1.2 (2026-11-17): contributors: Luísa Fraga and Andreia Quaresma.
 - EnGeL-MOLB-DNA-COL 1.0.1 (2026-11-17): contributors: Luísa Fraga and Andreia Quaresma.

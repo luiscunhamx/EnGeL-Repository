@@ -21,6 +21,8 @@ flowchart TD
   F["<b>5 Library quantification (qPCR)</b><br/>EnGeL-MOLB-KAPA"]
   G["<b>6 Sequencing submission</b>"]
   H["<b>7 Bioinformatics</b><br/>EnGeL-BIOINF-OBITOOLS4"]
+  I["<b>8 Community data in R</b><br/>EnGeL-BIOINF-COMMUNITY"]
+  J["<b>9 Sampling effort and completeness</b><br/>EnGeL-SAMPL-EFFORT"]
 
   A -->|"sorted animals in ethanol 96%"| Q0 --> D
   D -->|"no"| B1
@@ -32,13 +34,15 @@ flowchart TD
   Q3 -->|"cleaned pool"| F
   F -->|"pool diluted to 4 nM"| G
   G -->|"FASTQ files"| H
+  H -->|"curated OTU table + identifications"| I
+  I -->|"incidence table"| J
 
   classDef proto fill:#074023,stroke:#074023,color:#ffffff;
   classDef std fill:#72BF44,stroke:#4d8f2a,color:#1E2420;
   classDef gate fill:#f1f0fa,stroke:#5753A4,color:#1E2420;
   classDef choice fill:#ffffff,stroke:#5753A4,color:#1E2420,stroke-width:2px;
   classDef todo fill:#ffffff,stroke:#9aa59e,color:#1E2420,stroke-dasharray:4 3;
-  class A,B2,C,E,F,H proto;
+  class A,B2,C,E,F,H,I,J proto;
   class B1 std;
   class Q0,Q1,Q2,Q3 gate;
   class D choice;
@@ -52,6 +56,8 @@ flowchart TD
   click F "../protocols/molb/EnGeL-MOLB-KAPA.html"
   click G "sequencing-submission.html"
   click H "../protocols/bioinf/EnGeL-BIOINF-OBITOOLS4.html"
+  click I "../protocols/bioinf/EnGeL-BIOINF-COMMUNITY.html"
+  click J "../protocols/sampl/EnGeL-SAMPL-EFFORT.html"
 ```
 
 ## Choosing the extraction method
@@ -69,6 +75,8 @@ Magnetic beads on the robot (EnGeL-MOLB-DNA-MAG) are the standard. Use spin colu
 | 4. Library preparation | [EnGeL-MOLB-MB](../protocols/molb/EnGeL-MOLB-MB.qmd) | [bench sheet](../bench/EnGeL-MOLB-MB-bench.qmd) | Cleaned, pooled library | PCR1 gel; negatives clean; TapeStation single peak |
 | 5. Library quantification | [EnGeL-MOLB-KAPA](../protocols/molb/EnGeL-MOLB-KAPA.qmd) (also inside EnGeL-MOLB-MB) | [bench sheet](../bench/EnGeL-MOLB-KAPA-bench.qmd) | Pool diluted to 4 nM | qPCR run criteria (in the protocol) |
 | 6. Sequencing submission | [Sequencing submission](sequencing-submission.qmd) | – | FASTQ files from the provider | – |
-| 7. Bioinformatics | [EnGeL-BIOINF-OBITOOLS4](../protocols/bioinf/EnGeL-BIOINF-OBITOOLS4.qmd) | – | OTU table with taxonomy | – |
+| 7. Bioinformatics | [EnGeL-BIOINF-OBITOOLS4](../protocols/bioinf/EnGeL-BIOINF-OBITOOLS4.qmd) | – | Curated OTU table and identifications | – |
+| 8. Community data in R | [EnGeL-BIOINF-COMMUNITY](../protocols/bioinf/EnGeL-BIOINF-COMMUNITY.qmd) | – | Identified OTUs; incidence table; shared OTUs between groups | Samples read = samples sequenced |
+| 9. Sampling effort and completeness | [EnGeL-SAMPL-EFFORT](../protocols/sampl/EnGeL-SAMPL-EFFORT.qmd) | – | Sample coverage; rarefaction and extrapolation curves; estimated richness | Sample coverage (criterion to confirm) |
 
 Other protocols: [EnGeL-MOLB-DNA-BARC](../protocols/molb/EnGeL-MOLB-DNA-BARC.qmd) (single specimens for barcoding), [EnGeL-MOLB-DNA-BEE](../protocols/molb/EnGeL-MOLB-DNA-BEE.qmd) (honey bee guts), [EnGeL-MOLB-RNA](../protocols/molb/EnGeL-MOLB-RNA.qmd) (total RNA). See also the workflows for [single-specimen barcoding](single-specimen-barcoding.qmd) and [RNA](rna.qmd), both in preparation.

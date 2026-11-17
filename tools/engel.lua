@@ -26,11 +26,14 @@ local function author_list(meta)
   if a == nil then return out end
   if a.t ~= 'MetaList' and type(a) ~= 'table' then a = {a} end
   for _, x in ipairs(a) do
-    local name, orcid = '', ''
+    local name, orcid, role = '', '', ''
     if type(x) == 'table' and x.name ~= nil then
       name = str(x.name.literal or x.name); orcid = str(x.orcid)
+      -- `contribution` is not a Quarto author field, so Quarto keeps it under `metadata`
+      if x.metadata and x.metadata.contribution then role = str(x.metadata.contribution)
+      elseif x.contribution then role = str(x.contribution) end
     else name = str(x) end
-    table.insert(out, {name = name, orcid = orcid})
+    table.insert(out, {name = name, orcid = orcid, role = role})
   end
   return out
 end
@@ -45,17 +48,22 @@ local function cite_name(n)
 end
 
 local function meta_box(meta)
-  local id, ver = str(meta['protocol-id']), str(meta.version)
+  local guide = meta['guide-id'] ~= nil
+  local id, ver = str(meta['protocol-id'] or meta['guide-id']), str(meta.version)
   local auth = {}
   for _, a in ipairs(author_list(meta)) do
     local s = a.name
-    if a.orcid ~= '' then s = s .. ' ([ORCID ' .. a.orcid .. '](https://orcid.org/' .. a.orcid .. '))' end
+    local extra = {}
+    if a.role ~= '' then table.insert(extra, a.role) end
+    if a.orcid ~= '' and a.orcid ~= 'none' then table.insert(extra, '[ORCID ' .. a.orcid .. '](https://orcid.org/' .. a.orcid .. ')') end
+    if #extra > 0 then s = s .. ' (' .. table.concat(extra, '; ') .. ')' end
     table.insert(auth, s)
   end
   local rows = {
-    {'Protocol ID', id}, {'Version', ver}, {'Date', str(meta.date)}, {'Status', str(meta.status)},
-    {'Area', str(meta.area)}, {'Authors', table.concat(auth, '; ')},
+    {guide and 'Guide ID' or 'Protocol ID', id}, {'Version', ver}, {'Date', str(meta.date)}, {'Status', str(meta.status)},
   }
+  if not guide then table.insert(rows, {'Area', str(meta.area)}) end
+  table.insert(rows, {'Authors', table.concat(auth, '; ')})
   if meta.contributors then
     local c = {}
     for _, x in ipairs(meta.contributors) do table.insert(c, str(x)) end
@@ -80,7 +88,7 @@ local function meta_box(meta)
     end
     table.insert(rows, {'Main hazards', icons .. table.concat(h, '; ')})
   end
-  if is_html() then
+  if is_html() and not guide then
     table.insert(rows, {'Downloads', 'Protocol: [PDF](' .. id .. '.pdf) · [Word](' .. id .. '.docx). Bench sheet: [PDF](../../bench/' .. id .. '-bench.pdf) · [web page](../../bench/' .. id .. '-bench.html)'})
   end
   local t = {'| | |', '|:--|:--|'}
@@ -118,8 +126,9 @@ local function history(meta)
   for _, a in ipairs(author_list(meta)) do table.insert(names, cite_name(a.name)) end
   local year = str(meta.date):sub(1, 4)
   local doi = meta['protocol-doi'] and str(meta['protocol-doi']) or '[TO CONFIRM]'
-  local cite = table.concat(names, ', ') .. ' (' .. year .. '). ' .. str(meta.title) .. '. EnGeL-UC protocol ' ..
-    str(meta['protocol-id']) .. ', version ' .. str(meta.version) .. '. Zenodo. DOI ' .. doi .. '.'
+  local kind = meta['guide-id'] and 'guide' or 'protocol'
+  local cite = table.concat(names, ', ') .. ' (' .. year .. '). ' .. str(meta.title) .. '. EnGeL-UC ' .. kind .. ' ' ..
+    str(meta['protocol-id'] or meta['guide-id']) .. ', version ' .. str(meta.version) .. '. Zenodo. DOI ' .. doi .. '.'
   local blocks = md(table.concat(t, '\n'))
   blocks:extend(md('**How to cite**\n\n' .. cite .. '\n\n**Licence**\n\nText: CC BY 4.0. Code: MIT. Logos are the property of their institutions and are not covered by the licence.'))
   return blocks
@@ -127,7 +136,7 @@ end
 
 local function build(doc)
   local meta = doc.meta
-  if meta['protocol-id'] == nil or meta['engel-bench'] then return doc end
+  if (meta['protocol-id'] == nil and meta['guide-id'] == nil) or meta['engel-bench'] then return doc end
   local blocks = pandoc.Blocks{meta_box(meta)}
   for _, b in ipairs(doc.blocks) do
     if b.t == 'Div' and b.classes:includes('engel-equipment') then blocks:insert(bullets(meta.equipment))

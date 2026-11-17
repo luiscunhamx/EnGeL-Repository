@@ -5,9 +5,6 @@
 - id: EnGeL-SAMPL-DESIGN
   title: Experimental design and sampling strategy for soil biodiversity studies
   notes: Planned (sampling and experimental design section). Scope to define with the lab, e.g. replication, randomisation, spatial layout, controls.
-- id: EnGeL-SAMPL-EFFORT
-  title: Measuring sampling effort and completeness
-  notes: Planned. Scope to define, e.g. species accumulation and rarefaction curves, sample coverage, richness estimators.
 - id: EnGeL-SAMPL-FIELD
   title: Field sampling of soil for fauna and environmental DNA
   notes: Planned. Scope to define, e.g. coring, compositing, contamination control in the field, field metadata.

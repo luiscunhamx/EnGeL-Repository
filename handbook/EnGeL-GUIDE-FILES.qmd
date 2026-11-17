@@ -1,0 +1,127 @@
+---
+title: "File and folder management"
+guide-id: EnGeL-GUIDE-FILES
+version: 1.0.0
+date: 2026-11-17
+status: draft
+author:
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+    contribution: "lead; review and approval"
+reviewed-by: Luís Cunha
+version-history:
+  - version: 1.0.0
+    date: 2026-11-17
+    change: "First EnGeL-UC version, from “EnGeL Best Practices for File and Directory Management in the Laboratory” (Luís Cunha, 2024, v0.1)."
+    by: "Luís Cunha"
+---
+
+## Purpose
+
+All lab members name and organise their files and folders in the same way, so that anyone can find, understand and reuse the data, scripts and results of a project. Each project gets a folder in the lab's shared folder, with a personal folder for each member working on it. The guidance follows Noble (2009), adapted to the lab.
+
+## General rules
+
+1. **Plan early.** Decide the folder structure at the start of the project, and write it down so that others can follow it.
+2. **Short, meaningful names.** For example `proj_data`, `scripts`, `results`.
+3. **No spaces.** Use underscores, dashes or dots: `data_analysis`, `raw_data`.
+4. **Meaningful file extensions** that show the type of data or the processing step: `chitinase.fsa` (original sequences), `chitinase.blastp.nr.html` (BLASTP results); `.raw.csv` and `.processed.csv`.
+5. **Dates and versions in names.** Dates as `YYYYMMDD` at the start of folder names, so they sort in time order (`20230526_data_analysis`); versions as `_v1`, `_v2`.
+6. **A README in every folder** that says what the folder contains and why; update it when the contents change.
+7. **Back up regularly** on the lab's networked storage, never only on the local drive of a desktop or laptop.
+
+## Naming files
+
+Use one pattern for file names in a project:
+
+`[Project]_[Task]_v[Version]_[YYYYMMDD].[extension]`, for example `AlphaData_Cleaning_v1_20230526.csv`.
+
+Samples have their own labelling system (see [Sample labelling and storage](EnGeL-GUIDE-SAMPLES.qmd)); use the sample label wherever a file holds data from one sample.
+
+## Folder structure
+
+Separate raw data, processed data, scripts, results and documentation:
+
+```
+project_name/
+└── personal_folder/
+    ├── data/
+    │   ├── raw/
+    │   └── processed/
+    ├── scripts/
+    ├── results/
+    └── documentation/
+```
+
+Example with files:
+
+```
+research_project/
+├── raw_data/
+│   ├── 20230501_sample1.fastq
+│   ├── 20230501_sample2.fastq
+│   └── README.md
+├── processed_data/
+│   ├── 20230502_sample1_cleaned.fastq
+│   └── README.md
+├── scripts/
+│   ├── data_cleaning_v1.py
+│   ├── data_analysis_v1.py
+│   └── README.md
+├── results/
+│   ├── 20230503_analysis_results.csv
+│   └── README.md
+└── documentation/
+    ├── project_overview.md
+    ├── data_sources.md
+    └── analysis_methods.md
+```
+
+Raw data are never edited: every change is made by a script that writes to `processed`.
+
+## The lab notebook
+
+1. Date every entry and write enough detail: what you did, what you observed, your conclusions and ideas for next steps, with links to or images of results.
+2. Include notes from meetings, conversations and e-mails that changed the work.
+3. Keep the notebook online (password-protected if needed) so that it is available at meetings and to collaborators.
+
+## Running an analysis
+
+1. Record every command, or better, write a driver script (for example `runall`) that runs the whole analysis.
+2. Comment the scripts so that anyone can follow them.
+3. Do not edit data by hand; make every change with a script.
+4. Keep file and folder names in the driver script and pass them to the other scripts.
+5. Use relative paths, so that the scripts also work on someone else's copy of the project.
+6. Make scripts restartable, so that parts can be rerun without starting again from the beginning.
+7. Check inputs and parameters early, stop with a clear error message when something is wrong, and write outputs under temporary names that are renamed only when the step has finished.
+
+Scripts are of four kinds: the driver script (one or two per folder), single-use scripts for one task, project-specific scripts used by several analyses in a project, and general scripts reused across projects.
+
+## Version control
+
+Use version control for code and scripts (for example Git): it keeps a backup, a history that lets you go back to earlier versions, and a way to work on the same files with others. The lab's protocols themselves are kept this way.
+
+## Useful software
+
+| Task | Software |
+|:--|:--|
+| Renaming many files | Bulk Rename Utility, Advanced Renamer (Windows); Renamer (macOS, paid) |
+| Version control | Git |
+| Electronic lab notebooks | for example Benchling, LabArchives |
+| Sharing files | the lab's shared Google Drive; Open Science Framework |
+
+The lab has scripts that create the standard project folders and a project tracking table [TO CONFIRM: add them to this repository, or link them from the shared folder].
+
+## References
+
+Noble, W.S. (2009). A quick guide to organizing computational biology projects. PLoS Computational Biology, 5(7), e1000424. <https://doi.org/10.1371/journal.pcbi.1000424>
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. Project folder scripts (`EnGel_New_Project_Structure.sh`, `.bat`, `project_folder_setup.py`) and the project tracking template: add to the repository (MIT) or link from the shared folder?
+2. Authors: Luís Cunha only, or others?

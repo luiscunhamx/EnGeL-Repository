@@ -11,15 +11,17 @@ Website (after the first release): <https://luiscunhamx.github.io/EnGeL-Reposito
 |---|---|
 | `protocols/<area>/<ID>.qmd` | One file per protocol, YAML metadata at the top |
 | `includes/_*.qmd` | Text used in several protocols (contamination control, safety, plate map, …). Change it once, it changes everywhere |
+| `handbook/` | Lab handbook: overview, Joining EnGeL, guides (`EnGeL-GUIDE-*.qmd`: lighter format with `guide-id`, version, authors, version history and Open questions), equipment (`handbook/equipment/`; the Equipment page is generated from `data/equipment.yml`) and the Lab members only page |
 | `workflows/` | Pages that chain protocols (sampling → extraction → library → sequencing → bioinformatics) |
 | `_templates/protocol-template.qmd` | Starting point for a new protocol |
 | `data/planned.yml` | Planned protocols shown in the register |
+| `data/equipment.yml` | Instruments for the Equipment page: name, pattern matched in the protocols' equipment lists, log, procedure |
 | `data/people.yml` | People page: name, role, ORCID, optional short biography (no e-mails or phone numbers). Protocol roles are read from the protocols |
 | `data/allowed_emails.txt` | Shared lab addresses allowed on protocol pages |
 | `assets/` | Fonts, logos, styles, PDF layout, Word reference document |
 | `assets/photos/` | Web-size photos approved for the website (EXIF removed), with credits in its README; originals stay outside the repository |
 | `assets/ghs/` | GHS hazard pictograms (public domain); list them in a protocol with `ghs: [GHS02, GHS07]`, from the safety data sheets |
-| `assets/figures/` | Schematic figures (SVG), drawn from the protocol text; CC BY 4.0, credited as “Figure: EnGeL-UC”. Edit them in any SVG editor (e.g. Inkscape); keep values identical to the protocol |
+| `assets/figures/` | Schematic figures (SVG), drawn from the protocol text, and figures of the lab's own results (e.g. KAPA melt and standard curves, credited to who produced them); CC BY 4.0, credited as “Figure: EnGeL-UC”. Edit them in any SVG editor (e.g. Inkscape); keep values identical to the protocol |
 | `tools/` | `prerender.py` (register, bench sheets, list of values to confirm), `check.py` (automatic checks), `engel.lua` (layout filter) |
 | `CHANGELOG.md` | Every change, with protocol ID and version |
 
@@ -42,6 +44,8 @@ python tools/check.py  # checks only
 `quarto render` stops if `tools/check.py` finds an error (missing section, personal e-mail, [TO CONFIRM] left in a released protocol, version without CHANGELOG entry, …). Warnings are printed but do not stop the build.
 
 ## Rules (short)
+
+- **Authors:** everyone who contributed is an author, with an optional short `contribution`; the lead author first where there is one, the others alphabetically by surname, the reviewer (Luís Cunha) last. `tools/check.py` checks ORCIDs (or `no-orcid: true` when confirmed) and that the reviewer is last.
 
 - Never guess: values not in the sources are written `[TO CONFIRM]` and listed under *Open questions*.
 - Keep the lab's wording. Protocols are general; project notes go in *Remarks*.

@@ -2,15 +2,17 @@
 title: "DNA extraction from single arthropod specimens for DNA barcoding (Qiagen DNeasy Blood & Tissue Kit)"
 short-title: "DNA extraction for barcoding (DNeasy)"
 protocol-id: EnGeL-MOLB-DNA-BARC
-version: 1.0.0
-date: 2026-11-16
+version: 1.0.1
+date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
 author:
   - name: Luísa Fraga
     orcid: 0000-0003-3153-4593
+    contribution: "lead"
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
+    contribution: "review and approval"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -55,6 +57,10 @@ version-history:
     date: 2026-11-16
     change: "First EnGeL-UC version, from the DNeasy Blood & Tissue quick-start protocol as adapted by Luísa Fraga for Carabidae DNA barcoding (2023; changes advised by Luís Cunha)."
     by: "Luísa Fraga, Luís Cunha"
+  - version: 1.0.1
+    date: 2026-11-17
+    change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope

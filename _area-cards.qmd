@@ -7,14 +7,16 @@
 
 `<i class="bi bi-grid-3x3-gap engel-card-icon" aria-hidden="true"></i>`{=html}
 
-**[Sampling and experimental design](register.qmd#planned)**
+**[Sampling and experimental design](protocols/sampl/EnGeL-SAMPL-EFFORT.qmd)**
 
 Study design, field sampling, sampling effort and sample registration.
 
-[in preparation]{.engel-card-count}
+[1 protocol]{.engel-card-count}
 :::
 
 ::: {.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}
+![](assets/photos/fauna_sorted_specimens.jpg){.engel-card-photo fig-alt="Sorted soil animals in a Petri dish"}
+
 `<i class="bi bi-bug engel-card-icon" aria-hidden="true"></i>`{=html}
 
 **[Fauna sample processing](protocols/fauna/EnGeL-FAUNA-MAR-MORPH.qmd)**
@@ -25,6 +27,8 @@ Field sampling, extraction and sorting of soil animals.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}
+![](assets/photos/molb_sample_tubes.jpg){.engel-card-photo fig-alt="Bulk fauna samples in tubes"}
+
 `<i class="bi bi-droplet-half engel-card-icon" aria-hidden="true"></i>`{=html}
 
 **[Molecular biology](protocols/molb/EnGeL-MOLB-DNA-BARC.qmd)**
@@ -37,11 +41,11 @@ Nucleic acid extraction, quality control, PCR and sequencing libraries.
 ::: {.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}
 `<i class="bi bi-diagram-3 engel-card-icon" aria-hidden="true"></i>`{=html}
 
-**[Bioinformatics](protocols/bioinf/EnGeL-BIOINF-OBITOOLS4.qmd)**
+**[Bioinformatics](protocols/bioinf/EnGeL-BIOINF-COMMUNITY.qmd)**
 
 From raw reads to taxonomic tables.
 
-[1 protocol]{.engel-card-count}
+[2 protocols]{.engel-card-count}
 :::
 
 :::
