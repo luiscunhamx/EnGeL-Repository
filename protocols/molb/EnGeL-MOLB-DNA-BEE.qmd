@@ -2,7 +2,7 @@
 title: "Genomic DNA isolation from honey bee guts (NZY Soil gDNA Isolation Kit)"
 short-title: "DNA from honey bee guts (NZY Soil)"
 protocol-id: EnGeL-MOLB-DNA-BEE
-version: 1.0.2
+version: 1.1.0
 date: 2026-11-17
 status: draft
 area: Molecular biology (MOLB)
@@ -23,7 +23,7 @@ hazards:
   - "Proteinase K: respiratory sensitiser"
   - "Flame-sterilised tools: burn and fire risk"
 equipment:
-  - "Bead-beating system: FastPrep-24 5G (MP Biomedicals) with QuickPrep adapter"
+  - "Bead-beating homogeniser: BeadBlaster 24R (Benchmark)"
   - "Microcentrifuge (≥ 11 000 × g)"
   - "Heat block at 56 °C"
   - "Vortex mixer"
@@ -70,6 +70,10 @@ version-history:
   - version: 1.0.2
     date: 2026-11-17
     change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
+    by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-17
+    change: "Bead beating on the BeadBlaster 24R, which replaced the FastPrep-24 5G in the lab; programme to confirm."
     by: "Luís Cunha"
 ---
 
@@ -134,7 +138,7 @@ Bee cuticles are disinfected with dilute sodium hypochlorite to remove external 
 ### 2. Sample lysis
 
 (@) Add 150 µL of NS Enhancer and close the cap.
-(@) Place the bead tube horizontally in the FastPrep-24 5G and run: speed 6.0 m/s; adapter QuickPrep; time 30 s; lysing matrix A; quantity 1 mg [TO CONFIRM: meaning of this setting]; 1 cycle; pause time 300 s.
+(@) Place the bead tube in the BeadBlaster 24R and run [TO CONFIRM: BeadBlaster 24R programme — speed, time, number of cycles and pause].
 
 ### 3. Contaminant precipitation
 
@@ -189,7 +193,7 @@ Not applicable: volumes are per sample. For $n$ samples, prepare $V = v \times n
 ::: {.callout-note title="Minimum to record"}
 - EnGeL labels of the bees pooled and of the extract
 - Dissection and extraction date; operator; kit lot number
-- FastPrep settings used; deviations
+- BeadBlaster programme used; deviations
 - DNA concentration and purity
 :::
 
@@ -219,6 +223,8 @@ For this protocol: bee remains go to biological solid waste (black bin) [TO CONF
 
 The source protocol is written for groups of three bees. Standard methods for research on honey bee gut symbionts are in the source folder for reference.
 
+The source protocol used a FastPrep-24 5G (6.0 m/s, 30 s, one cycle, pause 300 s). The lab replaced that instrument with the BeadBlaster 24R; the BeadBlaster programme is set separately and is not a conversion of the FastPrep settings.
+
 ## References
 
 NZYtech (n.d.). NZY Soil gDNA Isolation kit (MB21802) – manual [TO CONFIRM: version].
@@ -232,7 +238,7 @@ NZYtech (n.d.). NZY Soil gDNA Isolation kit (MB21802) – manual [TO CONFIRM: ve
 
 1. DOI.
 2. Proteinase K: from which kit, and at what concentration?
-3. FastPrep setting “quantity 1 mg”: what does it refer to?
+3. BeadBlaster 24R programme for the bee gut lysis (speed, time, cycles, pause). The source settings were for the FastPrep-24 5G and do not transfer directly.
 4. Preparation of the 0.05% sodium hypochlorite.
 5. Extraction blanks and acceptance criteria.
 6. Where results are recorded.
