@@ -8,6 +8,7 @@
 /register.qmd
 /to-confirm.qmd
 /to-confirm.csv
+/people.qmd
 /bench/*-bench.qmd
 # Python
 __pycache__/

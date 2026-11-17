@@ -1,2 +1,4 @@
 # Planned protocols (not yet written). Move an entry out of this list when its .qmd exists.
-[]
+- id: EnGeL-MOLB-MB-EW
+  title: DNA metabarcoding of earthworms with a multiplex marker
+  notes: In preparation (Andreia Quaresma). Separate from EnGeL-MOLB-MB because it uses a multiplex marker. ID and title can still change.

@@ -13,3 +13,22 @@ $headings-color: $forest;
 
 /*-- scss:rules --*/
 h2 { border-bottom: 2px solid $leaf; padding-bottom: .2rem; margin-top: 2rem; }
+
+/* Home page */
+.engel-hero { font-size: 1.12rem; margin-bottom: 1.5rem; }
+.engel-hero p { max-width: 46rem; }
+.engel-cards { margin: 1rem 0 2rem; }
+.engel-card { border: 1px solid #d6ddd8; border-top: 4px solid $leaf; border-radius: 8px; padding: 1rem 1.1rem; background: #fbfcfb; }
+.engel-card p { margin-bottom: .5rem; }
+.engel-card-icon { font-size: 1.8rem; color: $violet; }
+.engel-card-count { display: inline-block; font-size: .85rem; background: $forest; color: #fff; border-radius: 1rem; padding: .05rem .6rem; }
+
+/* Sidebar: clearer hierarchy and current page */
+#quarto-sidebar .sidebar-item-section { margin-top: .9rem; }
+#quarto-sidebar .sidebar-item-section > .sidebar-item-container .sidebar-item-text {
+  font-weight: 700; color: $forest; text-transform: uppercase; font-size: .78rem; letter-spacing: .05em; }
+#quarto-sidebar .sidebar-item-section > .sidebar-item-container { border-bottom: 1px solid #d6ddd8; padding-bottom: .15rem; margin-bottom: .2rem; }
+#quarto-sidebar .sidebar-section .sidebar-link { color: #3c4540; padding-left: .55rem; border-left: 3px solid transparent; }
+#quarto-sidebar .sidebar-link:hover { color: $forest; border-left-color: #b8dca0; background: #f3f8f0; }
+#quarto-sidebar .sidebar-link.active { color: $forest; font-weight: 700; border-left: 3px solid $leaf; background: #eaf5e3; }
+#quarto-sidebar .sidebar-link.active .menu-text { color: $forest; }

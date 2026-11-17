@@ -1,0 +1,33 @@
+# People shown on the People page. Protocol roles (author / contributor) are read from the protocols.
+# affiliation: defaults to EnGeL-UC; set it to another unit, or "" if not known.
+# Only public, professional information: name, role, ORCID, short biography. No e-mails or phone numbers.
+- name: Luís Cunha
+  role: Principal Investigator
+  orcid: 0000-0002-5870-2537
+- name: Luísa Fraga
+  role: Technician
+  orcid: 0000-0003-3153-4593
+- name: Andreia Quaresma
+  role: Technician
+  orcid: 0000-0002-8678-5800
+- name: Filipa Reis
+  role: Senior Technician
+  orcid: 0000-0001-6297-8862
+  bio: >-
+    Soil biologist and ecotoxicologist (PhD in Biosciences, University of Coimbra) working on soil fauna,
+    especially earthworms and Collembola, and their role in soil health and litter decomposition;
+    increasingly combines field and laboratory work with molecular tools.
+- name: Pedro Martins
+  role: Invited Assistant Researcher
+  affiliation: Centre for Functional Ecology, University of Coimbra
+  orcid: 0000-0002-5930-264X
+- name: Diogo Fonseca
+  role: FCT research scholar
+  orcid: 0009-0003-2564-7572
+- name: Artur Sarmento
+  role: PhD student in Biosciences
+  orcid: 0000-0003-3736-1531
+- name: Yevhenia Shcheka
+  role: ""
+  orcid: ""
+  affiliation: ""   # not known
