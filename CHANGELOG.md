@@ -5,7 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
-- EnGeL-MOLB-DNA-BEE 1.1.0 (2026-11-17): bead beating on the BeadBlaster 24R, which replaced the FastPrep-24 5G; programme [TO CONFIRM].
+- EnGeL-MOLB-DNA-BEE 1.1.0 (2026-11-17): bead beating on the BeadBlaster 24R, which replaced the FastPrep-24 5G (same programme: 6.0 m/s, 30 s, one cycle, pause 300 s).
 - Equipment page: Bullet Blender 50 Gold+ added and FastPrep removed (not in the lab); gel imager named (Bio-Rad GelDoc Go); balances need no logbook; PCR chambers (small and large). People: Pedro Martins listed with his E3G affiliation.
 - Links to the EnGeL website (envigenomics.eu): globe icon in the top bar; People page points to the full team page. Andreia Quaresma: Senior Technician.
 - Equipment page: every instrument has its own logbook except accessory equipment (centrifuges, heated shakers, plate shaker, vortex mixers); MinION Mk1C photo; NextGenPCR sealing unit confirmed.

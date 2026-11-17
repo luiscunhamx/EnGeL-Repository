@@ -73,7 +73,7 @@ version-history:
     by: "Luís Cunha"
   - version: 1.1.0
     date: 2026-11-17
-    change: "Bead beating on the BeadBlaster 24R, which replaced the FastPrep-24 5G in the lab; programme to confirm."
+    change: "Bead beating on the BeadBlaster 24R, which replaced the FastPrep-24 5G in the lab (same programme: 6.0 m/s, 30 s, one cycle, pause 300 s)."
     by: "Luís Cunha"
 ---
 
@@ -138,7 +138,7 @@ Bee cuticles are disinfected with dilute sodium hypochlorite to remove external 
 ### 2. Sample lysis
 
 (@) Add 150 µL of NS Enhancer and close the cap.
-(@) Place the bead tube in the BeadBlaster 24R and run [TO CONFIRM: BeadBlaster 24R programme — speed, time, number of cycles and pause].
+(@) Place the bead tube in the BeadBlaster 24R and run: speed 6.0 m/s; time 30 s; 1 cycle; pause time 300 s.
 
 ### 3. Contaminant precipitation
 
@@ -223,7 +223,7 @@ For this protocol: bee remains go to biological solid waste (black bin) [TO CONF
 
 The source protocol is written for groups of three bees. Standard methods for research on honey bee gut symbionts are in the source folder for reference.
 
-The source protocol used a FastPrep-24 5G (6.0 m/s, 30 s, one cycle, pause 300 s). The lab replaced that instrument with the BeadBlaster 24R; the BeadBlaster programme is set separately and is not a conversion of the FastPrep settings.
+The source protocol was written for the FastPrep-24 5G, which the lab replaced with the BeadBlaster 24R; the BeadBlaster runs the same programme (6.0 m/s, 30 s, one cycle, pause 300 s). The FastPrep-only menu settings of the source (QuickPrep adapter, “lysing matrix A”, “quantity 1 mg”) do not apply.
 
 ## References
 
@@ -238,9 +238,8 @@ NZYtech (n.d.). NZY Soil gDNA Isolation kit (MB21802) – manual [TO CONFIRM: ve
 
 1. DOI.
 2. Proteinase K: from which kit, and at what concentration?
-3. BeadBlaster 24R programme for the bee gut lysis (speed, time, cycles, pause). The source settings were for the FastPrep-24 5G and do not transfer directly.
-4. Preparation of the 0.05% sodium hypochlorite.
-5. Extraction blanks and acceptance criteria.
-6. Where results are recorded.
-7. Waste route for bee remains and used hypochlorite solution.
-8. Hands-on and total time.
+3. Preparation of the 0.05% sodium hypochlorite.
+4. Extraction blanks and acceptance criteria.
+5. Where results are recorded.
+6. Waste route for bee remains and used hypochlorite solution.
+7. Hands-on and total time.
