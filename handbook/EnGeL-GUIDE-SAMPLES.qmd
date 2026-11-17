@@ -1,7 +1,7 @@
 ---
 title: "Sample labelling and storage"
 guide-id: EnGeL-GUIDE-SAMPLES
-version: 1.1.0
+version: 1.1.1
 date: 2026-11-17
 status: draft
 author:
@@ -19,6 +19,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-17
     change: "Darwin Core and Nagoya Protocol sections (Nagoya guidance after BENCHMARKS D4.3); bulk fauna stored in 96% ethanol at room temperature, ideally in the fridge."
+    by: "Luís Cunha"
+  - version: 1.1.1
+    date: 2026-11-17
+    change: "Storage note simplified (MAR-MORPH now matches: ethanol at room temperature)."
     by: "Luís Cunha"
 ---
 
@@ -53,7 +57,7 @@ The 2024 formats (for example `ENGEL-DNA-2024-002`, or type codes TIS, CCS and I
 | Bulk fauna samples (e.g. extracted microarthropods) | In 96% ethanol at room temperature; ideally in the fridge if there is space |
 | Individual animals | −80 °C freezer, labelled and sealed |
 
-Protocols give the storage conditions for the samples and extracts they produce; where a protocol and this table differ, the protocol applies [TO CONFIRM: EnGeL-FAUNA-MAR-MORPH stores sorted animals in 96% ethanol at −20 °C].
+Protocols give the storage conditions for the samples and extracts they produce; where a protocol and this table differ, the protocol applies.
 
 ## Recording and tracking
 
@@ -102,7 +106,6 @@ Wieczorek, J., Bloom, D., Guralnick, R., et al. (2012). Darwin Core: an evolving
 ## Open questions
 
 1. Which Darwin Core terms does the master data file use, and is there a column for permit references?
-2. EnGeL-FAUNA-MAR-MORPH stores sorted animals in ethanol at −20 °C; this guide says room temperature or fridge. Which applies?
-3. The 2024 label script (`EnGeL_generate_labels.sh`) makes labels in the old format: retire it, now that the data curator generates labels from the master data file?
-4. Training and audits of labelling and storage (in the 2024 source, marked as an open point): keep, and who organises them?
-5. Authors.
+2. The 2024 label script (`EnGeL_generate_labels.sh`) makes labels in the old format: retire it, now that the data curator generates labels from the master data file?
+3. Training and audits of labelling and storage (in the 2024 source, marked as an open point): keep, and who organises them?
+4. Authors.
