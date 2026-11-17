@@ -15,6 +15,8 @@ Study design, field sampling, sampling effort and sample registration.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}
+![](assets/photos/fauna_sorted_specimens.jpg){.engel-card-photo fig-alt="Sorted soil animals in a Petri dish"}
+
 `<i class="bi bi-bug engel-card-icon" aria-hidden="true"></i>`{=html}
 
 **[Fauna sample processing](protocols/fauna/EnGeL-FAUNA-MAR-MORPH.qmd)**
@@ -25,6 +27,8 @@ Field sampling, extraction and sorting of soil animals.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}
+![](assets/photos/molb_sample_tubes.jpg){.engel-card-photo fig-alt="Bulk fauna samples in tubes"}
+
 `<i class="bi bi-droplet-half engel-card-icon" aria-hidden="true"></i>`{=html}
 
 **[Molecular biology](protocols/molb/EnGeL-MOLB-DNA-BARC.qmd)**

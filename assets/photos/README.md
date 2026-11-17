@@ -9,3 +9,6 @@ Licence: CC BY 4.0, credit as below.
 | home_montado.jpg | Montado field site | Luís Cunha |
 | people_luis_cunha.jpg | Luís Cunha | Luís Cunha |
 | sampling_soil_surface.jpg | Soil surface with litter | Luís Cunha |
+| fauna_sorted_specimens.jpg | Sorted soil animals in a Petri dish (2023) | Luís Cunha |
+| molb_sample_tubes.jpg | Bulk fauna samples in 50 mL tubes (2023) | Luís Cunha |
+| equipment/*.jpg | Laboratory instruments, UC-Biotech (2026-11-17): InviGenius, QuantStudio 3, Biometra TOne, TapeStation 4150, NanoDrop One, Qubit, FLUOstar Omega, Micro-CenVac, BeadBlaster 24R, centrifuge, gel imager, stereomicroscope, autoclave Med 12 | Luís Cunha |
