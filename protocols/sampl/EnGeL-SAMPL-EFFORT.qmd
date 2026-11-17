@@ -2,7 +2,7 @@
 title: "Measuring sampling effort and completeness: rarefaction, extrapolation and richness estimators (iNEXT, SpadeR)"
 short-title: "Sampling effort and completeness (iNEXT)"
 protocol-id: EnGeL-SAMPL-EFFORT
-version: 1.0.0
+version: 1.0.1
 date: 2026-11-17
 status: draft
 area: Sampling and experimental design (SAMPL)
@@ -32,6 +32,10 @@ version-history:
   - version: 1.0.0
     date: 2026-11-17
     change: "First EnGeL-UC version, from the lab's R tutorial script for iNEXT and SpadeR (iNEXT_tutorial.R)."
+    by: "Luís Cunha"
+  - version: 1.0.1
+    date: 2026-11-17
+    change: "Author of the source script confirmed (Luís Cunha)."
     by: "Luís Cunha"
 ---
 
@@ -191,5 +195,4 @@ Hsieh, T.C., Ma, K.H., Chao, A. (2016). iNEXT: an R package for rarefaction and 
 2. Sample sizes or endpoint to use for EnGeL data; number of bootstrap replicates (200 or 500).
 3. Minimum sample coverage regarded as sufficient (acceptance criterion).
 4. Study and data set behind the lab example in the source script.
-5. Authors of the source script.
-6. DOI.
+5. DOI.

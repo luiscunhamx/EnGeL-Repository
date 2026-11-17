@@ -1,18 +1,22 @@
 ---
 title: "Bench autoclave Med 12 (Selecta)"
 guide-id: EnGeL-GUIDE-AUTOCLAVE
-version: 1.0.0
+version: 1.0.1
 date: 2026-11-17
 status: draft
 author:
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
-    contribution: "review and approval"
+    contribution: "lead; review and approval"
 reviewed-by: Luís Cunha
 version-history:
   - version: 1.0.0
     date: 2026-11-17
     change: "First EnGeL-UC version, from the “Standard Operational Procedure for Autoclave Usage: Autoclave Med 12 Selecta” (2024)."
+    by: "Luís Cunha"
+  - version: 1.0.1
+    date: 2026-11-17
+    change: "Contact: Sandra Simões (autoclave); author confirmed (Luís Cunha)."
     by: "Luís Cunha"
 ---
 
@@ -77,8 +81,8 @@ Record every cycle in the autoclave log: date, operator, cycle type and any prob
 
 | Topic | Contact |
 |:--|:--|
-| Maintenance | [TO CONFIRM] |
-| Safety | [TO CONFIRM] |
+| Use, maintenance and safety | Sandra Simões |
+| Faults that cannot be solved | Luís Cunha (lab contact) |
 
 ## References
 
@@ -93,6 +97,4 @@ Selecta. Autoclave Med 12, user manual [TO CONFIRM: edition] (kept with the lab'
 
 1. Temperature for solid loads: 120 °C (source) or 121 °C?
 2. Settings of the waste cycle (temperature, time, exhaust).
-3. Contacts for maintenance and safety.
-4. Authors of the 2024 procedure.
-5. Edition of the Selecta user manual.
+3. Edition of the Selecta user manual.

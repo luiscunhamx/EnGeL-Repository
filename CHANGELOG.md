@@ -5,6 +5,10 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- Lab members only: link to the EnGeL shared folder (Google Drive).
+- EnGeL-GUIDE-LABRULES 1.0.1 (2026-11-17): contacts: Filipa Reis (consumables, incoming samples), Sandra Simões (autoclave); author confirmed.
+- EnGeL-GUIDE-AUTOCLAVE 1.0.1 (2026-11-17): contact: Sandra Simões (autoclave); author confirmed (Luís Cunha).
+- EnGeL-SAMPL-EFFORT 1.0.1 (2026-11-17): author of the source script confirmed (Luís Cunha).
 - EnGeL-BIOINF-COMMUNITY 1.0.0 (2026-11-17): first version (identified OTUs, incidence table, shared OTUs between groups in R), from Luísa Fraga’s primer-comparison analysis.
 - EnGeL-SAMPL-EFFORT 1.0.0 (2026-11-17): first version (rarefaction, extrapolation and richness estimators with iNEXT and SpadeR), from the lab’s iNEXT tutorial script; removed from the planned list.
 - Lab handbook (new menu): overview, Joining EnGeL, Lab members only (shared folder), Equipment page generated from data/equipment.yml and the protocols; guide format (`guide-id`) with its own checks.

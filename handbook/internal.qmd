@@ -5,7 +5,7 @@ subtitle: "Shared folder for EnGeL members"
 
 Some lab documents are not published on this website because they contain names, live records or internal procedures. They are kept in the lab's shared folder, which opens only for lab members who have been given access.
 
-**Shared folder:** [TO CONFIRM: link to the lab's shared Google Drive folder]
+**Shared folder:** [EnGeL shared folder (Google Drive)](https://drive.google.com/drive/folders/1_-ijsFKCi6xN1OJ2jtHJ99V1Sn3ne6WI?usp=drive_link)
 
 What you find there:
 
@@ -17,6 +17,3 @@ What you find there:
 
 To request access, use the lab contact on any protocol page.
 
-## Open questions
-
-1. Link to the shared folder.

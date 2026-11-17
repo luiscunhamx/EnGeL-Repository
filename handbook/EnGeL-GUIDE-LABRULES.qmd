@@ -1,7 +1,7 @@
 ---
 title: "Lab rules and safety"
 guide-id: EnGeL-GUIDE-LABRULES
-version: 1.0.0
+version: 1.0.1
 date: 2026-11-17
 status: draft
 author:
@@ -13,6 +13,10 @@ version-history:
   - version: 1.0.0
     date: 2026-11-17
     change: "First EnGeL-UC version, from the “Standard Operational Procedure for Environmental Genomics Laboratory Usage” (2024), the “Before you leave” sheet and the EnGeL lab signs (lab rules, keep the lab safe, waste disposal)."
+    by: "Luís Cunha"
+  - version: 1.0.1
+    date: 2026-11-17
+    change: "Contacts: Filipa Reis (consumables, incoming samples), Sandra Simões (autoclave); author confirmed."
     by: "Luís Cunha"
 ---
 
@@ -33,7 +37,7 @@ These rules keep the laboratory safe, clean and working for everyone. They apply
 
 - **Work areas:** keep equipment and benches clean and organised. Replace waste bags when full.
 - **Restocking:** every user restocks distilled water, paper towels, TBE/TAE buffer and ethanol in the work areas, and tells the stock manager when supplies run low.
-- **Consumables:** general consumables (ethanol, detergents, autoclave tape and similar) are managed by a designated person [TO CONFIRM: who]. Report low stocks of kits and PCR consumables to your supervisor.
+- **Consumables:** general consumables (ethanol, detergents, autoclave tape and similar) are managed by Filipa Reis. Report low stocks of kits and PCR consumables to your supervisor.
 - **Non-disposable materials:** rinse with tap water and leave them in the washing tubs near the EnGeL sink. When the designated person is away, users wash their own materials.
 - **Annual cleaning:** two cleaning days a year, on the last Friday of March and of September. Everyone takes part.
 
@@ -51,7 +55,7 @@ The 2024 lab procedure also mentions contaminated waste that is autoclaved befor
 
 ## Samples, ice and liquid nitrogen
 
-- Tell the designated person when samples arrive [TO CONFIRM: who], and label and store them as described in [Sample labelling and storage](EnGeL-GUIDE-SAMPLES.qmd).
+- Tell Filipa Reis when samples arrive, and label and store them as described in [Sample labelling and storage](EnGeL-GUIDE-SAMPLES.qmd).
 - Use ice sparingly. For liquid nitrogen, talk to Luís Cunha [TO CONFIRM: how deliveries are organised].
 
 ## Freezers, fridges and power cuts
@@ -74,7 +78,8 @@ At the end of the day, or when you are the last person in the lab, check that eq
 | Topic | Contact |
 |:--|:--|
 | Liquid nitrogen; equipment faults | Luís Cunha (lab contact) |
-| Consumable stocks | [TO CONFIRM] |
+| Consumable stocks; incoming samples | Filipa Reis |
+| Autoclave | Sandra Simões |
 | Microscopes and stereomicroscopes | Filipa Reis |
 
 ## Version history and citation
@@ -84,7 +89,5 @@ At the end of the day, or when you are the last person in the lab, check that eq
 
 ## Open questions
 
-1. Who manages general consumables, and who receives incoming samples?
-2. Is autoclaving of contaminated waste still part of the waste routine (2024 procedure), alongside the current waste streams?
-3. How liquid nitrogen deliveries are organised.
-4. Authors: Luís Cunha only, or others who wrote the 2024 procedure?
+1. Is autoclaving of contaminated waste still part of the waste routine (2024 procedure), alongside the current waste streams?
+2. How liquid nitrogen deliveries are organised.
