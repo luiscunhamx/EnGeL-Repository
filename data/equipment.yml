@@ -58,3 +58,34 @@
   match: "autoclave"
   log: "Autoclave log"
   guide: EnGeL-GUIDE-AUTOCLAVE.qmd
+- name: Opentrons OT-2 liquid-handling robot
+  photo: assets/photos/equipment/opentrons_ot2.jpg
+  match: "OT-2|Opentrons"
+  log: "[TO CONFIRM]"
+- name: NextGenPCR microplate sealer
+  photo: assets/photos/equipment/nextgenpcr_sealer.jpg
+  match: "[Ss]ealer"
+  log: "[TO CONFIRM]"
+- name: Oxford Nanopore MinION sequencer
+  match: "MinION|Nanopore"
+  log: "[TO CONFIRM]"
+- name: Heated shaker Mixer HC (Starlab)
+  photo: assets/photos/equipment/mixer_hc.jpg
+  match: "ThermoMixer|heated shaker|Mixer HC"
+  log: "[TO CONFIRM]"
+- name: Multi-plate shaker MPS-1 (Biosan)
+  photo: assets/photos/equipment/biosan_mps1.jpg
+  match: "plate vortex|plate shaker|MPS-1"
+  log: "[TO CONFIRM]"
+- name: PCR workstations (UV cabinets)
+  photo: assets/photos/equipment/pcr_workstation.jpg
+  match: "PCR (workstation|cabinet)|UV cabinet"
+  log: "[TO CONFIRM]"
+- name: Balances
+  photo: assets/photos/equipment/balance.jpg
+  match: "[Bb]alance\\b"
+  log: "[TO CONFIRM]"
+- name: Vortex mixers
+  photo: assets/photos/equipment/vortex.jpg
+  match: "[Vv]ortex mixer"
+  log: "[TO CONFIRM]"
