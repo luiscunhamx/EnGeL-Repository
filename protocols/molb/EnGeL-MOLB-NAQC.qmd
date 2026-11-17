@@ -2,7 +2,7 @@
 title: "Nucleic acid quality control: purity and concentration (NanoDrop, Qubit, PicoGreen)"
 short-title: "Nucleic acid QC (NanoDrop, Qubit, PicoGreen)"
 protocol-id: EnGeL-MOLB-NAQC
-version: 1.1.0
+version: 1.1.1
 date: 2026-11-16
 status: draft
 area: Molecular biology (MOLB)
@@ -10,7 +10,7 @@ author:
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
 contributors:
-  - "Diogo Fonseca (NanoDrop and Qubit sections) [TO CONFIRM: ORCID]"
+  - "Diogo Fonseca (NanoDrop and Qubit sections; ORCID 0009-0003-2564-7572)"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -48,6 +48,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-16
     change: "PicoGreen: lambda working stock as a 50-fold dilution (10 µL + 490 µL for 500 µL) and standard curve S1–S3 + blank, checked against the Quant-iT PicoGreen manual (MP07581)."
+    by: "Luís Cunha"
+  - version: 1.1.1
+    date: 2026-11-17
+    change: "ORCID of contributor Diogo Fonseca."
     by: "Luís Cunha"
 ---
 
@@ -221,7 +225,7 @@ Thermo Fisher Scientific (n.d.). Qubit 1X dsDNA assays – simplified workflow, 
 
 ## Open questions
 
-1. Authors of the PicoGreen source; Diogo Fonseca's ORCID; DOI.
+1. Authors of the PicoGreen source; DOI.
 2. Instrument models: NanoDrop, Qubit, and the plate reader called “Star” in the source.
 3. Qubit: HS assay only, or also the BR assay? Equilibration of reagents?
 4. Acceptance criteria: Qubit standards; A~260~/A~280~ and A~260~/A~230~ ranges.

@@ -5,6 +5,8 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-MOLB-NAQC 1.1.1 (2026-11-17): oRCID of contributor Diogo Fonseca.
+- EnGeL-MOLB-RNA 1.2.2 (2026-11-17): author of the bee protocol identified as Artur Sarmento (the source was signed “FFR”).
 - Website: clearer sidebar (section headings, current-page marker, short titles in workflow order; generated from the protocols).
 - Website: home page presents the lab (statement from envigenomics.eu, cards per area with protocol counts); People page generated from data/people.yml and the protocols.
 - Register: EnGeL-MOLB-MB-EW (earthworm metabarcoding, multiplex marker) added as planned.
