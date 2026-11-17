@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- Checks workflow: generated pages (register, equipment list, bench sheets) are now built before the protocol checks, so links to them are not reported as broken.
 - EnGeL-FAUNA-MAR-MORPH 1.1.0 (2026-11-17): sorted animals in 96% ethanol stored at room temperature (ideally in the fridge if there is space) instead of −20 °C.
 - EnGeL-GUIDE-SAMPLES 1.1.1 (2026-11-17): storage note simplified (MAR-MORPH now matches: ethanol at room temperature).
 - EnGeL-GUIDE-LABRULES 1.0.2 (2026-11-17): waste: soil is autoclaved before disposal.

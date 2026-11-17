@@ -11,6 +11,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pyyaml
+      - name: Generate pages (register, equipment list, bench sheets)
+        run: python tools/prerender.py
       - name: Protocol checks
         run: python tools/check.py
       - uses: quarto-dev/quarto-actions/setup@v2
