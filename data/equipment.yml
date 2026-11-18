@@ -58,7 +58,7 @@
   match: "autoclave"
   log: "Autoclave log"
   guide: EnGeL-GUIDE-AUTOCLAVE.qmd
-- name: Opentrons OT-2 liquid-handling robot
+- name: Opentrons OT-2 liquid-handling robot (Magnetic Module Gen2, Heater-Shaker Gen1)
   photo: assets/photos/equipment/opentrons_ot2.jpg
   match: "OT-2|Opentrons"
   log: "Instrument logbook"
@@ -66,9 +66,12 @@
   photo: assets/photos/equipment/nextgenpcr_sealer.jpg
   match: "[Ss]ealer"
   log: "Instrument logbook"
-- name: Oxford Nanopore MinION Mk1C sequencer
+- name: Oxford Nanopore MinION sequencers (MinION Mk1C and MinION Mk2)
   photo: assets/photos/equipment/minion_mk1c.jpg
   match: "MinION|Nanopore"
+  log: "Instrument logbook (one per sequencer)"
+- name: Oxford Nanopore VolTRAX (automated library preparation)
+  match: "VolTRAX"
   log: "Instrument logbook"
 - name: Heated shaker Mixer HC (Starlab)
   photo: assets/photos/equipment/mixer_hc.jpg
@@ -90,3 +93,6 @@
   photo: assets/photos/equipment/vortex.jpg
   match: "[Vv]ortex mixer"
   log: "No logbook (accessory equipment)"
+- name: Bioinformatics workstations (multicore)
+  match: "workstation"
+  log: "Instrument logbook"
