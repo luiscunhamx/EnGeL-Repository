@@ -2,7 +2,7 @@
 title: "Double-stranded DNA concentration with the Qubit 4 fluorometer (dsDNA HS and BR assays)"
 short-title: "DNA concentration, single samples (Qubit)"
 protocol-id: EnGeL-MOLB-QUBIT
-version: 1.1.0
+version: 1.2.0
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -48,6 +48,10 @@ version-history:
     date: 2026-11-20
     change: "Qubit 4 (from the instrument photo); BR assay also used; readings above the range diluted and repeated (confirmed by Luís Cunha); Luísa Fraga: testing and adjustments."
     by: "Luís Cunha"
+  - version: 1.2.0
+    date: 2026-11-20
+    change: "Kit preparation, sample volume (1–20 µL), standards and assay ranges from the Qubit user guidance (as requested by Luís Cunha)."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -63,8 +67,8 @@ The Qubit dye fluoresces only when bound to double-stranded DNA. The instrument 
 | Item | Details |
 |:--|:--|
 | Hands-on time | [TO CONFIRM] |
-| Sample volume | 1 µL (up to [TO CONFIRM] µL for dilute samples, with less working solution to keep 200 µL) |
-| Prepare in advance | Kit at room temperature [TO CONFIRM: as stated in the kit instructions]; working solution for all tubes (standards + samples) |
+| Sample volume | 1 µL as standard; 1–20 µL is allowed, with working solution to a total of 200 µL (e.g. 5 µL sample + 195 µL), for dilute samples |
+| Prepare in advance | Kit components at room temperature, as stated in the kit user guide; working solution for all tubes (standards + samples) |
 | Key safety points | See Safety and waste |
 
 ## Materials
@@ -86,7 +90,9 @@ The Qubit dye fluoresces only when bound to double-stranded DNA. The instrument 
 
 ## Reagent preparation
 
-- **Working solution:** prepare enough for all standards and samples (200 µL per tube; 190 µL for each standard tube), as described in the kit instructions [TO CONFIRM: dilution of the reagent in the buffer, or ready-to-use 1X solution].
+- **Working solution:** enough for all standards and samples (190 µL for each standard tube; 200 µL minus the sample volume for each sample tube).
+    - **Standard HS or BR kits:** dilute the dye stock (in DMSO) 1:200 in the kit buffer (e.g. 5 µL dye + 995 µL buffer for five tubes), in a plastic tube; use within 3 h.
+    - **1X kits:** the working solution is supplied ready to use (stable for 6 months after receipt); use it straight from the bottle.
 
 ## Procedure
 
@@ -118,7 +124,7 @@ Not applicable: with the sample volume entered, the instrument reports the conce
 
 | Control | Purpose | Acceptance criterion |
 |:--|:--|:--|
-| Standards #1 and #2 | Calibration | [TO CONFIRM] |
+| Standards #1 and #2 | Calibration | Accepted by the instrument, as described in the kit user guide; if not, prepare new standard tubes and calibrate again |
 | Sample within the assay range | Valid reading | Above the range: dilute (or use the BR assay) and measure again. Below the range: report as below the detection limit |
 | DNA concentration of extracts | Enough DNA for PCR | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; depends on the starting quantity and parent material; between 5 and 10 ng/µL the PCR result decides |
 
@@ -157,9 +163,21 @@ For this protocol: assay tubes and tips go to biological solid waste (black bin)
 
 Qubit concentrations are for double-stranded DNA only and are the values to use for normalisation and library preparation.
 
+**Assay ranges** (amount of DNA in the 200 µL assay tube; Thermo Fisher technical note on the Qubit 1X dsDNA assays):
+
+| Assay | Core range (high confidence) | Extended range (moderate confidence) |
+|:--|:--|:--|
+| dsDNA HS (standard and 1X) | 0.2–100 ng | 0.1–0.2 ng and 100–120 ng |
+| dsDNA BR (standard kit) | 4–1 000 ng | 1 000–2 000 ng |
+| dsDNA BR (1X kit) | 4–2 000 ng | 2 000–4 000 ng |
+
+With 1 µL of sample, the HS core range corresponds to 0.2–100 ng/µL in the sample. Above the core range, dilute the sample or use the BR assay.
+
 ## References
 
-Thermo Fisher Scientific. Qubit dsDNA HS Assay Kit, user guide [TO CONFIRM: document and revision] (kept with the lab's kit manuals).
+Thermo Fisher Scientific. Qubit dsDNA HS and BR Assay Kits, user guides [TO CONFIRM: document and revision] (kept with the lab's kit manuals).
+
+Thermo Fisher Scientific (Invitrogen). Qubit 1X dsDNA assays: simplified workflow and improved performance. Technical note (kept with the lab's kit manuals).
 
 ## Version history and citation
 
@@ -168,7 +186,5 @@ Thermo Fisher Scientific. Qubit dsDNA HS Assay Kit, user guide [TO CONFIRM: docu
 
 ## Open questions
 
-1. Kits (1X or reagent + buffer) and catalogue numbers for HS and BR; preparation of the working solution.
-2. Maximum sample volume for dilute samples.
-3. Acceptance criterion for the standards; kit equilibration.
-4. Hands-on time; hazards from the SDS; waste route; DOI.
+1. Which kits the lab holds (standard or 1X; HS and BR) and their catalogue numbers.
+2. Hands-on time; hazards from the SDS; waste route; DOI.
