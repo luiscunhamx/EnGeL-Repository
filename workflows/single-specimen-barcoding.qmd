@@ -11,7 +11,7 @@ Steps 2, 3, 4b and 5 exist as protocols. The other steps will be added when thei
 |:--|:--|:--|
 | 1. Specimen and voucher handling | [TO CONFIRM: protocol to be written] | planned |
 | 2. DNA extraction from single specimens | [EnGeL-MOLB-DNA-BARC](../protocols/molb/EnGeL-MOLB-DNA-BARC.qmd) | draft |
-| 3. Nucleic acid QC | [EnGeL-MOLB-NAQC](../protocols/molb/EnGeL-MOLB-NAQC.qmd) | draft |
+| 3. Nucleic acid QC | [EnGeL-MOLB-NANODROP](../protocols/molb/EnGeL-MOLB-NANODROP.qmd) and [EnGeL-MOLB-QUBIT](../protocols/molb/EnGeL-MOLB-QUBIT.qmd) | draft |
 | 4a. Barcode PCR | [TO CONFIRM: protocol to be written] | planned |
 | 4b. PCR clean-up (ExoSAP) and samples for Sanger sequencing | [EnGeL-MOLB-EXOSAP](../protocols/molb/EnGeL-MOLB-EXOSAP.qmd) | draft |
 | 5. Sequence quality control and identification | [EnGeL-BIOINF-SANGER](../protocols/bioinf/EnGeL-BIOINF-SANGER.qmd) | draft |

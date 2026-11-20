@@ -2,7 +2,7 @@
 title: "Total RNA extraction with TRIzol and spin-column clean-up (honey bees; isopod hepatopancreas)"
 short-title: "Total RNA extraction (TRIzol)"
 protocol-id: EnGeL-MOLB-RNA
-version: 1.2.6
+version: 1.2.7
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -31,7 +31,7 @@ equipment:
   - "Mechanical tissue homogeniser [TO CONFIRM: model] — isopod hepatopancreas"
   - "Fume hood [TO CONFIRM: used for TRIzol and chloroform]"
   - "Freezer (−20 °C) for pre-cooling 70% ethanol"
-  - "NanoDrop spectrophotometer — see EnGeL-MOLB-NAQC"
+  - "NanoDrop spectrophotometer — see EnGeL-MOLB-NANODROP"
 consumables:
   - "Tubes with beads (bees) [TO CONFIRM: type]"
   - "RNase-free 1.5 mL microtubes and filter tips"
@@ -102,6 +102,10 @@ version-history:
   - version: 1.2.6
     date: 2026-11-20
     change: "GHS pictograms for ethanol, chloroform and phenol (harmonised EU classification); TRIzol still to be checked against its safety data sheet."
+    by: "Luís Cunha"
+  - version: 1.2.7
+    date: 2026-11-20
+    change: "Cross-references to the nucleic acid QC protocols, now split into EnGeL-MOLB-NANODROP, EnGeL-MOLB-QUBIT and EnGeL-MOLB-PICOGREEN."
     by: "Luís Cunha"
 ---
 
@@ -188,7 +192,7 @@ TRIzol (phenol and guanidine isothiocyanate) lyses the tissue and keeps RNA inta
 (@) Place the column in a new microtube, add 20 µL of RNase-free water to the column and wait 1 min.
 (@) Change gloves. Centrifuge at 11 000 × g for 1 min: the eluate is sample 1.
 (@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 11 000 × g for 1 min: the eluate is sample 2.
-(@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NAQC).
+(@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NANODROP).
 
 ### B. Isopod hepatopancreas
 
@@ -206,7 +210,7 @@ TRIzol (phenol and guanidine isothiocyanate) lyses the tissue and keeps RNA inta
 (@) Place the column in a new microtube and centrifuge at ≥ 12 000 × g (microcentrifuge, 1.5 mL tube rotor) for 2 min to remove residual buffer.
 (@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 8 000 × g for 15 s: the eluate is sample 1.
 (@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 8 000 × g for 15 s: the eluate is sample 2.
-(@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NAQC).
+(@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NANODROP).
 
 ### RNA storage
 

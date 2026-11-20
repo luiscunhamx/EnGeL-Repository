@@ -35,7 +35,7 @@ Field sampling, extraction and sorting of soil animals.
 
 Nucleic acid extraction, quality control, PCR and sequencing libraries.
 
-[9 protocols]{.engel-card-count}
+[11 protocols]{.engel-card-count}
 :::
 
 ::: {.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}

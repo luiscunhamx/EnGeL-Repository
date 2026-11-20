@@ -1,0 +1,165 @@
+---
+title: "Nucleic acid purity with the NanoDrop One spectrophotometer"
+short-title: "Nucleic acid purity (NanoDrop)"
+protocol-id: EnGeL-MOLB-NANODROP
+version: 1.0.0
+date: 2026-11-20
+status: draft
+area: Molecular biology (MOLB)
+author:
+  - name: Diogo Fonseca
+    orcid: 0009-0003-2564-7572
+    contribution: "lead; NanoDrop protocol"
+  - name: Andreia Quaresma
+    orcid: 0000-0002-8678-5800
+    contribution: "checking and formatting"
+  - name: Luísa Fraga
+    orcid: 0000-0003-3153-4593
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+    contribution: "review and approval"
+reviewed-by: Luís Cunha
+contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
+license: CC BY 4.0
+protocol-doi: "[TO CONFIRM]"
+ghs: []
+hazards:
+  - "None specific to this protocol"
+equipment:
+  - "NanoDrop One spectrophotometer (Thermo Scientific)"
+  - "Pipettes (0.5–10 µL) and filter tips"
+consumables:
+  - "Lint-free laboratory wipes"
+reagents:
+  - text: "Nuclease-free water (cleaning)"
+    name: "nuclease-free water"
+  - text: "Blank: the last reagent used in the extraction protocol (e.g. elution buffer)"
+    name: "blank"
+bench-lots:
+  - "Blank used (buffer and lot)"
+version-history:
+  - version: 1.0.0
+    date: 2026-11-20
+    change: "First version as a separate protocol, split from EnGeL-MOLB-NAQC 1.3.0 (NanoDrop part, from the NanoDrop section of the EnGeL protocol list, 2024) at the request of the lab technicians."
+    by: "Luís Cunha"
+---
+
+## Purpose and scope
+
+This protocol measures the purity of DNA extracts and PCR products with the NanoDrop One: the absorbance ratios A~260~/A~280~ and A~260~/A~230~. It is used on extracts from EnGeL-MOLB-DNA-MAG, -DNA-COL, -DNA-BARC and -DNA-BEE, and on RNA from EnGeL-MOLB-RNA. NanoDrop concentrations are not used for DNA amounts: for those use fluorometry (EnGeL-MOLB-QUBIT for single samples, EnGeL-MOLB-PICOGREEN for 96-well plates).
+
+## Principle
+
+The spectrophotometer measures the absorbance of a 1.5 µL drop at 230, 260 and 280 nm. Nucleic acids absorb most at 260 nm, proteins at 280 nm, and salts, phenol, guanidine and carbohydrates around 230 nm, so the ratios show carry-over from the extraction. The absorbance at 260 nm also includes RNA, single-stranded DNA and free nucleotides, which is why NanoDrop concentrations overestimate double-stranded DNA.
+
+## Before you start
+
+| Item | Details |
+|:--|:--|
+| Hands-on time | [TO CONFIRM] |
+| Sample volume | 1.5 µL per measurement |
+| Prepare in advance | The blank: the last reagent of the extraction protocol (the buffer the samples are in) |
+| Key safety points | See Safety and waste |
+
+## Materials
+
+### Equipment
+
+::: {.engel-equipment}
+:::
+
+### Consumables
+
+::: {.engel-consumables}
+:::
+
+### Reagents and kits
+
+::: {.engel-reagents}
+:::
+
+## Reagent preparation
+
+Not applicable.
+
+## Procedure
+
+### Before starting
+
+- Use filter tips.
+- Mix each sample gently and spin it down before measuring.
+
+### Measurement
+
+(@) Turn on the NanoDrop and let the initialisation run normally.
+(@) Clean the pedestal with 7 µL nuclease-free water.
+(@) Select the program for the sample type (dsDNA for DNA extracts and PCR products; RNA for RNA).
+(@) Load 1.5 µL of blank (the last reagent used in the extraction protocol), close the arm to measure it, then wipe the pedestal.
+(@) Load 1.5 µL of sample, close the arm to measure it, then wipe the pedestal. Repeat for each sample.
+(@) After all measurements, clean the pedestal with 7 µL nuclease-free water.
+
+### After finishing
+
+{{< include ../../includes/_before-you-leave.qmd >}}
+
+## Calculations
+
+Not applicable: the instrument reports the ratios and the concentration (ng/µL).
+
+## Quality control
+
+| Control | Purpose | Acceptance criterion |
+|:--|:--|:--|
+| Blank | Zero on the sample matrix | Measured before the samples, with the buffer the samples are in |
+| DNA purity (A~260~/A~280~, A~260~/A~230~) | Protein, salt or organic carry-over | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
+| Extraction blanks | Contamination during extraction | < 5 ng/µL (regarded as noise); also no band after PCR (extraction protocols) |
+| RNA purity | Carry-over in RNA extracts | [TO CONFIRM: ranges for RNA] |
+
+## Data and metadata
+
+- **Outputs:** A~260~/A~280~, A~260~/A~230~ and the NanoDrop concentration (ng/µL) for each sample.
+- **Where:** the *Sample_Tracking* sheet of the Metabarcoding Lab Pipeline workbook (A260/280, A260/230) or the project's records, and the lab book; instrument use in the NanoDrop logbook.
+
+::: {.callout-note title="Minimum to record"}
+- EnGeL sample label; date; operator
+- Program used (dsDNA or RNA) and the blank
+- A~260~/A~280~, A~260~/A~230~ and the concentration, marked as NanoDrop values
+:::
+
+## Safety and waste
+
+{{< include ../../includes/_safety-general.qmd >}}
+
+**Waste**
+
+{{< include ../../includes/_waste-streams.qmd >}}
+
+For this protocol: tips and wipes go to biological solid waste (black bin).
+
+## Troubleshooting
+
+| Problem | Likely cause | Solution |
+|:--|:--|:--|
+| Reading unstable or ratios odd | Dirty pedestal or bubble in the drop | Clean the pedestal with nuclease-free water; load the drop again without bubbles. |
+| Low A~260~/A~230~ in all samples | Wrong blank, or carry-over of extraction buffers | Blank with the buffer the samples are in; check the wash steps of the extraction. |
+| Concentration much higher than by fluorometry | RNA, single-stranded DNA or nucleotides | Expected: use Qubit or PicoGreen for DNA amounts. |
+
+## Remarks
+
+For DNA amounts (library preparation, normalisation) always use fluorometry; NanoDrop is for purity.
+
+## References
+
+Thermo Fisher Scientific. NanoDrop One user guide [TO CONFIRM: document version] (kept with the lab's manuals).
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. Hands-on time.
+2. Purity ranges for RNA.
+3. Luísa Fraga's contribution to this protocol (author role).
+4. NanoDrop One user guide version; DOI.

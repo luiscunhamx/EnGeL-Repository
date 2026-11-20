@@ -4,4 +4,4 @@
 Eluted DNA can be stored at 4 °C (short term) or −20 °C (long term) before quality assessment and downstream use.
 :::
 
-(@) Assess DNA purity by spectrophotometry (e.g. NanoDrop; A~260~/A~280~ and A~260~/A~230~ ratios) and quantify DNA concentration by fluorometry (e.g. Qubit), following EnGeL-MOLB-NAQC. Record values in the database and the lab book.
+(@) Assess DNA purity by spectrophotometry (e.g. NanoDrop; A~260~/A~280~ and A~260~/A~230~ ratios) and quantify DNA concentration by fluorometry (e.g. Qubit), following EnGeL-MOLB-NANODROP and EnGeL-MOLB-QUBIT (or EnGeL-MOLB-PICOGREEN for plates). Record values in the database and the lab book.

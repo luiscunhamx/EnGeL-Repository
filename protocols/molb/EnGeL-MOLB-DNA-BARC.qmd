@@ -2,7 +2,7 @@
 title: "DNA extraction from single arthropod specimens for DNA barcoding (Qiagen DNeasy Blood & Tissue Kit)"
 short-title: "DNA extraction for barcoding (DNeasy)"
 protocol-id: EnGeL-MOLB-DNA-BARC
-version: 1.1.1
+version: 1.1.2
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -69,6 +69,10 @@ version-history:
   - version: 1.1.1
     date: 2026-11-20
     change: "GHS pictograms for ethanol (harmonised EU classification); kit buffers still to be checked against their safety data sheets."
+    by: "Luís Cunha"
+  - version: 1.1.2
+    date: 2026-11-20
+    change: "Cross-references to the nucleic acid QC protocols, now split into EnGeL-MOLB-NANODROP, EnGeL-MOLB-QUBIT and EnGeL-MOLB-PICOGREEN."
     by: "Luís Cunha"
 ---
 
@@ -162,7 +166,7 @@ Not applicable: volumes are per sample. For $n$ samples, prepare $V = v \times n
 | Control | Purpose | Acceptance criterion |
 |:--|:--|:--|
 | Extraction blank | Detect contamination | Processed through the PCR with the samples: no band on the gel, and < 5 ng/µL on the NanoDrop (regarded as noise) |
-| DNA purity (EnGeL-MOLB-NAQC) | A~260~/A~280~, A~260~/A~230~ | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
+| DNA purity (EnGeL-MOLB-NANODROP) | A~260~/A~280~, A~260~/A~230~ | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
 | DNA concentration | Enough DNA for PCR | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; between 5 and 10 ng/µL the PCR result decides |
 | Barcode PCR | DNA usable | Band of the expected size [TO CONFIRM] |
 
