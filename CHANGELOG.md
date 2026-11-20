@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-BIOINF-SANGER 1.1.0 (2026-11-20): BLAST step uses run_ncbi_blast_merged v0.1.4 (header cleaning for remote BLAST; corrected default sample-ID pattern; CRITICAL note against v0.1.3); code to be published in its own repository with a citable version; AI assistance stated in Remarks.
 - EnGeL-BIOINF-SANGER 1.0.0 (2026-11-20): first version (Sanger barcode chromatograms: quality control and trimming, matching to the sample sheet, identification with BOLDigger3 and remote NCBI BLAST, final table, BOLD–BLAST concordance classes, status report), from the pipeline scripts and manuals by Luís Cunha; project-specific settings removed. Single-specimen barcoding workflow: step 5 links to it.
 - Left menu: Lab handbook first, then the protocol areas from the field to the computer (sampling, fauna, molecular biology, bioinformatics), workflows and bench sheets; sample-size planning before sampling effort; sequencing submission listed last among the workflows.
 - Home page: photo on the Bioinformatics card (MinION sequencing run), so all four area cards have a photo.

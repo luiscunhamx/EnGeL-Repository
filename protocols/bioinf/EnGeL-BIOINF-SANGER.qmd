@@ -2,7 +2,7 @@
 title: "Sanger barcode sequences: quality control, sample matching and identification with BOLD and NCBI BLAST"
 short-title: "Bioinformatics: Sanger barcode pipeline"
 protocol-id: EnGeL-BIOINF-SANGER
-version: 1.0.0
+version: 1.1.0
 date: 2026-11-20
 status: draft
 area: Bioinformatics (BIOINF)
@@ -29,7 +29,7 @@ reagents:
     name: "blastn"
   - text: "Quarto, to render the status report [TO CONFIRM: version]"
     name: "quarto"
-  - text: "EnGeL Sanger pipeline scripts: sanger_folder_qc_IDmatch (v1.5; plate and tube variants), run_boldigger3_merged (v0.3.9), run_ncbi_blast_merged (v0.1.3), make_final_tables (v0.3), compare_blast_bold_status (v0.1.7.3), sanger_quarto_status_report (v0.8.2) [TO CONFIRM: location in a public repository]"
+  - text: "EnGeL Sanger pipeline scripts: sanger_folder_qc_IDmatch (v1.5; plate and tube variants), run_boldigger3_merged (v0.3.9), run_ncbi_blast_merged (v0.1.4), make_final_tables (v0.3), compare_blast_bold_status (v0.1.7.3), sanger_quarto_status_report (v0.8.2) [TO CONFIRM: name and DOI of the public repository]"
     name: "sanger_folder_qc_IDmatch"
 bench-lots:
   - "Sequencing provider order or plate codes"
@@ -38,6 +38,10 @@ version-history:
   - version: 1.0.0
     date: 2026-11-20
     change: "First EnGeL-UC version, from the Sanger pipeline scripts and Quarto manuals written by Luís Cunha (2025); project-specific settings removed."
+    by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "NCBI BLAST step uses run_ncbi_blast_merged v0.1.4 (FASTA headers cleaned for remote BLAST by default; default sample-ID pattern corrected); code to be published in its own public repository with a citable version; use of a generative AI assistant in writing the scripts stated in Remarks."
     by: "Luís Cunha"
 ---
 
@@ -157,13 +161,17 @@ python scripts/run_boldigger3_merged_v0.3.9.py \
 (@) Run remote BLAST on the same file:
 
 ```bash
-python scripts/run_ncbi_blast_merged_v0.1.3.py \
+python scripts/run_ncbi_blast_merged_v0.1.4.py \
   --fasta qc_<date>/merged_pass.fasta \
   --metadata-xlsx <sample_sheet>.xlsx --meta-sheet Sheet1 --meta-id-col SampleIDOriginal \
   -o ncbi_blast_<date>
 ```
 
-Defaults: megablast against nt, E-value 1e-20, 5 target sequences per query. `--entrez-query` limits the search to a group (for example a class or order name followed by `[ORGN]`); record it if used. The script prints the exact `blastn` command so that it can be repeated.
+Defaults: megablast against nt, E-value 1e-20, 5 target sequences per query. Before the search the script writes a cleaned copy of the FASTA (`NCBI_sanitized_<input>.fasta`, with a short report): non-ASCII characters and spaces in the headers are replaced and headers broken over several lines are rejoined, because remote BLAST rejects or misreads such headers. The original file is not changed; `--no-sanitize-fasta` turns this off. `--entrez-query` limits the search to a group (for example a class or order name followed by `[ORGN]`); record it if used. The script prints the exact `blastn` command so that it can be repeated.
+
+::: {.callout-important title="CRITICAL"}
+Use version 0.1.4 or later. In version 0.1.3 the default pattern that reads the sample ID from the FASTA headers was wrongly escaped and never matched, so, unless `--id-regex` was given, the script's own table of BLAST hits with metadata was not joined to the sample sheet. The final table (step 5) joins on plate and well and was not affected.
+:::
 
 ::: {.callout-note}
 Remote BLAST is shared with all NCBI users and can be slow for large batches. Run it outside working hours or in smaller files if it times out.
@@ -258,7 +266,7 @@ Worked example: a read with qualities 10, 15, 30, 35, 32, 18, 12 and *Q*~cut~ = 
 
 - **Outputs:** QC folder (per-read metrics, PASS/REPEAT FASTAs, figures), BOLDigger3 and BLAST output, final table (`step3_final_with_qc_bold_blast.xlsx`), concordance tables and the HTML status report.
 - **Where:** project data folder [TO CONFIRM]; AB1 files kept with the raw data. Accepted barcodes are submitted to BOLD or GenBank with the voucher information [TO CONFIRM: lab practice].
-- **Code:** the scripts are to be published in a public repository with a citable version [TO CONFIRM].
+- **Code:** the scripts are published in their own public repository (MIT licence) with an archived, citable version [TO CONFIRM: repository name and DOI]; cite the version used.
 
 ::: {.callout-note title="Minimum to record"}
 - Provider, order, plate or tube codes and sequencing date
@@ -288,6 +296,8 @@ Not applicable (computational protocol).
 
 Most errors in Sanger barcoding come from the link between tube and file, not from the sequence: keep the sample sheet as the single source of truth and correct it, never the file names. BOLD and GenBank differ in coverage and in the quality of their names; agreement between the two, and with the morphological identification, is what the concordance classes report. Identity thresholds are a convention that varies between groups and markers, so they are recorded with the results.
 
+Parts of the scripts were written with the help of a generative AI assistant, as stated in their headers.
+
 ## References
 
 Mott, R. (1997). EST_GENOME: a program to align spliced DNA sequences to unspliced genomic DNA. *Computer Applications in the Biosciences*, 13(4), 477–478. [TO CONFIRM: citation used for Mott trimming]
@@ -307,6 +317,6 @@ Mott, R. (1997). EST_GENOME: a program to align spliced DNA sequences to unsplic
 4. Software and package versions; hands-on and run time.
 5. Negative controls: are PCR blanks sent for sequencing, and how are they checked?
 6. Submission of accepted barcodes to BOLD or GenBank: lab practice.
-7. Where the code lives (a public repository with an archived, citable version), and whether the scripts' headers should state that a generative AI assistant was used to write them, as they do now.
+7. Name of the public code repository and its DOI.
 8. Where outputs are kept.
-9. Citations for the tools; DOI.
+9. Citations for the tools; DOI of the protocol.
