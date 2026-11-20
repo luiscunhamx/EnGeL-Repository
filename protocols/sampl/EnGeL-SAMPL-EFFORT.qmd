@@ -2,8 +2,8 @@
 title: "Measuring sampling effort and completeness: rarefaction, extrapolation and richness estimators (iNEXT, SpadeR)"
 short-title: "Sampling effort and completeness (iNEXT)"
 protocol-id: EnGeL-SAMPL-EFFORT
-version: 1.0.1
-date: 2026-11-17
+version: 1.0.2
+date: 2026-11-20
 status: draft
 area: Sampling and experimental design (SAMPL)
 author:
@@ -37,11 +37,15 @@ version-history:
     date: 2026-11-17
     change: "Author of the source script confirmed (Luís Cunha)."
     by: "Luís Cunha"
+  - version: 1.0.2
+    date: 2026-11-20
+    change: "Cross-reference to EnGeL-SAMPL-POWER for planning sample size."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
 
-This protocol tells you whether a sampling effort was enough: how many species (OTUs) were detected compared with how many are expected, how complete the sample is (sample coverage), and how richness and diversity would change with more or less sampling. It applies to incidence data (presence/absence per sampling unit, for example per soil core or per DNA sample) and to abundance data (counts of individuals per species). Use it to compare sites or treatments at equal sample size or equal coverage, and to plan the sampling effort of new studies (EnGeL-SAMPL-DESIGN, planned).
+This protocol tells you whether a sampling effort was enough: how many species (OTUs) were detected compared with how many are expected, how complete the sample is (sample coverage), and how richness and diversity would change with more or less sampling. It applies to incidence data (presence/absence per sampling unit, for example per soil core or per DNA sample) and to abundance data (counts of individuals per species). Use it to compare sites or treatments at equal sample size or equal coverage, and, together with EnGeL-SAMPL-POWER (sample size before fieldwork), to plan the sampling effort of new studies.
 
 ## Principle
 

@@ -64,6 +64,8 @@ website:
         contents:
           - href: protocols/sampl/EnGeL-SAMPL-EFFORT.qmd
             text: "Sampling effort and completeness (iNEXT)"
+          - href: protocols/sampl/EnGeL-SAMPL-POWER.qmd
+            text: "Sample size and power (simulation)"
       - section: "Fauna sample processing"
         contents:
           - href: protocols/fauna/EnGeL-FAUNA-MAR-MORPH.qmd
@@ -135,6 +137,8 @@ website:
             text: "BIOINF-COMMUNITY"
           - href: bench/EnGeL-SAMPL-EFFORT-bench.qmd
             text: "SAMPL-EFFORT"
+          - href: bench/EnGeL-SAMPL-POWER-bench.qmd
+            text: "SAMPL-POWER"
       # END sidebar
   page-footer:
     left: "EnGeL-UC · Centre for Functional Ecology · University of Coimbra"

@@ -161,7 +161,8 @@ AREAS = [  # (folder, card title, Bootstrap icon, one-line description)
 
 AREA_PHOTOS = {'sampl': ('assets/photos/sampling_soil_surface.jpg', 'Soil surface with leaf litter'),
                'fauna': ('assets/photos/fauna_sorted_specimens.jpg', 'Sorted soil animals in a Petri dish'),
-               'molb': ('assets/photos/molb_sample_tubes.jpg', 'Bulk fauna samples in tubes')}
+               'molb': ('assets/photos/molb_sample_tubes.jpg', 'Bulk fauna samples in tubes'),
+               'bioinf': ('assets/photos/bioinf_sequencing_run.jpg', 'MinION sequencing run: channel states panel')}
 
 def area_cards(protos):
     out = ['::: {.grid .engel-cards}']
