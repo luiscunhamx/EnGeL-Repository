@@ -39,6 +39,8 @@ Nucleic acid extraction, quality control, PCR and sequencing libraries.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}
+![](assets/photos/bioinf_sequencing_run.jpg){.engel-card-photo fig-alt="MinION sequencing run: channel states panel"}
+
 `<i class="bi bi-diagram-3 engel-card-icon" aria-hidden="true"></i>`{=html}
 
 **[Bioinformatics](protocols/bioinf/EnGeL-BIOINF-COMMUNITY.qmd)**
