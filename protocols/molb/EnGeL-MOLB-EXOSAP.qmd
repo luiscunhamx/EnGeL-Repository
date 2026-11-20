@@ -2,7 +2,7 @@
 title: "PCR product clean-up with ExoSAP and preparation of samples for Sanger sequencing"
 short-title: "PCR clean-up (ExoSAP) and Sanger submission"
 protocol-id: EnGeL-MOLB-EXOSAP
-version: 1.0.0
+version: 1.1.0
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -12,7 +12,7 @@ author:
     contribution: "lead; bench protocol for ExoSAP-IT and Eurofins samples"
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
-    contribution: "Sanger recording sheet; review and approval"
+    contribution: "older ExoSAP protocol; Sanger recording sheet; review and approval"
 reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
@@ -26,7 +26,8 @@ equipment:
   - "Gel electrophoresis and imaging (to judge the PCR band before clean-up)"
 consumables:
   - "PCR tubes or plates"
-  - "1.5 mL microcentrifuge tubes for the sequencing samples [TO CONFIRM: tube type required by the sequencing provider]"
+  - "Tubes or plates as required by the sequencing provider (1.5 mL tubes in the source)"
+  - "Plastic zip-lock bags (drop-off services)"
   - "Filter tips"
 reagents:
   - text: "ExoSAP-IT Express (Thermo Fisher Scientific), the lab's usual reagent [TO CONFIRM: catalogue number]"
@@ -47,6 +48,10 @@ version-history:
     date: 2026-11-20
     change: "First EnGeL-UC version, from Luísa Fraga's bench protocol “Protocolo EXOSAP + EUROFINS” (2023), the lab's older protocol “PCR product cleaning with ExoSAP”, the ExoSAP-IT Express user guide and the lab's guidance for the Sanger recording sheet."
     by: "Luísa Fraga, Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "Ordering and shipping confirmed by Luís Cunha: orders by Filipa Reis or Luís Cunha; Eurofins and StabVida via drop-off boxes at UC-Biotech (samples in a zip-lock bag), Macrogen via pick-up with a shipping label; provider instructions to be followed. Older ExoSAP protocol by Luís Cunha."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -66,7 +71,7 @@ After PCR, the reaction still contains unused primers and dNTPs, which would tak
 | Input | PCR products checked on a gel |
 | Hands-on time | [TO CONFIRM] |
 | Total time | About 10 min with ExoSAP-IT Express; about 30 min with ExoSAP-IT; about 1 h with the home-made mix (incubation), plus sample preparation |
-| Prepare in advance | Sequencing primers diluted (Calculations); sequencing order and sample names prepared with the provider [TO CONFIRM: provider and ordering procedure]; samples entered in your sheet of the Sanger recording file |
+| Prepare in advance | Sequencing primers diluted (Calculations); order placed with the provider by Filipa Reis or Luís Cunha, and the provider's current sample instructions at hand; samples entered in your sheet of the Sanger recording file |
 
 ::: {.callout-important title="CRITICAL"}
 Check every PCR product on a gel first. Only products with one clear, sharp band of the expected size are sent. Products with several bands or smears give unreadable chromatograms whatever the clean-up.
@@ -127,7 +132,7 @@ Choose one option and use it for the whole order.
 
 ### 3. Prepare the sequencing samples
 
-(@) For each product and each primer, label a 1.5 mL tube with the sample name agreed with the provider.
+(@) For each product and each primer, label a tube (or plate well) with the sample name of the order, following the provider's instructions for tube type and labelling.
 (@) Pipette the cleaned product and water:
 
 | Band | Cleaned product | Nuclease-free water |
@@ -142,7 +147,15 @@ Choose one option and use it for the whole order.
 ### 4. Record and send
 
 (@) Complete your sheet in the Sanger recording file (see Data and metadata) before the samples leave the lab.
-(@) Send the samples to the provider [TO CONFIRM: provider (Eurofins, StabVida), tube or plate service, who places the orders and how shipments are labelled].
+(@) Send the samples to the provider, following its current instructions for volumes, tubes and labels:
+
+| Provider | How samples are sent |
+|:--|:--|
+| Eurofins | Drop-off box at UC-Biotech; samples in a closed plastic zip-lock bag |
+| StabVida | Drop-off box at UC-Biotech; samples in a closed plastic zip-lock bag |
+| Macrogen | Pick-up service; a shipping label is generated for the shipment when needed |
+
+Orders are placed by Filipa Reis or Luís Cunha.
 
 ### After finishing
 
@@ -195,6 +208,7 @@ For this protocol: tubes, plates and tips go to biological solid waste (black bi
 | Mixed peaks along the read | Several PCR products or contamination | Send only single, sharp bands; repeat the PCR. |
 | Weak or short read | Too little template | Use the faint-band volumes (2.5 µL), or repeat the PCR. |
 | Sample missing in the provider's results | Sample name or position differs from the order | Check names against the order and your recording sheet. |
+| Sample rejected by the provider | Volume, tube or label not as required | Check the provider's current instructions before sending. |
 
 ## Remarks
 
@@ -204,6 +218,8 @@ ExoSAP-IT Express is the lab's usual reagent; ExoSAP-IT and the home-made mix ar
 
 Thermo Fisher Scientific. ExoSAP-IT Express PCR Product Cleanup Reagent, user guide [TO CONFIRM: document version] (kept with the lab's kit manuals).
 
+New England Biolabs. Enzymatic PCR cleanup protocol using Exonuclease I (NEB #M0293) and Shrimp Alkaline Phosphatase (NEB #M0371). <https://international.neb.com/protocols/2017/07/10/enzymatic-pcr-cleanup-protocol-neb-m0371>
+
 ## Version history and citation
 
 ::: {.engel-history}
@@ -212,8 +228,7 @@ Thermo Fisher Scientific. ExoSAP-IT Express PCR Product Cleanup Reagent, user gu
 ## Open questions
 
 1. Catalogue numbers of ExoSAP-IT Express and ExoSAP-IT; ExoSAP-IT programme (temperatures and times).
-2. Home-made mix: the source says 1 U of each enzyme per 5 µL of PCR product, but 0.25 µL of Exonuclease I at 20 U/µL is 5 U for 15 µL of product. Which is intended? Author of the older protocol.
+2. Home-made mix: the source says 1 U of each enzyme per 5 µL of PCR product, while the recipe gives 1 U SAP and 5 U Exonuclease I for 15 µL. Manufacturer protocols (NEB, Thermo Fisher) use 10 U Exonuclease I and 1 U SAP per 5 µL with 15 min at 37 °C. Keep the lab recipe (with its longer 40–45 min incubation) as written?
 3. When the 1.5× volumes (total 15 µL) are used.
-4. Provider (Eurofins, StabVida), tube or plate service, tube type, who places the orders, how shipments are labelled.
-5. Barcode PCR protocol (primers, master mix, cycling) for the workflow.
-6. Hands-on time; hazards from the SDS; DOI.
+4. Barcode PCR protocol (primers, master mix, cycling) for the workflow.
+5. Hands-on time; hazards from the SDS; DOI.

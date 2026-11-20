@@ -1,7 +1,7 @@
 ---
 title: "Bioinformatics workstation and the Navigator+ cluster"
 guide-id: EnGeL-GUIDE-WORKSTATION
-version: 1.0.0
+version: 1.1.0
 date: 2026-11-20
 status: draft
 author:
@@ -13,6 +13,10 @@ version-history:
   - version: 1.0.0
     date: 2026-11-20
     change: "First EnGeL-UC version, from the lab's “Workstation guidance sheet” and “Navigator+ usage guide” (2024), trimmed to what lab users need; internal addresses and access details kept for lab members only."
+    by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "LCA helpdesk link added; each registered member has a folder named with their username in the lab project folder (confirmed by Luís Cunha)."
     by: "Luís Cunha"
 ---
 
@@ -61,7 +65,7 @@ How to use the lab's bioinformatics workstation and the University of Coimbra's 
 
 ## Navigator+ (University of Coimbra cluster)
 
-Navigator+ is run by the LCA. Full documentation is available from the LCA; questions go to the LCA helpdesk [TO CONFIRM: link to the LCA helpdesk web page].
+Navigator+ is run by the LCA. Full documentation is available from the LCA; questions go to the [LCA helpdesk](https://www.uc.pt/lca/cluster-access/).
 
 ### Logging in and moving data
 
@@ -73,7 +77,7 @@ Navigator+ is run by the LCA. Full documentation is available from the LCA; ques
 | Folder | Use |
 |:--|:--|
 | Home | Personal files not tied to a project (counts towards the project quota) |
-| Project folder | All project work; the lab has its own project folder, organised as agreed in the lab |
+| Project folder | All project work. The lab has its own project folder, and each registered member has their own folder in it, named with their username |
 | Scratch | Temporary files of running jobs; the lab has its own scratch allocation. Not for keeping data. |
 
 The names of the lab's project and folders are on the [lab members' page](../internal.qmd).
@@ -115,6 +119,5 @@ Every job runs through the SLURM queue, with the lab's project account (`-A`) an
 
 ## Open questions
 
-1. LCA helpdesk web page to link.
-2. Where lab members keep their own copy of raw data (lab shared storage).
-3. Lab members' page: add the remote-access instructions for the workstation and the names of the Navigator+ project and folders (not on public pages).
+1. Where lab members keep their own copy of raw data (lab shared storage).
+2. Lab members' page: add the remote-access instructions for the workstation and the names of the Navigator+ project and folders (not on public pages).

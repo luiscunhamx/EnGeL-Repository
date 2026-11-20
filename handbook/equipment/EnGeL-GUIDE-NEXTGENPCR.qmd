@@ -1,18 +1,25 @@
 ---
 title: "NextGenPCR microplate sealer and PCR programmes"
 guide-id: EnGeL-GUIDE-NEXTGENPCR
-version: 1.0.0
+version: 1.0.1
 date: 2026-11-20
 status: draft
 author:
+  - name: Andreia Quaresma
+    orcid: 0000-0002-8678-5800
+    contribution: "lead; lab sealing guidance"
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
-    contribution: "lead; review and approval"
+    contribution: "review and approval"
 reviewed-by: Luís Cunha
 version-history:
   - version: 1.0.0
     date: 2026-11-20
     change: "First EnGeL-UC version, from the lab's NextGenPCR sealing guidance (2026), with the manufacturer's sealing instructions for the PS2 and PS3 firmware paraphrased and cited; distributor contact details left out."
+    by: "Luís Cunha"
+  - version: 1.0.1
+    date: 2026-11-20
+    change: "Author of the lab sealing guidance confirmed: Andreia Quaresma."
     by: "Luís Cunha"
 ---
 
@@ -160,5 +167,4 @@ Molecular Biology Systems B.V. Instruction for NextGenPCR microplate sealing, PS
 
 1. Example PCR programme: values to be confirmed by Andreia Quaresma.
 2. Plates and sealing anvils held in the lab.
-3. Author of the lab's sealing guidance (2026), to be added as author.
-4. Versions of the manufacturer's instruction sheets.
+3. Versions of the manufacturer's instruction sheets.
