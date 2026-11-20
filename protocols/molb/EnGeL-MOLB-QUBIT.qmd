@@ -1,8 +1,8 @@
 ---
-title: "Double-stranded DNA concentration with the Qubit fluorometer (dsDNA HS assay)"
+title: "Double-stranded DNA concentration with the Qubit 4 fluorometer (dsDNA HS and BR assays)"
 short-title: "DNA concentration, single samples (Qubit)"
 protocol-id: EnGeL-MOLB-QUBIT
-version: 1.0.0
+version: 1.1.0
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -15,6 +15,7 @@ author:
     contribution: "checking and formatting"
   - name: Luísa Fraga
     orcid: 0000-0003-3153-4593
+    contribution: "testing and adjustments"
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
     contribution: "review and approval"
@@ -26,26 +27,32 @@ ghs: []   # kit hazards from the SDS [TO CONFIRM]
 hazards:
   - "Qubit reagent (dye in DMSO): handle with gloves [TO CONFIRM against the SDS]"
 equipment:
-  - "Qubit fluorometer [TO CONFIRM: model]"
+  - "Qubit 4 Fluorometer (Invitrogen)"
   - "Vortex mixer"
   - "Pipettes and filter tips"
 consumables:
   - "Qubit assay tubes (0.5 mL, thin-walled, clear)"
 reagents:
-  - text: "Qubit dsDNA HS Assay Kit: working solution (reagent diluted in buffer) and DNA standards #1 and #2 [TO CONFIRM: kit (1X or reagent + buffer) and catalogue number]"
+  - text: "Qubit dsDNA HS Assay Kit (high sensitivity): working solution and DNA standards #1 and #2 [TO CONFIRM: kit (1X or reagent + buffer) and catalogue number]"
     name: "Working Solution"
+  - text: "Qubit dsDNA BR Assay Kit (broad range), for concentrated samples [TO CONFIRM: kit and catalogue number]"
+    name: "BR"
 bench-lots:
-  - "Qubit dsDNA HS kit lot"
+  - "Qubit dsDNA HS or BR kit lot"
 version-history:
   - version: 1.0.0
     date: 2026-11-20
     change: "First version as a separate protocol, split from EnGeL-MOLB-NAQC 1.3.0 (Qubit part, from the Qubit section of the EnGeL protocol list, 2024) at the request of the lab technicians."
     by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "Qubit 4 (from the instrument photo); BR assay also used; readings above the range diluted and repeated (confirmed by Luís Cunha); Luísa Fraga: testing and adjustments."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
 
-This protocol measures the concentration of double-stranded DNA in single samples (DNA extracts, PCR products, libraries) with the Qubit fluorometer and the dsDNA High Sensitivity (HS) assay. For whole 96-well plates use EnGeL-MOLB-PICOGREEN; for purity use EnGeL-MOLB-NANODROP.
+This protocol measures the concentration of double-stranded DNA in single samples (DNA extracts, PCR products, libraries) with the Qubit 4 fluorometer and the dsDNA High Sensitivity (HS) assay, or the Broad Range (BR) assay for concentrated samples. For whole 96-well plates use EnGeL-MOLB-PICOGREEN; for purity use EnGeL-MOLB-NANODROP.
 
 ## Principle
 
@@ -94,7 +101,7 @@ The Qubit dye fluoresces only when bound to double-stranded DNA. The instrument 
 (@) For each sample, prepare a Qubit assay tube with 199 µL working solution + 1 µL sample.
 (@) Vortex vigorously for 3–5 s without creating bubbles.
 (@) Incubate all tubes at room temperature for 2 min.
-(@) On the Home screen, touch *dsDNA*, select *dsDNA High Sensitivity* and touch *Read standards*.
+(@) On the Home screen, touch *dsDNA*, select *dsDNA High Sensitivity* (or *dsDNA Broad Range* with the BR kit) and touch *Read standards*.
 (@) Insert Standard #1, close the lid and touch *Read standard*; when the reading is complete (c. 3 s), remove it. Repeat with Standard #2.
 (@) Touch *Run samples*, select the sample volume (1 µL) and the output units.
 (@) Insert each sample tube, close the lid and select *Read tube*; remove the tube when the reading is complete (c. 3 s). Repeat for all samples.
@@ -112,7 +119,7 @@ Not applicable: with the sample volume entered, the instrument reports the conce
 | Control | Purpose | Acceptance criterion |
 |:--|:--|:--|
 | Standards #1 and #2 | Calibration | [TO CONFIRM] |
-| Sample within the assay range | Valid reading | [TO CONFIRM: e.g. readings outside the range repeated with a dilution or more sample] |
+| Sample within the assay range | Valid reading | Above the range: dilute (or use the BR assay) and measure again. Below the range: report as below the detection limit |
 | DNA concentration of extracts | Enough DNA for PCR | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; depends on the starting quantity and parent material; between 5 and 10 ng/µL the PCR result decides |
 
 ## Data and metadata
@@ -122,7 +129,7 @@ Not applicable: with the sample volume entered, the instrument reports the conce
 
 ::: {.callout-note title="Minimum to record"}
 - EnGeL sample label; date; operator
-- Assay (dsDNA HS) and kit lot; sample volume used
+- Assay (dsDNA HS or BR) and kit lot; sample volume and any dilution
 - Concentration (ng/µL), marked as Qubit values
 :::
 
@@ -142,7 +149,7 @@ For this protocol: assay tubes and tips go to biological solid waste (black bin)
 
 | Problem | Likely cause | Solution |
 |:--|:--|:--|
-| "Out of range" reading | Sample too concentrated or too dilute for the HS assay | Dilute the sample, or use more sample volume (and enter it); for high concentrations the BR assay [TO CONFIRM: available in the lab]. |
+| "Out of range" reading | Sample too concentrated or too dilute for the HS assay | Dilute the sample, or use more sample volume (and enter it); for high concentrations use the BR assay. |
 | Readings drift | Tubes warmed in the hand, or read long after mixing | Hold tubes by the lid; read within the time given in the kit instructions. |
 | Standards fail | Wrong tubes or working solution | Use Qubit assay tubes; prepare fresh working solution. |
 
@@ -161,8 +168,7 @@ Thermo Fisher Scientific. Qubit dsDNA HS Assay Kit, user guide [TO CONFIRM: docu
 
 ## Open questions
 
-1. Qubit model; kit (1X dsDNA HS or reagent + buffer) and catalogue number; preparation of the working solution.
-2. Is the BR (broad range) assay also used? Maximum sample volume for dilute samples.
-3. Acceptance criteria for the standards and for readings outside the assay range; kit equilibration.
-4. Luísa Fraga's contribution to this protocol (author role).
-5. Hands-on time; hazards from the SDS; waste route; DOI.
+1. Kits (1X or reagent + buffer) and catalogue numbers for HS and BR; preparation of the working solution.
+2. Maximum sample volume for dilute samples.
+3. Acceptance criterion for the standards; kit equilibration.
+4. Hands-on time; hazards from the SDS; waste route; DOI.

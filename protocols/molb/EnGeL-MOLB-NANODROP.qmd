@@ -2,7 +2,7 @@
 title: "Nucleic acid purity with the NanoDrop One spectrophotometer"
 short-title: "Nucleic acid purity (NanoDrop)"
 protocol-id: EnGeL-MOLB-NANODROP
-version: 1.0.0
+version: 1.1.0
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -15,6 +15,7 @@ author:
     contribution: "checking and formatting"
   - name: Luísa Fraga
     orcid: 0000-0003-3153-4593
+    contribution: "testing and adjustments"
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
     contribution: "review and approval"
@@ -41,6 +42,10 @@ version-history:
   - version: 1.0.0
     date: 2026-11-20
     change: "First version as a separate protocol, split from EnGeL-MOLB-NAQC 1.3.0 (NanoDrop part, from the NanoDrop section of the EnGeL protocol list, 2024) at the request of the lab technicians."
+    by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "RNA criteria confirmed by Luís Cunha (classic ratios; > 10 ng/µL); Luísa Fraga: testing and adjustments."
     by: "Luís Cunha"
 ---
 
@@ -113,7 +118,8 @@ Not applicable: the instrument reports the ratios and the concentration (ng/µL)
 | Blank | Zero on the sample matrix | Measured before the samples, with the buffer the samples are in |
 | DNA purity (A~260~/A~280~, A~260~/A~230~) | Protein, salt or organic carry-over | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
 | Extraction blanks | Contamination during extraction | < 5 ng/µL (regarded as noise); also no band after PCR (extraction protocols) |
-| RNA purity | Carry-over in RNA extracts | [TO CONFIRM: ranges for RNA] |
+| RNA purity | Carry-over in RNA extracts | Classic ratios: A~260~/A~280~ about 2.0 and A~260~/A~230~ 2.0–2.2; values outside are flagged |
+| RNA concentration | Enough RNA for downstream use | > 10 ng/µL |
 
 ## Data and metadata
 
@@ -160,6 +166,4 @@ Thermo Fisher Scientific. NanoDrop One user guide [TO CONFIRM: document version]
 ## Open questions
 
 1. Hands-on time.
-2. Purity ranges for RNA.
-3. Luísa Fraga's contribution to this protocol (author role).
-4. NanoDrop One user guide version; DOI.
+2. NanoDrop One user guide version; DOI.
