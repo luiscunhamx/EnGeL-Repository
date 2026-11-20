@@ -2,7 +2,7 @@
 title: "Sanger barcode sequences: quality control, sample matching and identification with BOLD and NCBI BLAST"
 short-title: "Bioinformatics: Sanger barcode pipeline"
 protocol-id: EnGeL-BIOINF-SANGER
-version: 1.1.0
+version: 1.2.0
 date: 2026-11-20
 status: draft
 area: Bioinformatics (BIOINF)
@@ -42,6 +42,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-20
     change: "NCBI BLAST step uses run_ncbi_blast_merged v0.1.4 (FASTA headers cleaned for remote BLAST by default; default sample-ID pattern corrected); code to be published in its own public repository with a citable version; use of a generative AI assistant in writing the scripts stated in Remarks."
+    by: "Luís Cunha"
+  - version: 1.2.0
+    date: 2026-11-20
+    change: "Values confirmed by Luís Cunha: read QC at minimum trimmed length 200 bp, at least 200 bases with Q ≥ 20, mean Q 20, at most 5% N; BOLDigger3 database 1 and mode 2 as standard (other databases and modes explained), thresholds 97/95/90/80; concordance thresholds kept (species 97, genus 90, family 85, low 85); no PCR blank is sequenced."
     by: "Luís Cunha"
 ---
 
@@ -125,8 +129,8 @@ python scripts/sanger_folder_qc_IDmatch_v1.5.py \
   --indir data/sanger/<plate1> data/sanger/<plate2> \
   --outdir qc_<date> \
   --map_file <sample_sheet>.xlsx --map_sheet Sheet1 \
-  --min_length <bp> --min_mean_q <Q> --min_q20 <bases> --max_n_pct <percent> \
-  --min_fasta_len <bp> -v
+  --min_length 200 --min_mean_q 20 --min_q20 200 --max_n_pct 5 \
+  --min_fasta_len 50 -v
 ```
 
 (@) Open `qc_<date>/merged_results.csv` and the figures (`fig_lengths.png`, `fig_meanQ_vs_len.png`, `fig_pass_rate.png`). Check the reasons given for REPEAT reads.
@@ -134,7 +138,7 @@ python scripts/sanger_folder_qc_IDmatch_v1.5.py \
 (@) Check `recovered_report.csv`: every row of the sample sheet should have a read. Rows without a read and reads without a row (in `merged_pass_unmatched.fasta`) usually come from a typing error in the sample sheet or a missing file from the provider. Correct the sample sheet, not the file names, and run again.
 
 ::: {.callout-important title="CRITICAL"}
-Use the same QC thresholds for all plates of a study and record them. The script defaults are: trimming cutoff Q 20, minimum trimmed length 400 bp, minimum mean Q 20, minimum 300 bases with Q ≥ 20, maximum 5% N, minimum length to write to FASTA 50 bp. Whether these defaults are the lab's acceptance criteria is to be confirmed [TO CONFIRM].
+Use the same QC thresholds for all plates of a study and record them. The lab values are: minimum trimmed length 200 bp, at least 200 bases with Q ≥ 20, mean Q ≥ 20, at most 5% N (trimming cutoff Q 20). A read of 200 good-quality bases is enough for a reliable hit. The script defaults are stricter (400 bp and 300 bases with Q ≥ 20) and must be overridden as above.
 :::
 
 (@) Send REPEAT specimens back for re-sequencing (or a new PCR) and record the decision.
@@ -149,12 +153,14 @@ Use the same QC thresholds for all plates of a study and record them. The script
 python scripts/run_boldigger3_merged_v0.3.9.py \
   --fasta qc_<date>/merged_pass.fasta \
   --metadata-xlsx <sample_sheet>.xlsx --meta-sheet Sheet1 --meta-id-col SampleIDOriginal \
-  --db <code> --mode <1|2|3> \
-  --thresholds <species> <genus> <family> <order> \
+  --db 1 --mode 2 \
+  --thresholds 97 95 90 80 \
   -o boldigger3_<date> --fresh
 ```
 
-`--db` selects the BOLD database (1–8) and `--mode` the search (1 rapid, 2 genus and species, 3 exhaustive). The four thresholds are the identities (%) BOLDigger3 requires to accept a name at species, genus, family and order level [TO CONFIRM: lab values for each marker and group]. Use `--resume` to continue an interrupted run without repeating finished queries.
+The lab standard is database 1 (animal library, public records) with mode 2 (genus and species search), and thresholds of 97%, 95%, 90% and 80%: the identities BOLDigger3 requires to accept a name at species, genus, family and order level. Record any change.
+
+Other choices, for other questions or groups: databases 2 and 3 add private records (2 keeps only records named to species); 4 is the validated Canadian arthropod library; 5 plants, 6 fungi, 7 secondary animal markers, 8 the validated animal Red List library. Mode 1 (rapid species search) is faster but only looks for close species-level matches; mode 3 (exhaustive) searches more widely and is slower. Check the BOLDigger3 documentation for the version installed, as the list changes with BOLD. Use `--resume` to continue an interrupted run without repeating finished queries.
 
 ### 4. Identification against GenBank (NCBI BLAST)
 
@@ -202,7 +208,7 @@ The join is made in three steps (sample sheet + QC, + BOLD, + BLAST) on plate co
 python scripts/compare_blast_bold_status_v0.1.7.3.py \
   --final-xlsx final_table/step3_final_with_qc_bold_blast.xlsx \
   --outdir homology_<date> \
-  --species-hi <percent> --genus-hi <percent> --family-hi <percent> --low-thresh <percent> \
+  --species-hi 97 --genus-hi 90 --family-hi 85 --low-thresh 85 \
   --id-col SampleIDOriginal --primer-col PrimersID \
   --putative-col PutativeSpeciesName --putative-family-col PutativeFamilyName \
   --bold-species-col species --bold-ident-col pct_identity \
@@ -255,11 +261,10 @@ Worked example: a read with qualities 10, 15, 30, 35, 32, 18, 12 and *Q*~cut~ = 
 
 | Check | Where | Acceptance criterion |
 |:--|:--|:--|
-| Read quality (PASS/REPEAT) | `merged_results.csv` | [TO CONFIRM: lab thresholds; script defaults in step 2] |
+| Read quality (PASS/REPEAT) | `merged_results.csv` | PASS: trimmed length ≥ 200 bp, ≥ 200 bases with Q ≥ 20, mean Q ≥ 20, ≤ 5% N |
 | Every specimen has a read; every read has a specimen | `recovered_report.csv`, `merged_pass_unmatched.fasta` | No unexplained rows |
 | Joins complete | `final_table/step*_unmatched_*.csv`, `step*_duplicate_keys_*.csv` | Empty, or explained |
-| Identification thresholds | Steps 3 and 6 | [TO CONFIRM: species, genus, family and low thresholds for each marker and group] |
-| Negative controls (PCR blank sent for sequencing, if any) | QC and identification | [TO CONFIRM] |
+| Identification thresholds | Steps 3 and 6 | BOLD: 97/95/90/80 (species/genus/family/order); concordance: species 97, genus 90, family 85, low 85; any change recorded |
 | Possible contamination | `contamination_table.csv` | Every case reviewed and the decision recorded |
 
 ## Data and metadata
@@ -311,12 +316,8 @@ Mott, R. (1997). EST_GENOME: a program to align spliced DNA sequences to unsplic
 
 ## Open questions
 
-1. QC acceptance criteria: are the script defaults (Q 20 trimming, 400 bp, mean Q 20, 300 bases Q ≥ 20, 5% N) the lab's criteria? The December 2025 run used minimum length 100 bp and 100 bases Q ≥ 20.
-2. Identification thresholds: the BOLD run used 97/95/90/80 (species, genus, family, order), while the script's preset gives 99/97/90/85; the concordance step used species 97, genus 90, family 85, low 85. Which values should the protocol give, and for which markers and groups?
-3. BOLD database code (`--db`) and mode normally used.
-4. Software and package versions; hands-on and run time.
-5. Negative controls: are PCR blanks sent for sequencing, and how are they checked?
-6. Submission of accepted barcodes to BOLD or GenBank: lab practice.
-7. Name of the public code repository and its DOI.
-8. Where outputs are kept.
-9. Citations for the tools; DOI of the protocol.
+1. Software and package versions; hands-on and run time.
+2. Submission of accepted barcodes to BOLD or GenBank: lab practice.
+3. Name of the public code repository and its DOI.
+4. Where outputs are kept.
+5. Citations for the tools; DOI of the protocol.

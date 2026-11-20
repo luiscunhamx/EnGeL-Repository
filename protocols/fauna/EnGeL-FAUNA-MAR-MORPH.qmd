@@ -2,15 +2,15 @@
 title: "Sampling, MacFadyen extraction and sorting of soil microarthropods"
 short-title: "Microarthropods: sampling, MacFadyen extraction, sorting"
 protocol-id: EnGeL-FAUNA-MAR-MORPH
-version: 1.1.0
-date: 2026-11-17
+version: 1.1.1
+date: 2026-11-20
 status: draft
 area: Fauna sample processing (FAUNA)
 author:
-  - name: Pedro Martins
-    orcid: 0000-0002-5930-264X
   - name: Filipa Reis
     orcid: 0000-0001-6297-8862
+  - name: Pedro Martins
+    orcid: 0000-0002-5930-264X
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
     contribution: "source protocol; review and approval"
@@ -64,6 +64,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-17
     change: "Sorted animals in 96% ethanol stored at room temperature (ideally in the fridge if there is space) instead of −20 °C."
+    by: "Luís Cunha"
+  - version: 1.1.1
+    date: 2026-11-20
+    change: "Author order confirmed by Luís Cunha: Filipa Reis, Pedro Martins, Luís Cunha."
     by: "Luís Cunha"
 ---
 

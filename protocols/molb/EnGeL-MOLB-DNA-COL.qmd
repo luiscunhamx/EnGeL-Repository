@@ -2,13 +2,14 @@
 title: "DNA extraction from soil microarthropods with spin columns (NZY Tissue gDNA Isolation Kit)"
 short-title: "DNA extraction, spin columns (NZY Tissue)"
 protocol-id: EnGeL-MOLB-DNA-COL
-version: 1.1.0
-date: 2026-11-17
+version: 1.2.0
+date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
 author:
   - name: Luísa Fraga
     orcid: 0000-0003-3153-4593
+    contribution: "lead"
   - name: Andreia Quaresma
     orcid: 0000-0002-8678-5800
   - name: Luís Cunha
@@ -73,6 +74,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-17
     change: "Storage of microarthropods in ethanol: room temperature, ideally in the fridge if there is space."
+    by: "Luís Cunha"
+  - version: 1.2.0
+    date: 2026-11-20
+    change: "Luísa Fraga confirmed as lead author; acceptance criteria for extraction blanks and DNA purity confirmed by Luís Cunha (as in EnGeL-MOLB-DNA-MAG)."
     by: "Luís Cunha"
 ---
 
@@ -165,9 +170,9 @@ Not applicable: volumes are per sample. For a batch of $n$ samples, prepare $V =
 
 | Control | Where | Purpose | Acceptance criterion |
 |:--|:--|:--|:--|
-| Extraction blanks | Each batch [TO CONFIRM: number] | Detect contamination | [TO CONFIRM] |
+| Extraction blanks | Each batch [TO CONFIRM: number] | Detect contamination | Processed through the PCR with the samples: no band on the gel, and < 5 ng/µL on the NanoDrop (regarded as noise) |
 | Extraction positive control (mock community) | When establishing a new starting material or community | Check extraction performance | [TO CONFIRM: composition and criterion] |
-| DNA purity | All extracts | A~260~/A~280~, A~260~/A~230~ (EnGeL-MOLB-NAQC) | [TO CONFIRM] |
+| DNA purity | All extracts | A~260~/A~280~, A~260~/A~230~ (EnGeL-MOLB-NAQC) | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
 | DNA concentration | All extracts | Fluorometry (EnGeL-MOLB-NAQC) | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; between 5 and 10 ng/µL the PCR result decides |
 
 The PCR is the best way to evaluate whether the DNA in a sample is viable.
@@ -226,9 +231,9 @@ NZYtech (n.d.). NZY Tissue gDNA Isolation kit – manual [TO CONFIRM: version].
 
 ## Open questions
 
-1. Authors of the source protocol; ORCIDs; DOI.
+1. ORCIDs; DOI.
 2. Homogenisation steps: pestle (when, how long) and bead beating (instrument, amount of corundum sand and beads, speed, time). Liquid nitrogen as in the NZYtech insect protocol?
 3. Kit catalogue number (MB13502 or MB13503); ethanol volume for Buffer NW2; RNase A supplier and concentration.
-4. Number of extraction blanks per batch; acceptance criteria for blanks and purity; positive control composition.
+4. Number of extraction blanks per batch; positive control composition.
 5. Hands-on and total time; maximum sample amount per column.
 6. Troubleshooting for low yield and blocked columns.

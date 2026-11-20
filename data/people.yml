@@ -31,10 +31,13 @@
 - name: Fernanda Benedet de Santo
   role: Invited Assistant Researcher (PhD)
   orcid: 0000-0003-1081-2099
-- name: Sarah Louise
-  role: ""
+- name: Sarah Louise Cruz
+  role: Undergraduate intern (BSc)
   orcid: ""
-  affiliation: ""   # not known
+- name: Nuno Ferreira
+  role: Assistant Researcher
+  orcid: 0000-0002-3749-3836
+  affiliation: "CIIMAR – Interdisciplinary Centre of Marine and Environmental Research, University of Porto"
 - name: Yevhenia Shcheka
   role: ""
   orcid: ""

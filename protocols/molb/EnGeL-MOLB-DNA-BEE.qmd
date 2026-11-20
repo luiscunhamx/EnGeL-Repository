@@ -2,8 +2,8 @@
 title: "Genomic DNA isolation from honey bee guts (NZY Soil gDNA Isolation Kit)"
 short-title: "DNA from honey bee guts (NZY Soil)"
 protocol-id: EnGeL-MOLB-DNA-BEE
-version: 1.1.0
-date: 2026-11-17
+version: 1.2.0
+date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
 author:
@@ -74,6 +74,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-17
     change: "Bead beating on the BeadBlaster 24R, which replaced the FastPrep-24 5G in the lab (same programme: 6.0 m/s, 30 s, one cycle, pause 300 s)."
+    by: "Luís Cunha"
+  - version: 1.2.0
+    date: 2026-11-20
+    change: "Acceptance criteria confirmed by Luís Cunha: extraction blank, purity ranges (ideals; the PCR decides) and concentration rule as for the other DNA extractions."
     by: "Luís Cunha"
 ---
 
@@ -182,8 +186,9 @@ Not applicable: volumes are per sample. For $n$ samples, prepare $V = v \times n
 
 | Control | Purpose | Acceptance criterion |
 |:--|:--|:--|
-| Extraction blank | Detect contamination (dissection tools, reagents) | [TO CONFIRM] |
-| DNA purity and concentration (EnGeL-MOLB-NAQC) | Quality of the extract | [TO CONFIRM] |
+| Extraction blank | Detect contamination (dissection tools, reagents) | Processed through the PCR with the samples: no band on the gel, and < 5 ng/µL on the NanoDrop (regarded as noise) |
+| DNA purity (EnGeL-MOLB-NAQC) | Quality of the extract | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
+| DNA concentration | Enough DNA for PCR | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; between 5 and 10 ng/µL the PCR result decides |
 
 ## Data and metadata
 
@@ -239,7 +244,7 @@ NZYtech (n.d.). NZY Soil gDNA Isolation kit (MB21802) – manual [TO CONFIRM: ve
 1. DOI.
 2. Proteinase K: from which kit, and at what concentration?
 3. Preparation of the 0.05% sodium hypochlorite.
-4. Extraction blanks and acceptance criteria.
+4. Number of extraction blanks per batch.
 5. Where results are recorded.
 6. Waste route for bee remains and used hypochlorite solution.
 7. Hands-on and total time.
