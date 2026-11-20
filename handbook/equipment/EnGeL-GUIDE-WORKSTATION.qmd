@@ -1,0 +1,126 @@
+---
+title: "Bioinformatics workstation and the Navigator+ cluster"
+guide-id: EnGeL-GUIDE-WORKSTATION
+version: 1.1.1
+date: 2026-11-20
+status: draft
+author:
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+    contribution: "lead; review and approval"
+reviewed-by: Luís Cunha
+version-history:
+  - version: 1.0.0
+    date: 2026-11-20
+    change: "First EnGeL-UC version, from the lab's “Workstation guidance sheet” and “Navigator+ usage guide” (2024), trimmed to what lab users need; internal addresses and access details kept for lab members only."
+    by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "LCA helpdesk link added; each registered member has a folder named with their username in the lab project folder (confirmed by Luís Cunha)."
+    by: "Luís Cunha"
+  - version: 1.1.1
+    date: 2026-11-20
+    change: "Where lab members keep their data on the workstation: work folder, in a folder named with their username (confirmed by Luís Cunha)."
+    by: "Luís Cunha"
+---
+
+## Purpose
+
+How to use the lab's bioinformatics workstation and the University of Coimbra's Navigator+ cluster: who may use them, how to run analyses, where to keep data, and what to avoid. Protocols that run on either (for example EnGeL-BIOINF-OBITOOLS4, EnGeL-BIOINF-RNASEQ and EnGeL-BIOINF-SANGER) refer to this guide.
+
+## Which one to use
+
+| | Workstation | Navigator+ |
+|:--|:--|:--|
+| What it is | One multicore computer in the EnGeL office | High-performance cluster of the University of Coimbra's Advanced Computing Laboratory (LCA) |
+| Good for | Most lab pipelines, interactive work, R and Python, jobs of hours to a day or two | Very large data sets, many jobs at once, high-memory or GPU jobs, runs of several days |
+| Access | Registered lab users | Members of the lab's project on Navigator+ |
+
+## The workstation
+
+### Hardware and systems
+
+24-core AMD Ryzen Threadripper PRO 5965WX, 256 GB RAM, NVIDIA RTX 4080 (16 GB), 2 TB NVMe SSD for systems and software, and two 10 TB hard disks (20 TB) for data and backups. It starts Ubuntu or Windows (dual boot, chosen at start-up in the GRUB menu); bioinformatics runs on Ubuntu.
+
+### Rules
+
+- The workstation is for registered users only; access is given by Luís Cunha. Remote access uses the lab's remote-access software (details on the [lab members' page](../internal.qmd)).
+- Do not install, remove or upgrade software, or change drive and folder permissions, without the approval of the administrator (Luís Cunha).
+- Do not unplug cables or devices, move equipment or change the layout of the desk; do not take anything belonging to the workstation; leave the desk clean.
+- Use the workstation only for computing work.
+
+### Running analyses
+
+- Every bioinformatics pipeline runs in its own **conda environment**; this is the lab rule. Use the existing environment named in the protocol, or ask the administrator to create one. Never install tools into the base system.
+- Check what is running before starting a large job (`htop` for processor and memory, `iotop` for disk) and leave capacity for others; set the number of threads of a job (e.g. `THREADS=24`) rather than taking all cores.
+- Run long jobs so that they survive a closed session (for example inside `tmux` or `screen`, or with `nohup`).
+- Work on the data disks, not in the system SSD, and keep each project in its own folder (EnGeL-GUIDE-FILES).
+
+### Data and backups
+
+- Keep data on the 10 TB data disks; the SSD is for the systems and software.
+- Keep your data, including a copy of your raw data, in the `work` folder of the workstation storage, in a folder named with your username (create it the first time).
+- **Each semester** the administrator makes the backups and removes files and programs whose owner is unclear. Label your project folders with your name and the project, and remove what you no longer need.
+
+### Maintenance and problems
+
+- Systems are updated by the administrator.
+- If the system does not start, a disk is full, or the machine is slow or makes unusual noise, do not try to repair it: tell the administrator.
+
+## Navigator+ (University of Coimbra cluster)
+
+Navigator+ is run by the LCA. Full documentation is available from the LCA; questions go to the [LCA helpdesk](https://www.uc.pt/lca/cluster-access/).
+
+### Logging in and moving data
+
+- Log in to `navigator.lca.uc.pt`; you are placed on a login node. Login nodes are for light work only: editing files and submitting jobs.
+- For data transfers and file operations, log in to the data node, `data.lca.uc.pt`, never a login node.
+
+### Folders
+
+| Folder | Use |
+|:--|:--|
+| Home | Personal files not tied to a project (counts towards the project quota) |
+| Project folder | All project work. The lab has its own project folder, and each registered member has their own folder in it, named with their username |
+| Scratch | Temporary files of running jobs; the lab has its own scratch allocation. Not for keeping data. |
+
+The names of the lab's project and folders are on the [lab members' page](../internal.qmd).
+
+### Jobs (SLURM)
+
+Every job runs through the SLURM queue, with the lab's project account (`-A`) and a partition (`-p`):
+
+| Partition | For |
+|:--|:--|
+| `int` | Interactive work |
+| `cpu1`, `cpu2` | CPU jobs |
+| `hmem1`, `hmem2` | High-memory jobs |
+| `vis` | Visualisation |
+| `gpu` | GPU jobs |
+
+- **Interactive session** (testing, debugging, short processing):
+
+  ```bash
+  salloc -A <account> -p int -t <time> -n <tasks> -c <cores> --x11
+  ```
+
+- **Batch job** (long runs): write a job script with `#SBATCH -A <account>`, `#SBATCH -p <partition>`, the time, memory and cores, then submit it with `sbatch job.sh`.
+- **Follow your jobs** with `squeue -u $USER`, and the project's use of its allocation with `sbank balance`.
+- Use conda environments on Navigator+ as on the workstation.
+
+## Who to ask
+
+| Topic | Contact |
+|:--|:--|
+| Workstation access, software, backups | Luís Cunha (administrator) |
+| Access to the lab's Navigator+ project | Luís Cunha |
+| Navigator+ technical problems | LCA helpdesk |
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. Lab members' page: add the remote-access instructions for the workstation and the names of the Navigator+ project and folders (not on public pages).

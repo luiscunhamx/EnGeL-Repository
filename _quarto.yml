@@ -36,10 +36,16 @@ website:
             text: Overview
           - handbook/joining.qmd
           - handbook/EnGeL-GUIDE-LABRULES.qmd
-          - handbook/equipment/index.qmd
           - handbook/EnGeL-GUIDE-FILES.qmd
           - handbook/EnGeL-GUIDE-SAMPLES.qmd
           - handbook/internal.qmd
+      - text: Equipment
+        menu:
+          - href: handbook/equipment/index.qmd
+            text: Instrument list
+          - handbook/equipment/EnGeL-GUIDE-AUTOCLAVE.qmd
+          - handbook/equipment/EnGeL-GUIDE-WORKSTATION.qmd
+          - handbook/equipment/EnGeL-GUIDE-NEXTGENPCR.qmd
       - text: Workflows
         menu:
           - workflows/soil-fauna-metabarcoding.qmd
@@ -66,11 +72,16 @@ website:
             text: Overview
           - handbook/joining.qmd
           - handbook/EnGeL-GUIDE-LABRULES.qmd
-          - handbook/equipment/index.qmd
-          - handbook/equipment/EnGeL-GUIDE-AUTOCLAVE.qmd
           - handbook/EnGeL-GUIDE-FILES.qmd
           - handbook/EnGeL-GUIDE-SAMPLES.qmd
           - handbook/internal.qmd
+      - section: "Equipment"
+        contents:
+          - href: handbook/equipment/index.qmd
+            text: Instrument list
+          - handbook/equipment/EnGeL-GUIDE-AUTOCLAVE.qmd
+          - handbook/equipment/EnGeL-GUIDE-WORKSTATION.qmd
+          - handbook/equipment/EnGeL-GUIDE-NEXTGENPCR.qmd
       - section: "Sampling and experimental design"
         contents:
           - href: protocols/sampl/EnGeL-SAMPL-POWER.qmd
@@ -95,6 +106,8 @@ website:
             text: "Total RNA extraction (TRIzol)"
           - href: protocols/molb/EnGeL-MOLB-NAQC.qmd
             text: "Nucleic acid QC (NanoDrop, Qubit, PicoGreen)"
+          - href: protocols/molb/EnGeL-MOLB-EXOSAP.qmd
+            text: "PCR clean-up (ExoSAP) and Sanger submission"
           - href: protocols/molb/EnGeL-MOLB-MB.qmd
             text: "Metabarcoding library preparation (two-step PCR)"
           - href: protocols/molb/EnGeL-MOLB-KAPA.qmd
@@ -135,6 +148,8 @@ website:
             text: "MOLB-RNA"
           - href: bench/EnGeL-MOLB-NAQC-bench.qmd
             text: "MOLB-NAQC"
+          - href: bench/EnGeL-MOLB-EXOSAP-bench.qmd
+            text: "MOLB-EXOSAP"
           - href: bench/EnGeL-MOLB-MB-bench.qmd
             text: "MOLB-MB"
           - href: bench/EnGeL-MOLB-KAPA-bench.qmd

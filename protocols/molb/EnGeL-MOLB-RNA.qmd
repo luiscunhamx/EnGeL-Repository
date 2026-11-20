@@ -2,7 +2,7 @@
 title: "Total RNA extraction with TRIzol and spin-column clean-up (honey bees; isopod hepatopancreas)"
 short-title: "Total RNA extraction (TRIzol)"
 protocol-id: EnGeL-MOLB-RNA
-version: 1.2.5
+version: 1.2.6
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -20,6 +20,7 @@ reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
 protocol-doi: "[TO CONFIRM]"
+ghs: [GHS02, GHS05, GHS06, GHS08]   # ethanol (GHS02); chloroform (GHS06, GHS08) and phenol in TRIzol (GHS05, GHS06, GHS08), harmonised EU classification; GHS07 not shown where GHS06 applies; check against the TRIzol SDS [TO CONFIRM]
 hazards:
   - "TRIzol (phenol, guanidine isothiocyanate): toxic and corrosive [TO CONFIRM against the SDS]"
   - "Chloroform: harmful, suspected carcinogen [TO CONFIRM against the SDS]"
@@ -97,6 +98,10 @@ version-history:
   - version: 1.2.5
     date: 2026-11-20
     change: "ORCID of Nuno Ferreira added."
+    by: "Luís Cunha"
+  - version: 1.2.6
+    date: 2026-11-20
+    change: "GHS pictograms for ethanol, chloroform and phenol (harmonised EU classification); TRIzol still to be checked against its safety data sheet."
     by: "Luís Cunha"
 ---
 

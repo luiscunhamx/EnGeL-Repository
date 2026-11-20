@@ -66,6 +66,7 @@
   photo: assets/photos/equipment/nextgenpcr_sealer.jpg
   match: "[Ss]ealer"
   log: "Instrument logbook"
+  guide: EnGeL-GUIDE-NEXTGENPCR.qmd
 - name: Oxford Nanopore MinION sequencers (MinION Mk1C and MinION Mk2)
   photo: assets/photos/equipment/minion_mk1c.jpg
   match: "MinION|Nanopore"
@@ -96,3 +97,4 @@
 - name: Bioinformatics workstations (multicore)
   match: "workstation"
   log: "Instrument logbook"
+  guide: EnGeL-GUIDE-WORKSTATION.qmd

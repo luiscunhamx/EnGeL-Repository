@@ -2,7 +2,7 @@
 title: "DNA metabarcoding of soil fauna: two-step PCR amplicon library preparation (COI for microarthropods, 18S rRNA for nematodes)"
 short-title: "Metabarcoding library preparation (two-step PCR)"
 protocol-id: EnGeL-MOLB-MB
-version: 1.4.0
+version: 1.4.1
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -19,6 +19,7 @@ reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
 protocol-doi: "[TO CONFIRM]"
+ghs: [GHS02, GHS07]   # ethanol (H225, H319; harmonised EU classification)
 hazards:
   - "DNA intercalating dye (GreenSafe or other): handle with gloves"
   - "UV/blue-light transilluminator: eye and skin protection"
@@ -103,6 +104,10 @@ version-history:
   - version: 1.4.0
     date: 2026-11-20
     change: "Library quantification check (shared with EnGeL-MOLB-KAPA): positive control within ±20% of 200 nM (160–240 nM)."
+    by: "Luís Cunha"
+  - version: 1.4.1
+    date: 2026-11-20
+    change: "GHS pictograms for ethanol (harmonised EU classification)."
     by: "Luís Cunha"
 ---
 
