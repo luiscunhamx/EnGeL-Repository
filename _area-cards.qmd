@@ -11,7 +11,7 @@
 
 Study design, field sampling, sampling effort and sample registration.
 
-[1 protocol]{.engel-card-count}
+[2 protocols]{.engel-card-count}
 :::
 
 ::: {.g-col-12 .g-col-md-6 .g-col-xl-3 .engel-card}
