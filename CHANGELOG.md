@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-BIOINF-SANGER 1.0.0 (2026-11-20): first version (Sanger barcode chromatograms: quality control and trimming, matching to the sample sheet, identification with BOLDigger3 and remote NCBI BLAST, final table, BOLD–BLAST concordance classes, status report), from the pipeline scripts and manuals by Luís Cunha; project-specific settings removed. Single-specimen barcoding workflow: step 5 links to it.
 - Left menu: Lab handbook first, then the protocol areas from the field to the computer (sampling, fauna, molecular biology, bioinformatics), workflows and bench sheets; sample-size planning before sampling effort; sequencing submission listed last among the workflows.
 - Home page: photo on the Bioinformatics card (MinION sequencing run), so all four area cards have a photo.
 - EnGeL-SAMPL-POWER 1.0.0 (2026-11-20): first version (planning sample size by simulation: community composition with PERMANOVA, a diversity index, sampling methods and sub-samples, repeated measures with simr), from the lab's power-analysis notebooks, generalised with a neutral example; the diversity-index example uses the additive model for the overall effect.

@@ -101,6 +101,8 @@ website:
             text: "Library quantification, KAPA qPCR"
       - section: "Bioinformatics"
         contents:
+          - href: protocols/bioinf/EnGeL-BIOINF-SANGER.qmd
+            text: "Bioinformatics: Sanger barcode pipeline"
           - href: protocols/bioinf/EnGeL-BIOINF-OBITOOLS4.qmd
             text: "Bioinformatics: OBITools4 pipeline"
           - href: protocols/bioinf/EnGeL-BIOINF-COMMUNITY.qmd
@@ -135,6 +137,8 @@ website:
             text: "MOLB-MB"
           - href: bench/EnGeL-MOLB-KAPA-bench.qmd
             text: "MOLB-KAPA"
+          - href: bench/EnGeL-BIOINF-SANGER-bench.qmd
+            text: "BIOINF-SANGER"
           - href: bench/EnGeL-BIOINF-OBITOOLS4-bench.qmd
             text: "BIOINF-OBITOOLS4"
           - href: bench/EnGeL-BIOINF-COMMUNITY-bench.qmd

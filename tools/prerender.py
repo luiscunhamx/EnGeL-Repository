@@ -213,7 +213,7 @@ def people(protos):
 # Order of protocols within the areas and bench sheets (workflow order); protocols not listed follow alphabetically.
 SIDEBAR_ORDER = ['EnGeL-SAMPL-POWER', 'EnGeL-SAMPL-EFFORT', 'EnGeL-FAUNA-MAR-MORPH', 'EnGeL-MOLB-DNA-MAG', 'EnGeL-MOLB-DNA-COL', 'EnGeL-MOLB-DNA-BARC',
                  'EnGeL-MOLB-DNA-BEE', 'EnGeL-MOLB-RNA', 'EnGeL-MOLB-NAQC', 'EnGeL-MOLB-MB', 'EnGeL-MOLB-KAPA',
-                 'EnGeL-BIOINF-OBITOOLS4', 'EnGeL-BIOINF-COMMUNITY']
+                 'EnGeL-BIOINF-SANGER', 'EnGeL-BIOINF-OBITOOLS4', 'EnGeL-BIOINF-COMMUNITY']
 
 def sidebar(protos):
     def key(x):
