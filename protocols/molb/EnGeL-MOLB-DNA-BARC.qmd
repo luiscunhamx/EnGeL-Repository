@@ -2,7 +2,7 @@
 title: "DNA extraction from single arthropod specimens for DNA barcoding (Qiagen DNeasy Blood & Tissue Kit)"
 short-title: "DNA extraction for barcoding (DNeasy)"
 protocol-id: EnGeL-MOLB-DNA-BARC
-version: 1.1.0
+version: 1.1.1
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -17,6 +17,7 @@ reviewed-by: Luís Cunha
 contact: "luis.cunha@uc.pt · ewormuc@gmail.com"
 license: CC BY 4.0
 protocol-doi: "[TO CONFIRM]"
+ghs: [GHS02, GHS07]   # ethanol (H225, H319; harmonised EU classification); kit buffers from their SDS [TO CONFIRM]
 hazards:
   - "Buffers AL and AW1 contain guanidine salts: never mix with bleach (Qiagen handbook) [TO CONFIRM against the SDS]"
   - "Proteinase K: respiratory sensitiser"
@@ -64,6 +65,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-20
     change: "Acceptance criteria confirmed by Luís Cunha: extraction blank (no band after PCR, < 5 ng/µL on the NanoDrop), purity ranges as ideals (flagged, the PCR decides), concentration rule as for bulk extracts."
+    by: "Luís Cunha"
+  - version: 1.1.1
+    date: 2026-11-20
+    change: "GHS pictograms for ethanol (harmonised EU classification); kit buffers still to be checked against their safety data sheets."
     by: "Luís Cunha"
 ---
 

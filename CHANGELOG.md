@@ -5,6 +5,9 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-MOLB-DNA-BEE 1.2.1 (2026-11-20): author name corrected to Yevheniia Shcheka (People page too).
+- GHS pictograms added from the harmonised EU classification of the pure chemicals used (ethanol, isopropanol, chloroform, phenol): EnGeL-MOLB-DNA-MAG 1.3.1, EnGeL-MOLB-DNA-COL 1.2.1, EnGeL-MOLB-DNA-BARC 1.1.1, EnGeL-MOLB-MB 1.4.1, EnGeL-MOLB-RNA 1.2.6. Kit buffers and TRIzol still to be checked against their safety data sheets.
+- Menu: Equipment is its own section (top bar and left pane), after the Lab handbook: instrument list first, then the instrument guides (bench autoclave); new guides in handbook/equipment/ are added automatically.
 - EnGeL-BIOINF-RNASEQ 1.1.1 (2026-11-20): Subread 2.0.6 on the lab workstation confirmed; `--countReadPairs` kept.
 - EnGeL-MOLB-RNA 1.2.5 (2026-11-20): ORCID of Nuno Ferreira added. People: Nuno Ferreira (Assistant Researcher, CIIMAR, University of Porto).
 - EnGeL-GUIDE-AUTOCLAVE 1.2.0 (2026-11-20): solid loads at 121 °C, as for liquids (corrects 1.1.0).

@@ -222,9 +222,16 @@ def sidebar(protos):
     def q(t): return '"' + str(t).replace('"', '\\"') + '"'
     L = ['      - href: index.qmd', '        text: Home', '      - register.qmd', '      - to-confirm.qmd', '      - people.qmd']
     L += ['      - section: "Lab handbook"', '        contents:', '          - href: handbook/index.qmd', '            text: Overview',
-          '          - handbook/joining.qmd', '          - handbook/EnGeL-GUIDE-LABRULES.qmd', '          - handbook/equipment/index.qmd',
-          '          - handbook/equipment/EnGeL-GUIDE-AUTOCLAVE.qmd', '          - handbook/EnGeL-GUIDE-FILES.qmd',
+          '          - handbook/joining.qmd', '          - handbook/EnGeL-GUIDE-LABRULES.qmd', '          - handbook/EnGeL-GUIDE-FILES.qmd',
           '          - handbook/EnGeL-GUIDE-SAMPLES.qmd', '          - handbook/internal.qmd']
+    # Equipment: its own section, with the instrument list first and then every instrument guide in handbook/equipment/ (by title)
+    eq_guides = []
+    for f in sorted(glob.glob('handbook/equipment/*.qmd')):
+        if os.path.basename(f) == 'index.qmd': continue
+        t = (read_qmd(f)[0].get('title') or os.path.basename(f))
+        eq_guides.append((t, f))
+    L += ['      - section: "Equipment"', '        contents:', '          - href: handbook/equipment/index.qmd', '            text: Instrument list']
+    L += [f'          - {f}' for t, f in sorted(eq_guides)]
     for folder, title, _, _ in AREAS:
         items = sorted([(p, m) for p, m, _ in protos if p.split('/')[1] == folder], key=key)
         if not items: continue
