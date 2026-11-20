@@ -47,7 +47,7 @@ Nucleic acid extraction, quality control, PCR and sequencing libraries.
 
 From raw reads to taxonomic tables.
 
-[3 protocols]{.engel-card-count}
+[4 protocols]{.engel-card-count}
 :::
 
 :::
