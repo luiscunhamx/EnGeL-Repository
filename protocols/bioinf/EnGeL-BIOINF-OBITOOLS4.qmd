@@ -1,9 +1,9 @@
 ---
-title: "Metabarcoding bioinformatics with OBITools4, VSEARCH, LULU and BOLDigger3 (COI amplicons)"
+title: "Metabarcoding bioinformatics with OBITools4, VSEARCH, LULU and BOLDigger3 (COI amplicons; 18S nematode variant)"
 short-title: "Bioinformatics: OBITools4 pipeline"
 protocol-id: EnGeL-BIOINF-OBITOOLS4
-version: 1.0.3
-date: 2026-11-17
+version: 1.1.0
+date: 2026-11-20
 status: draft
 area: Bioinformatics (BIOINF)
 author:
@@ -24,6 +24,7 @@ hazards:
 equipment:
   - "Lab workstation (see the lab's workstation guidance; conda environment “boldigger3”) or a personal computer with a Unix shell"
   - "Local copy of the BOLD database for BOLDigger3 (e.g. ~/Bold_db)"
+  - "For 18S nematode data: local copy of the 18S-NemaBase reference database (FASTA) [TO CONFIRM: version or download date]"
 consumables:
   - "None"
 reagents:
@@ -31,7 +32,7 @@ reagents:
     name: "obipairing"
   - text: "VSEARCH, run from the conda environment “qiime2-amplicon-2023.9” [TO CONFIRM: VSEARCH version]"
     name: "vsearch"
-  - text: "R with ROBIFastread, lulu (tobiasgf/lulu), seqinr, ggplot2, ggpubr, dplyr, jsonify, readxl, devtools [TO CONFIRM: R and package versions]"
+  - text: "R with Biostrings (Bioconductor), tidyverse, lulu (tobiasgf/lulu), seqinr, ggplot2, ggpubr, dplyr, jsonify, devtools [TO CONFIRM: R and package versions]"
     name: "lulu"
   - text: "BOLDigger3 (pip package boldigger3) [TO CONFIRM: version]"
     name: "boldigger3"
@@ -57,11 +58,15 @@ version-history:
     date: 2026-11-17
     change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
     by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "From Luísa F. Dornellas's scripts of December 2025: run report (reads and sequences after each step in reports/report_info.tsv); R inspection with Biostrings instead of ROBIFastread, also after denoising and after chimera removal; header conversion that accepts sample names with dots; sample-sheet loops over all samples; 18S nematode variant (length filter and identification against 18S-NemaBase with VSEARCH)."
+    by: "Luísa Fraga, Luís Cunha"
 ---
 
 ## Purpose and scope
 
-This protocol turns demultiplexed paired-end Illumina reads from COI metabarcoding (BF3/BR2; EnGeL-MOLB-MB) into a curated OTU table with taxonomic assignments. Steps: read merging, primer removal and sample assignment (OBITools4), dereplication and singleton removal, denoising, chimera removal and clustering (VSEARCH), curation of erroneous OTUs and NUMTs (LULU), and identification against BOLD (BOLDigger3). Length filters and identity thresholds are set for the COI fragment; other markers (e.g. 18S for nematodes) need their own settings [TO CONFIRM].
+This protocol turns demultiplexed paired-end Illumina reads from COI metabarcoding (BF3/BR2; EnGeL-MOLB-MB) into a curated OTU table with taxonomic assignments. Steps: read merging, primer removal and sample assignment (OBITools4), dereplication and singleton removal, denoising, chimera removal and clustering (VSEARCH), curation of erroneous OTUs and NUMTs (LULU), and identification against BOLD (BOLDigger3). Length filters and identity thresholds are set for the COI fragment. A variant for 18S nematode amplicons (NF1/18Sr2b), identified against 18S-NemaBase instead of BOLD, is given in step 10. The pipeline writes a run report with the number of reads and sequences kept after each step.
 
 ## Principle
 
@@ -103,8 +108,9 @@ boldigger3 download_db ~/Bold_db                                      # local BO
 ```
 
 ```r
-install.packages("devtools")
-devtools::install_git("https://git.metabarcoding.org/obitools/obitools4/robireadfasta.git")
+install.packages(c("tidyverse", "ggpubr", "seqinr", "jsonify", "devtools"))
+if (!require("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+BiocManager::install("Biostrings")
 devtools::install_github("tobiasgf/lulu", force = TRUE)
 ```
 
@@ -115,7 +121,7 @@ devtools::install_github("tobiasgf/lulu", force = TRUE)
 (@) Set the working directory and create one folder per step:
 
 ```bash
-mkdir 1.raw 2.pairedend 3.obimultiplex 4.uniq 5.simplified 6.nosingletons 7.clean 8.vsearch 9.lulu 10.stats samplesheets reports
+mkdir files 1.raw 2.pairedend 3.obimultiplex 4.uniq 5.simplified 6.nosingletons 7.clean 8.vsearch 9.lulu 10.stats samplesheets reports
 ```
 
 (@) Move all raw .gz files (usually in one folder per sample) into `1.raw` and decompress them:
@@ -125,14 +131,37 @@ find ./All_Data_Raw/* -type f \( -name "PC*" -o -name "*raw*" \) -exec mv {} ./1
 gunzip -r ./1.raw
 ```
 
-(@) Rename the files to `<sample>_R1.fastq` and `<sample>_R2.fastq` (the source script adds a missing “R” and shortens names; adapt the patterns to the provider's file names) [TO CONFIRM: general renaming rule].
+(@) Rename the files to `<sample>_R1.fastq` and `<sample>_R2.fastq` (the source script adds a missing “R” and shortens names; adapt the patterns to the provider's file names; Novogene delivers `<sample>.raw_1.fastq.gz` and `<sample>.raw_2.fastq.gz`) [TO CONFIRM: general renaming rule].
+
+(@) Start the run report, one row per metric, and define a short helper to add rows to it:
+
+```bash
+echo -e "section\tstep\tmetric\tvalue\tunit\tnotes" > reports/report_info.tsv
+report() { echo -e "$1\t$2\t$3\t$4\t$5\t$6" >> reports/report_info.tsv; }
+nreads() { echo $(( $(wc -l < "$1") / 4 )); }     # reads in a fastq file
+nseqs()  { grep -c "^>" "$1"; }                     # sequences in a fasta file
+```
+
+The helpers exist only in the current terminal session; define them again if you open a new one. In the source script each row is written with its own `echo` command; the result is the same.
 
 ### 2. Sample sheets
 
-(@) Create the sample sheet (Before you start) and split it into one file per sample with the helper script, placed in the `samplesheets` folder:
+(@) Put the master sample sheet (Before you start) and the helper script in `files`, and split the sheet into one file per sample in `samplesheets`. Keep the master sheet out of `samplesheets`: every `.txt` file there is treated as one sample.
 
 ```bash
-python3 -i ./samplesheets/ngs_filter.py -s ./samplesheets/samplesheet.txt -o ./samplesheets/
+python3 -i ./files/ngs_filter.py -s ./files/samplesheet.txt -o ./samplesheets/
+```
+
+(@) Report the number of samples and the raw reads:
+
+```bash
+report "Raw data" "Input" "Number of biological samples" $(awk 'NR>1' ./files/samplesheet.txt | wc -l) samples "From master sample sheet"
+TOTAL=0
+for SAMPLE_SHEET in ./samplesheets/*.txt; do
+  SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
+  TOTAL=$(( TOTAL + $(nreads ./1.raw/"${SAMPLE_NAME}"_R1.fastq) ))
+done
+report "Raw" "Output" "Read pairs before merging" $TOTAL reads "Sum across samples"
 ```
 
 ### 3. Merge paired-end reads
@@ -140,7 +169,7 @@ python3 -i ./samplesheets/ngs_filter.py -s ./samplesheets/samplesheet.txt -o ./s
 (@) Align forward and reverse reads. With these settings, pairs that overlap by less than 10 bp or have less than 80% identity in the overlap are concatenated instead of aligned (`mode` = joined):
 
 ```bash
-for SAMPLE_SHEET in ./samplesheets/P*.txt; do
+for SAMPLE_SHEET in ./samplesheets/*.txt; do
   SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
   obipairing --min-identity=0.8 --min-overlap=10 \
     -F ./1.raw/"${SAMPLE_NAME}"_R1.fastq -R ./1.raw/"${SAMPLE_NAME}"_R2.fastq \
@@ -151,11 +180,29 @@ done
 (@) Remove the unaligned (joined) records:
 
 ```bash
-for SAMPLE_SHEET in ./samplesheets/P*.txt; do
+for SAMPLE_SHEET in ./samplesheets/*.txt; do
   SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
   obigrep -p 'annotations.mode != "join"' ./2.pairedend/"${SAMPLE_NAME}"_paired.fastq \
     > ./2.pairedend/"${SAMPLE_NAME}"_paired.ali.fastq
 done
+```
+
+(@) Report the pairing settings and the reads kept and removed:
+
+```bash
+report "Pairing" "obipairing" "Min overlap" 10 bp ""
+report "Pairing" "obipairing" "Min identity" 0.8 proportion ""
+MERGED=0; ALIGNED=0
+for SAMPLE_SHEET in ./samplesheets/*.txt; do
+  SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
+  [ -f ./2.pairedend/"${SAMPLE_NAME}"_paired.fastq ] || continue
+  M=$(nreads ./2.pairedend/"${SAMPLE_NAME}"_paired.fastq); A=$(nreads ./2.pairedend/"${SAMPLE_NAME}"_paired.ali.fastq)
+  report "Filtering" "Remove unaligned" "Reads kept" $A reads "$SAMPLE_NAME"
+  report "Filtering" "Remove unaligned" "Reads removed" $(( M - A )) reads "$SAMPLE_NAME"
+  MERGED=$(( MERGED + M )); ALIGNED=$(( ALIGNED + A ))
+done
+report "Pairing" "Output" "Reads after merging" $MERGED reads "Sum across samples"
+report "Filtering" "Remove unaligned" "Total reads removed" $(( MERGED - ALIGNED )) reads "All samples"
 ```
 
 ### 4. Primer removal and sample assignment
@@ -163,7 +210,7 @@ done
 (@) Remove primers and annotate each sequence with its sample information, allowing four mismatches in the primers (`-e 4`); unassigned sequences go to a separate file:
 
 ```bash
-for SAMPLE_SHEET in ./samplesheets/P*.txt; do
+for SAMPLE_SHEET in ./samplesheets/*.txt; do
   SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
   obimultiplex -t ./samplesheets/"${SAMPLE_NAME}".txt -e 4 \
     -u ./3.obimultiplex/"${SAMPLE_NAME}"_unidentified.fastq \
@@ -172,12 +219,22 @@ for SAMPLE_SHEET in ./samplesheets/P*.txt; do
 done
 ```
 
+(@) Report the reads assigned and not assigned to a sample:
+
+```bash
+AS=0; UN=0
+for f in ./3.obimultiplex/*_paired.ali.assigned.fastq; do AS=$(( AS + $(nreads "$f") )); done
+for f in ./3.obimultiplex/*_unidentified.fastq; do UN=$(( UN + $(nreads "$f") )); done
+report "Filtering" "obimultiplex" "Total reads assigned" $AS reads "All samples"
+report "Filtering" "obimultiplex" "Total reads unassigned" $UN reads "All samples"
+```
+
 ### 5. Dereplication and singleton removal
 
 (@) Collapse identical reads into exact sequence variants and keep only the `count` and `sample` annotations:
 
 ```bash
-for SAMPLE_SHEET in ./samplesheets/P*.txt; do
+for SAMPLE_SHEET in ./samplesheets/*.txt; do
   SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
   obiuniq -O ./3.obimultiplex/"${SAMPLE_NAME}"_paired.ali.assigned.fastq \
     > ./4.uniq/"${SAMPLE_NAME}"_paired.ali.assigned.uniq.fasta
@@ -186,30 +243,75 @@ for SAMPLE_SHEET in ./samplesheets/P*.txt; do
 done
 ```
 
-(@) Record statistics per sample in `10.stats` (sequences after the run; merged reads at the start; singletons) with `obicount`, as in the source script.
+(@) Record statistics per sample in `10.stats` (merged reads at the start, unique sequences, singletons) with `obicount`, and report the totals:
+
+```bash
+for SAMPLE_SHEET in ./samplesheets/*.txt; do
+  SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
+  F=./5.simplified/"${SAMPLE_NAME}"_paired.ali.assigned.simple.fasta
+  [ -f "$F" ] || continue
+  obicount "$F" > ./10.stats/"${SAMPLE_NAME}".final_metrics.txt
+  obigrep -p 'sequence.Count() == 1' "$F" | obicount > ./10.stats/"${SAMPLE_NAME}".singleton_metrics.txt
+done
+report "Dereplication" "QC" "Total unique sequences (sum of samples)" $(cat ./10.stats/*.final_metrics.txt | awk '{s+=$1} END {print s}') sequences "All samples"
+report "Filtering" "Singleton removal" "Total singletons" $(cat ./10.stats/*.singleton_metrics.txt | awk '{s+=$1} END {print s}') sequences "All samples"
+```
+
+::: {.callout-note}
+Check the first lines of each `obicount` output once: the column used for the sum must be the number of sequences (or reads, with `--reads`) for the OBITools4 version installed.
+:::
 (@) Remove singletons and check that no sequence with count 1 remains:
 
 ```bash
-for SAMPLE_SHEET in ./samplesheets/P*.txt; do
+for SAMPLE_SHEET in ./samplesheets/*.txt; do
   SAMPLE_NAME=$(basename "$SAMPLE_SHEET" .txt)
   obigrep -p 'sequence.Count() > 1' ./5.simplified/"${SAMPLE_NAME}"_paired.ali.assigned.simple.fasta \
     > ./6.nosingletons/"${SAMPLE_NAME}"_paired.ali.assigned.simple.nosingle.fasta
 done
+KEPT=0; for f in ./6.nosingletons/*.fasta; do KEPT=$(( KEPT + $(nseqs "$f") )); done
+report "Filtering" "Singleton removal" "Sequences kept after singleton removal" $KEPT sequences "All samples"
 ```
 
 ### 6. Merge samples and inspect
 
-(@) Concatenate all samples: `cat ./6.nosingletons/*.fasta > all.fasta`.
-(@) In R (ROBIFastread, ggplot2), plot the number of occurrences per variant and the sequence length distribution; the source script marks 10 occurrences and the 400–460 bp range for COI.
+(@) Concatenate all samples and report the total: `cat ./6.nosingletons/*.fasta > all.fasta`, then `report "Sanity" "Merge samples" "Sequences after merging all samples" $(nseqs all.fasta) sequences "All samples"`.
+
+(@) In R, plot the number of occurrences per variant and the sequence length distribution, and add the summary to the report. The same function is used again after denoising (step 7) and after chimera removal:
+
+```r
+library(Biostrings); library(tidyverse); library(ggpubr)
+
+inspect <- function(fasta, count_pattern, png, min_len, max_len, binwidth = 10) {
+  seqs <- readDNAStringSet(fasta)
+  counts <- as.numeric(str_extract(names(seqs), count_pattern))
+  df <- tibble(count = counts, length = width(seqs))
+  a <- ggplot(df, aes(count)) + geom_histogram(bins = 100) + scale_x_sqrt() + scale_y_sqrt() +
+    geom_vline(xintercept = 10, colour = "red", linetype = 2) + xlab("Occurrences of a variant")
+  b <- ggplot(df, aes(length)) + geom_histogram(binwidth = binwidth) + scale_y_log10() +
+    geom_vline(xintercept = c(min_len, max_len), colour = "red", linetype = 2) + xlab("Sequence length (bp)")
+  ggsave(png, ggarrange(a, b, labels = c("A", "B"), ncol = 2), width = 10, height = 5, dpi = 300)
+  rows <- tibble(section = "QC", step = basename(fasta),
+                 metric = c("Variants", "Min count", "Median count", "Max count", "Min length", "Median length", "Max length"),
+                 value = c(length(seqs), min(counts), median(counts), max(counts), min(df$length), median(df$length), max(df$length)),
+                 unit = c("sequences", rep("reads", 3), rep("bp", 3)), notes = "All samples")
+  write_tsv(rows, "reports/report_info.tsv", append = TRUE)
+  invisible(df)
+}
+
+inspect("all.fasta", '(?<="count":)\\d+', "1_sequence_qc_plots.png", 400, 450)   # COI limits
+```
 
 ### 7. VSEARCH: denoising, chimeras and clustering
 
 (@) Convert the headers to VSEARCH format (`count` → `size`):
 
 ```bash
-sed -E '/^>/ s/ \{"count":([0-9]+),\"sample\":\"?([0-9a-zA-Z]+)\"?\}/ count=\1; sample=\2/g' all.fasta > all_sa.fasta
+sed '/^>/ s/{"count":\([0-9]\+\),"sample":"\([^"]\+\)"}/count=\1; sample=\2/g' all.fasta > all_sa.fasta
 sed 's/\;\ count=/\;size=/g;s/\ count=/\;size=/g' all_sa.fasta | sed 's/\;\ /\;/g;s/\ /\;/g' > ./8.vsearch/file_vsearch.fasta
+grep '^>' ./8.vsearch/file_vsearch.fasta | head    # expected: >read_id;size=4;sample=P1.10
 ```
+
+The first command accepts any sample name, including names with dots (e.g. P1.10); a pattern limited to letters and digits leaves such headers unconverted.
 
 (@) Dereplicate across the whole dataset and relabel:
 
@@ -233,12 +335,26 @@ vsearch --uchime3_denovo ./8.vsearch/file_centroids.fasta --sizein --notrunclabe
   --uchimeout ./10.stats/chimera.txt
 ```
 
+(@) Report the sequences after each VSEARCH step and inspect the denoised and non-chimeric sequences with the R function of step 6 (count pattern `'(?<=size=)\\d+'`, `binwidth = 1`):
+
+```bash
+report "VSEARCH" "Dereplication" "Unique sequences" $(nseqs ./8.vsearch/file_dereplicate.fasta) sequences "All samples"
+report "VSEARCH" "UNOISE" "Centroids" $(nseqs ./8.vsearch/file_centroids.fasta) sequences "All samples"
+report "VSEARCH" "Chimera removal" "Non-chimeric sequences" $(nseqs ./8.vsearch/file_nonchim.fasta) sequences "All samples"
+report "VSEARCH" "Chimera removal" "Chimeras removed" $(nseqs ./8.vsearch/file_chim.fasta) sequences "All samples"
+```
+
 (@) Cluster into OTUs at 96% similarity. Adapt the threshold to the intraspecific genetic variability expected for the target group:
 
 ```bash
 vsearch --cluster_size ./8.vsearch/file_nonchim.fasta --id 0.96 --centroids ./8.vsearch/file_otus.fasta \
   --sizein --relabel otu -uc ./10.stats/cluster_uc.txt
+report "VSEARCH" "OTU clustering" "OTUs" $(nseqs ./8.vsearch/file_otus.fasta) OTUs "All samples"
 ```
+
+::: {.callout-important title="CRITICAL"}
+The December 2025 scripts cluster at 99% (`--id 0.99`), the lab's confirmed setting for this protocol is 96% [TO CONFIRM: which threshold for which marker and group]. Record the threshold used.
+:::
 
 ### 8. LULU curation (erroneous OTUs and NUMTs)
 
@@ -265,7 +381,15 @@ otu.curated <- otufasta[which(names(otufasta) %in% lulu.output$curated_otus)]
 write.fasta(otu.curated, names(otu.curated), file.out = "./9.lulu/curated_OTUs.fasta", nbchar = 500)
 ```
 
-(@) Copy the curated OTU table to `reports`: `cp ./9.lulu/otutable_curated.tsv ./reports/otutable_curated.txt`.
+(@) Copy the curated OTU table to `reports`: `cp ./9.lulu/otutable_curated.tsv ./reports/otutable_curated.txt`, and report the OTU table size (OTUs, samples, reads assigned) and the number of curated OTUs:
+
+```bash
+T=./8.vsearch/file_otutab.tsv
+report "VSEARCH" "OTU table" "OTUs" $(( $(wc -l < $T) - 1 )) OTUs "All samples"
+report "VSEARCH" "OTU table" "Samples" $(head -1 $T | awk -F'\t' '{print NF-1}') samples "All samples"
+report "VSEARCH" "OTU table" "Reads assigned" $(awk 'NR>1{for(i=2;i<=NF;i++) s+=$i} END{print s}' $T) reads "All samples"
+report "LULU" "Curation" "Curated OTUs" $(nseqs ./9.lulu/curated_OTUs.fasta) OTUs "All samples"
+```
 
 ### 9. Taxonomic assignment (BOLDigger3)
 
@@ -275,6 +399,38 @@ write.fasta(otu.curated, names(otu.curated), file.out = "./9.lulu/curated_OTUs.f
 boldigger3 identify ./9.lulu/curated_OTUs.fasta ~/Bold_db --db 3 --mode 1 --thresholds 95 90 85 80
 ```
 
+### 10. Variant: 18S nematode amplicons (NF1/18Sr2b)
+
+Steps 1–8 are the same, with these changes. The settings come from the lab's December 2025 primer test (NF1/18Sr2b, amplicon about 320 bp; TAReukFWD1/TAReukREV3, about 390 bp, without primers) and are to be confirmed for routine use.
+
+(@) Step 7, UNOISE: keep sequences of 280–430 bp (`--minseqlength 280 --maxseqlength 430`) [TO CONFIRM: length range for NF1/18Sr2b alone], and use the same limits in the R inspection.
+
+(@) Step 7, clustering: the primer test clustered at 99% [TO CONFIRM: threshold for 18S nematodes].
+
+(@) Instead of step 9, identify the curated OTUs against 18S-NemaBase with VSEARCH (global alignment, at least 84% identity over at least 90% of the query; all hits up to 10 are kept, sorted by identity):
+
+```bash
+vsearch --usearch_global ./9.lulu/curated_OTUs.fasta --db ./18S_NemaBase/18S_NemaBase.fasta   --userout ./reports/NemaBase_hits.txt --userfields query+target+id   --id 0.84 --query_cov 0.9 --maxaccepts 0 --maxhits 10
+awk 'BEGIN{OFS="\t"} !seen[$1]++' ./reports/NemaBase_hits.txt > ./reports/NemaBase_best_hits.txt
+```
+
+(@) Split the taxonomy of the best hit into ranks in R. Each 18S-NemaBase header holds the accession followed by 16 ranks separated by semicolons (domain to species); missing ranks are written as `NA_<rank>`:
+
+```r
+hits <- read.delim("reports/NemaBase_best_hits.txt", header = FALSE, col.names = c("OTU", "Target", "Identity"))
+ranks <- c("Domain", "Kingdom", "Phylum", "Subphylum", "Superclass", "Class", "Subclass", "Superorder",
+           "Order", "Suborder", "Infraorder", "Superfamily", "Family", "Subfamily", "Genus", "Species")
+tax <- do.call(rbind, lapply(strsplit(sub("^[^_]+_", "", hits$Target), ";"), function(x) { length(x) <- 16; x }))
+colnames(tax) <- ranks
+tax[grepl("^NA_", tax)] <- NA
+taxonomy_table <- data.frame(OTU = hits$OTU, Identity = hits$Identity, tax)
+write.table(taxonomy_table, "reports/curated_OTUs_taxonomy.tsv", sep = "\t", quote = FALSE, row.names = FALSE)
+```
+
+::: {.callout-important title="CRITICAL"}
+An 84% match only shows that an OTU is close to a reference; it does not support a name at genus or species level. Decide, and record, the identity needed to accept each rank [TO CONFIRM: lab thresholds for 18S nematodes].
+:::
+
 ## Calculations
 
 Not applicable.
@@ -283,15 +439,16 @@ Not applicable.
 
 | Check | Where | Acceptance criterion |
 |:--|:--|:--|
-| Reads per sample after merging and filtering | `10.stats` | [TO CONFIRM: minimum reads per sample] |
+| Reads per sample after merging and filtering | `10.stats`, `reports/report_info.tsv` | [TO CONFIRM: minimum reads per sample] |
+| Reads and sequences kept at each step | `reports/report_info.tsv` | No step loses an unexpected share [TO CONFIRM: what share triggers a check] |
 | Singletons removed | `6.nosingletons` | No sequence with count 1 |
-| Length distribution | R plot (step 6) | Main peak within 400–460 bp (COI) |
+| Length distribution | R plots (steps 6 and 7) | Main peak within 400–460 bp (COI); [TO CONFIRM] for 18S |
 | Negative controls (extraction blanks, PCR negatives) | OTU table | [TO CONFIRM: how contaminant reads are removed] |
 | Mock community (if sequenced) | OTU table | [TO CONFIRM] |
 
 ## Data and metadata
 
-- **Outputs:** `reports/otutable_curated.txt` (curated OTU table), `9.lulu/curated_OTUs.fasta`, BOLDigger3 identification table, per-step statistics in `10.stats`.
+- **Outputs:** `reports/otutable_curated.txt` (curated OTU table), `9.lulu/curated_OTUs.fasta`, BOLDigger3 identification table (COI) or `reports/curated_OTUs_taxonomy.tsv` (18S), the run report `reports/report_info.tsv`, the inspection plots, per-step statistics in `10.stats`.
 - **Code:** the source script is kept with the protocol sources; it is to be added to this repository (`code/`) once personal paths are removed [TO CONFIRM].
 - **Where:** project data folder [TO CONFIRM]; raw reads deposited in [TO CONFIRM: public archive].
 
@@ -299,7 +456,8 @@ Not applicable.
 - Run and sample sheet used; sequencing run ID
 - Software versions (OBITools4, VSEARCH, R and packages, BOLDigger3) and BOLD database download date
 - All non-default parameters (as in this protocol)
-- Reads per sample at each step (`10.stats`)
+- Reads per sample at each step (`10.stats`) and the run report (`reports/report_info.tsv`)
+- Reference database and version (BOLD download date; 18S-NemaBase version)
 :::
 
 ## Safety and waste
@@ -313,6 +471,8 @@ Not applicable (computational protocol).
 | Many reads in `_unidentified.fastq` | Primers or sample sheet do not match the reads | Check primer sequences and tags in the sample sheet. |
 | Many joined (unaligned) pairs | Amplicon longer than the combined reads (e.g. long 18S amplicons) | Check marker length against the read length (EnGeL-MOLB-MB, Primer table). |
 | Sequences with count 1 after step 5 | Singleton filter not applied | Re-run the `obigrep -p 'sequence.Count() > 1'` step. |
+| Headers still in `{"count":…}` form after conversion | Sample names with characters the pattern did not expect | Use the conversion in step 7, which accepts any sample name; check with `grep '^>' … \| head`. |
+| `report: command not found` | Helpers not defined in this terminal session | Run the helper definitions of step 1 again. |
 
 ## Remarks
 
@@ -320,7 +480,9 @@ Parameters are written for COI (BF3/BR2; amplicon 458 bp with primers, target 41
 
 ## References
 
-[TO CONFIRM: OBITools4, VSEARCH, UNOISE, UCHIME3, LULU and BOLDigger3 references.]
+[TO CONFIRM: OBITools4, VSEARCH, UNOISE, UCHIME3, LULU, BOLDigger3 and Biostrings references.]
+
+Gattoni, K., Gendron, E.M.S., Sandoval-Ruiz, R., Borgemeier, A., McQueen, J.P., Shepherd, R.M., Slos, D., Powers, T.O., & Porazinska, D.L. (2023). 18S-NemaBase: curated 18S rRNA database of nematode sequences. *Journal of Nematology*, 55(1), e2023-0006. <https://doi.org/10.2478/jofnem-2023-0006>
 
 Elbrecht, V., Braukmann, T.W.A., Ivanova, N.V., et al. (2019). Validation of COI metabarcoding primers for terrestrial arthropods. PeerJ, 7, e7745. <https://doi.org/10.7717/peerj.7745>
 
@@ -332,9 +494,11 @@ Elbrecht, V., Braukmann, T.W.A., Ivanova, N.V., et al. (2019). Validation of COI
 ## Open questions
 
 1. Software versions (OBITools4, VSEARCH, R and packages, BOLDigger3); BOLD database version or date.
-2. Parameters for 18S (nematodes): length filter, clustering, reference database.
+2. 18S nematodes: length range for NF1/18Sr2b alone (the primer test used 280–430 bp for two primer pairs); clustering threshold; identity needed to accept a rank against 18S-NemaBase; 18S-NemaBase version; are TAReukFWD1/TAReukREV3 used routinely?
 3. Source and location of `ngs_filter.py`; general file-renaming rule.
 4. How negative controls are used to remove contaminants; minimum reads per sample.
 5. Add the script (without personal paths) to the repository under `code/`? Licence MIT.
 6. Where outputs are kept; public archive for raw reads.
 7. References for the tools; DOI.
+8. Clustering threshold: 96% (confirmed 2026-11-16) or 99% (December 2025 scripts), and for which markers.
+9. What share of reads lost at one step should trigger a check (run report).
