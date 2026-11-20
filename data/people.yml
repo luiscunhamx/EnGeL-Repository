@@ -28,6 +28,13 @@
 - name: Artur Sarmento
   role: PhD student in Biosciences
   orcid: 0000-0003-3736-1531
+- name: Fernanda Benedet de Santo
+  role: Invited Assistant Researcher (PhD)
+  orcid: 0000-0003-1081-2099
+- name: Sarah Louise
+  role: ""
+  orcid: ""
+  affiliation: ""   # not known
 - name: Yevhenia Shcheka
   role: ""
   orcid: ""

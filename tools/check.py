@@ -56,6 +56,8 @@ for path in sorted(glob.glob('protocols/**/*.qmd', recursive=True)):
     for a in meta.get('author', []) or []:
         o = a.get('orcid', '') if isinstance(a, dict) else ''
         if isinstance(a, dict) and a.get('no-orcid'): continue                         # confirmed: this person has no ORCID
+        if isinstance(a, dict) and a.get('orcid-to-confirm') and meta.get('status') == 'draft':   # drafts may wait for an ORCID; a release may not
+            warn(path, f'ORCID to confirm: {a.get("name")}'); continue
         if not re.match(r'^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$', str(o)): err(path, f'author without valid ORCID (or no-orcid: true, only if confirmed): {a}')
     auth_names = [a.get('name') if isinstance(a, dict) else str(a) for a in (meta.get('author') or [])]
     rev = meta.get('reviewed-by')
@@ -116,6 +118,7 @@ for path in sorted(glob.glob('handbook/**/EnGeL-GUIDE-*.qmd', recursive=True)):
     if hist and (str(hist[-1].get('version')) != str(meta.get('version')) or str(hist[-1].get('date')) != str(meta.get('date'))):
         err(path, 'version/date differ from the last version-history entry')
     for a in meta.get('author', []) or []:
+        if isinstance(a, dict) and a.get('orcid-to-confirm') and meta.get('status') == 'draft': continue
         if isinstance(a, dict) and not a.get('no-orcid') and not re.match(r'^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$', str(a.get('orcid', ''))):
             err(path, f'author without valid ORCID (or no-orcid: true, only if confirmed): {a.get("name")}')
     names_ = [a.get('name') for a in (meta.get('author') or []) if isinstance(a, dict)]

@@ -107,6 +107,8 @@ website:
             text: "Bioinformatics: OBITools4 pipeline"
           - href: protocols/bioinf/EnGeL-BIOINF-COMMUNITY.qmd
             text: "Bioinformatics: community data in R"
+          - href: protocols/bioinf/EnGeL-BIOINF-RNASEQ.qmd
+            text: "Bioinformatics: RNA-seq differential expression"
       - section: "Workflows"
         contents:
           - workflows/soil-fauna-metabarcoding.qmd
@@ -143,6 +145,8 @@ website:
             text: "BIOINF-OBITOOLS4"
           - href: bench/EnGeL-BIOINF-COMMUNITY-bench.qmd
             text: "BIOINF-COMMUNITY"
+          - href: bench/EnGeL-BIOINF-RNASEQ-bench.qmd
+            text: "BIOINF-RNASEQ"
       # END sidebar
   page-footer:
     left: "EnGeL-UC · Centre for Functional Ecology · University of Coimbra"
