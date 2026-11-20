@@ -2,13 +2,13 @@
 title: "Total RNA extraction with TRIzol and spin-column clean-up (honey bees; isopod hepatopancreas)"
 short-title: "Total RNA extraction (TRIzol)"
 protocol-id: EnGeL-MOLB-RNA
-version: 1.2.4
+version: 1.2.5
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
 author:
   - name: Nuno Ferreira
-    orcid-to-confirm: true
+    orcid: 0000-0002-3749-3836
     contribution: "isopod protocol"
   - name: Artur Sarmento
     orcid: 0000-0003-3736-1531
@@ -93,6 +93,10 @@ version-history:
   - version: 1.2.4
     date: 2026-11-20
     change: "Authors of the isopod protocol confirmed by Luís Cunha: Nuno Ferreira and Luís Cunha."
+    by: "Luís Cunha"
+  - version: 1.2.5
+    date: 2026-11-20
+    change: "ORCID of Nuno Ferreira added."
     by: "Luís Cunha"
 ---
 
@@ -271,7 +275,7 @@ Qiagen (2006). RNeasy Mini Handbook (04/2006): 8 000 × g (10 000 rpm) for loadi
 
 ## Open questions
 
-1. Nuno Ferreira: ORCID and affiliation; DOI.
+1. DOI.
 2. Kit identities: bees — NZY Total RNA Isolation kit (NI, DI, DNase I, NWR1, NWR2)? Isopods — Qiagen RNeasy (RW1, RPE)? Catalogue numbers.
 3. Bees: volume transferred to the new tube before chloroform; bead tube type and bead-beater model.
 4. Sample storage before extraction; RNA storage temperature; sample 1 and 2 kept separate or pooled?
