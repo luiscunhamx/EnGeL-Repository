@@ -2,7 +2,7 @@
 title: "RNA sequencing: from reads to differentially expressed genes and gene ontology (FastQC, Trimmomatic, STAR, featureCounts, DESeq2, DAVID)"
 short-title: "Bioinformatics: RNA-seq differential expression"
 protocol-id: EnGeL-BIOINF-RNASEQ
-version: 1.1.0
+version: 1.1.1
 date: 2026-11-20
 status: draft
 area: Bioinformatics (BIOINF)
@@ -38,7 +38,7 @@ reagents:
     name: "STAR"
   - text: "samtools 1.9"
     name: "samtools"
-  - text: "featureCounts (Subread package) [TO CONFIRM: version]"
+  - text: "featureCounts, Subread 2.0.6"
     name: "featureCounts"
   - text: "R with DESeq2, apeglm, ggplot2, gplots and RColorBrewer (Bioconductor 3.19 in the source notebook) [TO CONFIRM: R and package versions]"
     name: "DESeq2"
@@ -57,6 +57,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-20
     change: "Values confirmed by Luís Cunha: at least 5 biological replicates per condition (7–8 recommended); starting QC values of 70% uniquely mapped and 60% assigned reads; fold-change threshold on shrunken values, with the lfcThreshold test as the stricter option; DAVID terms at Benjamini < 0.05, chart and clustering; STAR index parameter set per genome; rlog by default, vst for large data sets; reference genome kept general, with a check of the annotation. Author name: Sarah Louise Cruz."
+    by: "Luís Cunha"
+  - version: 1.1.1
+    date: 2026-11-20
+    change: "Subread version on the lab workstation confirmed (2.0.6); --countReadPairs kept."
     by: "Luís Cunha"
 ---
 
@@ -199,7 +203,7 @@ featureCounts -T $THREADS -p --countReadPairs -s 0 -a genes.gtf \
   -o 5.counts/featureCounts_output.txt 4.mapping/*_Aligned.sortedByCoord.out.bam
 ```
 
-`--countReadPairs` is needed from Subread 2.0.2 onwards for `-p` to count pairs rather than single reads; older versions count pairs with `-p` alone and do not accept the option [TO CONFIRM: Subread version installed].
+`--countReadPairs` is needed from Subread 2.0.2 onwards (the lab workstation has 2.0.6) for `-p` to count pairs rather than single reads; older versions count pairs with `-p` alone and do not accept the option. Check with `featureCounts -v`.
 
 (@) Open `5.counts/featureCounts_output.txt.summary` and record the percentage of assigned reads per sample.
 
@@ -412,7 +416,7 @@ Andrews, S. (2010). FastQC: a quality control tool for high throughput sequence 
 
 ## Open questions
 
-1. Software versions: FastQC, Subread (featureCounts; decides whether `--countReadPairs` is used), R, DESeq2, apeglm; installation method on the workstation.
+1. Software versions: FastQC, R, DESeq2, apeglm; installation method on the workstation.
 2. QC acceptance criteria still open: read pairs kept after trimming; FastQC criteria beyond adapter removal.
 3. Branch without a reference genome (step 8): tools and settings.
 4. Sarah Louise Cruz: ORCID, if she has one.

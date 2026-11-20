@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-BIOINF-RNASEQ 1.1.1 (2026-11-20): Subread 2.0.6 on the lab workstation confirmed; `--countReadPairs` kept.
 - EnGeL-MOLB-RNA 1.2.5 (2026-11-20): ORCID of Nuno Ferreira added. People: Nuno Ferreira (Assistant Researcher, CIIMAR, University of Porto).
 - EnGeL-GUIDE-AUTOCLAVE 1.2.0 (2026-11-20): solid loads at 121 °C, as for liquids (corrects 1.1.0).
 - Values and authorship confirmed by Luís Cunha (2026-11-20):
