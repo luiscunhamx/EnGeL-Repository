@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- Left menu: Lab handbook first, then the protocol areas from the field to the computer (sampling, fauna, molecular biology, bioinformatics), workflows and bench sheets; sample-size planning before sampling effort; sequencing submission listed last among the workflows.
 - Home page: photo on the Bioinformatics card (MinION sequencing run), so all four area cards have a photo.
 - EnGeL-SAMPL-POWER 1.0.0 (2026-11-20): first version (planning sample size by simulation: community composition with PERMANOVA, a diversity index, sampling methods and sub-samples, repeated measures with simr), from the lab's power-analysis notebooks, generalised with a neutral example; the diversity-index example uses the additive model for the overall effect.
 - EnGeL-SAMPL-EFFORT 1.0.2 (2026-11-20): cross-reference to EnGeL-SAMPL-POWER.

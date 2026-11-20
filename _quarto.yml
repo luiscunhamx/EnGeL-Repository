@@ -60,12 +60,23 @@ website:
       - register.qmd
       - to-confirm.qmd
       - people.qmd
+      - section: "Lab handbook"
+        contents:
+          - href: handbook/index.qmd
+            text: Overview
+          - handbook/joining.qmd
+          - handbook/EnGeL-GUIDE-LABRULES.qmd
+          - handbook/equipment/index.qmd
+          - handbook/equipment/EnGeL-GUIDE-AUTOCLAVE.qmd
+          - handbook/EnGeL-GUIDE-FILES.qmd
+          - handbook/EnGeL-GUIDE-SAMPLES.qmd
+          - handbook/internal.qmd
       - section: "Sampling and experimental design"
         contents:
-          - href: protocols/sampl/EnGeL-SAMPL-EFFORT.qmd
-            text: "Sampling effort and completeness (iNEXT)"
           - href: protocols/sampl/EnGeL-SAMPL-POWER.qmd
             text: "Sample size and power (simulation)"
+          - href: protocols/sampl/EnGeL-SAMPL-EFFORT.qmd
+            text: "Sampling effort and completeness (iNEXT)"
       - section: "Fauna sample processing"
         contents:
           - href: protocols/fauna/EnGeL-FAUNA-MAR-MORPH.qmd
@@ -94,25 +105,18 @@ website:
             text: "Bioinformatics: OBITools4 pipeline"
           - href: protocols/bioinf/EnGeL-BIOINF-COMMUNITY.qmd
             text: "Bioinformatics: community data in R"
-      - section: "Lab handbook"
-        contents:
-          - href: handbook/index.qmd
-            text: Overview
-          - handbook/joining.qmd
-          - handbook/EnGeL-GUIDE-LABRULES.qmd
-          - handbook/equipment/index.qmd
-          - handbook/equipment/EnGeL-GUIDE-AUTOCLAVE.qmd
-          - handbook/EnGeL-GUIDE-FILES.qmd
-          - handbook/EnGeL-GUIDE-SAMPLES.qmd
-          - handbook/internal.qmd
       - section: "Workflows"
         contents:
           - workflows/soil-fauna-metabarcoding.qmd
-          - workflows/sequencing-submission.qmd
-          - workflows/rna.qmd
           - workflows/single-specimen-barcoding.qmd
+          - workflows/rna.qmd
+          - workflows/sequencing-submission.qmd
       - section: "Bench sheets"
         contents:
+          - href: bench/EnGeL-SAMPL-POWER-bench.qmd
+            text: "SAMPL-POWER"
+          - href: bench/EnGeL-SAMPL-EFFORT-bench.qmd
+            text: "SAMPL-EFFORT"
           - href: bench/EnGeL-FAUNA-MAR-MORPH-bench.qmd
             text: "FAUNA-MAR-MORPH"
           - href: bench/EnGeL-MOLB-DNA-MAG-bench.qmd
@@ -135,10 +139,6 @@ website:
             text: "BIOINF-OBITOOLS4"
           - href: bench/EnGeL-BIOINF-COMMUNITY-bench.qmd
             text: "BIOINF-COMMUNITY"
-          - href: bench/EnGeL-SAMPL-EFFORT-bench.qmd
-            text: "SAMPL-EFFORT"
-          - href: bench/EnGeL-SAMPL-POWER-bench.qmd
-            text: "SAMPL-POWER"
       # END sidebar
   page-footer:
     left: "EnGeL-UC · Centre for Functional Ecology · University of Coimbra"

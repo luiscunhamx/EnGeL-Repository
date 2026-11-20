@@ -209,10 +209,11 @@ def people(protos):
            'To get in touch, use the lab contact on each protocol page.\n\n' + '\n'.join(blocks))
     write('people.qmd', txt)
 
-# Order of protocols in the sidebar (workflow order); protocols not listed follow alphabetically.
-SIDEBAR_ORDER = ['EnGeL-FAUNA-MAR-MORPH', 'EnGeL-MOLB-DNA-MAG', 'EnGeL-MOLB-DNA-COL', 'EnGeL-MOLB-DNA-BARC',
+# Sidebar: Lab handbook first, then the areas from the field to the computer (AREAS order), workflows, bench sheets.
+# Order of protocols within the areas and bench sheets (workflow order); protocols not listed follow alphabetically.
+SIDEBAR_ORDER = ['EnGeL-SAMPL-POWER', 'EnGeL-SAMPL-EFFORT', 'EnGeL-FAUNA-MAR-MORPH', 'EnGeL-MOLB-DNA-MAG', 'EnGeL-MOLB-DNA-COL', 'EnGeL-MOLB-DNA-BARC',
                  'EnGeL-MOLB-DNA-BEE', 'EnGeL-MOLB-RNA', 'EnGeL-MOLB-NAQC', 'EnGeL-MOLB-MB', 'EnGeL-MOLB-KAPA',
-                 'EnGeL-BIOINF-OBITOOLS4', 'EnGeL-BIOINF-COMMUNITY', 'EnGeL-SAMPL-EFFORT']
+                 'EnGeL-BIOINF-OBITOOLS4', 'EnGeL-BIOINF-COMMUNITY']
 
 def sidebar(protos):
     def key(x):
@@ -220,19 +221,19 @@ def sidebar(protos):
         return (SIDEBAR_ORDER.index(pid) if pid in SIDEBAR_ORDER else len(SIDEBAR_ORDER), pid)
     def q(t): return '"' + str(t).replace('"', '\\"') + '"'
     L = ['      - href: index.qmd', '        text: Home', '      - register.qmd', '      - to-confirm.qmd', '      - people.qmd']
+    L += ['      - section: "Lab handbook"', '        contents:', '          - href: handbook/index.qmd', '            text: Overview',
+          '          - handbook/joining.qmd', '          - handbook/EnGeL-GUIDE-LABRULES.qmd', '          - handbook/equipment/index.qmd',
+          '          - handbook/equipment/EnGeL-GUIDE-AUTOCLAVE.qmd', '          - handbook/EnGeL-GUIDE-FILES.qmd',
+          '          - handbook/EnGeL-GUIDE-SAMPLES.qmd', '          - handbook/internal.qmd']
     for folder, title, _, _ in AREAS:
         items = sorted([(p, m) for p, m, _ in protos if p.split('/')[1] == folder], key=key)
         if not items: continue
         L.append(f'      - section: {q(title)}'); L.append('        contents:')
         for p, m in items:
             L += [f'          - href: {p}', f'            text: {q(m.get("short-title") or m["title"])}']
-    L += ['      - section: "Lab handbook"', '        contents:', '          - href: handbook/index.qmd', '            text: Overview',
-          '          - handbook/joining.qmd', '          - handbook/EnGeL-GUIDE-LABRULES.qmd', '          - handbook/equipment/index.qmd',
-          '          - handbook/equipment/EnGeL-GUIDE-AUTOCLAVE.qmd', '          - handbook/EnGeL-GUIDE-FILES.qmd',
-          '          - handbook/EnGeL-GUIDE-SAMPLES.qmd', '          - handbook/internal.qmd']
     L += ['      - section: "Workflows"', '        contents:']
-    wf_first = ['workflows/soil-fauna-metabarcoding.qmd', 'workflows/sequencing-submission.qmd']
-    wfs = [w for w in wf_first if os.path.exists(w)] + sorted(w for w in glob.glob('workflows/*.qmd') if w not in wf_first)
+    wf_order = ['workflows/soil-fauna-metabarcoding.qmd', 'workflows/single-specimen-barcoding.qmd', 'workflows/rna.qmd', 'workflows/sequencing-submission.qmd']
+    wfs = [w for w in wf_order if os.path.exists(w)] + sorted(w for w in glob.glob('workflows/*.qmd') if w not in wf_order)
     L += [f'          - {w}' for w in wfs]
     L += ['      - section: "Bench sheets"', '        contents:']
     for p, m in sorted([(p, m) for p, m, _ in protos], key=key):
