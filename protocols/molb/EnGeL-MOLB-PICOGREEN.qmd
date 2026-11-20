@@ -2,7 +2,7 @@
 title: "Double-stranded DNA concentration in 96-well plates with PicoGreen (FLUOstar Omega plate reader)"
 short-title: "DNA concentration, 96-well plates (PicoGreen)"
 protocol-id: EnGeL-MOLB-PICOGREEN
-version: 1.1.0
+version: 1.1.1
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -46,6 +46,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-20
     change: "Samples above the standard curve diluted and measured again (confirmed by Luís Cunha); Luísa Fraga: testing and adjustments."
+    by: "Luís Cunha"
+  - version: 1.1.1
+    date: 2026-11-20
+    change: "Action when the standard curve fails: repeat the curve (confirmed by Luís Cunha)."
     by: "Luís Cunha"
 ---
 
@@ -139,7 +143,7 @@ $$c_\mathrm{sample} = \frac{c_\mathrm{well} \times 50}{1000}$$
 
 | Control | Purpose | Acceptance criterion |
 |:--|:--|:--|
-| Standard curve (S1–S3 + blank, in duplicate) | Calibration | R² ≥ 0.99 |
+| Standard curve (S1–S3 + blank, in duplicate) | Calibration | R² ≥ 0.99; if not, prepare the standards again and repeat the curve before reading the samples |
 | Samples within the curve | Valid reading | Above S1 (1 000 ng/mL in the well): dilute in 1X TE and measure again. Below the lowest standard: report as below the curve |
 | DNA concentration of extracts | Enough DNA for PCR | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; depends on the starting quantity and parent material; between 5 and 10 ng/µL the PCR result decides |
 
@@ -170,7 +174,7 @@ For this protocol: plates, tubes and tips go to biological solid waste (black bi
 
 | Problem | Likely cause | Solution |
 |:--|:--|:--|
-| Standard curve R² < 0.99 | Pipetting error in the standards | Prepare the standards again; [TO CONFIRM] |
+| Standard curve R² < 0.99 | Pipetting error in the standards, or old lambda working stock | Prepare the standards again and repeat the curve. |
 | Low signal overall | Reagent exposed to light, or glass tubes used | Prepare the working reagent fresh, in the dark, in plastic tubes. |
 | Samples above S1 | Concentration beyond the curve | Dilute the samples in 1X TE and measure again; correct for the dilution. |
 
@@ -190,5 +194,4 @@ Thermo Fisher Scientific (Invitrogen) (n.d.). Quant-iT PicoGreen dsDNA Reagent a
 ## Open questions
 
 1. Kit catalogue number; hazards from the SDS; waste route.
-2. Action when the standard curve fails (R² < 0.99).
-3. DOI.
+2. DOI.
