@@ -2,8 +2,8 @@
 title: "DNA extraction from bulk soil fauna samples with magnetic beads (Omega Bio-tek Mag-Bind® Blood & Tissue DNA HDQ 96, Invitek InviGenius®)"
 short-title: "DNA extraction, magnetic beads (InviGenius)"
 protocol-id: EnGeL-MOLB-DNA-MAG
-version: 1.2.0
-date: 2026-11-17
+version: 1.3.0
+date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
 author:
@@ -97,6 +97,10 @@ version-history:
   - version: 1.2.0
     date: 2026-11-17
     change: "Storage of microarthropods in ethanol: room temperature, ideally in the fridge if there is space."
+    by: "Luís Cunha"
+  - version: 1.3.0
+    date: 2026-11-20
+    change: "Acceptance criteria confirmed by Luís Cunha: extraction blanks go through the PCR and must show no band and < 5 ng/µL on the NanoDrop; purity ranges A260/A280 1.8–2.0 and A260/A230 2.0–2.2 are ideals (values outside flagged, the PCR decides)."
     by: "Luís Cunha"
 ---
 
@@ -293,9 +297,9 @@ $$V_\mathrm{mix} = v_\mathrm{sample} \times n \times 1.1$$
 
 | Control | Where | Purpose | Acceptance criterion |
 |:--|:--|:--|:--|
-| Extraction blanks (4 per plate) | Positions H3, H6, H9, H12; processed exactly like the samples from lysis onwards | Detect contamination during extraction; spread across the plate so that cross-contamination can be traced to a position | [TO CONFIRM] |
+| Extraction blanks (4 per plate) | Positions H3, H6, H9, H12; processed exactly like the samples from lysis onwards | Detect contamination during extraction; spread across the plate so that cross-contamination can be traced to a position | Processed through the PCR with the samples: no band on the gel, and < 5 ng/µL on the NanoDrop (regarded as noise) |
 | Extraction positive control (e.g. mock community of known composition) | When establishing a new starting material or community | Check extraction performance for the new material | [TO CONFIRM: composition and criterion] |
-| DNA purity | All extracts | A~260~/A~280~ and A~260~/A~230~ (NanoDrop) | [TO CONFIRM] |
+| DNA purity | All extracts | A~260~/A~280~ and A~260~/A~230~ (NanoDrop) | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
 | DNA concentration | All extracts | Fluorometry (Qubit) | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail. Depends on the starting quantity and parent material; between 5 and 10 ng/µL the PCR result decides. |
 
 The DNA concentration rule is a general guide: the PCR is the best way to evaluate whether the DNA in a sample is viable. The Metabarcoding Lab Pipeline workbook uses 10 ng/µL as its “adequate DNA” threshold when classifying PCR failures.
@@ -355,7 +359,7 @@ For this protocol:
 | Low DNA yield | Mag-Bind® Particles not resuspended; binding mix prepared too early | Resuspend the particles thoroughly; prepare the binding mix only for the current run. Other causes and solutions: [TO CONFIRM]. |
 | Specimens damaged after lysis | Incubation extended | Keep the standard incubation time for non-destructive lysis. |
 | Run fails or wells empty | Plates in wrong positions | Check plate positions against the loading table before starting the run. |
-| DNA detected in extraction blanks | [TO CONFIRM] | [TO CONFIRM] |
+| DNA detected in extraction blanks (band on the gel, or ≥ 5 ng/µL) | Contamination during extraction or handling | Identify what amplified (bioinformatics); check reagents and handling; samples of the same run are interpreted with this in mind [TO CONFIRM: when a run is repeated] |
 
 ## Remarks
 
@@ -395,13 +399,13 @@ Qiagen (n.d.). FAQ-3362: Is it possible to stop the DNeasy tissue protocol and s
 3. Macroarthropod pre-treatment: drying conditions, powdering method, amount per extraction.
 4. Thawing conditions for frozen nematode aliquots.
 5. Hands-on and total time for a full plate; maximum sample amount per extraction (Luísa Fraga, Andreia Quaresma).
-6. QC acceptance criteria still open: extraction blanks, A~260~/A~280~ and A~260~/A~230~; composition of the extraction positive control.
+6. Composition of the extraction positive control.
 7. Robot program: the Bind volume field shows 980 in the exported file; the setting should be 770 µL.
 8. Reagent preparation volumes: check against Omega manual v9.0.
 9. RNase A: supplier and concentration.
 10. Holding lysates: adopt one of the literature options, or keep “no storage”?
 11. Record the robot run ID?
-12. Troubleshooting: actions when DNA is detected in blanks; other causes of low yield.
+12. Troubleshooting: when a run with DNA in a blank is repeated; other causes of low yield.
 13. Author order; DOI.
 14. Materials list 2 mL nuclease-free microcentrifuge tubes (from the UC protocols), but no step uses them: keep or remove?
 

@@ -2,8 +2,8 @@
 title: "DNA metabarcoding of soil fauna: two-step PCR amplicon library preparation (COI for microarthropods, 18S rRNA for nematodes)"
 short-title: "Metabarcoding library preparation (two-step PCR)"
 protocol-id: EnGeL-MOLB-MB
-version: 1.3.1
-date: 2026-11-17
+version: 1.4.0
+date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
 author:
@@ -99,6 +99,10 @@ version-history:
   - version: 1.3.1
     date: 2026-11-17
     change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
+    by: "Luís Cunha"
+  - version: 1.4.0
+    date: 2026-11-20
+    change: "Library quantification check (shared with EnGeL-MOLB-KAPA): positive control within ±20% of 200 nM (160–240 nM)."
     by: "Luís Cunha"
 ---
 

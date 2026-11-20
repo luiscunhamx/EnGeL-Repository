@@ -2,8 +2,8 @@
 title: "Illumina library quantification by qPCR (KAPA Library Quantification Kit)"
 short-title: "Library quantification, KAPA qPCR"
 protocol-id: EnGeL-MOLB-KAPA
-version: 1.1.1
-date: 2026-11-17
+version: 1.2.0
+date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
 author:
@@ -62,6 +62,10 @@ version-history:
   - version: 1.1.1
     date: 2026-11-17
     change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
+    by: "Luís Cunha"
+  - version: 1.2.0
+    date: 2026-11-20
+    change: "Positive-control acceptance criterion confirmed by Luís Cunha: within ±20% of 200 nM (160–240 nM)."
     by: "Luís Cunha"
 ---
 
@@ -184,7 +188,7 @@ Roche (n.d.). KAPA Library Quantification Kit – Illumina Platforms. Technical 
 
 1. Authorship (author or contributor model for the handbook, pending); DOI.
 2. Kit catalogue number.
-3. Positive control: product and catalogue number; acceptance criterion.
+3. Positive control: product and catalogue number.
 4. Library dilution buffer: the source calls it “TE pH = 8” but gives 10 mM Tris-HCl + 0.05% Tween 20 (no EDTA). Name, preparation and storage?
 5. Where results are recorded (Lab Pipeline *Library_QC* sheet?).
 6. Troubleshooting: action for extra melt-curve peaks and for signal in the NTC.

@@ -2,8 +2,8 @@
 title: "DNA extraction from single arthropod specimens for DNA barcoding (Qiagen DNeasy Blood & Tissue Kit)"
 short-title: "DNA extraction for barcoding (DNeasy)"
 protocol-id: EnGeL-MOLB-DNA-BARC
-version: 1.0.1
-date: 2026-11-17
+version: 1.1.0
+date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
 author:
@@ -60,6 +60,10 @@ version-history:
   - version: 1.0.1
     date: 2026-11-17
     change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
+    by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "Acceptance criteria confirmed by Luís Cunha: extraction blank (no band after PCR, < 5 ng/µL on the NanoDrop), purity ranges as ideals (flagged, the PCR decides), concentration rule as for bulk extracts."
     by: "Luís Cunha"
 ---
 
@@ -152,9 +156,9 @@ Not applicable: volumes are per sample. For $n$ samples, prepare $V = v \times n
 
 | Control | Purpose | Acceptance criterion |
 |:--|:--|:--|
-| Extraction blank | Detect contamination | [TO CONFIRM] |
-| DNA purity (EnGeL-MOLB-NAQC) | A~260~/A~280~, A~260~/A~230~ | [TO CONFIRM] |
-| DNA concentration | Enough DNA for PCR | [TO CONFIRM: same rule as bulk extracts (≥ 10 ng/µL success; < 5 ng/µL fail)?] |
+| Extraction blank | Detect contamination | Processed through the PCR with the samples: no band on the gel, and < 5 ng/µL on the NanoDrop (regarded as noise) |
+| DNA purity (EnGeL-MOLB-NAQC) | A~260~/A~280~, A~260~/A~230~ | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
+| DNA concentration | Enough DNA for PCR | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; between 5 and 10 ng/µL the PCR result decides |
 | Barcode PCR | DNA usable | Band of the expected size [TO CONFIRM] |
 
 ## Data and metadata
@@ -210,6 +214,6 @@ Qiagen (n.d.). DNeasy Blood & Tissue Handbook (HB-2061) [TO CONFIRM: edition]. w
 2. Leg sampling: when are the legs macerated (“one 1h after incubation” in the source)?
 3. Non-destructive specimens: how are they recovered and stored after lysis?
 4. Buffer AE temperature before elution; is a second elution used?
-5. Number of extraction blanks; acceptance criteria (blanks, purity, concentration).
+5. Number of extraction blanks per batch.
 6. Where barcoding records are kept.
 7. Hands-on and total time.

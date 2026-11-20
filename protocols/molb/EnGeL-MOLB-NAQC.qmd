@@ -2,19 +2,19 @@
 title: "Nucleic acid quality control: purity and concentration (NanoDrop, Qubit, PicoGreen)"
 short-title: "Nucleic acid QC (NanoDrop, Qubit, PicoGreen)"
 protocol-id: EnGeL-MOLB-NAQC
-version: 1.2.1
-date: 2026-11-17
+version: 1.3.0
+date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
 author:
+  - name: Andreia Quaresma
+    orcid: 0000-0002-8678-5800
+    contribution: "lead; PicoGreen section; checking and formatting"
   - name: Diogo Fonseca
     orcid: 0009-0003-2564-7572
     contribution: "NanoDrop and Qubit sections"
   - name: Luísa Fraga
     orcid: 0000-0003-3153-4593
-  - name: Andreia Quaresma
-    orcid: 0000-0002-8678-5800
-    contribution: "PicoGreen section"
   - name: Luís Cunha
     orcid: 0000-0002-5870-2537
     contribution: "review and approval"
@@ -71,6 +71,10 @@ version-history:
   - version: 1.2.1
     date: 2026-11-17
     change: "Authorship: all who contributed are authors, with their roles; lead author first where identified, reviewer (Luís Cunha) last."
+    by: "Luís Cunha"
+  - version: 1.3.0
+    date: 2026-11-20
+    change: "Author order confirmed by Luís Cunha (Andreia Quaresma lead, Diogo Fonseca, Luísa Fraga, Luís Cunha); DNA purity ranges as ideals (values outside flagged, the PCR decides)."
     by: "Luís Cunha"
 ---
 
@@ -189,7 +193,7 @@ $$c_\mathrm{sample} = \frac{c_\mathrm{well} \times 50}{1000}$$
 | NanoDrop blank | Zero on the sample matrix | Measured before the samples |
 | Qubit standards #1 and #2 | Calibration | [TO CONFIRM] |
 | PicoGreen standard curve (S1–S3 + blank, in duplicate) | Calibration | R² ≥ 0.99 |
-| DNA purity (A~260~/A~280~, A~260~/A~230~) | Protein, salt or organic carry-over | [TO CONFIRM] |
+| DNA purity (A~260~/A~280~, A~260~/A~230~) | Protein, salt or organic carry-over | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
 | DNA concentration of extracts | Enough DNA for PCR | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; depends on the starting quantity and parent material; between 5 and 10 ng/µL the PCR result decides |
 
 The PCR is the best way to evaluate whether the DNA in a sample is viable.
@@ -245,9 +249,9 @@ Thermo Fisher Scientific (n.d.). Qubit 1X dsDNA assays – simplified workflow, 
 
 ## Open questions
 
-1. Authorship (author or contributor model for the handbook, pending; the PicoGreen part was prepared by Andreia Quaresma); DOI.
+1. DOI.
 2. Instrument models: NanoDrop and Qubit.
 3. Qubit: HS assay only, or also the BR assay? Equilibration of reagents?
-4. Acceptance criteria: Qubit standards; A~260~/A~280~ and A~260~/A~230~ ranges.
+4. Acceptance criterion for the Qubit standards.
 5. Should RNA quantification be added here?
 6. Kit catalogue numbers; hazards from the SDS; waste route.

@@ -2,7 +2,7 @@
 title: "Metabarcoding bioinformatics with OBITools4, VSEARCH, LULU and BOLDigger3 (COI amplicons; 18S nematode variant)"
 short-title: "Bioinformatics: OBITools4 pipeline"
 protocol-id: EnGeL-BIOINF-OBITOOLS4
-version: 1.1.0
+version: 1.2.0
 date: 2026-11-20
 status: draft
 area: Bioinformatics (BIOINF)
@@ -62,6 +62,10 @@ version-history:
     date: 2026-11-20
     change: "From Luísa F. Dornellas's scripts of December 2025: run report (reads and sequences after each step in reports/report_info.tsv); R inspection with Biostrings instead of ROBIFastread, also after denoising and after chimera removal; header conversion that accepts sample names with dots; sample-sheet loops over all samples; 18S nematode variant (length filter and identification against 18S-NemaBase with VSEARCH)."
     by: "Luísa Fraga, Luís Cunha"
+  - version: 1.2.0
+    date: 2026-11-20
+    change: "Values confirmed by Luís Cunha: clustering at 96% as the lab rule (99% only for groups with very low intraspecific variability); NF1/18Sr2b is the routine 18S pair, merged reads only, 280–430 bp provisional; 18S-NemaBase names accepted at ≥ 99% (species), ≥ 97% (genus), ≥ 95% (family), otherwise the next higher rank; read-loss table per step and sample, steps losing more than half the reads flagged; samples judged against the whole data set (< 1 000 reads: re-sequence; < 500: not used by default, always checked first); negative controls: identify, then subtract their reads."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -353,7 +357,7 @@ report "VSEARCH" "OTU clustering" "OTUs" $(nseqs ./8.vsearch/file_otus.fasta) OT
 ```
 
 ::: {.callout-important title="CRITICAL"}
-The December 2025 scripts cluster at 99% (`--id 0.99`), the lab's confirmed setting for this protocol is 96% [TO CONFIRM: which threshold for which marker and group]. Record the threshold used.
+96% is the lab rule: 3–4% divergence is acceptable within an invertebrate (e.g. arthropod) species. Use 99% (`--id 0.99`) only for groups known to have very low intraspecific variability, and record the threshold used. (The December 2025 scripts used 99%.)
 :::
 
 ### 8. LULU curation (erroneous OTUs and NUMTs)
@@ -401,11 +405,13 @@ boldigger3 identify ./9.lulu/curated_OTUs.fasta ~/Bold_db --db 3 --mode 1 --thre
 
 ### 10. Variant: 18S nematode amplicons (NF1/18Sr2b)
 
-Steps 1–8 are the same, with these changes. The settings come from the lab's December 2025 primer test (NF1/18Sr2b, amplicon about 320 bp; TAReukFWD1/TAReukREV3, about 390 bp, without primers) and are to be confirmed for routine use.
+NF1/18Sr2b is the lab's routine 18S primer pair (amplicon about 320 bp without primers). Steps 1–8 are the same, with these changes.
 
-(@) Step 7, UNOISE: keep sequences of 280–430 bp (`--minseqlength 280 --maxseqlength 430`) [TO CONFIRM: length range for NF1/18Sr2b alone], and use the same limits in the R inspection.
+(@) Step 3: only merged (aligned) read pairs are used. Pairs that do not merge well are discarded for now; how to use unmerged pairs is under development in the lab and not part of this protocol.
 
-(@) Step 7, clustering: the primer test clustered at 99% [TO CONFIRM: threshold for 18S nematodes].
+(@) Step 7, UNOISE: keep sequences of 280–430 bp (`--minseqlength 280 --maxseqlength 430`), and use the same limits in the R inspection. This range comes from the December 2025 primer test, which also included TAReukFWD1/TAReukREV3 (about 390 bp); it is provisional for NF1/18Sr2b alone [TO CONFIRM: final range]. Amplicon length varies a little between species.
+
+(@) Step 7, clustering: 96%, as for COI, unless the group is known to have very low intraspecific variability.
 
 (@) Instead of step 9, identify the curated OTUs against 18S-NemaBase with VSEARCH (global alignment, at least 84% identity over at least 90% of the query; all hits up to 10 are kept, sorted by identity):
 
@@ -427,9 +433,63 @@ taxonomy_table <- data.frame(OTU = hits$OTU, Identity = hits$Identity, tax)
 write.table(taxonomy_table, "reports/curated_OTUs_taxonomy.tsv", sep = "\t", quote = FALSE, row.names = FALSE)
 ```
 
+(@) Accept a name only at the rank its identity supports: species at ≥ 99%, genus at ≥ 97%, family at ≥ 95%. Below these, report the next higher rank that is supported (for example the family, or only "Nematoda"); never force a genus or species name from a weak match:
+
+```r
+taxonomy_table$Species[taxonomy_table$Identity < 99] <- NA
+taxonomy_table$Genus[taxonomy_table$Identity < 97]   <- NA
+taxonomy_table$Family[taxonomy_table$Identity < 95]  <- NA
+write.table(taxonomy_table, "reports/curated_OTUs_taxonomy_accepted.tsv", sep = "\t", quote = FALSE, row.names = FALSE)
+```
+
 ::: {.callout-important title="CRITICAL"}
-An 84% match only shows that an OTU is close to a reference; it does not support a name at genus or species level. Decide, and record, the identity needed to accept each rank [TO CONFIRM: lab thresholds for 18S nematodes].
+The search keeps matches from 84% so that distant OTUs are still placed in Nematoda; 84% does not support a genus or species name. Record the thresholds used. 18S reference coverage for nematodes is incomplete, so many OTUs will stop at family or above.
 :::
+
+### 11. Read losses per step and per sample
+
+(@) Collect the reads of every sample at each step into one table (long format: sample, step, reads):
+
+```bash
+OUT=reports/read_tracking.tsv
+echo -e "sample\torder\tstep\treads" > $OUT
+sumcount() { grep -o '"count":[0-9]*' "$1" | cut -d: -f2 | awk '{s+=$1} END {print s+0}'; }
+for SAMPLE_SHEET in ./samplesheets/*.txt; do
+  S=$(basename "$SAMPLE_SHEET" .txt)
+  echo -e "$S\t1\traw read pairs\t$(nreads ./1.raw/${S}_R1.fastq)" >> $OUT
+  echo -e "$S\t2\tpaired\t$(nreads ./2.pairedend/${S}_paired.fastq)" >> $OUT
+  echo -e "$S\t3\taligned (unaligned removed)\t$(nreads ./2.pairedend/${S}_paired.ali.fastq)" >> $OUT
+  echo -e "$S\t4\tassigned to sample (primers found)\t$(nreads ./3.obimultiplex/${S}_paired.ali.assigned.fastq)" >> $OUT
+  echo -e "$S\t5\treads in non-singleton variants\t$(sumcount ./6.nosingletons/${S}_paired.ali.assigned.simple.nosingle.fasta)" >> $OUT
+done
+# reads per sample in the OTU table and in the curated table (column sums)
+awk -F'\t' 'NR==1{for(i=2;i<=NF;i++) n[i]=$i; next} {for(i=2;i<=NF;i++) s[i]+=$i} END{for(i in n) print n[i]"\t6\tin OTU table\t"s[i]}' ./8.vsearch/file_otutab.tsv >> $OUT
+```
+
+(@) In R, compute for each sample and step the reads in, reads out, reads lost and percentage lost, flag any step that loses more than half of its input, and add dataset totals:
+
+```r
+library(tidyverse)
+trk <- read_tsv("reports/read_tracking.tsv", show_col_types = FALSE)
+loss <- trk |>
+  arrange(sample, order) |>
+  group_by(sample) |>
+  mutate(reads_in = lag(reads), reads_out = reads, lost = reads_in - reads_out,
+         pct_lost = round(100 * lost / reads_in, 1),
+         flag = if_else(!is.na(pct_lost) & pct_lost > 50, "CHECK", "")) |>
+  ungroup() |> filter(!is.na(reads_in)) |>
+  select(sample, step, reads_in, reads_out, lost, pct_lost, flag)
+totals <- loss |> group_by(step) |>
+  summarise(sample = "ALL", reads_in = sum(reads_in), reads_out = sum(reads_out), .groups = "drop") |>
+  mutate(lost = reads_in - reads_out, pct_lost = round(100 * lost / reads_in, 1),
+         flag = if_else(pct_lost > 50, "CHECK", ""))
+write_tsv(bind_rows(loss, totals), "reports/read_losses.tsv")
+filter(bind_rows(loss, totals), flag == "CHECK")      # steps to look at
+```
+
+The sample names in the OTU table come from the `sample` annotation; if they differ from the sample-sheet file names, the OTU-table rows will not line up and must be matched by hand. The table is added to as the run progresses; rerun both blocks after any step is repeated.
+
+(@) Check every flagged step before going on. A large loss at merging usually means short overlaps (amplicon too long for the reads), at primer assignment a sample-sheet or primer problem, and at singleton removal a sample with very few reads.
 
 ## Calculations
 
@@ -439,11 +499,11 @@ Not applicable.
 
 | Check | Where | Acceptance criterion |
 |:--|:--|:--|
-| Reads per sample after merging and filtering | `10.stats`, `reports/report_info.tsv` | [TO CONFIRM: minimum reads per sample] |
-| Reads and sequences kept at each step | `reports/report_info.tsv` | No step loses an unexpected share [TO CONFIRM: what share triggers a check] |
+| Reads per sample in the final table | `reports/read_losses.tsv` | Judged against the whole data set. < 1 000 reads: re-sequence. < 500 reads: not used by default, but always checked first (one individual in a tube can give few reads); no sample is dropped automatically |
+| Reads lost at each step, per sample | `reports/read_losses.tsv` (step 11) | Any step losing more than 50% of its input is checked before going on |
 | Singletons removed | `6.nosingletons` | No sequence with count 1 |
-| Length distribution | R plots (steps 6 and 7) | Main peak within 400–460 bp (COI); [TO CONFIRM] for 18S |
-| Negative controls (extraction blanks, PCR negatives) | OTU table | [TO CONFIRM: how contaminant reads are removed] |
+| Length distribution | R plots (steps 6 and 7) | Main peak within 400–460 bp (COI); within 280–430 bp (18S, provisional) |
+| Negative controls (extraction blanks, PCR negatives) | OTU table | First identify what the OTUs in the blanks are and whether they point to cross-contamination between samples (e.g. a sample's dominant OTU in a blank); then subtract the reads found in the negative controls from the samples, OTU by OTU [TO CONFIRM: subtract the highest count in any blank, or the sum] |
 | Mock community (if sequenced) | OTU table | [TO CONFIRM] |
 
 ## Data and metadata
@@ -476,7 +536,7 @@ Not applicable (computational protocol).
 
 ## Remarks
 
-Parameters are written for COI (BF3/BR2; amplicon 458 bp with primers, target 418 bp). The source script also mentions primers III_B_F/Fol-degen-rev (464 bp) with the same length filter. The clustering threshold (96% here) should follow the intraspecific genetic variability expected for the target group. Over-denoising can remove true variability and under-denoising keeps erroneous OTUs; denoising settings were developed for bacterial 16S and need care for COI.
+Parameters are written for COI (BF3/BR2; amplicon 458 bp with primers, target 418 bp). The source script also mentions primers III_B_F/Fol-degen-rev (464 bp) with the same length filter. The clustering threshold (96%, the lab rule) follows the intraspecific genetic variability expected for the target group; 99% only for groups with very low variability. Over-denoising can remove true variability and under-denoising keeps erroneous OTUs; denoising settings were developed for bacterial 16S and need care for COI.
 
 ## References
 
@@ -493,12 +553,11 @@ Elbrecht, V., Braukmann, T.W.A., Ivanova, N.V., et al. (2019). Validation of COI
 
 ## Open questions
 
-1. Software versions (OBITools4, VSEARCH, R and packages, BOLDigger3); BOLD database version or date.
-2. 18S nematodes: length range for NF1/18Sr2b alone (the primer test used 280–430 bp for two primer pairs); clustering threshold; identity needed to accept a rank against 18S-NemaBase; 18S-NemaBase version; are TAReukFWD1/TAReukREV3 used routinely?
+1. Software versions (OBITools4, VSEARCH, R and packages, BOLDigger3); BOLD database version or date; 18S-NemaBase version (ask Luísa Fraga, and which identity she accepted in practice).
+2. 18S: final length range for NF1/18Sr2b alone.
 3. Source and location of `ngs_filter.py`; general file-renaming rule.
-4. How negative controls are used to remove contaminants; minimum reads per sample.
+4. Negative controls: subtract the highest read count of an OTU in any blank, or the sum over blanks?
 5. Add the script (without personal paths) to the repository under `code/`? Licence MIT.
 6. Where outputs are kept; public archive for raw reads.
 7. References for the tools; DOI.
-8. Clustering threshold: 96% (confirmed 2026-11-16) or 99% (December 2025 scripts), and for which markers.
-9. What share of reads lost at one step should trigger a check (run report).
+8. Mock community: is one sequenced, and what is the criterion?

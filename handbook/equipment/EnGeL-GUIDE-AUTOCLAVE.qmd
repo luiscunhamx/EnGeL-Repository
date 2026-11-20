@@ -1,8 +1,8 @@
 ---
 title: "Bench autoclave Med 12 (Selecta)"
 guide-id: EnGeL-GUIDE-AUTOCLAVE
-version: 1.0.1
-date: 2026-11-17
+version: 1.1.0
+date: 2026-11-20
 status: draft
 author:
   - name: Luís Cunha
@@ -18,6 +18,10 @@ version-history:
     date: 2026-11-17
     change: "Contact: Sandra Simões (autoclave); author confirmed (Luís Cunha)."
     by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "Solid loads at 120 °C, confirmed by Luís Cunha."
+    by: "Luís Cunha"
 ---
 
 ## Purpose
@@ -26,7 +30,7 @@ How to use the bench autoclave Med 12 (Selecta) in the EnGeL laboratory safely t
 
 ## Principle
 
-Autoclaving uses pressurised steam: water is heated above its boiling point (to at least 121 °C) in a closed chamber. Moist heat is the most dependable way to sterilise laboratory equipment and to decontaminate biological waste. It does not remove chemical contamination, and some chemicals release dangerous fumes when autoclaved.
+Autoclaving uses pressurised steam: water is heated above its boiling point (to about 120–121 °C) in a closed chamber. Moist heat is the most dependable way to sterilise laboratory equipment and to decontaminate biological waste. It does not remove chemical contamination, and some chemicals release dangerous fumes when autoclaved.
 
 ## Safety
 
@@ -46,7 +50,7 @@ Autoclaving uses pressurised steam: water is heated above its boiling point (to 
 | Load | Conditions | Exhaust | Notes |
 |:--|:--|:--|:--|
 | Liquids | 121 °C, 20 min, 15 psi (c. 103 kPa) | Slow (fast exhaust can make superheated liquids boil over) | Caps loose, or openings covered with foil or foam plugs. Large volumes may need longer. Tighten caps only once completely cool. |
-| Solids (plastics, tips in boxes, glass) | 120 °C [TO CONFIRM: 120 °C as in the source, or 121 °C as for liquids], 20 min, 15 psi (c. 103 kPa) | Fast or slow | Wrap in foil, PP bags or autoclavable boxes; caps loose. Drying cycle optional. Tighten caps only once completely cool. |
+| Solids (plastics, tips in boxes, glass) | 120 °C, 20 min, 15 psi (c. 103 kPa) | Fast or slow | Wrap in foil, PP bags or autoclavable boxes; caps loose. Drying cycle optional. Tighten caps only once completely cool. |
 | Waste | Waste cycle [TO CONFIRM: temperature and time] | [TO CONFIRM] | Biological waste properly contained. |
 
 ## Operation
@@ -95,6 +99,5 @@ Selecta. Autoclave Med 12, user manual [TO CONFIRM: edition] (kept with the lab'
 
 ## Open questions
 
-1. Temperature for solid loads: 120 °C (source) or 121 °C?
-2. Settings of the waste cycle (temperature, time, exhaust).
-3. Edition of the Selecta user manual.
+1. Settings of the waste cycle (temperature, time, exhaust).
+2. Edition of the Selecta user manual.

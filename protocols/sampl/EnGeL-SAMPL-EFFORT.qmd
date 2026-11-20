@@ -2,7 +2,7 @@
 title: "Measuring sampling effort and completeness: rarefaction, extrapolation and richness estimators (iNEXT, SpadeR)"
 short-title: "Sampling effort and completeness (iNEXT)"
 protocol-id: EnGeL-SAMPL-EFFORT
-version: 1.0.2
+version: 1.1.0
 date: 2026-11-20
 status: draft
 area: Sampling and experimental design (SAMPL)
@@ -40,6 +40,10 @@ version-history:
   - version: 1.0.2
     date: 2026-11-20
     change: "Cross-reference to EnGeL-SAMPL-POWER for planning sample size."
+    by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "Values confirmed by Luís Cunha: sample coverage of at least 90% regarded as sufficient; 500 bootstrap replicates."
     by: "Luís Cunha"
 ---
 
@@ -105,7 +109,7 @@ The source script loads BiodiversityR, but the functions `ChaoSpecies`, `Diversi
 
 ```r
 out <- iNEXT(data_list, q = c(0, 1, 2), datatype = "incidence_raw",
-             endpoint = NULL)   # NULL: iNEXT default, twice the reference sample size
+             endpoint = NULL, nboot = 500)   # endpoint NULL: twice the reference sample size
 ```
 
 For abundance data use `datatype = "abundance"`. To compute the curves at chosen sample sizes, give them in `size =` (the tutorial uses 1, 5, 20, 50, 100, 200 and 400 individuals for the spider example) [TO CONFIRM: sizes or endpoint for EnGeL data].
@@ -135,10 +139,10 @@ capture.output(div, file = "results/Diversity_site.txt")
 
 ```r
 ChaoShared(two_site_matrix, datatype = "incidence_raw", units = c(n1, n2),
-           se = TRUE, nboot = 200, conf = 0.95)
+           se = TRUE, nboot = 500, conf = 0.95)
 ```
 
-The source uses `nboot = 200` and, in one call, `nboot = 500` [TO CONFIRM: number of bootstrap replicates]. For more than two sites, `SimilarityMult()` compares several sites at once (the tutorial uses `q = 2`, `nboot = 200`, relative similarity).
+The lab uses 500 bootstrap replicates (steadier confidence intervals than 200, at the cost of run time). For more than two sites, `SimilarityMult()` compares several sites at once (the tutorial uses `q = 2` and relative similarity; use `nboot = 500`).
 
 ## Calculations
 
@@ -149,7 +153,7 @@ Not applicable: the estimators are computed by the packages. Report the estimato
 | Check | Acceptance criterion |
 |:--|:--|
 | Data format | Matrices contain only 0 and 1 (incidence) or non-negative integers (abundance); no empty sampling units |
-| Sample coverage of each site | [TO CONFIRM: minimum coverage regarded as sufficient] |
+| Sample coverage of each site | ≥ 90%; below this, the sampling is reported as incomplete and comparisons are made at equal coverage |
 | Comparisons between sites | Made at equal sample size or equal coverage, within the extrapolation range recommended by the package authors (up to about twice the reference sample size) |
 
 ## Data and metadata
@@ -196,7 +200,6 @@ Hsieh, T.C., Ma, K.H., Chao, A. (2016). iNEXT: an R package for rarefaction and 
 ## Open questions
 
 1. R and package versions (iNEXT, SpadeR); hands-on time.
-2. Sample sizes or endpoint to use for EnGeL data; number of bootstrap replicates (200 or 500).
-3. Minimum sample coverage regarded as sufficient (acceptance criterion).
-4. Study and data set behind the lab example in the source script.
-5. DOI.
+2. Sample sizes or endpoint to use for EnGeL data.
+3. Study and data set behind the lab example in the source script.
+4. DOI.

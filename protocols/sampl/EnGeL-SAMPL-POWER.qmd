@@ -2,7 +2,7 @@
 title: "Planning sample size: simulation-based power analysis for soil fauna and other ecological designs"
 short-title: "Sample size and power (simulation)"
 protocol-id: EnGeL-SAMPL-POWER
-version: 1.0.0
+version: 1.1.0
 date: 2026-11-20
 status: draft
 area: Sampling and experimental design (SAMPL)
@@ -32,6 +32,10 @@ version-history:
   - version: 1.0.0
     date: 2026-11-20
     change: "First EnGeL-UC version, from the lab's power-analysis notebooks (community composition, diversity index, repeated measures), generalised with a neutral example."
+    by: "Luís Cunha"
+  - version: 1.1.0
+    date: 2026-11-20
+    change: "Lab target confirmed by Luís Cunha: power 0.80 at α = 0.05; additive model for the overall effect in the diversity-index example confirmed."
     by: "Luís Cunha"
 ---
 
@@ -276,7 +280,7 @@ Example: 163 significant results in 200 simulations give power = 163 ÷ 200 = 0.
 
 | Check | Acceptance criterion |
 |:--|:--|
-| Target power and significance level | [TO CONFIRM: the lab's target, e.g. power 0.80 at α = 0.05] |
+| Target power and significance level | Power ≥ 0.80 at α = 0.05 (lab target) |
 | Number of simulations for reported values | 1000 or more (lower values only for setting up) |
 | Sanity check of the simulation | Power ≈ α when the effect size is 0 (in a test run: 0.03–0.06 at α = 0.05), and close to 1 at a large effect; a curve that stays flat at large effects indicates an error in the simulation |
 | Source of effect sizes and variances | Recorded for every value (pilot data, publication, or "illustrative") |
@@ -334,7 +338,5 @@ Oksanen, J., et al. vegan: Community Ecology Package. R package [TO CONFIRM: ver
 ## Open questions
 
 1. R and package versions (vegan, lme4, simr); hands-on time.
-2. The lab's target power and significance level (acceptance criterion).
-3. Typical effect sizes and variances for the lab's main study types (soil fauna composition, diversity indices, tree-ring series), from pilot data or literature, to quote as starting points.
-4. The source notebook for the diversity index tested `age_classmature` in the model with the interaction, i.e. the age effect within one land use only; this guide uses the additive model for the overall effect. Confirm.
-5. DOI.
+2. Typical effect sizes and variances for the lab's main study types (soil fauna composition, diversity indices, tree-ring series), from pilot data or literature, to quote as starting points.
+3. DOI.
