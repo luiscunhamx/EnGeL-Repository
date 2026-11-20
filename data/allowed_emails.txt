@@ -1,3 +1,5 @@
 # Lab contact addresses allowed on protocol pages (decided by Luís Cunha, 2026-11-16). Other personal addresses are never allowed.
 luis.cunha@uc.pt
 ewormuc@gmail.com
+# Manufacturer support address (NextGenPCR; approved by Luís Cunha 2026-11-20)
+support@mbspcr.com

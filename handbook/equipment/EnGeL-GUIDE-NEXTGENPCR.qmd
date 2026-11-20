@@ -1,0 +1,164 @@
+---
+title: "NextGenPCR microplate sealer and PCR programmes"
+guide-id: EnGeL-GUIDE-NEXTGENPCR
+version: 1.0.0
+date: 2026-11-20
+status: draft
+author:
+  - name: Luís Cunha
+    orcid: 0000-0002-5870-2537
+    contribution: "lead; review and approval"
+reviewed-by: Luís Cunha
+version-history:
+  - version: 1.0.0
+    date: 2026-11-20
+    change: "First EnGeL-UC version, from the lab's NextGenPCR sealing guidance (2026), with the manufacturer's sealing instructions for the PS2 and PS3 firmware paraphrased and cited; distributor contact details left out."
+    by: "Luís Cunha"
+---
+
+## Purpose
+
+How to seal NextGenPCR microplates with the semi-automatic heat sealer, and how to adapt PCR programmes to the NextGenPCR thermocycler. The guide covers both firmware versions of the sealer (PS2: PUSH TO SET and RUN buttons; PS3: Semi-Automated Plate Sealer button and START).
+
+## Principle
+
+NextGenPCR plates have thin-walled wells that are closed with a heat seal pressed on by a heated block. The seal is permanent: a sealed plate cannot be reused, and only EZtrieve seals can be pierced to recover the product after cycling. The NextGenPCR thermocycler moves the plate between blocks held at fixed temperatures instead of ramping one block up and down. Reactions therefore spend no time at intermediate temperatures, and programmes written for conventional thermocyclers usually need different temperatures, shorter holds and more cycles.
+
+## Safety
+
+- The sealing block is hot (155–175 °C): keep hands out of the drawer while it is closing and do not touch the block.
+- Sealed plates are hot when the drawer opens; lift them by the centre.
+
+::: {.callout-important title="CRITICAL"}
+Seals are permanent and plates cannot be reused. Check the settings for your plate type before every run: the 384-well settings (175 °C, 2.0 s) make 96-well plates burst or wrinkle.
+:::
+
+## Before you start
+
+| Item | Details |
+|:--|:--|
+| Sealer and adapter | NextGenPCR semi-automatic heat sealer with its standard plate adapter |
+| Sealing anvil | The anvil that matches the plate (table below) |
+| Seals | EZtrieve (pierceable after PCR) or clear heat seals; the lab uses both |
+| Copper sealing plate | Needed with clear heat seals only |
+| Pipetting anvil | Needed every time liquid is pipetted into or out of a plate |
+| Plates | Left at room temperature for at least 24 h before sealing |
+
+| Sealing anvil | Plates |
+|:--|:--|
+| 96 wells, 5 µL | 96-well 5 µL plates |
+| 96 wells, 20 µL and 12.5 µL | 24- and 48-well 20 µL and 50 µL plates; EZtrieve barcoded 96-well 20 µL plates; 96-well 12.5 µL plates |
+| 384 wells, 5 µL | 384-well 5 µL plates (barcoded or not) |
+
+Catalogue numbers are in the manufacturer's instructions [TO CONFIRM: plates and anvils held in the lab].
+
+::: {.callout-important title="CRITICAL"}
+Always pipette into the plate with the plate standing on the pipetting anvil. The well walls are thin and a pipette tip pushes through them without support.
+:::
+
+## Settings
+
+| Plate | Temperature | Time |
+|:--|:--|:--|
+| 20 µL and 50 µL plates | 155 °C | 1.5 s |
+| 384-well 5 µL plates | 175 °C | 2.0 s |
+
+The manufacturer may change these settings; check the current instructions when new consumables arrive.
+
+## Operation
+
+### 1. Set the sealer
+
+(@) Switch the sealer on (power button at the back).
+(@) Set temperature and time:
+    - **PS2:** hold PUSH TO SET until the temperature flashes, turn the knob to the temperature and press; the time flashes, turn to the time and wait a few seconds until the settings are saved.
+    - **PS3:** hold the Semi-Automated Plate Sealer button, turn to the temperature and press, turn to Time, press, set the time and press; then hold START to keep the settings.
+(@) Wait until the block reaches the set temperature (PS2: beep and "Press RUN to seal").
+
+### 2. Fill and load the plate
+
+(@) Fill the wells on the pipetting anvil. Stay within the maximum well volume, and fill to the maximum where possible: fuller wells deform less during cycling and are easier to empty. Leave no drops on the plate surface.
+(@) Open the drawer (PS2: PLATE In/Out; PS3: IN/OUT), put in the plate adapter, then the sealing anvil with the NGPCR logo to the right, then the plate with its sloped edges to the right. The plate must lie flat on every cylinder of the anvil.
+
+### 3. Seal
+
+(@) Lay the seal on the plate with the side marked "This side up" upwards, and do not move it once placed.
+(@) Clear seals only: put the copper sealing plate on top, side walls down.
+(@) Start the seal (PS2: RUN; PS3: START).
+
+### 4. After sealing
+
+(@) When the drawer opens, lift the plate from the centre and check it: flat, no air between the wells, no leaks, and an opaque ring around every well.
+(@) Let the plate cool to room temperature (about 21 °C) before cycling or storage; a plate cycled or stored while warm can warp.
+(@) Remove the sealing anvil, close the drawer and switch the sealer off.
+
+### 5. Recover the product after PCR
+
+(@) Spin the sealed plate briefly so that the product collects at the bottom of the wells.
+(@) With the plate on the pipetting anvil, pierce each well (EZtrieve seals only) with a fresh tip and swirl the tip against the inside of the well to push it back into shape.
+(@) Expect to lose up to about 10% of the volume during cycling (about 18 µL recovered from a 20 µL reaction).
+
+## PCR programmes for NextGenPCR
+
+Because the plate does not pass through intermediate temperatures, set the true optimum of each step directly. As starting points:
+
+- Annealing about 2–4 °C higher, and extension about 2–4 °C lower, than in the programme for a conventional thermocycler.
+- Denaturation can go up to 98 °C if the polymerase tolerates it; holds of 10–15 s are usually enough (30 s is too long).
+- Long initial denaturation is not needed (minutes rather than 15 min), unless the polymerase requires it.
+- Extension time from the amplicon length and the polymerase rate (for example 2–4 kb/min at 72 °C for the Qiagen 2× Multiplex master mix), with a few seconds more for multiplex reactions.
+- At least 30–35 cycles.
+
+Too few cycles and too-long holds are the most common reasons for failed amplification on NextGenPCR; check them before suspecting the instrument or the plates.
+
+**Example.** The lab's earlier programme and the adapted starting point, tested in the lab [TO CONFIRM: values to be confirmed by Andreia Quaresma]:
+
+| Step | Earlier programme | Starting point on NextGenPCR |
+|:--|:--|:--|
+| Initial denaturation | 94 °C, 15 min | 94–98 °C, 5 min |
+| Denaturation (each cycle) | 94 °C, 30 s | 94–98 °C, 10–15 s |
+| Annealing (each cycle) | 50 °C, 20 s | 52–54 °C, 15–20 s |
+| Extension (each cycle) | 72 °C, 10 s | 68–72 °C, set from the amplicon length |
+| Final extension | 72 °C, 5 min | 72 °C, 2–5 min |
+| Cycles | 25 | 30–35 |
+
+Validate the programme for each primer pair and master mix (Qiagen 2× Multiplex in the example).
+
+## Troubleshooting
+
+| Problem | Likely cause | What to do |
+|:--|:--|:--|
+| Wells burst or wrinkled during sealing | 384-well settings used on a 96-well plate; drops on the plate surface; wells overfilled | Use 155 °C, 1.5 s for 20 µL and 50 µL plates. Pierce the intact wells with a fresh tip each, transfer to a new plate and seal again. |
+| Wells wrinkled after PCR, product hard to recover | Wells filled well below their maximum | Fill to the maximum volume; spin the plate after PCR; use the pipetting anvil and swirl the tip in the well. |
+| Seal stuck to the copper plate or the block | Seal placed upside down | Clean the block with a wire brush; contact the manufacturer's support if it does not come off. |
+| Wells not fully covered | Copper plate not used with a clear seal; seal placed unevenly | Transfer the wells to a new plate and seal again; avoid the outermost wells. |
+| Plate warped after sealing | Plate cycled or stored before it cooled | Let sealed plates cool to room temperature first. |
+| Leaking wells | Wrong settings or seal orientation | Check the settings and the seal side; clean the block and repeat. |
+| No PCR product (positive control fails too) | Programme not adapted to NextGenPCR: temperatures, too few cycles, holds too long | See [PCR programmes for NextGenPCR](#pcr-programmes-for-nextgenpcr). |
+
+## Records
+
+Record every use in the instrument logbook ([Lab members only](../internal.qmd)).
+
+## Who to ask
+
+| Topic | Contact |
+|:--|:--|
+| Use of the sealer and the NextGenPCR thermocycler | Andreia Quaresma |
+| Faults | Andreia Quaresma; Luís Cunha (lab contact) |
+| Manufacturer support | Molecular Biology Systems, support@mbspcr.com |
+
+## References
+
+Molecular Biology Systems B.V. Instruction for NextGenPCR microplate sealing, PS2 firmware; Instruction for NextGenPCR microplate sealing, PS3 firmware [TO CONFIRM: document versions] (kept with the lab's kit manuals).
+
+## Version history and citation
+
+::: {.engel-history}
+:::
+
+## Open questions
+
+1. Example PCR programme: values to be confirmed by Andreia Quaresma.
+2. Plates and sealing anvils held in the lab.
+3. Author of the lab's sealing guidance (2026), to be added as author.
+4. Versions of the manufacturer's instruction sheets.

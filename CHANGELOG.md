@@ -5,6 +5,10 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-MOLB-EXOSAP 1.0.0 (2026-11-20): first version (PCR clean-up with ExoSAP-IT Express, ExoSAP-IT or a home-made Exonuclease I/SAP mix; sequencing samples with 10 pmol primer; Sanger recording sheet), from Luísa Fraga's bench protocol and the lab's older ExoSAP protocol. Single-specimen barcoding workflow: step 4 split (4a barcode PCR, planned; 4b this protocol).
+- EnGeL-GUIDE-NEXTGENPCR 1.0.0 (2026-11-20): first version (NextGenPCR sealer, PS2 and PS3 firmware; PCR programmes without ramping; troubleshooting), from the lab's sealing guidance, manufacturer's instructions paraphrased; contact Andreia Quaresma.
+- EnGeL-GUIDE-WORKSTATION 1.0.0 (2026-11-20): first version (bioinformatics workstation and the Navigator+ cluster: rules, conda environments as the rule, backups and clean-up each semester, SLURM partitions and jobs); internal addresses and access details kept off the public page.
+- Equipment list: links to the NextGenPCR and workstation guides.
 - EnGeL-MOLB-DNA-BEE 1.2.1 (2026-11-20): author name corrected to Yevheniia Shcheka (People page too).
 - GHS pictograms added from the harmonised EU classification of the pure chemicals used (ethanol, isopropanol, chloroform, phenol): EnGeL-MOLB-DNA-MAG 1.3.1, EnGeL-MOLB-DNA-COL 1.2.1, EnGeL-MOLB-DNA-BARC 1.1.1, EnGeL-MOLB-MB 1.4.1, EnGeL-MOLB-RNA 1.2.6. Kit buffers and TRIzol still to be checked against their safety data sheets.
 - Menu: Equipment is its own section (top bar and left pane), after the Lab handbook: instrument list first, then the instrument guides (bench autoclave); new guides in handbook/equipment/ are added automatically.
