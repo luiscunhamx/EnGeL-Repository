@@ -212,7 +212,7 @@ def people(protos):
 # Sidebar: Lab handbook first, then the areas from the field to the computer (AREAS order), workflows, bench sheets.
 # Order of protocols within the areas and bench sheets (workflow order); protocols not listed follow alphabetically.
 SIDEBAR_ORDER = ['EnGeL-SAMPL-POWER', 'EnGeL-SAMPL-EFFORT', 'EnGeL-FAUNA-MAR-MORPH', 'EnGeL-MOLB-DNA-MAG', 'EnGeL-MOLB-DNA-COL', 'EnGeL-MOLB-DNA-BARC',
-                 'EnGeL-MOLB-DNA-BEE', 'EnGeL-MOLB-RNA', 'EnGeL-MOLB-NAQC', 'EnGeL-MOLB-EXOSAP', 'EnGeL-MOLB-MB', 'EnGeL-MOLB-KAPA',
+                 'EnGeL-MOLB-DNA-BEE', 'EnGeL-MOLB-RNA', 'EnGeL-MOLB-NANODROP', 'EnGeL-MOLB-QUBIT', 'EnGeL-MOLB-PICOGREEN', 'EnGeL-MOLB-EXOSAP', 'EnGeL-MOLB-MB', 'EnGeL-MOLB-KAPA',
                  'EnGeL-BIOINF-SANGER', 'EnGeL-BIOINF-OBITOOLS4', 'EnGeL-BIOINF-COMMUNITY', 'EnGeL-BIOINF-RNASEQ']
 
 def sidebar(protos):

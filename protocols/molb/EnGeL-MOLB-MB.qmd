@@ -2,7 +2,7 @@
 title: "DNA metabarcoding of soil fauna: two-step PCR amplicon library preparation (COI for microarthropods, 18S rRNA for nematodes)"
 short-title: "Metabarcoding library preparation (two-step PCR)"
 protocol-id: EnGeL-MOLB-MB
-version: 1.4.1
+version: 1.4.2
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -29,7 +29,7 @@ equipment:
   - "Gel electrophoresis apparatus, power supply and gel imaging system (UV/blue-light transilluminator)"
   - "96-well magnetic extractor for U-bottom plates (clean-up of individual PCR products)"
   - "Magnetic stand for tubes (clean-up of the pooled library)"
-  - "Fluorometer (Qubit) or fluorescence plate reader (PicoGreen) — see EnGeL-MOLB-NAQC"
+  - "Fluorometer (Qubit) or fluorescence plate reader (PicoGreen) — see EnGeL-MOLB-QUBIT and EnGeL-MOLB-PICOGREEN"
   - "Agilent TapeStation (library size check)"
   - "qPCR instrument: QuantStudio 3 (library quantification)"
   - "Multichannel pipettes, pipettes; vortex mixer; plate centrifuge"
@@ -109,6 +109,10 @@ version-history:
     date: 2026-11-20
     change: "GHS pictograms for ethanol (harmonised EU classification)."
     by: "Luís Cunha"
+  - version: 1.4.2
+    date: 2026-11-20
+    change: "Cross-references to the nucleic acid QC protocols, now split into EnGeL-MOLB-NANODROP, EnGeL-MOLB-QUBIT and EnGeL-MOLB-PICOGREEN."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
@@ -128,7 +132,7 @@ A first PCR amplifies the target region with fusion primers that carry a TruSeq-
 |:--|:--|
 | Hands-on time | [TO CONFIRM] |
 | Total time | [TO CONFIRM]; PCR1 c. [TO CONFIRM], PCR2 c. [TO CONFIRM] |
-| Input | DNA extracts with their plate map; concentrations known (EnGeL-MOLB-NAQC) |
+| Input | DNA extracts with their plate map; concentrations known (EnGeL-MOLB-QUBIT or EnGeL-MOLB-PICOGREEN) |
 | Prepare in advance | Plate map with index assignment (Annex 1); Lab Pipeline workbook for the project; primer and index plates thawed; KAPA Pure Beads at room temperature |
 | Key safety points | See Safety and waste |
 
@@ -239,7 +243,7 @@ At the end of a bead tube, spin it down and transfer the remainder to a new tube
 
 ### Quantification, normalisation and pooling
 
-(@) Measure the concentration of each cleaned product by fluorometry (Qubit dsDNA HS or PicoGreen; EnGeL-MOLB-NAQC) and record the values in the plate map.
+(@) Measure the concentration of each cleaned product by fluorometry (EnGeL-MOLB-QUBIT or EnGeL-MOLB-PICOGREEN) and record the values in the plate map.
 (@) Normalise each product to 20 nM with nuclease-free water or 10 mM Tris-HCl, using the measured concentration and the expected fragment size (Calculations; *PCR2_Plate* sheet of the Lab Pipeline workbook). Mix gently.
 (@) Combine the normalised products into one tube to make the pooled library (*Pooling* sheet). Check the plate map before pooling and label and document the samples and indexes in each pool.
 

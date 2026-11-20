@@ -2,7 +2,7 @@
 title: "Genomic DNA isolation from honey bee guts (NZY Soil gDNA Isolation Kit)"
 short-title: "DNA from honey bee guts (NZY Soil)"
 protocol-id: EnGeL-MOLB-DNA-BEE
-version: 1.2.1
+version: 1.2.2
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -82,6 +82,10 @@ version-history:
   - version: 1.2.1
     date: 2026-11-20
     change: "Author name corrected: Yevheniia Shcheka."
+    by: "Luís Cunha"
+  - version: 1.2.2
+    date: 2026-11-20
+    change: "Cross-references to the nucleic acid QC protocols, now split into EnGeL-MOLB-NANODROP, EnGeL-MOLB-QUBIT and EnGeL-MOLB-PICOGREEN."
     by: "Luís Cunha"
 ---
 
@@ -191,7 +195,7 @@ Not applicable: volumes are per sample. For $n$ samples, prepare $V = v \times n
 | Control | Purpose | Acceptance criterion |
 |:--|:--|:--|
 | Extraction blank | Detect contamination (dissection tools, reagents) | Processed through the PCR with the samples: no band on the gel, and < 5 ng/µL on the NanoDrop (regarded as noise) |
-| DNA purity (EnGeL-MOLB-NAQC) | Quality of the extract | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
+| DNA purity (EnGeL-MOLB-NANODROP) | Quality of the extract | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
 | DNA concentration | Enough DNA for PCR | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; between 5 and 10 ng/µL the PCR result decides |
 
 ## Data and metadata

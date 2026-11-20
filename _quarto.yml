@@ -104,8 +104,12 @@ website:
             text: "DNA from honey bee guts (NZY Soil)"
           - href: protocols/molb/EnGeL-MOLB-RNA.qmd
             text: "Total RNA extraction (TRIzol)"
-          - href: protocols/molb/EnGeL-MOLB-NAQC.qmd
-            text: "Nucleic acid QC (NanoDrop, Qubit, PicoGreen)"
+          - href: protocols/molb/EnGeL-MOLB-NANODROP.qmd
+            text: "Nucleic acid purity (NanoDrop)"
+          - href: protocols/molb/EnGeL-MOLB-QUBIT.qmd
+            text: "DNA concentration, single samples (Qubit)"
+          - href: protocols/molb/EnGeL-MOLB-PICOGREEN.qmd
+            text: "DNA concentration, 96-well plates (PicoGreen)"
           - href: protocols/molb/EnGeL-MOLB-EXOSAP.qmd
             text: "PCR clean-up (ExoSAP) and Sanger submission"
           - href: protocols/molb/EnGeL-MOLB-MB.qmd
@@ -146,8 +150,12 @@ website:
             text: "MOLB-DNA-BEE"
           - href: bench/EnGeL-MOLB-RNA-bench.qmd
             text: "MOLB-RNA"
-          - href: bench/EnGeL-MOLB-NAQC-bench.qmd
-            text: "MOLB-NAQC"
+          - href: bench/EnGeL-MOLB-NANODROP-bench.qmd
+            text: "MOLB-NANODROP"
+          - href: bench/EnGeL-MOLB-QUBIT-bench.qmd
+            text: "MOLB-QUBIT"
+          - href: bench/EnGeL-MOLB-PICOGREEN-bench.qmd
+            text: "MOLB-PICOGREEN"
           - href: bench/EnGeL-MOLB-EXOSAP-bench.qmd
             text: "MOLB-EXOSAP"
           - href: bench/EnGeL-MOLB-MB-bench.qmd

@@ -2,7 +2,7 @@
 title: "RNA sequencing: from reads to differentially expressed genes and gene ontology (FastQC, Trimmomatic, STAR, featureCounts, DESeq2, DAVID)"
 short-title: "Bioinformatics: RNA-seq differential expression"
 protocol-id: EnGeL-BIOINF-RNASEQ
-version: 1.1.1
+version: 1.1.2
 date: 2026-11-20
 status: draft
 area: Bioinformatics (BIOINF)
@@ -62,11 +62,15 @@ version-history:
     date: 2026-11-20
     change: "Subread version on the lab workstation confirmed (2.0.6); --countReadPairs kept."
     by: "Luís Cunha"
+  - version: 1.1.2
+    date: 2026-11-20
+    change: "Cross-references to the nucleic acid QC protocols, now split into EnGeL-MOLB-NANODROP, EnGeL-MOLB-QUBIT and EnGeL-MOLB-PICOGREEN."
+    by: "Luís Cunha"
 ---
 
 ## Purpose and scope
 
-This protocol takes paired-end Illumina RNA-seq reads from organisms **with a reference genome** and produces a table of read counts per gene, a list of differentially expressed genes between conditions, and the gene ontology (GO) and pathway terms enriched among them. It follows total RNA extraction (EnGeL-MOLB-RNA) and nucleic acid QC (EnGeL-MOLB-NAQC) in the [RNA workflow](../../workflows/rna.qmd).
+This protocol takes paired-end Illumina RNA-seq reads from organisms **with a reference genome** and produces a table of read counts per gene, a list of differentially expressed genes between conditions, and the gene ontology (GO) and pathway terms enriched among them. It follows total RNA extraction (EnGeL-MOLB-RNA) and nucleic acid QC (EnGeL-MOLB-NANODROP) in the [RNA workflow](../../workflows/rna.qmd).
 
 The lab's libraries are not strand-specific and are usually sequenced as 2 × 150 bp reads. Settings that depend on this are marked.
 
@@ -373,7 +377,7 @@ Not applicable (computational protocol).
 |:--|:--|:--|
 | Adapter content still high after trimming | Wrong adapter file | Use the lab's `adapters.fa` from the Trimmomatic folder; check the provider's adapter sequences. |
 | STAR stops while building the index | Not enough memory | Lower `--genomeSAindexNbases` or use a machine with more memory; see the STAR manual. |
-| Low unique mapping | Wrong genome or annotation version, contamination, degraded RNA | Check the species and assembly; check RNA quality records (EnGeL-MOLB-NAQC). |
+| Low unique mapping | Wrong genome or annotation version, contamination, degraded RNA | Check the species and assembly; check RNA quality records (EnGeL-MOLB-NANODROP). |
 | Few reads assigned in featureCounts | GTF from a different assembly, or wrong strand setting | Use the GTF of the same assembly; keep `-s 0` for the lab's unstranded libraries. |
 | `stopifnot` fails when importing | Sample names in the table and the count columns differ or are in a different order | Make the names identical and sort the table to the count columns. |
 | `lfcShrink` error with `coef` | The comparison is not a coefficient of the model | Use a name from `resultsNames(dds)`, set a new reference level, or use `type = "ashr"`. |

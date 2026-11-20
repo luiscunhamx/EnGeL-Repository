@@ -2,7 +2,7 @@
 title: "DNA extraction from soil microarthropods with spin columns (NZY Tissue gDNA Isolation Kit)"
 short-title: "DNA extraction, spin columns (NZY Tissue)"
 protocol-id: EnGeL-MOLB-DNA-COL
-version: 1.2.1
+version: 1.2.2
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -31,7 +31,7 @@ equipment:
   - "Bead-beating homogeniser [TO CONFIRM: model and settings] or pestles for manual homogenisation"
   - "Vortex mixer"
   - "Heat block at 70 °C (elution buffer)"
-  - "Spectrophotometer (e.g. NanoDrop) and fluorometer (e.g. Qubit) — see EnGeL-MOLB-NAQC"
+  - "Spectrophotometer (e.g. NanoDrop) and fluorometer (e.g. Qubit) — see EnGeL-MOLB-NANODROP and EnGeL-MOLB-QUBIT"
 consumables:
   - "1.5 mL and 2 mL microcentrifuge tubes"
   - "NZYSpin Tissue columns and 2 mL collection tubes (in the kit)"
@@ -83,6 +83,10 @@ version-history:
   - version: 1.2.1
     date: 2026-11-20
     change: "GHS pictograms for ethanol (harmonised EU classification); kit buffers still to be checked against their safety data sheets."
+    by: "Luís Cunha"
+  - version: 1.2.2
+    date: 2026-11-20
+    change: "Cross-references to the nucleic acid QC protocols, now split into EnGeL-MOLB-NANODROP, EnGeL-MOLB-QUBIT and EnGeL-MOLB-PICOGREEN."
     by: "Luís Cunha"
 ---
 
@@ -177,8 +181,8 @@ Not applicable: volumes are per sample. For a batch of $n$ samples, prepare $V =
 |:--|:--|:--|:--|
 | Extraction blanks | Each batch [TO CONFIRM: number] | Detect contamination | Processed through the PCR with the samples: no band on the gel, and < 5 ng/µL on the NanoDrop (regarded as noise) |
 | Extraction positive control (mock community) | When establishing a new starting material or community | Check extraction performance | [TO CONFIRM: composition and criterion] |
-| DNA purity | All extracts | A~260~/A~280~, A~260~/A~230~ (EnGeL-MOLB-NAQC) | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
-| DNA concentration | All extracts | Fluorometry (EnGeL-MOLB-NAQC) | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; between 5 and 10 ng/µL the PCR result decides |
+| DNA purity | All extracts | A~260~/A~280~, A~260~/A~230~ (EnGeL-MOLB-NANODROP) | Ideal: A~260~/A~280~ 1.8–2.0 and A~260~/A~230~ 2.0–2.2. Values outside are flagged, not failed: the PCR decides |
+| DNA concentration | All extracts | Fluorometry (EnGeL-MOLB-QUBIT) | General rule: ≥ 10 ng/µL success; < 5 ng/µL fail; between 5 and 10 ng/µL the PCR result decides |
 
 The PCR is the best way to evaluate whether the DNA in a sample is viable.
 

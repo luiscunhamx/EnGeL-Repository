@@ -13,7 +13,7 @@ flowchart TD
   D{"Low-DNA sample?<br/>small, low abundance, precious"}
   B1["<b>2a DNA extraction, magnetic beads</b><br/>EnGeL-MOLB-DNA-MAG<br/><i>standard</i>"]
   B2["<b>2b DNA extraction, spin columns</b><br/>EnGeL-MOLB-DNA-COL"]
-  C["<b>3 Nucleic acid QC</b><br/>EnGeL-MOLB-NAQC"]
+  C["<b>3 Nucleic acid QC</b><br/>EnGeL-MOLB-NANODROP, -QUBIT, -PICOGREEN"]
   Q1{{"DNA: ≥ 10 ng/µL go; < 5 ng/µL fail;<br/>5–10 ng/µL: the PCR decides"}}
   E["<b>4 Library preparation (two-step PCR)</b><br/>EnGeL-MOLB-MB"]
   Q2{{"PCR1 gel: band of expected size;<br/>no band in blanks and PCR negatives"}}
@@ -51,7 +51,7 @@ flowchart TD
   click A "../protocols/fauna/EnGeL-FAUNA-MAR-MORPH.html"
   click B1 "../protocols/molb/EnGeL-MOLB-DNA-MAG.html"
   click B2 "../protocols/molb/EnGeL-MOLB-DNA-COL.html"
-  click C "../protocols/molb/EnGeL-MOLB-NAQC.html"
+  click C "../protocols/molb/EnGeL-MOLB-PICOGREEN.html"
   click E "../protocols/molb/EnGeL-MOLB-MB.html"
   click F "../protocols/molb/EnGeL-MOLB-KAPA.html"
   click G "sequencing-submission.html"
@@ -71,7 +71,7 @@ Magnetic beads on the robot (EnGeL-MOLB-DNA-MAG) are the standard. Use spin colu
 | 1. Sampling, MacFadyen extraction, sorting | [EnGeL-FAUNA-MAR-MORPH](../protocols/fauna/EnGeL-FAUNA-MAR-MORPH.qmd) | [bench sheet](../bench/EnGeL-FAUNA-MAR-MORPH-bench.qmd) | Sorted animals in ethanol 96% | Extraction within 5 days of sampling; temperature gradient |
 | 2a. DNA extraction, magnetic beads (standard) | [EnGeL-MOLB-DNA-MAG](../protocols/molb/EnGeL-MOLB-DNA-MAG.qmd) | [bench sheet](../bench/EnGeL-MOLB-DNA-MAG-bench.qmd) | DNA extract, 50 µL | Extraction blanks (4 per plate) |
 | 2b. DNA extraction, spin columns (low-DNA samples) | [EnGeL-MOLB-DNA-COL](../protocols/molb/EnGeL-MOLB-DNA-COL.qmd) | [bench sheet](../bench/EnGeL-MOLB-DNA-COL-bench.qmd) | DNA extract | Extraction blanks |
-| 3. Nucleic acid QC | [EnGeL-MOLB-NAQC](../protocols/molb/EnGeL-MOLB-NAQC.qmd) | [bench sheet](../bench/EnGeL-MOLB-NAQC-bench.qmd) | DNA extract with concentration and purity | ≥ 10 ng/µL go; < 5 ng/µL fail; 5–10 ng/µL the PCR decides |
+| 3. Nucleic acid QC: purity, then concentration (plates or single samples) | [EnGeL-MOLB-NANODROP](../protocols/molb/EnGeL-MOLB-NANODROP.qmd); [EnGeL-MOLB-PICOGREEN](../protocols/molb/EnGeL-MOLB-PICOGREEN.qmd) or [EnGeL-MOLB-QUBIT](../protocols/molb/EnGeL-MOLB-QUBIT.qmd) | [NanoDrop](../bench/EnGeL-MOLB-NANODROP-bench.qmd), [PicoGreen](../bench/EnGeL-MOLB-PICOGREEN-bench.qmd), [Qubit](../bench/EnGeL-MOLB-QUBIT-bench.qmd) | DNA extract with concentration and purity | ≥ 10 ng/µL go; < 5 ng/µL fail; 5–10 ng/µL the PCR decides |
 | 4. Library preparation | [EnGeL-MOLB-MB](../protocols/molb/EnGeL-MOLB-MB.qmd) | [bench sheet](../bench/EnGeL-MOLB-MB-bench.qmd) | Cleaned, pooled library | PCR1 gel; negatives clean; TapeStation single peak |
 | 5. Library quantification | [EnGeL-MOLB-KAPA](../protocols/molb/EnGeL-MOLB-KAPA.qmd) (also inside EnGeL-MOLB-MB) | [bench sheet](../bench/EnGeL-MOLB-KAPA-bench.qmd) | Pool diluted to 4 nM | qPCR run criteria (in the protocol) |
 | 6. Sequencing submission | [Sequencing submission](sequencing-submission.qmd) | – | FASTQ files from the provider | – |

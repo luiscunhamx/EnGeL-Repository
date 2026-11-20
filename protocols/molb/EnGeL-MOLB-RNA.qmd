@@ -2,7 +2,7 @@
 title: "Total RNA extraction with TRIzol and spin-column clean-up (honey bees; isopod hepatopancreas)"
 short-title: "Total RNA extraction (TRIzol)"
 protocol-id: EnGeL-MOLB-RNA
-version: 1.2.6
+version: 1.3.0
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -31,7 +31,7 @@ equipment:
   - "Mechanical tissue homogeniser [TO CONFIRM: model] — isopod hepatopancreas"
   - "Fume hood [TO CONFIRM: used for TRIzol and chloroform]"
   - "Freezer (−20 °C) for pre-cooling 70% ethanol"
-  - "NanoDrop spectrophotometer — see EnGeL-MOLB-NAQC"
+  - "NanoDrop spectrophotometer — see EnGeL-MOLB-NANODROP"
 consumables:
   - "Tubes with beads (bees) [TO CONFIRM: type]"
   - "RNase-free 1.5 mL microtubes and filter tips"
@@ -102,6 +102,14 @@ version-history:
   - version: 1.2.6
     date: 2026-11-20
     change: "GHS pictograms for ethanol, chloroform and phenol (harmonised EU classification); TRIzol still to be checked against its safety data sheet."
+    by: "Luís Cunha"
+  - version: 1.2.7
+    date: 2026-11-20
+    change: "Cross-references to the nucleic acid QC protocols, now split into EnGeL-MOLB-NANODROP, EnGeL-MOLB-QUBIT and EnGeL-MOLB-PICOGREEN."
+    by: "Luís Cunha"
+  - version: 1.3.0
+    date: 2026-11-20
+    change: "RNA purity (classic ratios) and concentration (> 10 ng/µL) criteria confirmed by Luís Cunha."
     by: "Luís Cunha"
 ---
 
@@ -188,7 +196,7 @@ TRIzol (phenol and guanidine isothiocyanate) lyses the tissue and keeps RNA inta
 (@) Place the column in a new microtube, add 20 µL of RNase-free water to the column and wait 1 min.
 (@) Change gloves. Centrifuge at 11 000 × g for 1 min: the eluate is sample 1.
 (@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 11 000 × g for 1 min: the eluate is sample 2.
-(@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NAQC).
+(@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NANODROP).
 
 ### B. Isopod hepatopancreas
 
@@ -206,7 +214,7 @@ TRIzol (phenol and guanidine isothiocyanate) lyses the tissue and keeps RNA inta
 (@) Place the column in a new microtube and centrifuge at ≥ 12 000 × g (microcentrifuge, 1.5 mL tube rotor) for 2 min to remove residual buffer.
 (@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 8 000 × g for 15 s: the eluate is sample 1.
 (@) Place the column in a new microtube, add 20 µL of RNase-free water and wait 1 min. Centrifuge at 8 000 × g for 15 s: the eluate is sample 2.
-(@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NAQC).
+(@) Measure concentration and quality on the NanoDrop (EnGeL-MOLB-NANODROP).
 
 ### RNA storage
 
@@ -224,8 +232,8 @@ Not applicable: volumes are per sample. For $n$ samples, prepare $V = v \times n
 
 | Control | Purpose | Acceptance criterion |
 |:--|:--|:--|
-| RNA purity (NanoDrop A~260~/A~280~, A~260~/A~230~) | Protein, phenol or salt carry-over | [TO CONFIRM] |
-| RNA concentration | Enough RNA for downstream use | [TO CONFIRM] |
+| RNA purity (NanoDrop A~260~/A~280~, A~260~/A~230~) | Protein, phenol or salt carry-over | Classic ratios: A~260~/A~280~ about 2.0 and A~260~/A~230~ 2.0–2.2; values outside are flagged |
+| RNA concentration | Enough RNA for downstream use | > 10 ng/µL |
 | RNA integrity | Degradation | [TO CONFIRM: e.g. TapeStation RNA ScreenTape, used in the lab?] |
 | Extraction blank | Contamination | [TO CONFIRM: used?] |
 
@@ -285,6 +293,6 @@ Qiagen (2006). RNeasy Mini Handbook (04/2006): 8 000 × g (10 000 rpm) for loadi
 3. Bees: volume transferred to the new tube before chloroform; bead tube type and bead-beater model.
 4. Sample storage before extraction; RNA storage temperature; sample 1 and 2 kept separate or pooled?
 5. RNase precautions; fume hood for TRIzol and chloroform.
-6. QC acceptance criteria (purity, concentration, integrity); extraction blanks.
+6. QC acceptance criteria for integrity; extraction blanks.
 7. Waste route for the TRIzol/chloroform organic phase.
 8. Hands-on and total time.

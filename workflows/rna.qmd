@@ -11,7 +11,7 @@ Steps 2, 3 and 4a exist as protocols. The other steps will be added when their p
 |:--|:--|:--|
 | 1. Sample collection and preservation | [TO CONFIRM: protocol to be written] | planned |
 | 2. Total RNA extraction | [EnGeL-MOLB-RNA](../protocols/molb/EnGeL-MOLB-RNA.qmd) | draft |
-| 3. Nucleic acid QC | [EnGeL-MOLB-NAQC](../protocols/molb/EnGeL-MOLB-NAQC.qmd) | draft |
+| 3. Nucleic acid QC | [EnGeL-MOLB-NANODROP](../protocols/molb/EnGeL-MOLB-NANODROP.qmd) | draft |
 | 4a. RNA sequencing: reads to differentially expressed genes and gene ontology (species with a reference genome) | [EnGeL-BIOINF-RNASEQ](../protocols/bioinf/EnGeL-BIOINF-RNASEQ.qmd) | draft |
 | 4b. RNA sequencing, species without a reference genome | [TO CONFIRM: protocol to be written] | planned |
 | 4c. Other downstream use (e.g. cDNA synthesis, RT-qPCR) | [TO CONFIRM: protocol to be written] | planned |

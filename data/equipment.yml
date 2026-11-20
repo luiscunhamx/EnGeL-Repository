@@ -22,7 +22,7 @@
   photo: assets/photos/equipment/nanodrop_one.jpg
   match: "NanoDrop"
   log: "QC user log; NanoDrop logbook"
-- name: Qubit fluorometer
+- name: Qubit 4 Fluorometer (Invitrogen)
   photo: assets/photos/equipment/qubit.jpg
   match: "Qubit"
   log: "QC user log"
