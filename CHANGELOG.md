@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-GUIDE-AUTOCLAVE 1.2.0 (2026-11-20): solid loads at 121 °C, as for liquids (corrects 1.1.0).
 - Values and authorship confirmed by Luís Cunha (2026-11-20):
   - EnGeL-BIOINF-RNASEQ 1.1.0: ≥ 5 replicates per condition (7–8 recommended); QC starting values 70% uniquely mapped, 60% assigned; fold-change threshold on shrunken values, lfcThreshold test as stricter option; DAVID Benjamini < 0.05 with chart and clustering; STAR `--genomeSAindexNbases` from genome size; rlog by default, vst for large data sets; genome kept general with an annotation check; author Sarah Louise Cruz (Undergraduate intern, BSc).
   - EnGeL-BIOINF-OBITOOLS4 1.2.0: 96% clustering as lab rule (99% for very low intraspecific variability); NF1/18Sr2b routine, merged reads only, 280–430 bp provisional; 18S-NemaBase ranks at 99/97/95%; read-loss table per step and sample (step 11, > 50% loss flagged); minimum reads per sample (< 1 000 re-sequence; < 500 not used by default, always checked); negative controls identified, then subtracted.
