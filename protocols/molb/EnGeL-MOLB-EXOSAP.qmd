@@ -2,7 +2,7 @@
 title: "PCR product clean-up with ExoSAP and preparation of samples for Sanger sequencing"
 short-title: "PCR clean-up (ExoSAP) and Sanger submission"
 protocol-id: EnGeL-MOLB-EXOSAP
-version: 1.1.0
+version: 1.1.1
 date: 2026-11-20
 status: draft
 area: Molecular biology (MOLB)
@@ -51,6 +51,10 @@ version-history:
   - version: 1.1.0
     date: 2026-11-20
     change: "Ordering and shipping confirmed by Luís Cunha: orders by Filipa Reis or Luís Cunha; Eurofins and StabVida via drop-off boxes at UC-Biotech (samples in a zip-lock bag), Macrogen via pick-up with a shipping label; provider instructions to be followed. Older ExoSAP protocol by Luís Cunha."
+    by: "Luís Cunha"
+  - version: 1.1.1
+    date: 2026-11-20
+    change: "Home-made Exonuclease I/SAP recipe kept as the lab uses it (confirmed by Luís Cunha); comparison with the manufacturer protocols kept in Remarks."
     by: "Luís Cunha"
 ---
 
@@ -212,7 +216,7 @@ For this protocol: tubes, plates and tips go to biological solid waste (black bi
 
 ## Remarks
 
-ExoSAP-IT Express is the lab's usual reagent; ExoSAP-IT and the home-made mix are also in use. Do not mix options within one order, so that results can be compared. Plate orders and tube orders give differently named files, which the Sanger pipeline handles with separate scripts (EnGeL-BIOINF-SANGER).
+ExoSAP-IT Express is the lab's usual reagent; ExoSAP-IT and the home-made mix are also in use. Do not mix options within one order, so that results can be compared. The home-made mix uses less enzyme than the manufacturers' protocols (which give 10 U Exonuclease I and 1 U SAP per 5 µL of product, 15 min at 37 °C; New England Biolabs) and a longer incubation; it is kept as the lab uses it. Plate orders and tube orders give differently named files, which the Sanger pipeline handles with separate scripts (EnGeL-BIOINF-SANGER).
 
 ## References
 
@@ -228,7 +232,6 @@ New England Biolabs. Enzymatic PCR cleanup protocol using Exonuclease I (NEB #M0
 ## Open questions
 
 1. Catalogue numbers of ExoSAP-IT Express and ExoSAP-IT; ExoSAP-IT programme (temperatures and times).
-2. Home-made mix: the source says 1 U of each enzyme per 5 µL of PCR product, while the recipe gives 1 U SAP and 5 U Exonuclease I for 15 µL. Manufacturer protocols (NEB, Thermo Fisher) use 10 U Exonuclease I and 1 U SAP per 5 µL with 15 min at 37 °C. Keep the lab recipe (with its longer 40–45 min incubation) as written?
-3. When the 1.5× volumes (total 15 µL) are used.
-4. Barcode PCR protocol (primers, master mix, cycling) for the workflow.
-5. Hands-on time; hazards from the SDS; DOI.
+2. When the 1.5× volumes (total 15 µL) are used.
+3. Barcode PCR protocol (primers, master mix, cycling) for the workflow.
+4. Hands-on time; hazards from the SDS; DOI.

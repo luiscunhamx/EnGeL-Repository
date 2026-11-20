@@ -5,6 +5,7 @@ Version rule: patch (x.y.**Z**) = wording; minor (x.**Y**.0) = steps or values; 
 
 ## Unreleased
 
+- EnGeL-MOLB-EXOSAP 1.1.1 and EnGeL-GUIDE-WORKSTATION 1.1.1 (2026-11-20): home-made ExoSAP recipe kept as the lab uses it; lab members keep their data in the workstation's work folder, in a folder named with their username.
 - EnGeL-MOLB-EXOSAP 1.1.0, EnGeL-GUIDE-NEXTGENPCR 1.0.1, EnGeL-GUIDE-WORKSTATION 1.1.0 (2026-11-20): providers and shipping (Eurofins and StabVida drop-off boxes at UC-Biotech, Macrogen pick-up; orders by Filipa Reis or Luís Cunha); NEB reference for the home-made mix; Andreia Quaresma author of the NextGenPCR guide; LCA helpdesk link and personal folders on Navigator+.
 - EnGeL-MOLB-EXOSAP 1.0.0 (2026-11-20): first version (PCR clean-up with ExoSAP-IT Express, ExoSAP-IT or a home-made Exonuclease I/SAP mix; sequencing samples with 10 pmol primer; Sanger recording sheet), from Luísa Fraga's bench protocol and the lab's older ExoSAP protocol. Single-specimen barcoding workflow: step 4 split (4a barcode PCR, planned; 4b this protocol).
 - EnGeL-GUIDE-NEXTGENPCR 1.0.0 (2026-11-20): first version (NextGenPCR sealer, PS2 and PS3 firmware; PCR programmes without ramping; troubleshooting), from the lab's sealing guidance, manufacturer's instructions paraphrased; contact Andreia Quaresma.
