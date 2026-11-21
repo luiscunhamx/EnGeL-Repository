@@ -118,7 +118,7 @@ PicoGreen fluoresces strongly only when bound to double-stranded DNA. The fluore
 (@) Pipette each standard into the black plate in duplicate (table in Reagent preparation).
 (@) Samples: 2 µL sample + 48 µL 1X TE per well + 50 µL working reagent.
 (@) Mix by pipetting or a short plate shake.
-(@) Incubate for 2 min at room temperature, protected from light.
+(@) Incubate for 5 min at room temperature, protected from light.
 (@) Plate reader: *Manage Protocol* → “PicoGREEN_LC_100”; *Start measurement* → *Gain Adjustment*; then *Start measurement*. The reader protocol is a fluorescence-intensity endpoint read (Greiner 96 F-bottom plate; excitation filter 485-12, emission filter 520; top optic; 30 flashes per well; settling time 0.5 s). The gain is set at 80–90% of the highest standard (1 000 ng/mL), and the blank is subtracted in the evaluation.
 (@) In the reader software, fit a linear regression of the standards (S1–S3 and blank) (*Calculation* → *Standard curve calculations* → *Linear regression fit*); then, in *Microplate View*, select *Linear Regression Fit* under *Recalculate concentration*.
 
